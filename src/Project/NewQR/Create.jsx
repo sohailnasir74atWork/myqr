@@ -25,7 +25,7 @@ const Create = () => {
     }
   }, [activeStep, navigate]); // Re-run this effect if activeStep changes
 
-  return <div className='container'>This is Other Page 1. Active step is: {activeStep}</div>;
+  return <div className='container'></div>;
 }
 
 export default Create;

@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import "./App.css"
-import MiniDrawer from './MiniDrawer';
+import MiniDrawer from './Project/MiniDrawer';
 import { Box, Stack } from '@mui/material';
-import Templates from './Templates/Templates';
-import MyQr from './MyQR/MyQr';
-import Stats from './Stats/Stats';
-import SelectScreen from './NewQR/SelectTypes';
-import InputScreen from './NewQR/InputScreen';
-import DesignScreen from './NewQR/DesignScreen';
-import Create from './NewQR/Create';
-import { ContextProvider } from './GlobelStats/GlobelStats';
+import Templates from './Project/Templates/Templates';
+import MyQr from './Project/MyQR/MyQr';
+import Stats from './Project/Stats/Stats';
+import SelectScreen from './Project/NewQR/SelectTypes';
+import InputScreen from './Project/NewQR/InputScreen';
+import DesignScreen from './Project/NewQR/DesignScreen';
+import Create from './Project/NewQR/Create';
+import { ContextProvider } from './Project/GlobelStats/GlobelStats';
 
 function App() {
   
