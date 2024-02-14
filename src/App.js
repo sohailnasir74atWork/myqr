@@ -28,6 +28,7 @@ function App() {
             <Route path="/create/new" element={<SelectScreen />} />
             <Route path="/create/new/input" element={<InputScreen />} />
             <Route path="/create/new/input/design" element={<DesignScreen />} />
+            {/* Add more routes as needed */}
           </Routes>
         </Box>
         </ContextProvider>
