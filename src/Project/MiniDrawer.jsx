@@ -146,7 +146,7 @@ export default function MiniDrawer() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open} sx={{ backgroundColor: 'lightgrey' }}>
-        <Toolbar>
+        {isMobile && !open && <Toolbar>
           {!isMobile && <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -159,8 +159,7 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>}
-          {location.pathname.includes('/create') && isMobile && !open && <StepperComponent prop={{ handleBack, handleNext, activeStep, setActiveStep, open, handleDrawerToggle }} />}
-          {location.pathname.includes('/create') && !isMobile && <StepperComponent prop={{ handleBack, handleNext, activeStep, setActiveStep, open, handleDrawerToggle }} />}
+          {location.pathname.includes('/create') && <StepperComponent prop={{ handleBack, handleNext, activeStep, setActiveStep, open, handleDrawerToggle }} />}
           {location.pathname.includes('/template/') && (
             <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>Template header</Box>
           )}
@@ -170,7 +169,31 @@ export default function MiniDrawer() {
           {location.pathname.includes('/myqr/') && (
             <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>My qr header header</Box>
           )}
-        </Toolbar>
+        </Toolbar>}
+        {!isMobile && <Toolbar>
+          {!isMobile && <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerToggle}
+            edge="start"
+            sx={{
+              marginRight: 5,
+              ...(open && { display: 'none' }),
+            }}
+          >
+            <MenuIcon />
+          </IconButton>}
+          {location.pathname.includes('/create') && <StepperComponent prop={{ handleBack, handleNext, activeStep, setActiveStep, open, handleDrawerToggle }} />}
+          {location.pathname.includes('/template/') && (
+            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>Template header</Box>
+          )}
+          {location.pathname.includes('/stats/') && (
+            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>Stats header</Box>
+          )}
+          {location.pathname.includes('/myqr/') && (
+            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>My qr header header</Box>
+          )}
+        </Toolbar>}
       </AppBar>
       <Drawer variant="permanent" open={open}  sx={{ position: isMobile ? "absolute" : "" }}>
         <DrawerHeader>
