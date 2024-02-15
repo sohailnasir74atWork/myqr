@@ -1,0 +1,106 @@
+.live-demo {
+    margin: auto;
+    z-index: 1;
+    /* width: 100%; */
+    width: 220px;
+    height: 220px;
+    padding: 10px;
+    box-shadow: 0 0px 9px 0 rgba(205, 209, 224, 0.5);
+    border-radius: 10px;
+  }
+  .qr-home-container {
+    width: 300px;
+    /* height: 300px; */
+      text-align: center;
+    margin: auto;
+  
+    @media (max-width: 600px) {
+      /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
+      margin: 0px;
+    }
+  }
+  .qr-code-container-mobile {
+    width: 200px;
+    height: 200px;
+    background-color: var(--white-color);
+  }
+  
+  .qr-code-container-mobile canvas {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+   
+  }
+
+  .qr-code-container {
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    background-color: var(--white-color);
+  }
+  
+  .qr-code-container canvas {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+  }
+  .qr-box-home {
+    display: flex;
+    justify-content: center;
+    /* Center the image horizontally */
+    align-items: center;
+    /* Center the image vertically */
+    padding: 30px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0px 6px 0 rgba(205, 209, 224, 0.8);
+    @media (max-width: 600px) {
+      padding: 10px;
+  
+      margin: auto;
+      width: 100%;
+  
+  
+    }
+  
+  }
+  
+  .qr-box-home-live-demo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .opacity-3 {
+    opacity: .3;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .opacity-1 {
+    opacity: 1;
+    width: 70%;
+    height: 70%;
+  
+  }  
+  .button-home-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0px;
+  
+    @media (max-width: 600px) {
+      flex-direction: column;
+      width: 70%;
+      margin: auto;
+      height: 120px;
+  
+    }
+  
+  }
+  .button-stats-home-container {
+    padding: 10px 0px
+  }

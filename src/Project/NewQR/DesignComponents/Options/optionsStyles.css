@@ -1,0 +1,83 @@
+.image-container {
+    position: relative;
+    display: inline-block;
+   
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+   
+    border: 2px solid transparent; /* Border on hover */
+    padding: 10px; /* Inner padding on hover */
+    border-radius: 10px;
+  }
+  
+  .image-container:hover img {
+    border: 2px solid var(--darkgreen-color); /* Border on hover */
+    padding: 10px; /* Inner padding on hover */
+  }
+  .logo{
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    margin-right: 10px;
+    padding:10px;
+    border: 3px solid var(--background-color);
+    border-radius: 10px;
+    box-shadow: 0 0 9px 0 rgb(0, 0, 0, 0.1);
+  }
+  .logo:hover{
+    border: 3px solid var(--darkgreen-color);
+  }
+  .logo.selected {
+    border: 3px solid var(--darkgreen-color); /* Example style */
+  }
+  /* Add these styles to your CSS file or use inline styles in your React component */
+
+.input-logo {
+    display: none; /* Hide the default file input */
+  }
+  
+  .upload-button {
+    display: inline-block;
+    border-radius: 50px;
+    padding: 3px 7px;
+    cursor: pointer;
+    background-color: #2196F3; /* Material-UI primary color, change as needed */
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #1565c0; /* Darker shade on hover, change as needed */
+    }
+  }
+  
+  /* Style the file input icon */
+  .upload-icon {
+    margin-right: 8px;
+  }
+  
+  .button-logo{
+    margin-bottom: 20px;
+  }
+  .slider-select {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    width:20% !important;
+    @media (max-width: 600px) {
+       
+      width:50% !important;
+
+    }
+  }
+  .option-container-home {
+    padding: 10px;
+    box-shadow: 0 0px 9px 0 rgba(205, 209, 224, 0.5);
+    border-radius: 10px;
+  
+  }
+  

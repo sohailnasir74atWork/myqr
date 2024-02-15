@@ -1,0 +1,153 @@
+.color-picker-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    /* position: relative; */
+    /* Set position to relative */
+    flex-direction: column;
+    /* margin-bottom: 10px; */
+  
+  
+  }
+  
+  .color-picker-width {
+    width: 180px
+  }
+  
+  .color-picker {
+    position: absolute !important;
+    right: 0px !important;
+    top: 0 !important;
+    left: 0 !important;
+    /* margin: auto; */
+    display: flex !important;
+    justify-content: center !important;
+    bottom: 0 !important;
+    z-index: 100000000000 !important;
+    background-color: rgba(0, 0, 0, 0.3);
+  
+    @media (max-width: 600px) {
+      /* left: 140px !important; */
+    }
+  }
+  .color-demo {
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    /* margin-left: 10px; */
+    /* Adjust the margin as needed */
+    cursor: pointer;
+    border: .5px solid lightgray;
+    margin: auto;
+  
+    @media (max-width: 600px) {
+      width: 25px;
+      height: 25px;
+      left: 100px;
+  
+    }
+  
+  }
+  
+  .home-color-container {
+     display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-top: 2px;
+    align-items: center;
+  
+  }
+  
+  
+  
+  .input-demo,
+  .input-demo:focus,
+  .input-demo:focus-visible {
+    position: relative;
+    height: 50px;
+    border-radius: 50px;
+    border-width: 1px;
+    border-style: solid;
+    /* Set the border style explicitly */
+    outline: none;
+    /* Remove the default outline on focus */
+    width: 300px;
+    padding-left: 15px;
+    padding-right: 50px;
+  
+    @media (max-width: 600px) {
+      /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
+      width: 140px;
+      height: 35px;
+  
+    }
+  
+  }
+  
+  
+  .rbgcp-inputs-wrap {
+    /* font-size: 10px; */
+    width: 175px
+  }
+  .text-switch {
+    font-size: .9rem;
+    color: var(--lightgrey-color);
+    @media (max-width: 600px) {
+      padding-right: 20px;
+  
+    }
+  }
+  .input_rgba .input_rgba-wrap input,
+.input_rgba .input_rgba-wrap .input_rgba-hex input {
+  height: 20px;
+}
+
+.input_rgba-alpha {
+  height: 20px;
+}
+
+.input_rgba .input_rgba-wrap .input_rgba-hex .input_rgba-hex-label {
+  top: 0
+}
+
+.input_rgba .input_rgba-wrap .input_rgba-alpha .input_rgba-alpha-label {
+  top: 0
+}
+
+.default-color-panel {
+  padding: 0px;
+  margin: 0px
+}
+
+.colorpicker .color-picker-panel {
+  padding-bottom: 10px;
+}
+
+.colorpicker .color-picker-panel-wrap-has-alpha {
+  height: 25px;
+}
+
+.colorpicker .color-picker-panel-board-hsv {
+  min-height: 100px !important;
+  height: 100px !important;
+}
+
+.popup_tabs {
+  margin: auto !important;
+  
+}
+
+.popup_tabs-body {
+  padding: 10px !important;
+  border-radius: 5px;
+  border: 1px solid lightgoldenrodyellow;
+}
+
+.gradient-interaction .gradient-stops {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
