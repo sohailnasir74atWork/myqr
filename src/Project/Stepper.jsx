@@ -4,7 +4,7 @@ import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
-import { ArrowBack, ArrowForward } from "@mui/icons-material";
+import { ArrowBack, ArrowCircleLeft, ArrowCircleLeftRounded, ArrowCircleRightRounded, ArrowForward } from "@mui/icons-material";
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import { ImportStats } from "./GlobelStats/GlobelStats";
 import MenuIcon from '@mui/icons-material/Menu';
@@ -70,6 +70,27 @@ export default function StepperComponent({prop}) {
           variant="contained">
             {activeStep === 2 ? "Save" : "Next"}
           </Button>
+        </Box>}
+        {isMobile && <Box sx={{ display: "flex", flexDirection: "row", paddingRight:'30px'}}>
+          <IconButton
+            color="primary"
+            disabled={activeStep === 0}
+            onClick={handleBack}
+            sx={{ mr: 1 }}
+            className="button"
+            variant="contained"
+          >
+           <ArrowCircleLeftRounded sx={{fontSize : "27px"}}/>
+          </IconButton>
+          <Box sx={{ flex: "1 1 auto" }} />
+          <IconButton 
+          onClick={handleNext} 
+          color={activeStep === 2 ? "success" : "primary"}
+          disabled={activeStep < 2}
+          className="button"
+          variant="contained">
+            <ArrowCircleRightRounded sx={{fontSize: "27px"}}/>
+          </IconButton>
         </Box>}
         </Box>
     </Box>
