@@ -20,7 +20,20 @@ const InputScreen = () => {
     activeStep,
     isMobile,
     showMobileQR,
-    setShowMobileQR} = ImportStats();
+    setShowMobileQR, handleBack, setActiveStep} = ImportStats();
+    useEffect(() => {
+      const handleBackButton = event => {
+      handleBack()
+      };
+    
+      window.addEventListener('popstate', handleBackButton);
+    
+      return () => {
+        window.removeEventListener('popstate', handleBackButton);
+      };
+    }, [activeStep, setActiveStep]);
+    
+    
   return (
     <Box className="container">
       <div

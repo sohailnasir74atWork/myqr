@@ -52,7 +52,7 @@ export const ContextProvider = ({ children }) => {
   };
 
   return (
-    <GlobelStats.Provider value={{ activeStep, handleNext, handleBack, handleReset, isMobile, qrCodeSettings, setQrCodeSettings, setActiveTool, activeTool }}>
+    <GlobelStats.Provider value={{ activeStep, handleNext, handleBack, handleReset, isMobile, qrCodeSettings, setQrCodeSettings, setActiveTool, activeTool, setActiveStep }}>
       {children}
     </GlobelStats.Provider>
   );
