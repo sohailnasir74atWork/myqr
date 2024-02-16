@@ -36,7 +36,7 @@ const SelectScreen = () => {
           <div className="flex-col">
             <div className="heading-container">
               <span className="heading-2">Generate Static QR</span>{" "}
-              <span className="heading-tag">with tracking</span>
+              <span className="heading-tag">without tracking</span>
             </div>
             <div className="grid-container">
               {staticTools.map((item, index) => (
@@ -54,7 +54,7 @@ const SelectScreen = () => {
               ))}
             </div>
             <div className="heading-container">
-              <h3 className="heading-2">Generate Dymanic QR</h3>{" "}
+              <span className="heading-2">Generate Dymanic QR</span>
               <span className="heading-tag">with tracking</span>
             </div>
             <div className="grid-container">
