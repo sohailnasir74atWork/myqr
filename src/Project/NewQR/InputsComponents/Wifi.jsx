@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   TextField,
@@ -29,6 +29,18 @@ const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default t
   const [qrName, setQrName] = useState(qrCodeSettings.qrName);
   const [size, setSize] = useState(qrCodeSettings.size.width);
   const [nameError, setNameError] = useState("");
+
+
+  useEffect(() => {
+    setNetworkName(qrCodeSettings.inputData.wifi.networkType);
+    setPassword(qrCodeSettings.inputData.wifi.password);
+    setNetworkName(qrCodeSettings.inputData.wifi.networkName);
+    setIsHide(qrCodeSettings.inputData.wifi.isHide);
+    setQrName(qrCodeSettings.qrName);
+    setSize(qrCodeSettings.size.width); 
+  }, [qrCodeSettings]);
+
+
   const toggleButton = () => {
     setIsHide(!isHide);
   };
@@ -49,6 +61,19 @@ const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default t
         whatsapp: { ...prevSettings.inputData.whatsapp, number: null, message: null },
         message: { ...prevSettings.inputData.message, number: null, message: null },
         call: { ...prevSettings.inputData.call, number: null },
+        vcard: { ...prevSettings.inputData.vcard, firstName: null,
+          lastName: null,
+          phoneNumber: null,
+          mobile: null,
+          email: null,
+          website: null,
+          company: null,
+          jobTitle: null,
+          address: null,
+          fax: null,
+          city: null,
+          postalCode: null,
+          country: null, },
         wifi: {
           ...prevSettings.inputData.wifi,
           networkName: networkName,

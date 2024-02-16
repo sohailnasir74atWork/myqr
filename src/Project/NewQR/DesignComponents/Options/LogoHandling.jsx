@@ -73,7 +73,7 @@ const LogoHandling = () => {
   
 
   return (
-<div className={ isMobile ? "option-container-home p-v-15 accordion-open" : "p-v-15 accordion-open"}> 
+<div className={ isMobile ? "option-container-home p-b-60 accordion-open" : "p-v-15 accordion-open"}> 
 <br/>
 <div className="flex-row">
      <div className="button-logo" style={{marginRight:"10px"}}>
@@ -140,26 +140,6 @@ const LogoHandling = () => {
       <br/>
       <Divider/>
       <div className="text-primary">You can pick from Below</div>
-      {/* <div className="logo-container">
-        <img
-          src={style1}
-          className={`logo ${selectedLogo === style1 ? "selected" : ""}`}
- 
-          onClick={() => handleClickLogo(style1)}
-        />
-        <img
-          src={corner1}
-          className={`logo ${selectedLogo === corner1 ? "selected" : ""}`}
- 
-          onClick={() => handleClickLogo(corner1)}
-        />
-        <img
-          src={cornerDot1}
-          className={`logo ${selectedLogo === cornerDot1 ? "selected" : ""}`}
- 
-          onClick={() => handleClickLogo(cornerDot1)}
-        />
-      </div> */}
       <div className="logo-container">
         {logos.map((item, index)=>{return <img
           src={item}

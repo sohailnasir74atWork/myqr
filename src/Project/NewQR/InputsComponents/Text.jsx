@@ -62,6 +62,19 @@ const Text = () => {
         message: { ...prevSettings.inputData.message, number: null, message: null }, // Optionally clear other types
         text: { ...prevSettings.inputData.text, value: value },
         call: { ...prevSettings.inputData.call, number: null }, 
+        vcard: { ...prevSettings.inputData.vcard, firstName: null,
+          lastName: null,
+          phoneNumber: null,
+          mobile: null,
+          email: null,
+          website: null,
+          company: null,
+          jobTitle: null,
+          address: null,
+          fax: null,
+          city: null,
+          postalCode: null,
+          country: null, },
         wifi: {
             ...prevSettings.inputData.wifi,
             networkName: null,
@@ -105,7 +118,7 @@ const Text = () => {
         margin="normal"
         rows={4}
       />
-      <p>Your QR code will show this text.</p>
+      <p className="text">Your QR code will show this text.</p>
 
       {/* Removed Width and Height TextFields */}
       <br/>

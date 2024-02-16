@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, TextField, MenuItem, Grid, Typography, Slider } from "@mui/material";
 import ErrorBar from "../../Error";
 import { isValidPhoneNumber } from 'libphonenumber-js';
@@ -18,7 +18,12 @@ const Message = ({ prop }) => {
     const [qrName, setQrName] = useState(qrCodeSettings.qrName);
     const [size, setSize] = useState(qrCodeSettings.size.width);
     const [numberError, setNumberError] = useState("");
-  
+    useEffect(() => {
+      setNumber(qrCodeSettings.inputData.message.number);
+      setMessage(qrCodeSettings.inputData.message.message);
+      setQrName(qrCodeSettings.qrName);
+      setSize(qrCodeSettings.size.width); // Sync with external updates
+    }, [qrCodeSettings]);
     const handleSubmit = () => {
       const fullNumber = selectedCountry + number;
       if (!isValidPhoneNumber(fullNumber)) {
@@ -37,6 +42,19 @@ const Message = ({ prop }) => {
           whatsapp: { ...prevSettings.inputData.whatsapp, number: null, message: null },
           message: { ...prevSettings.inputData.message, number: fullNumber, message: message },
           call: { ...prevSettings.inputData.call, number: null },
+          vcard: { ...prevSettings.inputData.vcard, firstName: null,
+            lastName: null,
+            phoneNumber: null,
+            mobile: null,
+            email: null,
+            website: null,
+            company: null,
+            jobTitle: null,
+            address: null,
+            fax: null,
+            city: null,
+            postalCode: null,
+            country: null, },
           wifi: {
             ...prevSettings.inputData.wifi,
             networkName: null,

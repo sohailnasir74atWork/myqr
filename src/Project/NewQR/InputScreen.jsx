@@ -10,6 +10,7 @@ import Message from "./InputsComponents/Message";
 import Call from "./InputsComponents/Call";
 import Wifi from "./InputsComponents/Wifi";
 import QrDemo from "./QrDemo";
+import Vcard from "./InputsComponents/Vcard";
 const InputScreen = () => {
   const { 
     handleNext,
@@ -103,6 +104,16 @@ const InputScreen = () => {
       )}
       {activeTool === "Wi-Fi" && (
         <Wifi
+            prop={{
+              setQrCodeSettings,
+              qrCodeSettings,
+              handleNext,
+              isMobile,
+            }}
+          />
+      )}
+      {activeTool === "V-Card" && (
+        <Vcard
             prop={{
               setQrCodeSettings,
               qrCodeSettings,

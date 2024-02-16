@@ -58,7 +58,20 @@ const Links = () => {
         whatsapp: { ...prevSettings.inputData.whatsapp, number: null, message: null }, // Optionally clear other types
         mail: { ...prevSettings.inputData.mail, email: null, message: null }, // Optionally clear other types
         message: { ...prevSettings.inputData.message, number: null, message: null }, // Optionally clear other types
-        call: { ...prevSettings.inputData.call, number: null }, 
+        call: { ...prevSettings.inputData.call, number: null },
+        vcard: { ...prevSettings.inputData.vcard, firstName: null,
+          lastName: null,
+          phoneNumber: null,
+          mobile: null,
+          email: null,
+          website: null,
+          company: null,
+          jobTitle: null,
+          address: null,
+          fax: null,
+          city: null,
+          postalCode: null,
+          country: null, }, 
         wifi: {
           ...prevSettings.inputData.wifi,
           networkName: null,

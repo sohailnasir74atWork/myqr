@@ -4,8 +4,11 @@ import qrPlaceHolder from "../../../Assets/qrPlaceHolder.svg";
 import { Button } from "@mui/material";
 import { parseLinearGradient } from "./gradientParser";
 import './qrgeneratorStyle.css'
+import { ImportStats } from "../../GlobelStats/GlobelStats";
 const QrGenerator = ({ prop }) => {
-  const { qrCodeSettings, liveDemo } = prop;
+  const { liveDemo } = prop;
+  const {qrCodeSettings} = ImportStats()
+  console.log(qrCodeSettings)
   const [qrCode, setQrCode] = useState(null);
   const canvasRef = useRef(null);
   const img = qrCodeSettings.logo;
@@ -55,7 +58,23 @@ else if (
 
   // Construct the Wi-Fi QR code data
   qrData = `WIFI:T:${wifiEncryptionType};S:${networkName};P:${password};;`;
+} else if  (qrCodeSettings.inputData.vcard) {
+  const vcard = qrCodeSettings.inputData.vcard;
+   qrData = `BEGIN:VCARD\nVERSION:3.0\n`;
+  qrData += `FN:${vcard.firstName} ${vcard.lastName}\n`; // Full name
+  if (vcard.email) qrData += `EMAIL:${vcard.email}\n`;
+  if (vcard.phoneNumber) qrData += `TEL;TYPE=home,voice:${vcard.phoneNumber}\n`;
+  if (vcard.mobile) qrData += `TEL;TYPE=cell,voice:${vcard.mobile}\n`;
+  if (vcard.fax) qrData += `TEL;TYPE=fax:${vcard.fax}\n`;
+  if (vcard.address) qrData += `ADR;TYPE=WORK:;;${vcard.address};${vcard.city};${vcard.postalCode};${vcard.country}\n`;
+  if (vcard.company) qrData += `ORG:${vcard.company}\n`;
+  if (vcard.jobTitle) qrData += `TITLE:${vcard.jobTitle}\n`;
+  if (vcard.website) qrData += `URL:${vcard.website}\n`;
+
+  qrData += `END:VCARD`;
+
 }
+
 
 
   useEffect(() => {
