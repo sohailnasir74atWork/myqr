@@ -36,7 +36,7 @@ export default function StepperComponent({prop}) {
             <IconButton
               color="black"
               aria-label="open drawer"
-              onClick={handleDrawerToggle}
+              onClick={()=>handleDrawerToggle()}
               edge="start"
               sx={{
                 position: "absolute",
