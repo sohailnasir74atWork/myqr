@@ -103,13 +103,13 @@ const LogoHandling = () => {
 
       </div>
       <br/>
-      <div className="toggle-button" style={{justifyContent:'left'}}>
+      <div className="toggle-button-responsive" style={{justifyContent:'left'}}>
               <FormControlLabel
                 control={<AntSwitch checked={isLogo} onChange={handleLogoBG} disabled={!qrCodeSettings.logo} />}
                 label=""
               />
-              <span className="text-switch">Remove Background Behind Logo</span>
-            </div>
+              <span className="text-switch">Remove Background</span>
+      </div>
             <br/>
             <Typography id="track-inverted-slider" gutterBottom>
         Set Logo Padding
