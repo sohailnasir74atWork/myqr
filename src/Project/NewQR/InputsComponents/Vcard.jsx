@@ -48,7 +48,7 @@ const Vcard = () => {
       tempErrors.email = /$^|.+@.+..+/.test(email) ? "" : "Email is not valid.";
     }
     if (phoneNumber) {
-      tempErrors.phoneNumber = isValidPhoneNumber(phoneNumber) ? "" : "Phone Number is not valid.";
+      tempErrors.phoneNumber = isValidPhoneNumber(phoneNumber) ? "" : "Phone Number is not valid. Please write with country code e.g +921231231235";
     }
 
     setErrors(tempErrors);
@@ -146,7 +146,7 @@ const Vcard = () => {
             onChange={(e) => setPhoneNumber(e.target.value)}
             margin="normal"
             error={!!errors.phoneNumber}
-
+            placeholder={'+92'}
           />
         </Grid>
         <Grid item xs={6}>
