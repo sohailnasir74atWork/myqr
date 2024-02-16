@@ -53,6 +53,7 @@ const SelectScreen = () => {
                 </div>
               ))}
             </div>
+            <br/>
             <div className="heading-container">
               <span className="heading-2">Generate Dymanic QR</span>
               <span className="heading-tag">with tracking</span>

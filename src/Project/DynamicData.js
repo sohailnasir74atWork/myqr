@@ -156,11 +156,11 @@ export const staticTools = [
     heading: "SMS",
     text: "Send a Text Message",
   },
-  {
-    icon: <img src={Paypal} alt="Paypal" class='img-static'/>,
-    heading: "PayPal",
-    text: "Generate PayPal Transaction",
-  },
+  // {
+  //   icon: <img src={Paypal} alt="Paypal" class='img-static'/>,
+  //   heading: "PayPal",
+  //   text: "Generate PayPal Transaction",
+  // },
 ];
 
 export const options = [
