@@ -4,9 +4,10 @@ import style1 from "../../../../Assets/Shapes/style1.svg";
 import corner1 from "../../../../Assets/Shapes/corner1.svg"
 import cornerDot1 from "../../../../Assets/Shapes/cornerDot1.svg"
 import "./optionsStyles.css";
+import { ImportStats } from "../../../GlobelStats/GlobelStats";
 
-const ShapesHandling = ({ prop }) => {
-  const { setQrCodeSettings, qrCodeSettings, isMobile } = prop;
+const ShapesHandling = () => {
+  const { setQrCodeSettings, qrCodeSettings, isMobile } = ImportStats();
   console.log(qrCodeSettings)
 
   // Array of image sources

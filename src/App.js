@@ -10,7 +10,7 @@ import SelectScreen from './Project/NewQR/SelectTypes';
 import InputScreen from './Project/NewQR/InputScreen';
 import DesignScreen from './Project/NewQR/DesignScreen';
 import Create from './Project/NewQR/Create';
-import { ContextProvider } from './Project/GlobelStats/GlobelStats';
+import { ContextProvider, ImportStats } from './Project/GlobelStats/GlobelStats';
 import { ThemeProvider } from '@emotion/react';
 const theme = createTheme({
   palette: {
@@ -43,12 +43,11 @@ const theme = createTheme({
   },
 });
 function App() {
-  
+  const { isMobile } = ImportStats()
   return (
     <ThemeProvider theme={theme}>
     <Router>
       <Box sx={{ display: 'flex' }}>
-        <ContextProvider>
         <MiniDrawer/>
         <Box component="main" sx={{ flexGrow: 1,  width: '100%' }}>
           <Routes>
@@ -58,10 +57,9 @@ function App() {
             <Route path="/stats" element={<Stats />} />
             <Route path="/generate-bulk" element={<Stats />} />
             <Route path="/create/input" element={<InputScreen />} />
-            <Route path="/create/input/design" element={<DesignScreen />} />
+            <Route path="/create/input/design" element={<DesignScreen /> } />
           </Routes>
         </Box>
-        </ContextProvider>
       </Box>
     </Router>
     </ThemeProvider>

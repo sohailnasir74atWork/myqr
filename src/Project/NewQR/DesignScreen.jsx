@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import CustomizedAccordions from "./DesignComponents/QrDesigns";
 import { ImportStats } from "../GlobelStats/GlobelStats";
 import QrDemo from "./QrDemo";
+import MobileBottomTab from "./MobileBottomTab";
 
 const DesignScreen = () => {
   const { 
@@ -23,16 +24,21 @@ const DesignScreen = () => {
     };
   }, []);
   return (
-    <Box className="container">
-      <div className="types-of-qr-container"
+    <Box className="container" sx={{marginTop:'20px'}}>
+     {!isMobile &&  <div className="types-of-qr-container"
         style={{ width: isMobile ? "100%" : "" }}>
       <div className="container-custom">
           <CustomizedAccordions
             prop={{ setQrCodeSettings, qrCodeSettings, handleNext, isMobile }}
           />
         </div>
-        {!isMobile && <QrDemo prop={{ qrCodeSettings }} />}
-        </div>
+         <QrDemo prop={{ qrCodeSettings }} />
+        </div>}
+        {isMobile &&  <div className="types-of-qr-container"
+        style={{ width: isMobile ? "100%" : "" }}>
+                 <MobileBottomTab/>
+
+      </div>}
     </Box>
   );
 };

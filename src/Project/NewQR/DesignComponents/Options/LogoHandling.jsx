@@ -5,9 +5,10 @@ import corner1 from "../../../../Assets/Shapes/corner1.svg";
 import cornerDot1 from "../../../../Assets/Shapes/cornerDot1.svg";
 import "./optionsStyles.css";
 import { AntSwitch } from "./ColorHelper.jsx/GradientColorPicker";
+import { ImportStats } from "../../../GlobelStats/GlobelStats";
 
-const LogoHandling = ({ prop }) => {
-  const { setQrCodeSettings, qrCodeSettings, isMobile } = prop;
+const LogoHandling = () => {
+  const { setQrCodeSettings, qrCodeSettings, isMobile } = ImportStats();
   const [isLogo, setIsLogo] = useState(qrCodeSettings.logoSetting.backgrounddots)
   const [selectedLogo, setSelectedLogo] = useState(qrCodeSettings.logo); // Assuming the initial selected logo is stored in qrCodeSettings.logo
   const [size, setSize] = useState(qrCodeSettings.logoSetting.margin); // Assuming width and height are initially the same

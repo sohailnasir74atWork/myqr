@@ -24,6 +24,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import StepperComponent from './Stepper';
 import { ImportStats } from './GlobelStats/GlobelStats';
 import { sideBar } from './DynamicData';
+import MobileBottomTab from './NewQR/MobileBottomTab';
 
 const drawerWidth = 240;
 
@@ -233,6 +234,7 @@ export default function MiniDrawer() {
         </List>
       </Drawer>
       <div className={isMobile && open ? "overlay-sidebar" : "hide"}></div>
+      {/* {isMobile && activeStep === 2 && <MobileBottomTab/>} */}
     </Box>
   );
 }

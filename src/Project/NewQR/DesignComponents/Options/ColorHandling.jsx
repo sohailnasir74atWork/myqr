@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import GradientColorPicker from "./ColorHelper.jsx/GradientColorPicker";
 import { Divider } from "@mui/material";
 import { SpaceBar } from "@mui/icons-material";
-const ColorHandling = ({ prop }) => {
-  const { setQrCodeSettings, qrCodeSettings, isMobile } = prop;
+import { ImportStats } from "../../../GlobelStats/GlobelStats";
+const ColorHandling = () => {
+  const { setQrCodeSettings, qrCodeSettings, isMobile } = ImportStats();
   // console.log(qrCodeSettings);
 
   return (
