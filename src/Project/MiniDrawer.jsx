@@ -234,7 +234,6 @@ export default function MiniDrawer() {
         </List>
       </Drawer>
       <div className={isMobile && open ? "overlay-sidebar" : "hide"}></div>
-      {/* {isMobile && activeStep === 2 && <MobileBottomTab/>} */}
     </Box>
   );
 }
