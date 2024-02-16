@@ -99,8 +99,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function MiniDrawer() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
   const { activeStep, handleNext, handleBack, setActiveStep, isMobile } = ImportStats();
+  const [open, setOpen] = React.useState(!isMobile);
   const handleDrawerToggle = () => {
     setOpen(!open);
   };
