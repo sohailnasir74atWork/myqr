@@ -25,8 +25,7 @@ const DesignScreen = () => {
   }, []);
   return (
     <Box className="container" sx={{marginTop:'20px'}}>
-     {!isMobile &&  <div className="types-of-qr-container"
-        style={{ width: isMobile ? "100%" : "" }}>
+     {!isMobile &&  <div className="types-of-qr-container">
       <div className="container-custom">
           <CustomizedAccordions
             prop={{ setQrCodeSettings, qrCodeSettings, handleNext, isMobile }}
@@ -35,7 +34,7 @@ const DesignScreen = () => {
          <QrDemo prop={{ qrCodeSettings }} />
         </div>}
         {isMobile &&  <div className="types-of-qr-container"
-        style={{ width: isMobile ? "100%" : "" }}>
+        style={{ width: '100vh' }}>
                  <MobileBottomTab/>
 
       </div>}
