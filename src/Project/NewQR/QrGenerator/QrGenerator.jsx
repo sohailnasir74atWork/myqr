@@ -196,7 +196,7 @@ else if (
   ) : (
     // Show placeholder image when there's no data
     <div className="qr-box-home">
-      <img src={qrPlaceHolder} alt="QR Placeholder" className="opacity-3" />
+      <Lottie options={defaultOptions} height={280} width={280} />
     </div>
   )}
       {!liveDemo && (
