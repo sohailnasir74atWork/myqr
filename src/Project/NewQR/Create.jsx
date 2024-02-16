@@ -5,7 +5,7 @@ import { ImportStats } from '../GlobelStats/GlobelStats';
 const Create = () => {
     const { activeStep, handleNext, handleBack, setActiveStep } = ImportStats();
     const navigate = useNavigate();
-  console.log('active-step updated in component', activeStep)
+  // console.log('active-step updated in component', activeStep)
 
   useEffect(() => {
     // Based on the activeStep value, navigate to the appropriate route
@@ -21,7 +21,7 @@ const Create = () => {
         break;
       default:
         // Handle a default case, possibly navigating to a default route or logging an error
-        console.log('Invalid step or initial step, no navigation');
+        // console.log('Invalid step or initial step, no navigation');
     }
   }, [activeStep, navigate]); // Re-run this effect if activeStep changes
 

@@ -113,7 +113,7 @@ export default function MiniDrawer() {
   };
 
   useEffect(() => {
-    console.log('active-step updated in drawrer', activeStep);
+    // console.log('active-step updated in drawrer', activeStep);
   }, [activeStep]);
 
   const menuItems = [

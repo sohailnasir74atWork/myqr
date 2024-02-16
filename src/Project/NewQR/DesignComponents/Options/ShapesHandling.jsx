@@ -8,7 +8,7 @@ import { ImportStats } from "../../../GlobelStats/GlobelStats";
 
 const ShapesHandling = () => {
   const { setQrCodeSettings, qrCodeSettings, isMobile } = ImportStats();
-  console.log(qrCodeSettings)
+  // console.log(qrCodeSettings)
 
   // Array of image sources
   const dotStyles = [

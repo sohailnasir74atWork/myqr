@@ -5,9 +5,12 @@ import { Button } from "@mui/material";
 import { parseLinearGradient } from "./gradientParser";
 import './qrgeneratorStyle.css'
 import { ImportStats } from "../../GlobelStats/GlobelStats";
+import animation from "../../../Assets/animation.json"
+import Lottie from "react-lottie";
 const QrGenerator = ({ prop }) => {
   const { liveDemo } = prop;
   const {qrCodeSettings} = ImportStats()
+  const [isLoading, setIsLoading] = useState(false);
   console.log(qrCodeSettings)
   const [qrCode, setQrCode] = useState(null);
   const canvasRef = useRef(null);
@@ -58,7 +61,7 @@ else if (
 
   // Construct the Wi-Fi QR code data
   qrData = `WIFI:T:${wifiEncryptionType};S:${networkName};P:${password};;`;
-} else if  (qrCodeSettings.inputData.vcard) {
+} else if  (qrCodeSettings.inputData.vcard.firstName) {
   const vcard = qrCodeSettings.inputData.vcard;
    qrData = `BEGIN:VCARD\nVERSION:3.0\n`;
   qrData += `FN:${vcard.firstName} ${vcard.lastName}\n`; // Full name
@@ -79,8 +82,13 @@ else if (
 
   useEffect(() => {
     // Dynamically determine the data for the QR code based on the available input data
-    
+    if (!qrData) {
+      setIsLoading(false); // No loading if there's no data
+      return;
+    }
     if (qrData && canvasRef.current) {
+      setIsLoading(true); // Start loading
+
       const canvasElement = canvasRef.current;
       // Clear the existing QR code canvas before appending a new one
       while (canvasElement.firstChild) {
@@ -143,12 +151,15 @@ else if (
           margin: qrCodeSettings.logoSetting.margin,
           hideBackgroundDots: qrCodeSettings.logoSetting.backgrounddots,
         },
+
       });
 
       setQrCode(newQrCode);
       newQrCode.append(canvasElement);
+      setIsLoading(false); // End loading
+
     }
-  }, [qrCodeSettings, canvasRef]); // Dependencies include qrCodeSettings and canvasRef to re-run the effect appropriately
+  }, [qrCodeSettings, canvasRef, qrData]); // Dependencies include qrCodeSettings and canvasRef to re-run the effect appropriately
 
   function handleDownloadClick(typeOfImg, qrName) {
     if (qrCode && qrCode.download) {
@@ -163,16 +174,31 @@ else if (
         });
     }
   }
+  const defaultOptions = {
+    loop: true,
+    autoplay: true, 
+    animationData: animation,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
 
   return (
     <div className={liveDemo ? "live-demo" : "qr-home-container"}>
-      {qrData ? (
-        <div ref={canvasRef} className={liveDemo ? "qr-code-container-mobile" : "qr-code-container"}></div>
-      ) : (
-        <div className="qr-box-home">
-          <img src={qrPlaceHolder} alt="QR Placeholder" className="opacity-3" />
-        </div>
-      )}
+     {qrData ? (
+    isLoading ? (
+      // Show Lottie animation when there is data and it's loading
+      <Lottie options={defaultOptions} height={300} width={300} />
+    ) : (
+      // Show QR code when there is data and it's not loading
+      <div ref={canvasRef} className={liveDemo ? "qr-code-container-mobile" : "qr-code-container"}></div>
+    )
+  ) : (
+    // Show placeholder image when there's no data
+    <div className="qr-box-home">
+      <img src={qrPlaceHolder} alt="QR Placeholder" className="opacity-3" />
+    </div>
+  )}
       {!liveDemo && (
         <div className="button-home-container">
           <Button variant="contained" color="primary" disabled={!qrCode} onClick={() => handleDownloadClick("png", qrCodeSettings.qrName)} style={{ color: "white", fontSize: ".8rem" }} className="button">

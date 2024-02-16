@@ -20,7 +20,7 @@ const SelectScreen = () => {
       setActiveTool(e);
       setQrCodeSettings((prevSettings) => ({ ...prevSettings, type: e })); // Update the 'type' property
       handleNext();
-      console.log(activeStep);
+      // console.log(activeStep);
     };
     
   return (
