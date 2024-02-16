@@ -114,7 +114,7 @@ const GradientColorPicker = ({
               <div style={{ background: color }} onClick={handleDemoClick} className="color-demo"></div>
             </div>
           </div>
-          <div className="flex-row-responsive">
+          <div className="flex-row-responsive-column">
             <div className="toggle-button">
               <FormControlLabel
                 control={<AntSwitch checked={isGradientToggleOn} onChange={handleGradientToggle} />}

@@ -41,7 +41,7 @@ const ColorHandling = () => {
   solidColor={qrCodeSettings.colors.background.isSolid}
 />
 <br/>
-       <Divider/>
+  <Divider/>
         
 
         <div className="heading-3">Dots Color</div>
@@ -140,7 +140,8 @@ const ColorHandling = () => {
           }
           solidColor={qrCodeSettings.colors.cornerDots.isSolid}
           hideTransparent
-        />      </div>
+        />      
+        </div>
     </div>
   );
 };

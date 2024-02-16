@@ -154,3 +154,10 @@
 .gradient-interaction .gradient-result{
   margin: 0px;
 }
+.flex-row-responsive-column{
+  display: flex;
+  flex-direction: row;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    }
+  }
