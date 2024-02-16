@@ -19,7 +19,7 @@ import QrGenerator from "./QrGenerator/QrGenerator";
 const options = [
   { label: "Colors", icon: <ColorLensIcon /> },
   { label: "Shapes", icon: <DashboardCustomizeIcon /> },
-  { label: "Log", icon: <FaceRetouchingNaturalIcon /> },
+  { label: "Logo", icon: <FaceRetouchingNaturalIcon /> },
   { label: "Frames", icon: <CropOriginalIcon /> },
 ];
 
