@@ -24,7 +24,7 @@ const DesignScreen = () => {
     };
   }, []);
   return (
-    <Box className="container" sx={{marginTop:'20px'}}>
+    <Box className="container mobile-mr-t-20">
      {!isMobile &&  <div className="types-of-qr-container">
       <div className="container-custom">
           <CustomizedAccordions

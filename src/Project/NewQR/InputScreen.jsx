@@ -35,7 +35,7 @@ const InputScreen = () => {
     
     
   return (
-    <Box className="container" sx={{marginTop:'20px'}}>
+    <Box className="container mobile-mr-t-20">
       <div
         className="types-of-qr-container"
         style={{ width: isMobile ? "100%" : "" }}

@@ -48,7 +48,7 @@ export default function StepperComponent({prop}) {
             </IconButton>
           )}
       <Box sx={{position:'fixed', right: '20px'}}>
-        {!isMobile && <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+        {!isMobile && <Box sx={{ display: "flex", flexDirection: "row"}}>
           <Button
             color="primary"
             disabled={activeStep === 0}

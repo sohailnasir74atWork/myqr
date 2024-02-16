@@ -6,6 +6,7 @@ import cornerDot1 from "../../../../Assets/Shapes/cornerDot1.svg";
 import "./optionsStyles.css";
 import { AntSwitch } from "./ColorHelper.jsx/GradientColorPicker";
 import { ImportStats } from "../../../GlobelStats/GlobelStats";
+import { logos } from "../../../DynamicData";
 
 const LogoHandling = () => {
   const { setQrCodeSettings, qrCodeSettings, isMobile } = ImportStats();
@@ -139,7 +140,7 @@ const LogoHandling = () => {
       <br/>
       <Divider/>
       <div className="text-primary">You can pick from Below</div>
-      <div className="logo-container">
+      {/* <div className="logo-container">
         <img
           src={style1}
           className={`logo ${selectedLogo === style1 ? "selected" : ""}`}
@@ -158,7 +159,15 @@ const LogoHandling = () => {
  
           onClick={() => handleClickLogo(cornerDot1)}
         />
-      </div>
+      </div> */}
+      <div className="logo-container">
+        {logos.map((item, index)=>{return <img
+          src={item}
+          className={`logo ${selectedLogo === item ? "selected" : ""}`}
+ 
+          onClick={() => handleClickLogo(item)}
+        /> } )}
+           </div>
     </div>
   );
 };

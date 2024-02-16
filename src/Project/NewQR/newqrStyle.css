@@ -127,3 +127,9 @@
     opacity: 1;
     margin: 10px;
    }
+ @media (max-width: 600px) {
+    .mobile-mr-t-20{
+        margin-top: 20px;
+    }
+  }
+   
