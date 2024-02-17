@@ -115,8 +115,12 @@ const Links = () => {
       {/* Removed Width and Height TextFields */}
       <br/>
       <Typography id="track-inverted-slider" gutterBottom>
-        Control Size
+        Control QR Size
       </Typography>
+      <Typography id="track-inverted-slider" gutterBottom>
+        Size: {size} x {size}
+      </Typography>
+
       <Slider
         value={size}
         onChange={handleSizeChange}

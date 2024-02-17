@@ -41,6 +41,8 @@ body {
 }
 .container {
   padding: 80px 20px 20px 20px;
+  min-height: 100vh;
+  background-color: var(--background-color);
   background-color: var(--background-color);
   @media (max-width: 600px) {
     padding: 40px 0px 10px 0px !important;
