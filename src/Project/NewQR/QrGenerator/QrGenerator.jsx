@@ -8,40 +8,41 @@ import { ImportStats } from "../../GlobelStats/GlobelStats";
 import animation from "../../../Assets/animation.json"
 import Lottie from "react-lottie";
 const QrGenerator = ({ prop }) => {
-  const { liveDemo } = prop;
+  const { liveDemo, template } = prop;
   const {qrCodeSettings} = ImportStats()
   const [isLoading, setIsLoading] = useState(false);
-  console.log(qrCodeSettings)
   const [qrCode, setQrCode] = useState(null);
+  const [qrDataLocal, setQrDataLocal]= useState()
   const canvasRef = useRef(null);
-  const img = qrCodeSettings.logo;
+  const img = qrDataLocal?.logo;
+  console.log(qrDataLocal)
   let qrData = '';
-if (qrCodeSettings.inputData.url.value) {
-    qrData = qrCodeSettings.inputData.url.value;
+if (qrDataLocal?.inputData.url.value) {
+    qrData = qrDataLocal?.inputData.url.value;
 }
-else if (qrCodeSettings.inputData.text.value) {
-    qrData = qrCodeSettings.inputData.text.value;
+else if (qrDataLocal?.inputData.text.value) {
+    qrData = qrDataLocal?.inputData.text.value;
 }
-else if (qrCodeSettings.inputData.mail.email && qrCodeSettings.inputData.mail.message) {
-    qrData = `mailto:${qrCodeSettings.inputData.mail.email}?body=${encodeURIComponent(qrCodeSettings.inputData.mail.message)}`;
+else if (qrDataLocal?.inputData.mail.email && qrDataLocal?.inputData.mail.message) {
+    qrData = `mailto:${qrDataLocal?.inputData.mail.email}?body=${encodeURIComponent(qrDataLocal?.inputData.mail.message)}`;
 }
-else if (qrCodeSettings.inputData.whatsapp.number && qrCodeSettings.inputData.whatsapp.message) {
-    const encodedMessage = encodeURIComponent(qrCodeSettings.inputData.whatsapp.message);
-    qrData = `https://wa.me/${qrCodeSettings.inputData.whatsapp.number}?text=${encodedMessage}`;
+else if (qrDataLocal?.inputData.whatsapp.number && qrDataLocal?.inputData.whatsapp.message) {
+    const encodedMessage = encodeURIComponent(qrDataLocal?.inputData.whatsapp.message);
+    qrData = `https://wa.me/${qrDataLocal?.inputData.whatsapp.number}?text=${encodedMessage}`;
 }
-else if (qrCodeSettings.inputData.message.number && qrCodeSettings.inputData.message.message) {
-  const encodedMessage = encodeURIComponent(qrCodeSettings.inputData.message.message);
-  qrData = `sms:${qrCodeSettings.inputData.message.number}?body=${encodedMessage}`;
+else if (qrDataLocal?.inputData.message.number && qrDataLocal?.inputData.message.message) {
+  const encodedMessage = encodeURIComponent(qrDataLocal?.inputData.message.message);
+  qrData = `sms:${qrDataLocal?.inputData.message.number}?body=${encodedMessage}`;
 }
-else if (qrCodeSettings.inputData.call.number) {
-  qrData = `tel:${qrCodeSettings.inputData.call.number}`;
+else if (qrDataLocal?.inputData.call.number) {
+  qrData = `tel:${qrDataLocal?.inputData.call.number}`;
 }
 else if (
-  qrCodeSettings.inputData.wifi.networkName &&
-  qrCodeSettings.inputData.wifi.networkType &&
-  qrCodeSettings.inputData.wifi.password
+  qrDataLocal?.inputData.wifi.networkName &&
+  qrDataLocal?.inputData.wifi.networkType &&
+  qrDataLocal?.inputData.wifi.password
 ) {
-  const { networkName, networkType, password, isHide } = qrCodeSettings.inputData.wifi;
+  const { networkName, networkType, password, isHide } = qrDataLocal?.inputData.wifi;
 
   let wifiEncryptionType = '';
   switch (networkType.toLowerCase()) {
@@ -61,8 +62,8 @@ else if (
 
   // Construct the Wi-Fi QR code data
   qrData = `WIFI:T:${wifiEncryptionType};S:${networkName};P:${password};;`;
-} else if  (qrCodeSettings.inputData.vcard.firstName) {
-  const vcard = qrCodeSettings.inputData.vcard;
+} else if  (qrDataLocal?.inputData.vcard.firstName) {
+  const vcard = qrDataLocal?.inputData.vcard;
    qrData = `BEGIN:VCARD\nVERSION:3.0\n`;
   qrData += `FN:${vcard.firstName} ${vcard.lastName}\n`; // Full name
   if (vcard.email) qrData += `EMAIL:${vcard.email}\n`;
@@ -78,7 +79,7 @@ else if (
 
 }
 
-
+useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLocal(template)}},[qrCodeSettings, template])
 
   useEffect(() => {
     // Dynamically determine the data for the QR code based on the available input data
@@ -96,30 +97,30 @@ else if (
       }
 
       // Parsing gradient colors
-      const gradientBackground = parseLinearGradient(qrCodeSettings.colors.background.color);
-      const gradientBorder = parseLinearGradient(qrCodeSettings.colors.square.color);
-      const gradientQR = parseLinearGradient(qrCodeSettings.colors.dots.color);
-      const gradientCenter = parseLinearGradient(qrCodeSettings.colors.cornerDots.color);
+      const gradientBackground = parseLinearGradient(qrDataLocal.colors.background.color);
+      const gradientBorder = parseLinearGradient(qrDataLocal.colors.square.color);
+      const gradientQR = parseLinearGradient(qrDataLocal.colors.dots.color);
+      const gradientCenter = parseLinearGradient(qrDataLocal.colors.cornerDots.color);
 
       // Generate a new QR code
       const newQrCode = new QRCodeStyling({
-        width: qrCodeSettings.size.width,
-        height: qrCodeSettings.size.height,
+        width: qrDataLocal.size.width,
+        height: qrDataLocal.size.height,
         data: qrData,
         image: img,
         dotsOptions: {
-          ...(qrCodeSettings.colors.dots.isSolid
-            ? { color: qrCodeSettings.colors.dots.color }
+          ...(qrDataLocal.colors.dots.isSolid
+            ? { color: qrDataLocal.colors.dots.color }
             : {
                 gradient: {
                   colorStops: gradientQR,
                 },
               }),
-          type: qrCodeSettings.types.dots.type,
+          type: qrDataLocal.types.dots.type,
         },
         backgroundOptions: {
-          ...(qrCodeSettings.colors.background.isSolid
-            ? { color: qrCodeSettings.colors.background.color }
+          ...(qrDataLocal.colors.background.isSolid
+            ? { color: qrDataLocal.colors.background.color }
             : {
                 gradient: {
                   colorStops: gradientBackground,
@@ -127,29 +128,29 @@ else if (
               }),
         },
         cornersSquareOptions: {
-          ...(qrCodeSettings.colors.square.isSolid
-            ? { color: qrCodeSettings.colors.square.color }
+          ...(qrDataLocal.colors.square.isSolid
+            ? { color: qrDataLocal.colors.square.color }
             : {
                 gradient: {
                   colorStops: gradientBorder,
                 },
               }),
-          type: qrCodeSettings.types.corner.type,
+          type: qrDataLocal.types.corner.type,
         },
         cornersDotOptions: {
-          ...(qrCodeSettings.colors.cornerDots.isSolid
-            ? { color: qrCodeSettings.colors.cornerDots.color }
+          ...(qrDataLocal.colors.cornerDots.isSolid
+            ? { color: qrDataLocal.colors.cornerDots.color }
             : {
                 gradient: {
                   colorStops: gradientCenter,
                 },
               }),
-          type: qrCodeSettings.types.cornerDots.type,
+          type: qrDataLocal.types.cornerDots.type,
         },
         imageOptions: {
           crossOrigin: "anonymous",
-          margin: qrCodeSettings.logoSetting.margin,
-          hideBackgroundDots: qrCodeSettings.logoSetting.backgrounddots,
+          margin: qrDataLocal.logoSetting.margin,
+          hideBackgroundDots: qrDataLocal.logoSetting.backgrounddots,
         },
 
       });
@@ -159,7 +160,7 @@ else if (
       setIsLoading(false); // End loading
 
     }
-  }, [qrCodeSettings, canvasRef, qrData]); // Dependencies include qrCodeSettings and canvasRef to re-run the effect appropriately
+  }, [qrDataLocal, canvasRef, qrData]); // Dependencies include qrCodeSettings and canvasRef to re-run the effect appropriately
 
   function handleDownloadClick(typeOfImg, qrName) {
     if (qrCode && qrCode.download) {
@@ -184,7 +185,8 @@ else if (
   };
 
   return (
-    <div className={liveDemo ? "live-demo" : "qr-home-container"}>
+    <>
+    {!template && <div className={liveDemo ? "live-demo" : "qr-home-container"}>
      {qrData ? (
     isLoading ? (
       // Show Lottie animation when there is data and it's loading
@@ -199,7 +201,7 @@ else if (
       <Lottie options={defaultOptions} height={280} width={280} />
     </div>
   )}
-      {!liveDemo && (
+      {!liveDemo && !template && (
         <div className="button-home-container">
           <Button variant="contained" color="primary" disabled={!qrCode} onClick={() => handleDownloadClick("png", qrCodeSettings.qrName)} style={{ color: "white", fontSize: ".8rem" }} className="button">
             Download PNG
@@ -209,7 +211,10 @@ else if (
           </Button>
         </div>
       )}
-    </div>
+    </div>} {template && <div style={{height:'180px', width:'180px'}}>
+      <div ref={canvasRef} className={"qr-template-container"}></div>
+
+      </div>}</>
   );
 };
 
