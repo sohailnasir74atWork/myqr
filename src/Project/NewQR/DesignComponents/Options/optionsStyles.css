@@ -32,6 +32,7 @@
     border: 3px solid var(--background-color);
     border-radius: 10px;
     box-shadow: 0 0 9px 0 rgb(0, 0, 0, 0.1);
+    cursor: pointer;
   }
   .logo:hover{
     border: 3px solid var(--darkgreen-color);

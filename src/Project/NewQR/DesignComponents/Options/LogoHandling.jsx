@@ -132,7 +132,7 @@ const LogoHandling = () => {
               key={index}
               src={logo}
               alt={`Uploaded Logo ${index + 1}`}
-              className={`logo ${selectedLogo === cornerDot1 ? "selected" : ""}`}
+              className={`logo ${selectedLogo === logo ? "selected" : ""}`}
               onClick={() => handleClickLogo(logo)}
             />
           ))}
