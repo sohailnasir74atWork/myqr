@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Divider } from "@mui/material";
 import style1 from "../../../../Assets/Shapes/style1.svg";
 import corner1 from "../../../../Assets/Shapes/corner1.svg"
@@ -8,7 +8,11 @@ import { ImportStats } from "../../../GlobelStats/GlobelStats";
 
 const ShapesHandling = () => {
   const { setQrCodeSettings, qrCodeSettings, isMobile } = ImportStats();
-  // console.log(qrCodeSettings)
+  const [selectedDots, setSelectedDots] = useState(qrCodeSettings.types.dots.type);
+  const [selectedCorner, setSelectedCorner] = useState(qrCodeSettings.types.corner.type);
+  const [selectedCenter, setSelectedCenter] = useState(qrCodeSettings.types.cornerDots.type); 
+ 
+ 
 
   // Array of image sources
   const dotStyles = [
@@ -33,6 +37,7 @@ const ShapesHandling = () => {
 
   // Function to handle click
   const handleClickDots = (type) => {
+    setSelectedDots(type)
     setQrCodeSettings({
       ...qrCodeSettings,
       types: {
@@ -46,6 +51,7 @@ const ShapesHandling = () => {
   };
   
   const handleClickCorner = (type) => {
+    setSelectedCorner(type)
     setQrCodeSettings({
       ...qrCodeSettings,
       types: {
@@ -58,6 +64,7 @@ const ShapesHandling = () => {
     });
   };
   const handleClickCornerDots = (type) => {
+    setSelectedCenter(type)
     setQrCodeSettings({
       ...qrCodeSettings,
       types: {
@@ -75,39 +82,24 @@ const ShapesHandling = () => {
         <div className="block heading-3">Dots Styles</div>
         <div className="logo-container">
           {dotStyles.map((src, index) => (
-            <div
-              key={index}
-              className="image-container"
-              onClick={() => handleClickDots(src.type)}
-            >
-              <img src={src.style} alt={`Image ${index + 1}`} />
-            </div>
+           <img src={src.style} alt={`logo ${index + 1}`} className={`logo ${selectedDots === src.type ? "selected" : ""}`} onClick={() => handleClickDots(src.type)} key={index}/>
+            
           ))}
         </div>
+        <br/>
         <Divider />
         <div className="block heading-3">Corner Styles</div>
         <div className="logo-container">
           {cornerStyles.map((src, index) => (
-            <div
-              key={index}
-              className="image-container"
-              onClick={() => handleClickCorner(src.type)}
-            >
-              <img src={src.style} alt={`Image ${index + 1}`} />
-            </div>
+          <img key={index} onClick={() => handleClickCorner(src.type)} src={src.style} alt={`Image ${index + 1}`} className={`logo ${selectedCorner === src.type ? "selected" : ""}`}/>
           ))}
         </div>
+        <br/>
         <Divider />
         <div className="block heading-3">Corner Center Styles</div>
         <div className="logo-container">
           {cornerDotStyles.map((src, index) => (
-            <div
-              key={index}
-              className="image-container"
-              onClick={() => handleClickCornerDots(src.type)}
-            >
-              <img src={src.style} alt={`Image ${index + 1}`} />
-            </div>
+            <img key={index}  onClick={() => handleClickCornerDots(src.type)} src={src.style} alt={`Image ${index + 1}`} className={`logo ${selectedCenter === src.type ? "selected" : ""}`}/>
           ))}
         </div>
       </div>
