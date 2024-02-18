@@ -21,7 +21,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content:stretch;
-    width:100%
+    width:100%;
+    @media (max-width: 600px) {
+       
+      flex-wrap: nowrap;
+      overflow: scroll;
+
+    }
   }
   .logo{
     height: 60px;

@@ -7,7 +7,7 @@ import './gradientcolorpicker.css'
 export const AntSwitch = styled(Switch)(({ theme }) => ({
   width: 28,
   height: 16,
-  padding: 0,
+  padding: 1,
   display: "flex",
   "&:active": {
     "& .MuiSwitch-thumb": {

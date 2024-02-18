@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Divider, FormControlLabel, Slider, Typography } from "@mui/material";
+import { Button, Divider, FormControlLabel, IconButton, Slider, Typography } from "@mui/material";
 import style1 from "../../../../Assets/Shapes/style1.svg";
 import corner1 from "../../../../Assets/Shapes/corner1.svg";
 import cornerDot1 from "../../../../Assets/Shapes/cornerDot1.svg";
@@ -7,7 +7,10 @@ import "./optionsStyles.css";
 import { AntSwitch } from "./ColorHelper.jsx/GradientColorPicker";
 import { ImportStats } from "../../../GlobelStats/GlobelStats";
 import { logos } from "../../../DynamicData";
-
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import AddPhotoAlternate from "@mui/icons-material/AddPhotoAlternate";
+import DeleteIcon from '@mui/icons-material/Delete';
+import { Input } from "@mui/icons-material";
 const LogoHandling = () => {
   const { setQrCodeSettings, qrCodeSettings, isMobile } = ImportStats();
   const [isLogo, setIsLogo] = useState(qrCodeSettings.logoSetting.backgrounddots)
@@ -76,45 +79,45 @@ const LogoHandling = () => {
 <div className={ isMobile ? "option-container-home p-b-60 accordion-open" : "p-v-15 accordion-open"}> 
 <br/>
 <div className="flex-row">
-     <div className="button-logo" style={{marginRight:"10px"}}>
+<div style={{ marginRight: '10px' }}>
+      <IconButton>
         <input
           type="file"
           accept="image/*"
           onChange={handleUploadLogo}
           multiple
-          className="input-logo"
           id="upload-input"
+          style={{ display: 'none' }}
         />
-        <label htmlFor="upload-input" className="upload-button">
-          Upload Image
+        <label htmlFor="upload-input">
+          <AddPhotoAlternate />
         </label>
-      </div>
-      {qrCodeSettings.logo && (
-  <div className="button-logo">
-    <div
-      onClick={handleRemoveLogo}
-      style={{ backgroundColor: '#1f1f1f1f', color: 'grey' }}
-      className="input-logo upload-button"
-    >
-      Remove Logo
+      </IconButton>
+      <span className="text-secondary">Upload Image</span>
     </div>
+      {qrCodeSettings.logo && (
+  <div style={{display:'flex', alignItems:'center'}}>
+    <IconButton
+      onClick={handleRemoveLogo}
+    >
+      <DeleteIcon/>
+    </IconButton>
+    <span className="text-secondary">Remove Logo</span>
   </div>
 )}
 
       </div>
       <br/>
-      <div className="toggle-button-responsive" style={{justifyContent:'left'}}>
+      <div className="toggle-button-responsive" style={{justifyContent:'left', paddingLeft:'4px'}}>
               <FormControlLabel
                 control={<AntSwitch checked={isLogo} onChange={handleLogoBG} disabled={!qrCodeSettings.logo} />}
                 label=""
               />
-              <span className="text-switch">Remove Background</span>
+              <span className="text-secondary">Remove Background</span>
       </div>
-            <br/>
-            <Typography id="track-inverted-slider" gutterBottom>
-        Set Logo Padding
-      </Typography>
-      <Slider
+      <br/>
+
+             <Slider
         value={size}
         onChange={handleSizeChange}
         aria-labelledby="input-slider"
@@ -123,8 +126,13 @@ const LogoHandling = () => {
         max={40}
         disabled={!qrCodeSettings.logo}
         className="slider-select"
+        style={{marginLeft:'8px'}}
       />
+      
       <br/>
+      <span className="text-secondary" style={{paddingLeft:'8px'}} gutterBottom>
+        Set Logo Padding
+      </span>
       <div className="logo-container">
         {qrCodeSettings.logos &&
           qrCodeSettings.logos.map((logo, index) => (
