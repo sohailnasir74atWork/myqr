@@ -41,7 +41,7 @@ const SelectScreen = () => {
             <div className="grid-container">
               {staticTools.map((item, index) => (
                 <div
-                  className="static-qr-tabs"
+                  className={`static-qr-tabs ${qrCodeSettings.type === item.heading ? 'selected' : ''}`}
                   key={index}
                   onClick={() => inputClick(item.heading)}
                 >

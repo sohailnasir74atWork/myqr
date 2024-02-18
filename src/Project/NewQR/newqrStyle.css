@@ -85,6 +85,9 @@
   .static-qr-tabs:hover {
     border-color: var(--darkgreen-color);
   }
+  .selected {
+    border-color: var(--darkgreen-color);
+  }
   
   .demo-container {
     position: relative;

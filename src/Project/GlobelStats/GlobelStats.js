@@ -9,7 +9,7 @@ export const ContextProvider = ({ children }) => {
   const isMobile = useMediaQuery(`(max-width:600px)`);
   const [activeTool, setActiveTool] = useState("");
   const [qrCodeSettings, setQrCodeSettings] = useState({
-    type:'Link',
+    type:'',
     qrName: "My QR",
     size: { height: "300", width: "300" },
     inputData: {

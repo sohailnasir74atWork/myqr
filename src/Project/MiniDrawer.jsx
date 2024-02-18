@@ -24,7 +24,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import StepperComponent from './Stepper';
 import { ImportStats } from './GlobelStats/GlobelStats';
 import { sideBar } from './DynamicData';
-import MobileBottomTab from './NewQR/MobileBottomTab';
+import AlertDialog from './Alert';
+import { QrCodeScanner } from '@mui/icons-material';
+
 
 const drawerWidth = 240;
 
@@ -99,8 +101,12 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function MiniDrawer() {
   const theme = useTheme();
-  const { activeStep, handleNext, handleBack, setActiveStep, isMobile } = ImportStats();
+  const { activeStep, handleNext, handleBack, setActiveStep, isMobile, qrCodeSettings } = ImportStats();
   const [open, setOpen] = React.useState(!isMobile);
+  const [openAlert, setOpenAlert] = React.useState(false);
+  const [message, setMessage] = React.useState('Are you sure you want to clear all previous settings and create a new QR code?');
+  const [heading, setHeading] = React.useState('Alert');
+
   const handleDrawerToggle = () => {
     setOpen(!open);
   };
@@ -108,8 +114,10 @@ export default function MiniDrawer() {
     setOpen(true);
   };
 
-  const handleDrawerClose = () => {
+  const handleDrawerClose = (e) => {
+    console.log(e)
     if(isMobile){setOpen(false)}
+    if(e === 0 && qrCodeSettings.type !== '') { setOpenAlert(true) }
   };
 
   useEffect(() => {
@@ -205,7 +213,7 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {sideBar.map((item, index) => (
-            <ListItem key={item.text} disablePadding sx={{ display: 'block' }} onClick={handleDrawerClose}>
+            <ListItem key={item.text} disablePadding sx={{ display: 'block' }} onClick={()=>handleDrawerClose(index)}>
               <ListItemButton
                 selected={location.pathname.includes(item.path)} // Add selected prop
                 sx={{
@@ -234,6 +242,7 @@ export default function MiniDrawer() {
         </List>
       </Drawer>
       <div className={isMobile && open ? "overlay-sidebar" : "hide"}></div>
+      <AlertDialog prop={{openAlert, setOpenAlert, message, heading}}/>
     </Box>
   );
 }
