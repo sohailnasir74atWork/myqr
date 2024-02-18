@@ -7,6 +7,9 @@
     padding: 10px;
     box-shadow: 0 0px 9px 0 rgba(205, 209, 224, 0.5);
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .qr-home-container {
     width: 300px;
@@ -20,14 +23,15 @@
     }
   }
   .qr-code-container-mobile {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     background-color: var(--white-color);
+    text-align: center;
   }
   
   .qr-code-container-mobile canvas {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
    
   }
