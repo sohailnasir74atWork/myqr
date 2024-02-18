@@ -41,7 +41,7 @@ const Templates = () => {
           </Select>
         </FormControl> */}
         <Button variant='contained' fullWidth sx={{ mt: 1 }} onClick={()=>handleStart(template)}>
-          Start Custmization
+          Customize
         </Button>
       </Box>
     </Box>

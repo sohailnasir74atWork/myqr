@@ -211,7 +211,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
           </Button>
         </div>
       )}
-    </div>} {template && <div style={{height:'180px', width:'180px'}}>
+    </div>} {template && <div style={{maxHeight:'180px', maxWidth:'180px'}}>
       <div ref={canvasRef} className={"qr-template-container"}></div>
 
       </div>}</>
