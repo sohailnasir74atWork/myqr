@@ -109,7 +109,7 @@ export default function MiniDrawer() {
   };
 
   const handleDrawerClose = () => {
-    setOpen(false);
+    if(isMobile){setOpen(false)}
   };
 
   useEffect(() => {
@@ -205,7 +205,7 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {sideBar.map((item, index) => (
-            <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
+            <ListItem key={item.text} disablePadding sx={{ display: 'block' }} onClick={handleDrawerClose}>
               <ListItemButton
                 selected={location.pathname.includes(item.path)} // Add selected prop
                 sx={{
