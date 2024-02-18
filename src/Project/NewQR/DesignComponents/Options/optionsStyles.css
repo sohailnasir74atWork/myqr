@@ -29,6 +29,9 @@
 
     }
   }
+  .block {
+    display: block;
+  }
   .logo{
     height: 60px;
     width: 60px;
@@ -79,7 +82,7 @@
   }
   .slider-select {
     margin-top: 10px !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 0px !important;
     width:20% !important;
     @media (max-width: 600px) {
        

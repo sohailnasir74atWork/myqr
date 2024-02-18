@@ -73,7 +73,7 @@ const ShapesHandling = () => {
 <div className={ isMobile ? "option-container-home p-v-15 accordion-open" : "p-v-15 accordion-open"}> 
      <div className="accordion-content">
         <div className="block heading-3">Dots Styles</div>
-        <div className="image-list">
+        <div className="logo-container">
           {dotStyles.map((src, index) => (
             <div
               key={index}
@@ -86,7 +86,7 @@ const ShapesHandling = () => {
         </div>
         <Divider />
         <div className="block heading-3">Corner Styles</div>
-        <div className="image-list">
+        <div className="logo-container">
           {cornerStyles.map((src, index) => (
             <div
               key={index}
@@ -99,7 +99,7 @@ const ShapesHandling = () => {
         </div>
         <Divider />
         <div className="block heading-3">Corner Center Styles</div>
-        <div className="image-list">
+        <div className="logo-container">
           {cornerDotStyles.map((src, index) => (
             <div
               key={index}
