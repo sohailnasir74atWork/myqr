@@ -11,6 +11,7 @@
     border: 2px solid transparent; /* Border on hover */
     padding: 10px; /* Inner padding on hover */
     border-radius: 10px;
+    cursor: pointer;
   }
   
   .image-container:hover img {

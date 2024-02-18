@@ -109,6 +109,7 @@ const Links = () => {
         onChange={handleInputChange}
         fullWidth
         margin="normal"
+        defaultValue={'https://'}
       />
       <p>Your QR code will open this URL.</p>
 

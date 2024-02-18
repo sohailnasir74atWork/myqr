@@ -89,9 +89,10 @@ const LogoHandling = () => {
               id="upload-input"
               style={{ display: 'none' }}
             />
-            <label htmlFor="upload-input">
-              <AddPhotoAlternate />
-            </label>
+           <label htmlFor="upload-input" >
+  <AddPhotoAlternate sx={{ cursor: 'pointer' }}/>
+</label>
+
           </IconButton>
           <span className="text-secondary">Upload Image</span>
         </div>
@@ -99,6 +100,7 @@ const LogoHandling = () => {
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <IconButton
               onClick={handleRemoveLogo}
+              style={{cursor:'pointer'}}
             >
               <DeleteIcon />
             </IconButton>
