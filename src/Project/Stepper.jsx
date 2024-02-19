@@ -36,7 +36,7 @@ export default function StepperComponent({prop}) {
     }
   return (
     <Box sx={{ width: "100%", display: "flex", flexDirection: "row", alignItems: "center" }}>
-      <Stepper activeStep={activeStep} sx={{minWidth: !isMobile ? '400px' : '' }}>
+      <Stepper activeStep={activeStep} sx={{minWidth: !isMobile ? '400px' : '300px' }}>
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
