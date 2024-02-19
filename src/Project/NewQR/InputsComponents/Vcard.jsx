@@ -294,6 +294,7 @@ const Vcard = () => {
         variant="contained"
         onClick={handleSubmit}
         style={{ marginTop: 20 }}
+        className="button"
       >
         Generate QR Code
       </Button>

@@ -153,7 +153,7 @@ const Email = () => {
         className="slider-select"
       />
       <br/>
-      <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }}>
+      <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
         Generate QR Code
       </Button>
     </div>
