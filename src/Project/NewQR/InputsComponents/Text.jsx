@@ -2,19 +2,22 @@ import React, { useEffect, useState } from "react";
 import { Button, TextField, Slider, Typography } from "@mui/material";
 import ErrorBar from "../../Error";
 import { ImportStats } from "../../GlobelStats/GlobelStats";
+import { useNavigate } from "react-router-dom";
 
 const Text = () => {
   const { 
-    handleNext,
     qrCodeSettings,
     setQrCodeSettings,
-    isMobile
+    isMobile,
+    setActiveStep
    } = ImportStats();  
   const [value, setValue] = useState(qrCodeSettings.inputData.text.value);
   const [qrName, setQrName] = useState(qrCodeSettings.qrName);
   const [size, setSize] = useState(qrCodeSettings.size.width); // Assuming width and height are initially the same
   const [textError, setTextError] = useState("");
   const [nameError, setNameError] = useState("");
+  const navigate = useNavigate()
+
 
   useEffect(() => {
     setValue(qrCodeSettings.inputData.text.value);
@@ -89,7 +92,8 @@ const Text = () => {
       size: { width: size, height: size },
     }));
   
-    handleNext();
+    navigate('/create/input/design');
+    setActiveStep(2);
   };
   
 

@@ -3,9 +3,10 @@ import { Button, TextField, Grid, Typography, Slider } from "@mui/material";
 import ErrorBar from "../../Error"; // Make sure this component can display multiple messages if needed
 import { isValidPhoneNumber } from "libphonenumber-js";
 import { ImportStats } from "../../GlobelStats/GlobelStats";
+import { useNavigate } from "react-router-dom";
 
 const Vcard = () => {
-  const { handleNext, qrCodeSettings, setQrCodeSettings } = ImportStats();
+  const { qrCodeSettings, setQrCodeSettings, setActiveStep } = ImportStats();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -22,6 +23,8 @@ const Vcard = () => {
   const [qrName, setQrName] = useState(qrCodeSettings.qrName);
   const [size, setSize] = useState(qrCodeSettings.size.width);
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate()
+
 
   useEffect(() => {
     setFirstName(qrCodeSettings.inputData.vcard.firstName);
@@ -104,7 +107,8 @@ const Vcard = () => {
       qrName: qrName.trim(),
       size: { width: size, height: size },
     }));
-    handleNext();
+    navigate('/create/input/design');
+    setActiveStep(2);
   };
 
   return (

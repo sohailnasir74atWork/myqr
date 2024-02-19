@@ -9,14 +9,31 @@ import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import { ImportStats } from "./GlobelStats/GlobelStats";
 import MenuIcon from '@mui/icons-material/Menu';
 import { IconButton } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 const steps = ["Step 1", "Step 2", "Step 3"];
 
 export default function StepperComponent({prop}) {
     const {open, handleDrawerToggle} = prop
-    const  {handleBack, handleNext, activeStep, setActiveStep, isMobile} = ImportStats()
+    const  {activeStep, setActiveStep, isMobile} = ImportStats()
+    const navigate = useNavigate()
     // const handleDrawerOpen = () => {
     //   setOpen(true);
     // };
+
+    const handleBack = () => {
+      if(activeStep === 1)
+     { navigate('create/')
+      setActiveStep(0)}
+      if(activeStep === 2)
+      {navigate('/create/input')
+      setActiveStep(1)}
+
+    }
+    const handleNext = () => {
+      // if(setActiveStep === 1)
+      // navigate('/create')
+      
+    }
   return (
     <Box sx={{ width: "100%", display: "flex", flexDirection: "row", alignItems: "center" }}>
       <Stepper activeStep={activeStep}>

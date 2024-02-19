@@ -4,12 +4,13 @@ import ErrorBar from "../../Error";
 import { isValidPhoneNumber } from 'libphonenumber-js';
 import { countries } from "./CountriesList";
 import { ImportStats } from "../../GlobelStats/GlobelStats";
+import { useNavigate } from "react-router-dom";
 const WhatsApp = () => {
   const { 
-    handleNext,
     qrCodeSettings,
     setQrCodeSettings,
-    isMobile
+    isMobile,
+    setActiveStep
    } = ImportStats();
     const [selectedCountry, setSelectedCountry] = useState(countries[0].dial_code); // Default to the first country's dial code
     const [number, setNumber] = useState("");
@@ -17,6 +18,8 @@ const WhatsApp = () => {
     const [qrName, setQrName] = useState(qrCodeSettings.qrName);
     const [size, setSize] = useState(qrCodeSettings.size.width);
     const [numberError, setNumberError] = useState("");
+    const navigate = useNavigate()
+
     useEffect(() => {
       setNumber(qrCodeSettings.inputData.whatsapp.number);
       setMessage(qrCodeSettings.inputData.whatsapp.message);
@@ -66,8 +69,8 @@ const WhatsApp = () => {
         qrName: qrName.trim(),
         size: { width: size, height: size },
       }));
-      handleNext();
-    };
+      navigate('/create/input/design');
+      setActiveStep(2);    };
   
     return (
       <div>

@@ -4,10 +4,10 @@ import { ImportStats } from "../GlobelStats/GlobelStats";
 import { dymanicTools, staticTools } from "../DynamicData";
 import QrDemo from "./QrDemo";
 import './newqrStyle.css'
+import { useNavigate } from "react-router-dom";
 
 const SelectScreen = () => {
   const { 
-    handleNext,
     qrCodeSettings,
     setQrCodeSettings,
     activeTool,
@@ -15,11 +15,14 @@ const SelectScreen = () => {
     activeStep,
     isMobile,
     showMobileQR,
+    setActiveStep,
     setShowMobileQR} = ImportStats();
+    const navigate = useNavigate()
     const inputClick = (e) => {
       setActiveTool(e);
       setQrCodeSettings((prevSettings) => ({ ...prevSettings, type: e })); // Update the 'type' property
-      handleNext();
+      setActiveStep(1)
+      navigate('/create/input');
       // console.log(activeStep);
     };
     

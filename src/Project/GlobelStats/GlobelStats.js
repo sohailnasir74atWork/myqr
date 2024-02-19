@@ -1,5 +1,6 @@
 import { useMediaQuery } from '@mui/material';
 import React, { createContext, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const GlobelStats = createContext();
 
@@ -52,20 +53,8 @@ export const ContextProvider = ({ children }) => {
   });
 
 
-  const handleNext = () => {
-    if(activeStep<2){setActiveStep((prevActiveStep) => prevActiveStep + 1);}
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-
-  return (
-    <GlobelStats.Provider value={{ activeStep, handleNext, handleBack, handleReset, isMobile, qrCodeSettings, setQrCodeSettings, setActiveTool, activeTool, setActiveStep }}>
+   return (
+    <GlobelStats.Provider value={{ activeStep, isMobile, qrCodeSettings, setQrCodeSettings, setActiveTool, activeTool, setActiveStep }}>
       {children}
     </GlobelStats.Provider>
   );

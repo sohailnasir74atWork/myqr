@@ -12,14 +12,15 @@ import ErrorBar from "../../Error";
 import { Password } from "@mui/icons-material";
 import { ImportStats } from "../../GlobelStats/GlobelStats";
 import { AntSwitch } from "../DesignComponents/Options/ColorHelper.jsx/GradientColorPicker";
+import { useNavigate } from "react-router-dom";
 // Assuming countries data is imported or defined elsewhere in your project
 const network = ["WPA/WPA2", "WEP", "No Encryption"];
 const Wifi = ({ prop }) => {
   const { 
-    handleNext,
     qrCodeSettings,
     setQrCodeSettings,
-    isMobile
+    isMobile,
+    setActiveStep
    } = ImportStats();  
 const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default to the first country's dial code
   const [networkName, setNetworkName] = useState("");
@@ -29,6 +30,8 @@ const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default t
   const [qrName, setQrName] = useState(qrCodeSettings.qrName);
   const [size, setSize] = useState(qrCodeSettings.size.width);
   const [nameError, setNameError] = useState("");
+  const navigate = useNavigate()
+
 
 
   useEffect(() => {
@@ -86,8 +89,8 @@ const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default t
       size: { width: size, height: size },
     }));
   
-    handleNext();
-  };
+    navigate('/create/input/design');
+    setActiveStep(2);  };
   
   return (
     <div>

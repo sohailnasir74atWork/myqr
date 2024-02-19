@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Button, TextField, Slider, Typography } from "@mui/material";
 import ErrorBar from "../../Error";
 import { ImportStats } from "../../GlobelStats/GlobelStats";
+import { useNavigate } from "react-router-dom";
 
 const Email = () => {
   const { 
-    handleNext,
     qrCodeSettings,
     setQrCodeSettings,
-    isMobile
+    isMobile,
+    setActiveStep
    } = ImportStats();  const [email, setEmail] = useState(""); // For the email address
   const [message, setMessage] = useState(""); // For the email message
   const [qrName, setQrName] = useState(qrCodeSettings.qrName);
@@ -16,6 +17,8 @@ const Email = () => {
   const [emailError, setEmailError] = useState("");
   const [messageError, setMessageError] = useState("");
   const [nameError, setNameError] = useState("");
+  const navigate = useNavigate()
+
   useEffect(() => {
     setEmail(qrCodeSettings.inputData.mail.email);
     setMessage(qrCodeSettings.inputData.mail.message);
@@ -99,7 +102,8 @@ const Email = () => {
         qrName: qrName.trim(),
         size: { width: size, height: size },
       }));
-    handleNext();
+      navigate('/create/input/design');
+      setActiveStep(2);
   };
 
   return (

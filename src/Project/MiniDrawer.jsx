@@ -101,7 +101,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function MiniDrawer() {
   const theme = useTheme();
-  const { activeStep, handleNext, handleBack, setActiveStep, isMobile, qrCodeSettings } = ImportStats();
+  const { activeStep, setActiveStep, isMobile, qrCodeSettings, setQrCodeSettings } = ImportStats();
   const [open, setOpen] = React.useState(!isMobile);
   const [openAlert, setOpenAlert] = React.useState(false);
   const [message, setMessage] = React.useState('Are you sure you want to clear all previous settings and create a new QR code?');
@@ -113,14 +113,27 @@ export default function MiniDrawer() {
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-
   const handleDrawerClose = (e) => {
     console.log(e)
     if(isMobile){setOpen(false)}
-    if(e === 0 && qrCodeSettings.type !== '') 
-    { setOpenAlert(true)
-      setActiveStep(0)
-     }
+    // if(e === 0 && ) 
+    // { setOpenAlert(true)
+    //  }
+  };
+  const handleNext = () => {
+    if(activeStep<2){setActiveStep((prevActiveStep) => prevActiveStep + 1);}
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    if(activeStep === 2)
+    {navigate('/create/input');}
+    if(activeStep === 1)
+    {navigate('/create');}
+  };
+
+  const handleReset = () => {
+    setActiveStep(0);
   };
 
   useEffect(() => {
@@ -136,23 +149,30 @@ export default function MiniDrawer() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  useEffect(() => {
-    if (location.pathname.includes('/create')) {
-      switch (activeStep) {
-        case 0:
-          navigate('create');
-          break;
-        case 1:
-          navigate('create/input');
-          break;
-        case 2:
-          navigate('create/input/design');
-          break;
-        default:
-          console.log('Invalid step or initial step, no navigation');
-      }
-    }
-  }, [activeStep, location.pathname, navigate]);
+  // useEffect(() => {
+  //   if (location.pathname.includes('/create')) {
+  //     switch (activeStep) {
+  //       case 0:
+  //         navigate('create');
+  //         break;
+  //       case 1:
+  //         navigate('create/input');
+  //         break;
+  //       case 2:
+  //         navigate('create/input/design');
+  //         break;
+  //       default:
+  //         console.log('Invalid step or initial step, no navigation');
+  //     }
+  //   }
+  // }, [activeStep, location.pathname, navigate]);
+  const handleNavigate = (e)=>{
+    if(e === '/create' && qrCodeSettings.type !== '') {
+      setOpenAlert(true)
+    } 
+    else
+{    navigate(e)
+}  }
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -219,6 +239,7 @@ export default function MiniDrawer() {
             <ListItem key={item.text} disablePadding sx={{ display: 'block' }} onClick={()=>handleDrawerClose(index)}>
               <ListItemButton
                 selected={location.pathname.includes(item.path)} // Add selected prop
+                onClick={()=>handleNavigate(item.path)}
                 sx={{
                   minHeight: 48,
                   justifyContent: open ? 'initial' : 'center',
@@ -226,8 +247,8 @@ export default function MiniDrawer() {
                   color: location.pathname.includes(item.path) ? 'var(--darkgreen-color)' : '',
                   px: 2.5,
                 }}
-                component={Link}
-                to={item.path}
+                // component={Link}
+                // to={item.path}
               >
                 <ListItemIcon
                   sx={{
@@ -245,7 +266,7 @@ export default function MiniDrawer() {
         </List>
       </Drawer>
       <div className={isMobile && open ? "overlay-sidebar" : "hide"}></div>
-      <AlertDialog prop={{openAlert, setOpenAlert, message, heading}}/>
+      <AlertDialog prop={{openAlert, setOpenAlert, message, heading, setActiveStep, activeStep, qrCodeSettings, setQrCodeSettings}}/>
     </Box>
   );
 }
