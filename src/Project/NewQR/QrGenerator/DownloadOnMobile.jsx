@@ -72,6 +72,7 @@ export default function DownloadOnMobile() {
         disableElevation
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
+        sx={{borderRadius:'50px'}}
       >
         Download
       </Button>

@@ -187,6 +187,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
 
   return (
     <>
+    <div className={liveDemo ? "mobile-screen" : ""}>
     {!template && <div className={liveDemo ? "live-demo" : "qr-home-container"}>
      {qrData ? (
     isLoading ? (
@@ -219,7 +220,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
       <div ref={canvasRef} className={"qr-template-container"}></div>
 
       </div>}
-      {liveDemo && <div className="center"> <DownloadOnMobile/> </div>}</>
+      {liveDemo && <div className="center" style={{marginTop:'10px'}}> <DownloadOnMobile/> </div>}</div></>
   );
 };
 
