@@ -149,23 +149,13 @@ export default function MiniDrawer() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // useEffect(() => {
-  //   if (location.pathname.includes('/create')) {
-  //     switch (activeStep) {
-  //       case 0:
-  //         navigate('create');
-  //         break;
-  //       case 1:
-  //         navigate('create/input');
-  //         break;
-  //       case 2:
-  //         navigate('create/input/design');
-  //         break;
-  //       default:
-  //         console.log('Invalid step or initial step, no navigation');
-  //     }
-  //   }
-  // }, [activeStep, location.pathname, navigate]);
+  useEffect(() => {
+    if (location.pathname.includes('/create')) {
+      if(activeStep === 0 ) {
+          navigate('create');
+      }
+    }
+  }, [activeStep, location.pathname, navigate]);
   const handleNavigate = (e)=>{
     if(e === '/create' && qrCodeSettings.type !== '') {
       setOpenAlert(true)
