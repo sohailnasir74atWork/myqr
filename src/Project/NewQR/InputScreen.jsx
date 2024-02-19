@@ -11,6 +11,7 @@ import Call from "./InputsComponents/Call";
 import Wifi from "./InputsComponents/Wifi";
 import QrDemo from "./QrDemo";
 import Vcard from "./InputsComponents/Vcard";
+import './InputsComponents/inputStyles.css'
 const InputScreen = () => {
   const { 
     handleNext,

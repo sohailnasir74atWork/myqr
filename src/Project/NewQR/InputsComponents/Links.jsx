@@ -3,6 +3,7 @@ import { Button, TextField, Slider, Typography } from "@mui/material";
 import ErrorBar from "../../Error";
 import { ImportStats } from "../../GlobelStats/GlobelStats";
 import { useNavigate } from "react-router-dom";
+import './inputStyles.css'
 
 const Links = () => {
   const { 
@@ -90,7 +91,7 @@ const Links = () => {
   };
 
   return (
-    <div>
+    <div className="option-container-home">
       {urlError && <ErrorBar message={urlError} />}
       {nameError && <ErrorBar message={nameError} />}
       <div className="heading-container">
