@@ -117,7 +117,10 @@ export default function MiniDrawer() {
   const handleDrawerClose = (e) => {
     console.log(e)
     if(isMobile){setOpen(false)}
-    if(e === 0 && qrCodeSettings.type !== '') { setOpenAlert(true) }
+    if(e === 0 && qrCodeSettings.type !== '') 
+    { setOpenAlert(true)
+      setActiveStep(0)
+     }
   };
 
   useEffect(() => {
