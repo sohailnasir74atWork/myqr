@@ -8,8 +8,10 @@ import { AntSwitch } from "./ColorHelper.jsx/GradientColorPicker";
 import { ImportStats } from "../../../GlobelStats/GlobelStats";
 import { logos } from "../../../DynamicData";
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import AddPhotoAlternate from "@mui/icons-material/AddPhotoAlternate";
 import DeleteIcon from '@mui/icons-material/Delete';
+import BlockIcon from '@mui/icons-material/Block';
 import { Input } from "@mui/icons-material";
 const LogoHandling = () => {
   const { setQrCodeSettings, qrCodeSettings, isMobile } = ImportStats();
@@ -56,6 +58,7 @@ const LogoHandling = () => {
     }));
   };
   const handleRemoveLogo = () => {
+    setSelectedLogo(null)
     setQrCodeSettings((prevSettings) => ({
       ...prevSettings,
       logo: null,
@@ -79,24 +82,22 @@ const LogoHandling = () => {
     <div className={isMobile ? "option-container-home p-b-60 accordion-open" : "p-v-15 accordion-open"}>
       <br />
       <div className="flex-row">
-        <div style={{ marginRight: '10px' }}>
-          <IconButton>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleUploadLogo}
-              multiple
-              id="upload-input"
-              style={{ display: 'none' }}
-            />
-           <label htmlFor="upload-input" >
-  <AddPhotoAlternate sx={{ cursor: 'pointer' }}/>
-</label>
-
-          </IconButton>
-          <span className="text-secondary">Upload Image</span>
-        </div>
-        {qrCodeSettings.logo && (
+      <div style={{marginBottom:'10px'}}>
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleUploadLogo}
+        multiple
+        id="upload-input"
+        style={{ display: 'none' }}
+      />
+      <label htmlFor="upload-input">
+        <Button variant="outlined" component="span" className="button" endIcon={<AddCircleIcon/>}>
+          Upload Image
+        </Button>
+      </label>
+    </div>
+        {/* {qrCodeSettings.logo && (
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <IconButton
               onClick={handleRemoveLogo}
@@ -106,7 +107,7 @@ const LogoHandling = () => {
             </IconButton>
             <span className="text-secondary">Remove Logo</span>
           </div>
-        )}
+        )} */}
 
       </div>
       <div style={{paddingLeft:'8px'}}>
@@ -148,6 +149,8 @@ const LogoHandling = () => {
       <Divider />
       <div className="text-primary">You can pick from Below</div>
       <div className="logo-container">
+      <div className="logo center" onClick={handleRemoveLogo}
+              style={{cursor:'pointer'}}><BlockIcon sx={{color:'red', fontSize:'40px'}}/></div>
         {logos.map((item, index) => {
           return <img
             src={item}
