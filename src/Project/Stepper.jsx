@@ -8,7 +8,7 @@ import { ArrowBack, ArrowCircleLeft, ArrowCircleLeftRounded, ArrowCircleRightRou
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import { ImportStats } from "./GlobelStats/GlobelStats";
 import MenuIcon from '@mui/icons-material/Menu';
-import { IconButton } from "@mui/material";
+import { Divider, IconButton, StepButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 const steps = ["Step 1", "Step 2", "Step 3"];
 
@@ -36,14 +36,16 @@ export default function StepperComponent({prop}) {
     }
   return (
     <Box sx={{ width: "100%", display: "flex", flexDirection: "row", alignItems: "center" }}>
-      <Stepper activeStep={activeStep}>
+      <Stepper activeStep={activeStep} sx={{minWidth: !isMobile ? '400px' : '' }}>
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
 
           return (
             <Step key={label} {...stepProps}>
-              <StepLabel {...labelProps}>{!isMobile ? label : ''}</StepLabel>
+            <StepButton color="inherit">
+            {/* <StepLabel {...labelProps}>{!isMobile ? label : ''}</StepLabel> */}
+            </StepButton>
             </Step>
           );
         })}
