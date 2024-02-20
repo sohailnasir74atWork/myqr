@@ -139,9 +139,17 @@
       top: 100%;
     }
   }
+
+  .qr-template-container{
+    
+    margin: auto;
+  }
+
   .qr-template-container canvas{
     height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
     /* border-top-left-radius: 10px;
     border-top-right-radius: 10px; */
 

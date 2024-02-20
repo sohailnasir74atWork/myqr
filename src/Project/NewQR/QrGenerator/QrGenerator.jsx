@@ -109,7 +109,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
         height: qrDataLocal.size.height,
         data: qrData,
         image: img,
-        margin: qrDataLocal.margin,
+        margin: qrDataLocal?.margin,
         dotsOptions: {
           ...(qrDataLocal.colors.dots.isSolid
             ? { color: qrDataLocal.colors.dots.color }
@@ -152,7 +152,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
         imageOptions: {
           crossOrigin: "anonymous",
           margin: qrDataLocal.logoSetting.margin,
-          hideBackgroundDots: qrDataLocal.logoSetting.backgrounddots,
+          hideBackgroundDots: qrDataLocal?.logoSetting.backgrounddots,
         },
         qrOptions: {
           errorCorrectionLevel: qrDataLocal.correction,
@@ -220,8 +220,8 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
         </div>
       )}
 
-    </div>} {template && <div style={{maxHeight:'180px', maxWidth:'180px'}}>
-      <div ref={canvasRef} className={"qr-template-container"}></div>
+    </div>} {template && <div style={{maxHeight:'180px', maxWidth:'180px', margin:'auto'}}>
+      <div ref={canvasRef} className="qr-template-container"></div>
 
       </div>}
       {liveDemo && <div className="center" style={{marginTop:'10px'}}> <DownloadOnMobile/> </div>}</div></>

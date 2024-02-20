@@ -1,6 +1,10 @@
-export const templates = [{
+export const templates = [
+    {
     "type": ";Link",
     "qrName": "My QR",
+    'correction': 'Q',
+    'margin': 0,
+
     "size": {
         "width": "200",
         "height": "200"
@@ -92,6 +96,8 @@ export const templates = [{
 }, {
     "type": "Text",
     "qrName": "My QR",
+    'correction': 'Q',
+    'margin': 0,
     "size": {
         "width": "200",
         "height": "200"
@@ -183,6 +189,8 @@ export const templates = [{
 }, {
     "type": "Text",
     "qrName": "My QR",
+    'correction': 'Q',
+    'margin': 0,
     "size": {
         "width": "300",
         "height": "300"
@@ -274,6 +282,8 @@ export const templates = [{
 }, {
     "type": "Text",
     "qrName": "My QR",
+    'correction': 'Q',
+    'margin': 0,
     "size": {
         "width": "300",
         "height": "300"
@@ -365,6 +375,9 @@ export const templates = [{
 },{
     "type": "Text",
     "qrName": "My QR",
+    'correction': 'Q',
+    
+    'margin': 0,
     "size": {
         "width": "300",
         "height": "300"
