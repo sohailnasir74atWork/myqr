@@ -12,7 +12,7 @@ export const ContextProvider = ({ children }) => {
   const [qrCodeSettings, setQrCodeSettings] = useState({
     type:'',
     qrName: "My QR",
-    correction: null,
+    correction: 'Q',
     margin:0,
     size: { height: "300", width: "300" },
     inputData: {

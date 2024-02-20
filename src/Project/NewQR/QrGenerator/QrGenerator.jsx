@@ -109,6 +109,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
         height: qrDataLocal.size.height,
         data: qrData,
         image: img,
+        margin: qrDataLocal.margin,
         dotsOptions: {
           ...(qrDataLocal.colors.dots.isSolid
             ? { color: qrDataLocal.colors.dots.color }
@@ -152,6 +153,9 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
           crossOrigin: "anonymous",
           margin: qrDataLocal.logoSetting.margin,
           hideBackgroundDots: qrDataLocal.logoSetting.backgrounddots,
+        },
+        qrOptions: {
+          errorCorrectionLevel: qrDataLocal.correction,
         },
 
       });

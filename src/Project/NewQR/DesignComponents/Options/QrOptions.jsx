@@ -3,10 +3,10 @@ import { Slider, Box } from "@mui/material";
 import { ImportStats } from "../../../GlobelStats/GlobelStats";
 
 const correctionMarks = [
-  { value: 0, label: 'L' },
-  { value: 33, label: 'M' },
-  { value: 66, label: 'S' },
-  { value: 100, label: 'H' },
+  { value: 0, label: 'L' }, // Low
+  { value: 33, label: 'M' }, // Medium
+  { value: 66, label: 'Q' }, // Quartile (Corrected from 'S' to 'Q')
+  { value: 100, label: 'H' }, // High
 ];
 
 const QrOptions = () => {
@@ -14,13 +14,13 @@ const QrOptions = () => {
   const [size, setSize] = useState(qrCodeSettings.size.width);
   const [margin, setMargin] = useState(qrCodeSettings.margin);
   const [correction, setCorrection] = useState(
-    correctionMarks.find((mark) => mark.label === qrCodeSettings.correction).value
+    correctionMarks.find((mark) => mark.label === qrCodeSettings.correction)?.value || 0
   );
 
   useEffect(() => {
-    setCorrection(
-      correctionMarks.find((mark) => mark.label === qrCodeSettings.correction).value
-    );
+    // Find the correction value instead of label to match the slider value
+    const foundMark = correctionMarks.find((mark) => mark.label === qrCodeSettings.correction);
+    setCorrection(foundMark ? foundMark.value : 0);
     setMargin(qrCodeSettings.margin);
     setSize(qrCodeSettings.size.width);
   }, [qrCodeSettings]);
@@ -42,24 +42,14 @@ const QrOptions = () => {
   };
 
   const handleCorrectionChange = (_, newValue) => {
-    let newCorrection;
-    if (newValue === 0) {
-      newCorrection = 'L';
-    } else if (newValue <= 33) {
-      newCorrection = 'M';
-    } else if (newValue <= 66) {
-      newCorrection = 'S';
-    } else if (newValue <= 100) {
-      newCorrection = 'H';
-    }
+    // Adjust the logic to match the correct value ranges for L, M, Q, H
+    const newCorrection = correctionMarks.reduce((acc, curr) => newValue >= curr.value ? curr.label : acc, 'L');
 
-    setCorrection(newCorrection);
     setQrCodeSettings({
       ...qrCodeSettings,
       correction: newCorrection,
     });
-};
-
+  };
 
   return (
     <Box sx={{ width: 300 }}>
