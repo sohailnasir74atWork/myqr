@@ -13,6 +13,7 @@ import ShapesHandling from "./Options/ShapesHandling"
 import FilterFramesIcon from '@mui/icons-material/FilterFrames';
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import LogoHandling from './Options/LogoHandling';
+import QrOptions from './Options/QrOptions';
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -110,6 +111,23 @@ export default function CustomizedAccordions({ prop }) {
         </AccordionSummary>
         <AccordionDetails>
         <LogoHandling prop={{ setQrCodeSettings, qrCodeSettings }}/>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        expanded={expanded.includes('panel5')}
+        onChange={handleChange('panel5')}
+        sx={{ marginBottom: '20px', borderWidth: '0px', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', borderRadius: '10px' }}
+      >
+        <AccordionSummary
+          aria-controls="panel5d-content"
+          id="panel5d-header"
+          sx={{ height: '80px' }}
+        >
+          <FilterFramesIcon sx={{ color: purple[500] }} />
+          <Typography style={{ paddingLeft: '10px' }} className='text-primary'>QR Options</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <QrOptions prop={{setQrCodeSettings, qrCodeSettings}}/>
         </AccordionDetails>
       </Accordion>
       <Accordion
