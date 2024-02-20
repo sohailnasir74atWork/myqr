@@ -159,6 +159,7 @@ export default function MiniDrawer() {
   const handleNavigate = (e)=>{
     if(e === '/create' && qrCodeSettings.type !== '') {
       setOpenAlert(true)
+      navigate(e)
     } 
     else
 {    navigate(e)
