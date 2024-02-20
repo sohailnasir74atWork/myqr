@@ -6,6 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useNavigate } from 'react-router-dom';
+import { Alert, Snackbar } from '@mui/material';
 
 export default function AlertDialog({prop}) {
   const {openAlert, setOpenAlert, message, heading, activeStep, setActiveStep, setQrCodeSettings} = prop 
@@ -65,27 +66,18 @@ const navigate = useNavigate()
   return (
     <React.Fragment>
       
-      <Dialog
-        open={openAlert}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">
-          {heading}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            {message}
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleAgree} autoFocus>
-            Agree
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <div>
+      <Snackbar open={openAlert} autoHideDuration={600000} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity="error"
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          {message}
+        </Alert>
+      </Snackbar>
+    </div>
     </React.Fragment>
   );
 }

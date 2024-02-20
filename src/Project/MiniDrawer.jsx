@@ -104,7 +104,7 @@ export default function MiniDrawer() {
   const { activeStep, setActiveStep, isMobile, qrCodeSettings, setQrCodeSettings } = ImportStats();
   const [open, setOpen] = React.useState(!isMobile);
   const [openAlert, setOpenAlert] = React.useState(false);
-  const [message, setMessage] = React.useState('Are you sure you want to clear all previous settings and create a new QR code?');
+  const [message, setMessage] = React.useState('Changing the QR Type will delete the current data');
   const [heading, setHeading] = React.useState('Alert');
 
   const handleDrawerToggle = () => {
