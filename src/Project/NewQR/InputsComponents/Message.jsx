@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Button, TextField, MenuItem, Grid, Typography, Slider } from "@mui/material";
 import ErrorBar from "../../Error";
 import { isValidPhoneNumber } from 'libphonenumber-js';
+import './inputStyles.css'
+
 
 // Assuming countries data is imported or defined elsewhere in your project
 import { countries } from "./CountriesList";
@@ -75,7 +77,7 @@ const Message = ({ prop }) => {
     };
   
     return (
-      <div>
+      <div className="option-container-home">
         {numberError && <ErrorBar message={numberError} />}
         <div className="heading-container">
         <span className="heading-2">Create Your SMS QR Code</span>
@@ -126,18 +128,7 @@ const Message = ({ prop }) => {
           multiline
           rows={4}
         />
-        <Typography id="input-slider" gutterBottom>QR Code Size</Typography>
-        <Slider
-          value={size}
-          onChange={(e, newValue) => setSize(newValue)}
-          aria-labelledby="input-slider"
-          valueLabelDisplay="auto"
-          min={30}
-          max={1000}
-          className="slider-select"
-
-        />
-        <br/>
+        
         <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
           Generate QR Code
         </Button>

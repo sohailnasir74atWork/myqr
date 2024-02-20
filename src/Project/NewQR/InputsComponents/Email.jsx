@@ -3,6 +3,8 @@ import { Button, TextField, Slider, Typography } from "@mui/material";
 import ErrorBar from "../../Error";
 import { ImportStats } from "../../GlobelStats/GlobelStats";
 import { useNavigate } from "react-router-dom";
+import './inputStyles.css'
+
 
 const Email = () => {
   const { 
@@ -107,7 +109,7 @@ const Email = () => {
   };
 
   return (
-    <div>
+    <div className="option-container-home">
       {emailError && <ErrorBar message={emailError} />}
       {messageError && <ErrorBar message={messageError} />}
       {nameError && <ErrorBar message={nameError} />}
@@ -140,19 +142,7 @@ const Email = () => {
         multiline
         rows={4}
       />
-      <Typography id="input-slider" gutterBottom>
-        QR Code Size
-      </Typography>
-      <Slider
-        value={size}
-        onChange={handleSizeChange}
-        aria-labelledby="input-slider"
-        valueLabelDisplay="auto"
-        min={30}
-        max={1000}
-        className="slider-select"
-      />
-      <br/>
+      
       <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
         Generate QR Code
       </Button>

@@ -5,6 +5,8 @@ import { isValidPhoneNumber } from 'libphonenumber-js';
 import { countries } from "./CountriesList";
 import { ImportStats } from "../../GlobelStats/GlobelStats";
 import { useNavigate } from "react-router-dom";
+import './inputStyles.css'
+
 const WhatsApp = () => {
   const { 
     qrCodeSettings,
@@ -73,7 +75,7 @@ const WhatsApp = () => {
       setActiveStep(2);    };
   
     return (
-      <div>
+      <div className="option-container-home">
         {numberError && <ErrorBar message={numberError} />}
         <div className="heading-container">
         <span className="heading-2">Create Your WhatsApp Message QR Code</span>
@@ -110,7 +112,6 @@ const WhatsApp = () => {
               onChange={(e) => setNumber(e.target.value)}
               fullWidth
               error={!!numberError}
-            //   helperText={numberError || "Enter phone number without country code."}
             />
           </Grid>
         </Grid>
@@ -124,18 +125,6 @@ const WhatsApp = () => {
           multiline
           rows={4}
         />
-        <Typography id="input-slider" gutterBottom>QR Code Size</Typography>
-        <Slider
-          value={size}
-          onChange={(e, newValue) => setSize(newValue)}
-          aria-labelledby="input-slider"
-          valueLabelDisplay="auto"
-          min={30}
-          max={1000}
-          className="slider-select"
-
-        />
-        <br/>
         <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
           Generate QR Code
         </Button>

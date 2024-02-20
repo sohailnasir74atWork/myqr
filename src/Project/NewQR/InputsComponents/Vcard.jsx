@@ -4,6 +4,8 @@ import ErrorBar from "../../Error"; // Make sure this component can display mult
 import { isValidPhoneNumber } from "libphonenumber-js";
 import { ImportStats } from "../../GlobelStats/GlobelStats";
 import { useNavigate } from "react-router-dom";
+import './inputStyles.css'
+
 
 const Vcard = () => {
   const { qrCodeSettings, setQrCodeSettings, setActiveStep } = ImportStats();
@@ -112,7 +114,7 @@ const Vcard = () => {
   };
 
   return (
-    <div>
+    <div className="option-container-home">
       {Object.values(errors).map((error, index) => error && <ErrorBar key={index} message={error} />)}
       <div className="heading-container">
         <span className="heading-2">Create Your WhatsApp Message QR Code</span>
@@ -275,21 +277,7 @@ const Vcard = () => {
         /> */}
         <p className="text">Your QR code will save this contact to the phone scanning</p>
 
-{/* Removed Width and Height TextFields */}
-<br/>
-      <Typography id="input-slider" gutterBottom>
-        QR Code Size
-      </Typography>
-      <Slider
-        value={size}
-        onChange={(e, newValue) => setSize(newValue)}
-        aria-labelledby="input-slider"
-        valueLabelDisplay="auto"
-        min={30}
-        max={1000}
-        className="slider-select"
-      />
-      <br />
+{/* Removed Width and Height TextFields */}     
       <Button
         variant="contained"
         onClick={handleSubmit}

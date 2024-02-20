@@ -13,6 +13,8 @@ import { Password } from "@mui/icons-material";
 import { ImportStats } from "../../GlobelStats/GlobelStats";
 import { AntSwitch } from "../DesignComponents/Options/ColorHelper.jsx/GradientColorPicker";
 import { useNavigate } from "react-router-dom";
+import './inputStyles.css'
+
 // Assuming countries data is imported or defined elsewhere in your project
 const network = ["WPA/WPA2", "WEP", "No Encryption"];
 const Wifi = ({ prop }) => {
@@ -93,7 +95,7 @@ const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default t
     setActiveStep(2);  };
   
   return (
-    <div>
+    <div className="option-container-home">
       {nameError && <ErrorBar message={nameError} />}
       <div className="heading-container">
         <span className="heading-2">Create Your Phone Call QR Code</span>
@@ -145,29 +147,7 @@ const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default t
           />
         </Grid>
       </Grid>
-      <br />
-      <div className="toggle-button" style={{ justifyContent: "left" }}>
-        <FormControlLabel
-          control={<AntSwitch checked={isHide} onChange={toggleButton} />}
-          label=""
-        />
-        <span className="text-switch">Hide</span>
-      </div>
-      <br />
-      <Typography id="input-slider" gutterBottom>
-        QR Code Size
-      </Typography>
-      <Slider
-        value={size}
-        onChange={(e, newValue) => setSize(newValue)}
-        aria-labelledby="input-slider"
-        valueLabelDisplay="auto"
-        min={30}
-        max={1000}
-        className="slider-select"
-      />
-      <br />
-      <Button
+        <Button
         variant="contained"
         onClick={handleSubmit}
         style={{ marginTop: 20 }}

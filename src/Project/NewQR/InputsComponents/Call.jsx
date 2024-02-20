@@ -5,6 +5,8 @@ import { isValidPhoneNumber } from 'libphonenumber-js';
 import { countries } from "./CountriesList";
 import { ImportStats } from "../../GlobelStats/GlobelStats";
 import { useNavigate } from "react-router-dom";
+import './inputStyles.css'
+
 const Call = () => {
   const { 
     qrCodeSettings,
@@ -15,7 +17,6 @@ const Call = () => {
     const [selectedCountry, setSelectedCountry] = useState(countries[0].dial_code); // Default to the first country's dial code
     const [number, setNumber] = useState("");
     const [qrName, setQrName] = useState(qrCodeSettings.qrName);
-    const [size, setSize] = useState(qrCodeSettings.size.width);
     const [numberError, setNumberError] = useState("");
     const navigate = useNavigate()
 
@@ -23,7 +24,6 @@ const Call = () => {
     useEffect(() => {
       setNumber(qrCodeSettings.inputData.call.number);
       setQrName(qrCodeSettings.qrName);
-      setSize(qrCodeSettings.size.width); // Sync with external updates
     }, [qrCodeSettings]);
   
     const handleSubmit = () => {
@@ -66,14 +66,13 @@ const Call = () => {
           }, 
         },
         qrName: qrName.trim(),
-        size: { width: size, height: size },
       }));
     navigate('/create/input/design');
     setActiveStep(2);
     };
   
     return (
-      <div>
+      <div className="option-container-home">
         {numberError && <ErrorBar message={numberError} />}
         <div className="heading-container">
         <span className="heading-2">Create Your Phone Call QR Code</span>
@@ -113,19 +112,8 @@ const Call = () => {
             //   helperText={numberError || "Enter phone number without country code."}
             />
           </Grid>
-        </Grid>
-           <Typography id="input-slider" gutterBottom>QR Code Size</Typography>
-        <Slider
-          value={size}
-          onChange={(e, newValue) => setSize(newValue)}
-          aria-labelledby="input-slider"
-          valueLabelDisplay="auto"
-          min={30}
-          max={1000}
-          className="slider-select"
-
-        />
-        <br/>
+        </Grid> 
+        <p>Your QR code will open this URL.</p>    
         <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
           Generate QR Code
         </Button>

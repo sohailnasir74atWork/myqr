@@ -3,6 +3,8 @@ import { Button, TextField, Slider, Typography } from "@mui/material";
 import ErrorBar from "../../Error";
 import { ImportStats } from "../../GlobelStats/GlobelStats";
 import { useNavigate } from "react-router-dom";
+import './inputStyles.css'
+
 
 const Text = () => {
   const { 
@@ -98,7 +100,7 @@ const Text = () => {
   
 
   return (
-    <div>
+    <div className="option-container-home">
       {textError && <ErrorBar message={textError} />}
       {nameError && <ErrorBar message={nameError} />}
       <div className="heading-container">
@@ -125,21 +127,7 @@ const Text = () => {
       <p className="text">Your QR code will show this text.</p>
 
       {/* Removed Width and Height TextFields */}
-      <br/>
-      <Typography id="track-inverted-slider" gutterBottom>
-        Control Size
-      </Typography>
-      <Slider
-        value={size}
-        onChange={handleSizeChange}
-        aria-labelledby="input-slider"
-        valueLabelDisplay="auto"
-        min={30}
-        max={1000}
-        className="slider-select"
-        
-      />
-      <br/>
+      
 
       <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
         Submit
