@@ -150,7 +150,7 @@ const LogoHandling = () => {
       <div className="text-primary">You can pick from Below</div>
       <div className="logo-container">
       <div className="logo center" onClick={handleRemoveLogo}
-              style={{cursor:'pointer'}}><BlockIcon sx={{color:'red', fontSize:'40px'}}/></div>
+              style={{cursor:'pointer', background:'pink', border:'2px'}}><BlockIcon sx={{color:'red', fontSize:'40px'}}/></div>
         {logos.map((item, index) => {
           return <img
             src={item}
