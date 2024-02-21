@@ -40,8 +40,10 @@
   .qr-code-container {
     width: 300px;
     height: 300px;
-    /* padding: 20px; */
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--white-color);
     border: 20px solid var(--darkgreen-color);
   }

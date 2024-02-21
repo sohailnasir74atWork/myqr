@@ -205,7 +205,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
     )
   ) : (
     // Show placeholder image when there's no data
-    <div className="qr-box-home">
+    <div className="qr-code-container">
       <Lottie options={defaultOptions} height={280} width={280} />
     </div>
   )}
