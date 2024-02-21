@@ -148,18 +148,47 @@ const LogoHandling = () => {
       <br />
       <Divider />
       <div className="text-primary">You can pick from Below</div>
-      <div className="logo-container">
-      <div className="logo center" onClick={handleRemoveLogo}
-              style={{cursor:'pointer', background:'pink', border:'2px'}}><BlockIcon sx={{color:'red', fontSize:'40px'}}/></div>
-        {logos.map((item, index) => {
-          return <img
-            src={item}
-            className={`logo ${selectedLogo === item ? "selected" : ""}`}
+      {!isMobile && <div>
+  <div className="logo-container">
+    <div className="logo center" onClick={handleRemoveLogo}
+      style={{ cursor: 'pointer', background: 'pink', border: '2px' }}><BlockIcon sx={{ color: 'red', fontSize: '40px' }} /></div>
+    {logos.map((item, index) => (
+      <img
+        key={index}
+        src={item}
+        className={`logo ${selectedLogo === item ? "selected" : ""}`}
+        onClick={() => handleClickLogo(item)}
+      />
+    ))}
+  </div>
+</div>}
+{isMobile &&  <div>
+  <div className="logo-container">
+    <div className="logo center" onClick={handleRemoveLogo}
+      style={{ cursor: 'pointer', background: 'pink', border: '2px' }}><BlockIcon sx={{ color: 'red', fontSize: '40px' }} /></div>
+    {logos.slice(0, logos.length / 2).map((item, index) => (
+      <img
+        key={index}
+        src={item}
+        className={`logo ${selectedLogo === item ? "selected" : ""}`}
+        onClick={() => handleClickLogo(item)}
+      />
+    ))}
+  </div>
+  <div className="logo-container">
+    <div className="logo center" onClick={handleRemoveLogo}
+      style={{ cursor: 'pointer', background: 'pink', border: '2px' }}><BlockIcon sx={{ color: 'red', fontSize: '40px' }} /></div>
+    {logos.slice(logos.length / 2).map((item, index) => (
+      <img
+        key={index}
+        src={item}
+        className={`logo ${selectedLogo === item ? "selected" : ""}`}
+        onClick={() => handleClickLogo(item)}
+      />
+    ))}
+  </div>
+</div>}
 
-            onClick={() => handleClickLogo(item)}
-          />
-        })}
-      </div>
     </div>
   );
 };
