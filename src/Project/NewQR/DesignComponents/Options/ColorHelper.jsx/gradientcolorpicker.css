@@ -69,9 +69,8 @@
   .input-demo:focus-visible {
     position: relative;
     height: 50px;
-    border-radius: 50px;
-    border-width: 1px;
-    border-style: solid;
+    border-radius: 8px;
+    border: 3px solid var(--darkgreen-color);
     /* Set the border style explicitly */
     outline: none;
     /* Remove the default outline on focus */

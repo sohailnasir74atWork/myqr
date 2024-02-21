@@ -73,13 +73,13 @@
   
   .upload-button {
     display: inline-block;
-    border-radius: 50px;
+    border-radius: 8px;
     padding: 3px 7px;
     cursor: pointer;
     background-color: #2196F3; /* Material-UI primary color, change as needed */
     color: #fff;
     border: none;
-    border-radius: 50px;
+    border-radius: 8px;
     font-size: 14px;
     transition: background-color 0.3s ease;
   
