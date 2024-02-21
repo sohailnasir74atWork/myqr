@@ -51,7 +51,7 @@ export default function StepperComponent({prop}) {
         })}
 
       </Stepper>
-      {isMobile && (
+      {/* {isMobile && (
             <IconButton
               color="black"
               aria-label="open drawer"
@@ -65,7 +65,7 @@ export default function StepperComponent({prop}) {
             >
               <MenuIcon />
             </IconButton>
-          )}
+          )} */}
       <Box sx={{position:'fixed', right: '20px'}}>
         {!isMobile && <Box sx={{ display: "flex", flexDirection: "row"}}>
           <Button

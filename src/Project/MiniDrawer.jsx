@@ -164,35 +164,66 @@ export default function MiniDrawer() {
     else
 {    navigate(e)
 }  }
+const CommonIconButton = () => (
+  <IconButton
+    color="black"
+    aria-label="open drawer"
+    onClick={() => handleDrawerToggle()}
+    edge="start"
+    sx={{
+      position: "absolute",
+      right: "10px",
+      // ...(open && { display: "none" }),
+    }}
+  >
+    <MenuIcon />
+  </IconButton>
+);
 
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open} sx={{ backgroundColor: 'var(--background-color)' }}>
-        {isMobile && !open && <Toolbar>
-          {!isMobile && <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerToggle}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>}
-          {location.pathname.includes('/create') && <StepperComponent prop={{ handleBack, handleNext, activeStep, setActiveStep, open, handleDrawerToggle }} />}
-          {location.pathname.includes('/template/') && (
-            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>Template header</Box>
-          )}
-          {location.pathname.includes('/stats/') && (
-            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>Stats header</Box>
-          )}
-          {location.pathname.includes('/myqr/') && (
-            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>My qr header header</Box>
-          )}
-        </Toolbar>}
+      {isMobile && !open && (
+  <Toolbar>
+    {!isMobile && (
+      <IconButton
+        color="inherit"
+        aria-label="open drawer"
+        onClick={handleDrawerToggle}
+        edge="start"
+        sx={{
+          marginRight: 5,
+          ...(open && { display: 'none' }),
+        }}
+      >
+        <MenuIcon />
+      </IconButton>
+    )}
+    
+    {location.pathname.includes('/create') && (
+      <>
+        <StepperComponent prop={{ handleBack, handleNext, activeStep, setActiveStep, open, handleDrawerToggle }} />
+        <CommonIconButton />
+      </>
+    )}
+
+    {location.pathname.includes('/templates') && (
+      <>
+        <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>Template header</Box>
+        <CommonIconButton />
+      </>
+    )}
+
+    {location.pathname.includes('/stats/') && (
+      <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>Stats header</Box>
+    )}
+
+    {location.pathname.includes('/myqr/') && (
+      <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>My qr header header</Box>
+    )}
+  </Toolbar>
+)}
         {!isMobile && <Toolbar>
           {!isMobile && <IconButton
             color="inherit"
@@ -207,14 +238,14 @@ export default function MiniDrawer() {
             <MenuIcon />
           </IconButton>}
           {location.pathname.includes('/create') && <StepperComponent prop={{ handleBack, handleNext, activeStep, setActiveStep, open, handleDrawerToggle }} />}
-          {location.pathname.includes('/template/') && (
-            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>Template header</Box>
+          {location.pathname.includes('templates') && 
+            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Template header</Box>
+          }
+          {location.pathname.includes('stats') && (
+            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Stats header</Box>
           )}
-          {location.pathname.includes('/stats/') && (
-            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>Stats header</Box>
-          )}
-          {location.pathname.includes('/myqr/') && (
-            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>My qr header header</Box>
+          {location.pathname.includes('myqr') && (
+            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>My qr header header</Box>
           )}
         </Toolbar>}
       </AppBar>
