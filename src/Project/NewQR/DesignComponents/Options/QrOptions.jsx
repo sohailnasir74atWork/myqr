@@ -76,7 +76,7 @@ const QrOptions = () => {
         aria-labelledby="margin-slider"
         valueLabelDisplay="auto"
         min={0}
-        max={20}
+        max={100}
       />
       <br />
       <Slider

@@ -40,9 +40,10 @@
   .qr-code-container {
     width: 300px;
     height: 300px;
-    padding: 20px;
+    /* padding: 20px; */
     border-radius: 10px;
     background-color: var(--white-color);
+    border: 20px solid var(--darkgreen-color);
   }
   
   .qr-code-container canvas {

@@ -177,3 +177,6 @@ body {
 .p-b-60{
   padding-bottom: 60px;
 }
+.css-1tego14-MuiInputBase-root-MuiOutlinedInput-root, .css-sm5xg8-MuiInputBase-root-MuiOutlinedInput-root{
+  border-radius: 50px !important;
+}
