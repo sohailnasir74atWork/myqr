@@ -52,7 +52,8 @@ const SelectScreen = () => {
                   <div className="flex-col">
                     <span className="text-primary">{item.heading}</span>
                     <span className="text-secondary">{item.text}</span>
-                  </div>
+                    </div>
+                    <span className="free-tag">Free</span>
                 </div>
               ))}
             </div>
@@ -73,6 +74,7 @@ const SelectScreen = () => {
                     <span className="text-primary">{item.heading}</span>
                     <span className="text-secondary">{item.text}</span>
                   </div>
+                  <span className="paid-tag">Pro</span>
                 </div>
               ))}
             </div>
