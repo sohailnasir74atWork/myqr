@@ -168,7 +168,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
   }, [qrDataLocal, canvasRef, qrData]); // Dependencies include qrCodeSettings and canvasRef to re-run the effect appropriately
 
   function handleDownloadClick(typeOfImg, qrName) {
-    console.log(typeOfImg, qrName)
+    // console.log(typeOfImg, qrName)
     if (qrCode && qrCode.download) {
       qrCode
         .download({

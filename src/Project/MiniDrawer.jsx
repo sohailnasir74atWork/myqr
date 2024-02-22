@@ -114,7 +114,7 @@ export default function MiniDrawer() {
     setOpen(true);
   };
   const handleDrawerClose = (e) => {
-    console.log(e)
+    // console.log(e)
     if(isMobile){setOpen(false)}
     // if(e === 0 && ) 
     // { setOpenAlert(true)
