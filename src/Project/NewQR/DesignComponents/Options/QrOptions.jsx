@@ -64,7 +64,7 @@ const QrOptions = () => {
       />
       <div style={{marginLeft:'20px', width:'150px'}}>{`${size}px  *  ${size}px`}</div>
       </div>
-      <div style={{ display: 'flex', marginBottom: '10px' }}>
+      <div style={{ display: 'flex', marginBottom: '10px' , alignItems:'center'}}>
       <div>Adjust Padding</div>
       </div>
       <div style={{ display: 'flex', marginBottom: '10px', }}>
@@ -78,17 +78,17 @@ const QrOptions = () => {
       />
       <div style={{marginLeft:'20px', width:'150px'}}>{`${margin}px`}</div>
       </div>
-      <div style={{ display: 'flex', marginBottom: '10px' }}>
+      <div style={{ display: 'flex', marginBottom: '10px' , alignItems:'center'}}>
       <div>Adjust QR Error Correction</div>
       </div>
-      <div style={{ display: 'flex', marginBottom: '10px' }}>
+      <div style={{ display: 'flex', marginBottom: '10px' , alignItems:'center'}}>
       <Slider
         value={correction}
         onChange={throttledHandleCorrectionChange}
         aria-labelledby="correction-slider"
         valueLabelDisplay="auto"
         step={1}
-        marks={correctionMarks}
+        // marks={correctionMarks}
         min={0}
         max={100}
       />
