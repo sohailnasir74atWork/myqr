@@ -173,10 +173,9 @@ const CommonIconButton = () => (
     sx={{
       position: "absolute",
       right: "10px",
-      // ...(open && { display: "none" }),
     }}
   >
-    <MenuIcon />
+    <MenuIcon  />
   </IconButton>
 );
 
@@ -226,7 +225,7 @@ const CommonIconButton = () => (
 )}
         {!isMobile && <Toolbar>
           {!isMobile && <IconButton
-            color="inherit"
+            // color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerToggle}
             edge="start"
