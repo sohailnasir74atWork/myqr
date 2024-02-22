@@ -51,7 +51,7 @@ const QrOptions = () => {
 
 
   return (
-    <Box sx={{ maxWidth: '400px' }}>
+    <Box sx={{ maxWidth: '400px' }} className={isMobile ? "option-container-home p-v-15 accordion-open" : "p-v-15 accordion-open"}>
       <div>Adjust Size</div>
       <div style={{ display: 'flex', marginBottom: '10px', }}>
       <Slider
