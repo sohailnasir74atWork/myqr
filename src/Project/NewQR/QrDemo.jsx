@@ -25,7 +25,7 @@ export default function QrDemo({ prop }) {
     <div className="demo-container" >
       <div className="types-of-qr-mobile-demo">
         <div className="heading-container" style={{ width: "100%" }}>
-          <span className="heading-2 center">Demo</span>
+          <span className="heading-2 center">Preview</span>
         </div>
         <div className="mobile-frame">
          <div className="demo-preview">

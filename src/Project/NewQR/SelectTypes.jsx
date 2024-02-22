@@ -53,7 +53,7 @@ const SelectScreen = () => {
                     <span className="text-primary">{item.heading}</span>
                     <span className="text-secondary">{item.text}</span>
                     </div>
-                    <span className="free-tag">Free</span>
+                    {/* <span className="free-tag">Free</span> */}
                 </div>
               ))}
             </div>
