@@ -4,11 +4,10 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
-import EditIcon from '@mui/icons-material/Edit';
-import ArchiveIcon from '@mui/icons-material/Archive';
-import FileCopyIcon from '@mui/icons-material/FileCopy';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 const StyledMenu = styled((props) => (
   <Menu
     elevation={0}
@@ -35,18 +34,25 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-export default function DownloadOnMobile() {
+export default function DownloadOnMobile({ prop }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [selectedFormat, setSelectedFormat] = React.useState('PNG');
+  const { handleDownloadClick, qrCodeSettings } = prop;
   const open = Boolean(anchorEl);
+  const { pathname } = useLocation(); // Destructure pathname directly
+const navigation = useNavigate();
+const disabled = () => pathname.includes('design');
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   const handleSelect = (format) => {
     setSelectedFormat(format);
+    handleDownloadClick(format.toLocaleLowerCase(), qrCodeSettings.name);
     handleClose();
   };
 
@@ -58,13 +64,15 @@ export default function DownloadOnMobile() {
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         variant="contained"
-        disableElevation
-        // onClick={'handleClick'}
-        endIcon={<KeyboardArrowDownIcon onClick={handleClick} />}
+        // disableElevation
+        onClick={handleClick}
+        disabled={!disabled()}
         sx={{ display: 'flex', justifyContent: 'space-between', width: 'auto', borderRadius: '50px' }}
       >
-        {selectedFormat} Download
+        Download
+        <KeyboardArrowDownIcon />
       </Button>
+
       <StyledMenu
         id="demo-customized-menu"
         MenuListProps={{
@@ -74,27 +82,24 @@ export default function DownloadOnMobile() {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={() => handleSelect('SVG')} disableRipple sx={{display:'flex', justifyContent:'space-between'}}>
-        SVG
+        <MenuItem onClick={() => handleSelect('SVG')} disableRipple sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          SVG
           <CloudDownloadIcon />
-          
         </MenuItem>
         <Divider />
-        <MenuItem onClick={() => handleSelect('PNG')} disableRipple sx={{display:'flex', justifyContent:'space-between'}}>
-        PNG
-        <CloudDownloadIcon />
-          
+        <MenuItem onClick={() => handleSelect('PNG')} disableRipple sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          PNG
+          <CloudDownloadIcon />
         </MenuItem>
         <Divider />
-        <MenuItem onClick={() => handleSelect('WEBP')} disableRipple sx={{display:'flex', justifyContent:'space-between'}}>
-        WEBP
-        <CloudDownloadIcon />
-         
+        <MenuItem onClick={() => handleSelect('WEBP')} disableRipple sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          WEBP
+          <CloudDownloadIcon />
         </MenuItem>
         <Divider />
-        <MenuItem onClick={() => handleSelect('JPEG')} disableRipple sx={{display:'flex', justifyContent:'space-between'}}>
-        JPEG
-        <CloudDownloadIcon />
+        <MenuItem onClick={() => handleSelect('JPEG')} disableRipple sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          JPEG
+          <CloudDownloadIcon />
         </MenuItem>
       </StyledMenu>
     </div>

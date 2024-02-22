@@ -168,6 +168,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
   }, [qrDataLocal, canvasRef, qrData]); // Dependencies include qrCodeSettings and canvasRef to re-run the effect appropriately
 
   function handleDownloadClick(typeOfImg, qrName) {
+    console.log(typeOfImg, qrName)
     if (qrCode && qrCode.download) {
       qrCode
         .download({
@@ -211,12 +212,13 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
   )}
       {!liveDemo && !template && (
         <div className="button-home-container">
-          <Button variant="contained" color="primary" disabled={!qrCode} onClick={() => handleDownloadClick("png", qrCodeSettings.qrName)} style={{ color: "white", fontSize: ".8rem" }} className="button">
+          {/* <Button variant="contained" color="primary" disabled={!qrCode} onClick={() => handleDownloadClick("png", qrCodeSettings.qrName)} style={{ color: "white", fontSize: ".8rem" }} className="button">
             Download PNG
           </Button>
           <Button variant="contained" style={{ color: "white", fontSize: ".8rem" }} disabled={!qrCode} onClick={() => handleDownloadClick("webp", qrCodeSettings.qrName)} className="button">
             Download WEBP
-          </Button>
+          </Button> */}
+          <DownloadOnMobile prop={{handleDownloadClick, qrCodeSettings}}/>
         </div>
       )}
 
@@ -224,7 +226,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
       <div ref={canvasRef} className="qr-template-container"></div>
 
       </div>}
-      {liveDemo && <div className="center" style={{marginTop:'10px'}}> <DownloadOnMobile/> </div>}</div></>
+      {liveDemo && <div className="center" style={{marginTop:'10px'}}> <DownloadOnMobile prop={{handleDownloadClick, qrCodeSettings}}/> </div>}</div></>
   );
 };
 
