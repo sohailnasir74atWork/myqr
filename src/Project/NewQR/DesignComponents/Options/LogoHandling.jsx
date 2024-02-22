@@ -80,7 +80,6 @@ const LogoHandling = () => {
 
   return (
     <div className={isMobile ? "option-container-home p-b-60 accordion-open" : "p-v-15 accordion-open"}>
-      <br />
       <div className="flex-row">
       <div style={{marginBottom:'10px'}}>
       <input
@@ -144,7 +143,6 @@ const LogoHandling = () => {
           />
         ))}
         </div>}
-        <br/>
       <Divider />
       <div style={{padding:'10px'}}>Select from here</div>
       {!isMobile && <div>

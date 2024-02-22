@@ -86,7 +86,6 @@ const ShapesHandling = () => {
             
           ))}
         </div>
-        <br/>
         <Divider />
         <div className="block heading-3">Corner Styles</div>
         <div className="logo-container">
@@ -94,7 +93,6 @@ const ShapesHandling = () => {
           <img key={index} onClick={() => handleClickCorner(src.type)} src={src.style} alt={`Image ${index + 1}`} className={`logo ${selectedCorner === src.type ? "selected" : ""}`}/>
           ))}
         </div>
-        <br/>
         <Divider />
         <div className="block heading-3">Corner Center Styles</div>
         <div className="logo-container">
