@@ -1,87 +1,90 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Slider, Box } from "@mui/material";
 import { ImportStats } from "../../../GlobelStats/GlobelStats";
+import _ from 'lodash'; // Import lodash
 
 const correctionMarks = [
-  { value: 0, label: 'L' }, // Low
-  { value: 33, label: 'M' }, // Medium
-  { value: 66, label: 'Q' }, // Quartile (Corrected from 'S' to 'Q')
-  { value: 100, label: 'H' }, // High
+  { value: 0, label: 'L' },
+  { value: 33, label: 'M' },
+  { value: 66, label: 'Q' },
+  { value: 100, label: 'H' },
 ];
 
 const QrOptions = () => {
   const { setQrCodeSettings, qrCodeSettings, isMobile } = ImportStats();
   const [size, setSize] = useState(qrCodeSettings.size.width);
   const [margin, setMargin] = useState(qrCodeSettings.margin);
-  const [correction, setCorrection] = useState(
-    correctionMarks.find((mark) => mark.label === qrCodeSettings.correction)?.value || 0
-  );
+  const [correction, setCorrection] = useState();
 
   useEffect(() => {
-    // Find the correction value instead of label to match the slider value
     const foundMark = correctionMarks.find((mark) => mark.label === qrCodeSettings.correction);
     setCorrection(foundMark ? foundMark.value : 0);
     setMargin(qrCodeSettings.margin);
     setSize(qrCodeSettings.size.width);
   }, [qrCodeSettings]);
 
-  const handleSizeChange = (_, newValue) => {
+  // Use useCallback to memoize the throttled function
+  const throttledHandleSizeChange = useCallback(_.throttle((_, newValue) => {
     setSize(newValue);
     setQrCodeSettings({
       ...qrCodeSettings,
       size: { width: newValue, height: newValue },
     });
-  };
+  }, 4000), [qrCodeSettings]); // Add dependencies if any state or props that the function depends on changes
 
-  const handleMarginChange = (_, newValue) => {
+  const throttledHandleMarginChange = useCallback(_.throttle((_, newValue) => {
     setMargin(newValue);
     setQrCodeSettings({
       ...qrCodeSettings,
       margin: newValue,
     });
-  };
+  }, 4000), [qrCodeSettings]);
 
-  const handleCorrectionChange = (_, newValue) => {
-    // Adjust the logic to match the correct value ranges for L, M, Q, H
-    const newCorrection = correctionMarks.reduce((acc, curr) => newValue >= curr.value ? curr.label : acc, 'L');
-
+  const throttledHandleCorrectionChange = useCallback(_.throttle((_, newValue) => {
+    const newCorrection = correctionMarks.reduce((acc, curr) => (newValue >= curr.value ? curr.label : acc), 'L');
+    setCorrection(newValue); // Update local state immediately for responsive UI
     setQrCodeSettings({
       ...qrCodeSettings,
       correction: newCorrection,
     });
-  };
+  }, 4000), [qrCodeSettings]);
+
 
   return (
-    <Box sx={{ width: 300 }}>
-      <div style={{ display: 'flex', marginBottom: '10px' }}>
-        <div style={{ marginRight: '20px' }}>Adjust Width</div>
-        <div>{size} x {size}</div>
-      </div>
+    <Box sx={{ maxWidth: '400px' }}>
+      <div>Adjust Size</div>
+      <div style={{ display: 'flex', marginBottom: '10px', }}>
       <Slider
         value={size}
-        onChange={handleSizeChange}
+        onChange={throttledHandleSizeChange}
         aria-labelledby="size-slider"
         valueLabelDisplay="auto"
-        min={30}
+        min={100}
         max={1000}
       />
-      <br />
-      <div style={{ display: 'flex', marginBottom: '10px' }}>
-        <div style={{ marginRight: '20px' }}>Adjust Padding</div>
-        <div>{margin}px</div>
+      <div style={{marginLeft:'20px', width:'150px'}}>{`${size}px  *  ${size}px`}</div>
       </div>
+      <div style={{ display: 'flex', marginBottom: '10px' }}>
+      <div>Adjust Padding</div>
+      </div>
+      <div style={{ display: 'flex', marginBottom: '10px', }}>
       <Slider
         value={margin}
-        onChange={handleMarginChange}
+        onChange={throttledHandleMarginChange}
         aria-labelledby="margin-slider"
         valueLabelDisplay="auto"
         min={0}
         max={100}
       />
-      <br />
+      <div style={{marginLeft:'20px', width:'150px'}}>{`${margin}px`}</div>
+      </div>
+      <div style={{ display: 'flex', marginBottom: '10px' }}>
+      <div>Adjust QR Error Correction</div>
+      </div>
+      <div style={{ display: 'flex', marginBottom: '10px' }}>
       <Slider
         value={correction}
-        onChange={handleCorrectionChange}
+        onChange={throttledHandleCorrectionChange}
         aria-labelledby="correction-slider"
         valueLabelDisplay="auto"
         step={1}
@@ -89,6 +92,8 @@ const QrOptions = () => {
         min={0}
         max={100}
       />
+        <div style={{marginLeft:'20px', width:'150px'}}>{qrCodeSettings.correction === 'L' ? 'LOW': (qrCodeSettings.correction === 'M' ?  'Medium' : (qrCodeSettings.correction === 'Q' ?  'Standard' : qrCodeSettings.correction === 'H' ?  'Heigh' : '') )}</div>
+      </div>
     </Box>
   );
 };

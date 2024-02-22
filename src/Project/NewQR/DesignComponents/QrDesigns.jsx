@@ -14,6 +14,7 @@ import FilterFramesIcon from '@mui/icons-material/FilterFrames';
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import LogoHandling from './Options/LogoHandling';
 import QrOptions from './Options/QrOptions';
+import AspectRatioIcon from '@mui/icons-material/AspectRatio';
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -123,8 +124,8 @@ export default function CustomizedAccordions({ prop }) {
           id="panel5d-header"
           sx={{ height: '80px' }}
         >
-          <FilterFramesIcon sx={{ color: purple[500] }} />
-          <Typography style={{ paddingLeft: '10px' }} className='text-primary'>QR Options</Typography>
+          <AspectRatioIcon sx={{ color: purple[500] }} />
+          <Typography style={{ paddingLeft: '10px' }} className='text-primary'>QR Size</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <QrOptions prop={{setQrCodeSettings, qrCodeSettings}}/>
