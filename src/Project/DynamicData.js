@@ -74,6 +74,7 @@ import logo47 from '../Assets/defaultlogo/logo (47).svg';
 import logo48 from '../Assets/defaultlogo/logo (48).svg';
 import logo49 from '../Assets/defaultlogo/logo (1).png';
 import logo50 from '../Assets/defaultlogo/logo (2).png';
+import { AppBlockingTwoTone } from "@mui/icons-material";
 
 
 
@@ -155,6 +156,11 @@ export const staticTools = [
     icon: <img src={SMS} alt="SMS" class='img-static'/>,
     heading: "SMS",
     text: "Send a Text Message",
+  },
+  {
+    icon: <img src={SMS} alt="APP" class='img-static'/>,
+    heading: "APP",
+    text: "Download Mobile App",
   },
   // {
   //   icon: <img src={Paypal} alt="Paypal" class='img-static'/>,

@@ -19,7 +19,6 @@ const Message = ({ prop }) => {
     const [number, setNumber] = useState("");
     const [message, setMessage] = useState("");
     const [qrName, setQrName] = useState(qrCodeSettings.qrName);
-    const [size, setSize] = useState(qrCodeSettings.size.width);
     const [numberError, setNumberError] = useState("");
     const navigate = useNavigate()
 
@@ -27,7 +26,6 @@ const Message = ({ prop }) => {
       setNumber(qrCodeSettings.inputData.message.number);
       setMessage(qrCodeSettings.inputData.message.message);
       setQrName(qrCodeSettings.qrName);
-      setSize(qrCodeSettings.size.width); // Sync with external updates
     }, [qrCodeSettings]);
     const handleSubmit = () => {
       const fullNumber = selectedCountry + number;
@@ -41,36 +39,9 @@ const Message = ({ prop }) => {
         ...prevSettings,
         inputData: {
           ...prevSettings.inputData,
-          url: { ...prevSettings.inputData.url, value: null }, // Optionally clear other types
-          text: { ...prevSettings.inputData.text, value: null }, // Optionally clear other types
-          mail: { ...prevSettings.inputData.mail, email: null, message: null },
-          whatsapp: { ...prevSettings.inputData.whatsapp, number: null, message: null },
           message: { ...prevSettings.inputData.message, number: fullNumber, message: message },
-          call: { ...prevSettings.inputData.call, number: null },
-          vcard: { ...prevSettings.inputData.vcard, firstName: null,
-            lastName: null,
-            phoneNumber: null,
-            mobile: null,
-            email: null,
-            website: null,
-            company: null,
-            jobTitle: null,
-            address: null,
-            fax: null,
-            city: null,
-            postalCode: null,
-            country: null, },
-          wifi: {
-            ...prevSettings.inputData.wifi,
-            networkName: null,
-            networkType: null,
-            password: null,
-            isHide: null,
-          },  
- 
         },
         qrName: qrName.trim(),
-        size: { width: size, height: size },
       }));
     navigate('/create/input/design');
     setActiveStep(2);

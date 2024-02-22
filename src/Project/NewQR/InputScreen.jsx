@@ -12,6 +12,7 @@ import Wifi from "./InputsComponents/Wifi";
 import QrDemo from "./QrDemo";
 import Vcard from "./InputsComponents/Vcard";
 import './InputsComponents/inputStyles.css'
+import App from "./InputsComponents/App";
 const InputScreen = () => {
   const { 
     handleNext,
@@ -115,6 +116,16 @@ const InputScreen = () => {
       )}
       {activeTool === "V-Card" && (
         <Vcard
+            prop={{
+              setQrCodeSettings,
+              qrCodeSettings,
+              handleNext,
+              isMobile,
+            }}
+          />
+      )}
+      {activeTool === "APP" && (
+        <App
             prop={{
               setQrCodeSettings,
               qrCodeSettings,

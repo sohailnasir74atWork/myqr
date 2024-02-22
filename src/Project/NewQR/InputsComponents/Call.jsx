@@ -38,32 +38,7 @@ const Call = () => {
         ...prevSettings,
         inputData: {
           ...prevSettings.inputData,
-          url: { ...prevSettings.inputData.url, value: null }, // Optionally clear other types
-          text: { ...prevSettings.inputData.text, value: null }, // Optionally clear other types
-          mail: { ...prevSettings.inputData.mail, email: null, message: null },
-          whatsapp: { ...prevSettings.inputData.whatsapp, number: null, message: null },
-          message: { ...prevSettings.inputData.message, number: null, message: null },
-          call: { ...prevSettings.inputData.call, number: fullNumber },
-          vcard: { ...prevSettings.inputData.vcard, firstName: null,
-            lastName: null,
-            phoneNumber: null,
-            mobile: null,
-            email: null,
-            website: null,
-            company: null,
-            jobTitle: null,
-            address: null,
-            fax: null,
-            city: null,
-            postalCode: null,
-            country: null, },
-          wifi: {
-            ...prevSettings.inputData.wifi,
-            networkName: null,
-            networkType: null,
-            password: null,
-            isHide: null,
-          }, 
+           call: { ...prevSettings.inputData.call, number: fullNumber },
         },
         qrName: qrName.trim(),
       }));

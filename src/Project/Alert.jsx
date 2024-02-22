@@ -14,6 +14,7 @@ const navigate = useNavigate()
   const handleClose = () => {
     setOpenAlert(false);
      };
+     console.log('ALERT')
  return (
     <React.Fragment>
       

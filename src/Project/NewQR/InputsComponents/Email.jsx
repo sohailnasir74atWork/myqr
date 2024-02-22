@@ -15,7 +15,6 @@ const Email = () => {
    } = ImportStats();  const [email, setEmail] = useState(""); // For the email address
   const [message, setMessage] = useState(""); // For the email message
   const [qrName, setQrName] = useState(qrCodeSettings.qrName);
-  const [size, setSize] = useState(qrCodeSettings.size.width); // Assuming width and height are initially the same
   const [emailError, setEmailError] = useState("");
   const [messageError, setMessageError] = useState("");
   const [nameError, setNameError] = useState("");
@@ -25,7 +24,6 @@ const Email = () => {
     setEmail(qrCodeSettings.inputData.mail.email);
     setMessage(qrCodeSettings.inputData.mail.message);
     setQrName(qrCodeSettings.qrName);
-    setSize(qrCodeSettings.size.width); // Sync with external updates
   }, [qrCodeSettings]);
 
 
@@ -42,10 +40,6 @@ const Email = () => {
   const handleQRNameChange = (event) => {
     setQrName(event.target.value);
     setNameError("");
-  };
-
-  const handleSizeChange = (_, newValue) => {
-    setSize(newValue);
   };
 
   const validateEmail = (email) => {
@@ -73,36 +67,9 @@ const Email = () => {
         ...prevSettings,
         inputData: {
           ...prevSettings.inputData,
-          url: { ...prevSettings.inputData.url, value: null }, // Optionally clear other types
-          text: { ...prevSettings.inputData.text, value: null }, // Optionally clear other types
           mail: { ...prevSettings.inputData.mail, email: email, message: message }, 
-          whatsapp: { ...prevSettings.inputData.whatsapp, number: null, message: null },
-          message: { ...prevSettings.inputData.message, number: null, message: null },
-          call: { ...prevSettings.inputData.call, number: null },
-          vcard: { ...prevSettings.inputData.vcard, firstName: null,
-            lastName: null,
-            phoneNumber: null,
-            mobile: null,
-            email: null,
-            website: null,
-            company: null,
-            jobTitle: null,
-            address: null,
-            fax: null,
-            city: null,
-            postalCode: null,
-            country: null, },
-          wifi: {
-            ...prevSettings.inputData.wifi,
-            networkName: null,
-            networkType: null,
-            password: null,
-            isHide: null,
-          },  
- 
-        },
+          },
         qrName: qrName.trim(),
-        size: { width: size, height: size },
       }));
       navigate('/create/input/design');
       setActiveStep(2);

@@ -23,7 +23,6 @@ const Vcard = () => {
   const [postalCode, setPostalCode] = useState("");
   const [country, setCountry] = useState("");
   const [qrName, setQrName] = useState(qrCodeSettings.qrName);
-  const [size, setSize] = useState(qrCodeSettings.size.width);
   const [errors, setErrors] = useState({});
   const navigate = useNavigate()
 
@@ -42,7 +41,6 @@ const Vcard = () => {
     setPostalCode(qrCodeSettings.inputData.vcard.postalCode);
     setCountry(qrCodeSettings.inputData.vcard.country);
     setQrName(qrCodeSettings.qrName);
-    setSize(qrCodeSettings.size.width); 
   }, [qrCodeSettings]);
 
 
@@ -68,28 +66,7 @@ const Vcard = () => {
       ...prevSettings,
       inputData: {
         ...prevSettings.inputData,
-        url: { ...prevSettings.inputData.url, value: null }, // Optionally clear other types
-        text: { ...prevSettings.inputData.text, value: null }, // Optionally clear other types
-        mail: { ...prevSettings.inputData.mail, email: null, message: null },
-        message: {
-          ...prevSettings.inputData.message,
-          number: null,
-          message: null,
-        },
-        whatsapp: {
-          ...prevSettings.inputData.whatsapp,
-          number: null,
-          message: null,
-        },
-        call: { ...prevSettings.inputData.call, number: null },
-        wifi: {
-          ...prevSettings.inputData.wifi,
-          networkName: null,
-          networkType: null,
-          password: null,
-          isHide: null,
-        },
-        vcard: {
+         vcard: {
           ...prevSettings.inputData.vcard,
           firstName: firstName,
           lastName: lastName,
@@ -107,7 +84,6 @@ const Vcard = () => {
         },
       },
       qrName: qrName.trim(),
-      size: { width: size, height: size },
     }));
     navigate('/create/input/design');
     setActiveStep(2);
@@ -265,16 +241,6 @@ const Vcard = () => {
           />
         </Grid>
       </Grid>
-      {/* <TextField
-          required
-          label="WhatsApp Message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          fullWidth
-          margin="normal"
-          multiline
-          rows={4}
-        /> */}
         <p className="text">Your QR code will save this contact to the phone scanning</p>
 
 {/* Removed Width and Height TextFields */}     

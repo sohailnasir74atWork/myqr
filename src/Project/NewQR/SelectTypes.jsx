@@ -20,7 +20,51 @@ const SelectScreen = () => {
     const navigate = useNavigate()
     const inputClick = (e) => {
       setActiveTool(e);
-      setQrCodeSettings((prevSettings) => ({ ...prevSettings, type: e })); // Update the 'type' property
+      setQrCodeSettings({
+        type:e,
+        qrName: "My QR",
+        correction: 'Q',
+        margin:0,
+        size: { height: "300", width: "300" },
+        inputData: {
+          url: { value: null },
+          app: { value: null },
+          text: { value: null },
+          mail: { email: null, message : null },
+          whatsapp: { number: null, message : null },
+          message: { number: null, message : null },
+          call: { call : null },
+          wifi: { networkName : null, networkType : null, password : null, isHide : false },
+          vcard: {firstName: null,
+            lastName: null,
+            phoneNumber: null,
+            mobile : null,
+            email: null,
+            website: null,
+            company: null,
+            jobTitle: null,
+            address: null,
+            fax: null,
+            city: null,
+            postalCode: null,
+            country: null}
+       },
+        logo: null,
+        logoSetting: { backgrounddots: true, margin: 10 },
+        colors: {
+          background: { isSolid: true, color: "#FFFFFF" },
+          dots: { isSolid: true, color: "#000000" },
+          square: { isSolid: true, color: "#000000" },
+          cornerDots: { isSolid: true, color: "#000000" },
+        },
+        types: {
+          corner: { type: "square" },
+          dots: { type: "square" },
+          square: { isSolid: true, color: "#000000" },
+          cornerDots: { type: "square" },
+        },
+        clearInput: false,
+      }); // Update the 'type' property
       setActiveStep(1)
       navigate('/create/input');
       // console.log(activeStep);

@@ -159,10 +159,13 @@ export default function MiniDrawer() {
   const handleNavigate = (e)=>{
     if(e === '/create' && qrCodeSettings.type !== '') {
       setOpenAlert(true)
+      setActiveStep(0)
       navigate(e)
     } 
     else
 {    navigate(e)
+  setActiveStep(0)
+
 }  }
 const CommonIconButton = () => (
   <IconButton

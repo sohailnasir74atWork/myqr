@@ -9,7 +9,8 @@ export const ContextProvider = ({ children }) => {
   const [activeStep, setActiveStep] = useState(0);
   const isMobile = useMediaQuery(`(max-width:600px)`);
   const [activeTool, setActiveTool] = useState("");
-  const [qrCodeSettings, setQrCodeSettings] = useState({
+  const [qrCodeSettings, setQrCodeSettings] = useState(
+    {
     type:'',
     qrName: "My QR",
     correction: 'Q',
@@ -17,6 +18,7 @@ export const ContextProvider = ({ children }) => {
     size: { height: "300", width: "300" },
     inputData: {
       url: { value: null },
+      app: { value: null },
       text: { value: null },
       mail: { email: null, message : null },
       whatsapp: { number: null, message : null },

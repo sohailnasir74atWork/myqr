@@ -24,6 +24,18 @@ if (qrDataLocal?.inputData.url.value) {
 else if (qrDataLocal?.inputData.text.value) {
     qrData = qrDataLocal?.inputData.text.value;
 }
+if (qrDataLocal?.inputData.app.value) {
+  const appUrl = qrDataLocal.inputData.app.value;
+  if (appUrl.includes("play.google.com")) {
+    qrData = appUrl;
+  } else if (appUrl.includes("apps.apple.com")) {
+    qrData = appUrl;
+  } else {
+    console.log("URL does not appear to be for Play Store or App Store:", appUrl);
+    qrData = appUrl; // Or handle differently as needed
+  }
+}
+
 else if (qrDataLocal?.inputData.mail.email && qrDataLocal?.inputData.mail.message) {
     qrData = `mailto:${qrDataLocal?.inputData.mail.email}?body=${encodeURIComponent(qrDataLocal?.inputData.mail.message)}`;
 }
