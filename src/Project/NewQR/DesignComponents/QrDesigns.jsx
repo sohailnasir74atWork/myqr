@@ -7,7 +7,7 @@ import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
-import { pink, purple, green } from '@mui/material/colors';
+import { pink, purple, green, red } from '@mui/material/colors';
 import ColorHandling from './Options/ColorHandling';
 import ShapesHandling from "./Options/ShapesHandling"
 import FilterFramesIcon from '@mui/icons-material/FilterFrames';
@@ -124,7 +124,7 @@ export default function CustomizedAccordions({ prop }) {
           id="panel5d-header"
           sx={{ height: '80px' }}
         >
-          <AspectRatioIcon sx={{ color: purple[500] }} />
+          <AspectRatioIcon sx={{ color: red[500] }} />
           <Typography style={{ paddingLeft: '10px' }} className='text-primary'>QR Size</Typography>
         </AccordionSummary>
         <AccordionDetails>

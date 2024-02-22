@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Divider, FormControlLabel, IconButton, Slider, Typography } from "@mui/material";
+import { Button, Checkbox, Divider, FormControlLabel, IconButton, Slider, Typography } from "@mui/material";
 import style1 from "../../../../Assets/Shapes/style1.svg";
 import corner1 from "../../../../Assets/Shapes/corner1.svg";
 import cornerDot1 from "../../../../Assets/Shapes/cornerDot1.svg";
@@ -12,7 +12,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import AddPhotoAlternate from "@mui/icons-material/AddPhotoAlternate";
 import DeleteIcon from '@mui/icons-material/Delete';
 import BlockIcon from '@mui/icons-material/Block';
-import { Input } from "@mui/icons-material";
+import { CheckBox, Input } from "@mui/icons-material";
 const LogoHandling = () => {
   const { setQrCodeSettings, qrCodeSettings, isMobile } = ImportStats();
   const [isLogo, setIsLogo] = useState(qrCodeSettings.logoSetting.backgrounddots)
@@ -92,7 +92,7 @@ const LogoHandling = () => {
         style={{ display: 'none' }}
       />
       <label htmlFor="upload-input">
-        <Button variant="outlined" component="span" className="button" endIcon={<AddCircleIcon/>}>
+        <Button variant="outlined" component="span" className="button" endIcon={<AddCircleIcon/>} style={{marginLeft:'10px'}}>
           Upload Image
         </Button>
       </label>
@@ -111,14 +111,14 @@ const LogoHandling = () => {
 
       </div>
       <div style={{paddingLeft:'8px'}}>
-      <div className="toggle-button-responsive" style={{ justifyContent: 'left'}}>
+      <div className="toggle-button-responsive" style={{ justifyContent: 'left', marginLeft:'0px'}}>
         <FormControlLabel
-          control={<AntSwitch checked={isLogo} onChange={handleLogoBG} disabled={!qrCodeSettings.logo} />}
-          label=""
-        />
-        <span className="text-secondary">Remove Background</span>
+          control={<Checkbox checked={isLogo} onChange={handleLogoBG} disabled={!qrCodeSettings.logo} />}
+          label='Remove Background'        />
+        {/* <span className="text-secondary"></span> */}
       </div>
-
+      <div>Set Logo Padding</div>
+      <div style={{ display: 'flex', marginBottom: '10px', maxWidth:'400px' }}>
       <Slider
         value={size}
         onChange={handleSizeChange}
@@ -127,27 +127,26 @@ const LogoHandling = () => {
         min={0}
         max={40}
         disabled={!qrCodeSettings.logo}
-        className="slider-select"
+        // className="slider-select"
       />
-
-      <span className="text-secondary block">
-        Set Logo Padding
-      </span></div>
-      <div className="logo-container">
-        {qrCodeSettings.logos &&
-          qrCodeSettings.logos.map((logo, index) => (
-            <img
-              key={index}
-              src={logo}
-              alt={`Uploaded Logo ${index + 1}`}
-              className={`logo ${selectedLogo === logo ? "selected" : ""}`}
-              onClick={() => handleClickLogo(logo)}
-            />
-          ))}
+      <div style={{marginLeft:'20px', width:'150px'}}>{`${size}px`}</div>
       </div>
-      <br />
+      </div>
+    {qrCodeSettings.logos && <div className="logo-container">
+      {qrCodeSettings.logos &&
+        qrCodeSettings.logos.map((logo, index) => (
+          <img
+            key={index}
+            src={logo}
+            alt={`Uploaded Logo ${index + 1}`}
+            className={`logo ${selectedLogo === logo ? "selected" : ""}`}
+            onClick={() => handleClickLogo(logo)}
+          />
+        ))}
+        </div>}
+        <br/>
       <Divider />
-      <div className="text-primary">You can pick from Below</div>
+      <div style={{padding:'10px'}}>Select from here</div>
       {!isMobile && <div>
   <div className="logo-container">
     <div className="logo center" onClick={handleRemoveLogo}
