@@ -13,6 +13,9 @@ export const templates = [
         "url": {
             "value": "http://localhost:3000/create/input"
         },
+        "app": {
+            "value": null
+        },
         "text": {
             "value": null
         },
@@ -104,6 +107,9 @@ export const templates = [
     },
     "inputData": {
         "url": {
+            "value": null
+        },
+        "app": {
             "value": null
         },
         "text": {
@@ -199,6 +205,9 @@ export const templates = [
         "url": {
             "value": null
         },
+        "app": {
+            "value": null
+        },
         "text": {
             "value": "sss"
         },
@@ -292,6 +301,9 @@ export const templates = [
         "url": {
             "value": null
         },
+        "app": {
+            "value": null
+        },
         "text": {
             "value": "sss"
         },
@@ -376,7 +388,7 @@ export const templates = [
     "type": "Text",
     "qrName": "My QR",
     'correction': 'Q',
-    
+
     'margin': 0,
     "size": {
         "width": "300",
@@ -384,6 +396,9 @@ export const templates = [
     },
     "inputData": {
         "url": {
+            "value": null
+        },
+        "app": {
             "value": null
         },
         "text": {
