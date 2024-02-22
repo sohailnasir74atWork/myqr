@@ -62,7 +62,7 @@ const QrOptions = () => {
         min={100}
         max={1000}
       />
-      <div style={{marginLeft:'20px', width:'150px'}}>{`${size}px  *  ${size}px`}</div>
+      <div style={{marginLeft:'20px', width:'150px', display:'flex', alignItems:'center'}}>{`${size}px  *  ${size}px`}</div>
       </div>
       <div style={{ display: 'flex', marginBottom: '10px' , alignItems:'center'}}>
       <div>Adjust Padding</div>
@@ -76,7 +76,7 @@ const QrOptions = () => {
         min={0}
         max={100}
       />
-      <div style={{marginLeft:'20px', width:'150px'}}>{`${margin}px`}</div>
+      <div style={{marginLeft:'20px', width:'150px', display:'flex', alignItems:'center'}}>{`${margin}px`}</div>
       </div>
       <div style={{ display: 'flex', marginBottom: '10px' , alignItems:'center'}}>
       <div>Adjust QR Error Correction</div>
@@ -92,7 +92,7 @@ const QrOptions = () => {
         min={0}
         max={100}
       />
-        <div style={{marginLeft:'20px', width:'150px'}}>{qrCodeSettings.correction === 'L' ? 'LOW': (qrCodeSettings.correction === 'M' ?  'Medium' : (qrCodeSettings.correction === 'Q' ?  'Standard' : qrCodeSettings.correction === 'H' ?  'Heigh' : '') )}</div>
+        <div style={{marginLeft:'20px', width:'150px', display:'flex', alignItems:'center'}}>{qrCodeSettings.correction === 'L' ? 'LOW': (qrCodeSettings.correction === 'M' ?  'Medium' : (qrCodeSettings.correction === 'Q' ?  'Standard' : qrCodeSettings.correction === 'H' ?  'Heigh' : '') )}</div>
       </div>
     </Box>
   );
