@@ -16,7 +16,7 @@ const QrGenerator = ({ prop }) => {
   const [qrDataLocal, setQrDataLocal]= useState()
   const canvasRef = useRef(null);
   const img = qrDataLocal?.logo;
-  console.log(qrDataLocal)
+  // console.log(qrDataLocal)
   let qrData = '';
 if (qrDataLocal?.inputData.url.value) {
     qrData = qrDataLocal?.inputData.url.value;
@@ -108,12 +108,14 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
       while (canvasElement.firstChild) {
         canvasElement.removeChild(canvasElement.firstChild);
       }
-
+      
       // Parsing gradient colors
       const gradientBackground = parseLinearGradient(qrDataLocal.colors.background.color);
       const gradientBorder = parseLinearGradient(qrDataLocal.colors.square.color);
       const gradientQR = parseLinearGradient(qrDataLocal.colors.dots.color);
       const gradientCenter = parseLinearGradient(qrDataLocal.colors.cornerDots.color);
+      console.log(qrDataLocal.colors.background.color)
+      console.log(gradientBackground)
 
       // Generate a new QR code
       const newQrCode = new QRCodeStyling({
@@ -127,7 +129,9 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
             ? { color: qrDataLocal.colors.dots.color }
             : {
                 gradient: {
-                  colorStops: gradientQR,
+                  colorStops: gradientQR.stops,
+                  type: '',
+                  rotation: gradientQR.angle
                 },
               }),
           type: qrDataLocal.types.dots.type,
@@ -137,7 +141,9 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
             ? { color: qrDataLocal.colors.background.color }
             : {
                 gradient: {
-                  colorStops: gradientBackground,
+                  colorStops: gradientBackground.stops,
+                  type: '',
+                  rotation: gradientBackground.angle
                 },
               }),
         },
@@ -146,7 +152,9 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
             ? { color: qrDataLocal.colors.square.color }
             : {
                 gradient: {
-                  colorStops: gradientBorder,
+                  colorStops: gradientBorder.stops,
+                  type: '',
+                  rotation: gradientBorder.angle
                 },
               }),
           type: qrDataLocal.types.corner.type,
@@ -156,7 +164,9 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
             ? { color: qrDataLocal.colors.cornerDots.color }
             : {
                 gradient: {
-                  colorStops: gradientCenter,
+                  colorStops: gradientCenter.stops,
+                  type: '',
+                  rotation: gradientCenter.angle
                 },
               }),
           type: qrDataLocal.types.cornerDots.type,
