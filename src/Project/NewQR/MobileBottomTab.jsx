@@ -14,6 +14,8 @@ import ColorHandling from "./DesignComponents/Options/ColorHandling";
 import ShapesHandling from "./DesignComponents/Options/ShapesHandling";
 import LogoHandling from "./DesignComponents/Options/LogoHandling";
 import QrGenerator from "./QrGenerator/QrGenerator";
+import { AspectRatio } from "@mui/icons-material";
+import QrOptions from "./DesignComponents/Options/QrOptions";
 
 // Define your options array here
 const options = [
@@ -21,6 +23,9 @@ const options = [
   { label: "Shapes", icon: <DashboardCustomizeIcon /> },
   { label: "Logo", icon: <FaceRetouchingNaturalIcon /> },
   { label: "Frames", icon: <CropOriginalIcon /> },
+  { label: "Size", icon: <AspectRatio /> },
+
+
 ];
 
 function TabPanel(props) {
@@ -62,6 +67,8 @@ export default function MobileBottomTab() {
     <ShapesHandling prop={{ qrCodeSettings, setQrCodeSettings, isMobile }} />,
     <LogoHandling prop={{ qrCodeSettings, setQrCodeSettings, isMobile }} />,
     <LogoHandling prop={{ qrCodeSettings, setQrCodeSettings, isMobile }} />,
+    <QrOptions prop={{ qrCodeSettings, setQrCodeSettings, isMobile }} />,
+
   ];
 
   const handleChangeIndex = (index) => {
