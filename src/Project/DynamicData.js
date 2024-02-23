@@ -16,6 +16,8 @@ import call from "../Assets/icons/call.svg";
 import Text from "../Assets/icons/text.svg";
 import SMS from "../Assets/icons/sms.svg";
 import Email from "../Assets/icons/email.svg";
+import App from "../Assets/icons/app.svg";
+import Pro from "../Assets/icons/Pro.svg";
 import Link from "../Assets/icons/web.svg";
 import Paypal from "../Assets/icons/paypal.svg";
 import VCard from "../Assets/icons/vcard.svg";
@@ -26,6 +28,7 @@ import BurstModeIcon from "@mui/icons-material/BurstMode";
 import QrCodeIcon from "@mui/icons-material/QrCode";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import PieChartIcon from '@mui/icons-material/PieChart';
+
 import logo1 from '../Assets/defaultlogo/logo (1).svg';
 import logo2 from '../Assets/defaultlogo/logo (2).svg';
 import logo3 from '../Assets/defaultlogo/logo (3).svg';
@@ -158,7 +161,7 @@ export const staticTools = [
     text: "Send a Text Message",
   },
   {
-    icon: <img src={SMS} alt="APP" class='img-static'/>,
+    icon: <img src={App} alt="APP" class='img-static'/>,
     heading: "APP",
     text: "Download Mobile App",
   },

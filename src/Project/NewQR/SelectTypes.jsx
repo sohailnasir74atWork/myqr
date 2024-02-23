@@ -3,7 +3,8 @@ import React from "react";
 import { ImportStats } from "../GlobelStats/GlobelStats";
 import { dymanicTools, staticTools } from "../DynamicData";
 import QrDemo from "./QrDemo";
-import './newqrStyle.css'
+import './newqrStyle.css';
+import Pro from "../../Assets/icons/Pro.svg"
 import { useNavigate } from "react-router-dom";
 
 const SelectScreen = () => {
@@ -118,7 +119,7 @@ const SelectScreen = () => {
                     <span className="text-primary">{item.heading}</span>
                     <span className="text-secondary">{item.text}</span>
                   </div>
-                  <span className="paid-tag">Pro</span>
+                  <span className="paid-tag"><img src={Pro} alt='pro' width='100%' height='100%'/></span>
                 </div>
               ))}
             </div>
