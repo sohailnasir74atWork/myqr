@@ -142,7 +142,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
             : {
                 gradient: {
                   colorStops: gradientBackground.stops,
-                  type: '',
+                  type: gradientBackground.type,
                   rotation: gradientBackground.angle
                 },
               }),
