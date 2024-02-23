@@ -130,7 +130,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
             : {
                 gradient: {
                   colorStops: gradientQR.stops,
-                  type: '',
+                  type: gradientQR.type,
                   rotation: gradientQR.angle
                 },
               }),
@@ -153,7 +153,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
             : {
                 gradient: {
                   colorStops: gradientBorder.stops,
-                  type: '',
+                  type: gradientBorder.type,
                   rotation: gradientBorder.angle
                 },
               }),
@@ -165,7 +165,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
             : {
                 gradient: {
                   colorStops: gradientCenter.stops,
-                  type: '',
+                  type:  gradientCenter.type,
                   rotation: gradientCenter.angle
                 },
               }),
