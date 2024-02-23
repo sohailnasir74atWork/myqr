@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactGPicker from 'react-gcolor-picker';
 import styled from "@emotion/styled";
-import { FormControlLabel, Switch } from "@mui/material";
+import { Checkbox, FormControlLabel, Switch } from "@mui/material";
 import ErrorBar from "./Error";
 import './gradientcolorpicker.css'
+import { CheckBox } from "@mui/icons-material";
 export const AntSwitch = styled(Switch)(({ theme }) => ({
   width: 28,
   height: 16,
@@ -117,18 +118,18 @@ const GradientColorPicker = ({
           <div className="flex-row-responsive-column">
             <div className="toggle-button">
               <FormControlLabel
-                control={<AntSwitch checked={isGradientToggleOn} onChange={handleGradientToggle} />}
-                label=""
+                control={<Checkbox checked={isGradientToggleOn} onChange={handleGradientToggle} />}
+                label="Gradient"
               />
-              <span className="text-switch">Gradient</span>
+              {/* <span className="text-switch">Gradient</span> */}
             </div>
             {!hideTransparent && (
               <div className="toggle-button">
                 <FormControlLabel
-                  control={<AntSwitch checked={isTransparentToggleOn} onChange={handleTransparentToggle} />}
-                  label=""
+                  control={<Checkbox checked={isTransparentToggleOn} onChange={handleTransparentToggle} />}
+                  label="Transparent"
                 />
-                <span className="text-switch">Transparent</span>
+                {/* <span className="text-switch">Transparent</span> */}
               </div>
             )}
           </div>
