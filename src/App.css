@@ -133,7 +133,7 @@ body {
   justify-content: flex-end;
 
   @media (max-width: 600px) {
-    margin-left: 10px;
+    margin-left: 0px;
     flex-direction: row-reverse;
     justify-content: right;
 
