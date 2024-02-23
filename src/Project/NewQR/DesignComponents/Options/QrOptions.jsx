@@ -14,8 +14,11 @@ const QrOptions = () => {
   const { setQrCodeSettings, qrCodeSettings, isMobile } = ImportStats();
   const [size, setSize] = useState(qrCodeSettings.size.width);
   const [margin, setMargin] = useState(qrCodeSettings.margin);
-  const [correction, setCorrection] = useState();
-
+  const [correction, setCorrection] = useState(() => {
+    const foundMark = correctionMarks.find(mark => mark.label === qrCodeSettings.correction);
+    return foundMark ? foundMark.value : 0;
+  });
+  
   useEffect(() => {
     const foundMark = correctionMarks.find((mark) => mark.label === qrCodeSettings.correction);
     setCorrection(foundMark ? foundMark.value : 0);

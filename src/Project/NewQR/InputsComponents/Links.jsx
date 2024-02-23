@@ -4,7 +4,6 @@ import ErrorBar from "../../Error";
 import { ImportStats } from "../../GlobelStats/GlobelStats";
 import { useNavigate } from "react-router-dom";
 import './inputStyles.css'
-
 const Links = () => {
   const { 
     qrCodeSettings,
