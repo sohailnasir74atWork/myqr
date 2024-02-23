@@ -67,14 +67,14 @@ export default function StepperComponent({prop}) {
             </IconButton>
           )} */}
       <Box sx={{position:'fixed', right: '20px'}}>
-        {!isMobile && <Box sx={{ display: "flex", flexDirection: "row"}}>
+        {!isMobile && activeStep !== 0 && <Box sx={{ display: "flex", flexDirection: "row"}}>
           <Button
             color="primary"
             disabled={activeStep === 0}
             onClick={handleBack}
             sx={{ mr: 1 }}
             className="button"
-            variant="contained"
+            variant="outlined"
             startIcon={<ArrowBack />}
           >
             Back
@@ -90,7 +90,7 @@ export default function StepperComponent({prop}) {
             {activeStep === 2 ? "Save" : "Next"}
           </Button>
         </Box>}
-        {isMobile && <Box sx={{ display: "flex", flexDirection: "row", paddingRight:'30px'}}>
+        {isMobile && activeStep !== 0 && <Box sx={{ display: "flex", flexDirection: "row", paddingRight:'30px'}}>
           <IconButton
             color="primary"
             disabled={activeStep === 0}
