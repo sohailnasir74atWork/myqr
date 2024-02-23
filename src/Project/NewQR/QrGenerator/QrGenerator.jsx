@@ -16,7 +16,7 @@ const QrGenerator = ({ prop }) => {
   const [qrDataLocal, setQrDataLocal]= useState()
   const canvasRef = useRef(null);
   const img = qrDataLocal?.logo;
-  // console.log(qrDataLocal)
+  console.log(qrDataLocal)
   let qrData = '';
 if (qrDataLocal?.inputData.url.value) {
     qrData = qrDataLocal?.inputData.url.value;

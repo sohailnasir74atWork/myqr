@@ -14,7 +14,7 @@ export const ContextProvider = ({ children }) => {
     type:'',
     qrName: "My QR",
     correction: 'Q',
-    margin:0,
+    margin:5,
     size: { height: "300", width: "300" },
     inputData: {
       url: { value: null },

@@ -135,7 +135,7 @@ const GradientColorPicker = ({
         </div>
         {showColorPicker && (
           <div className="color-picker">
-            <div ref={colorPickerRef} style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+            <div ref={colorPickerRef} style={{margin:'auto'}}>
             <ReactGPicker
               color={color}
               onChange={handleColorChange}
