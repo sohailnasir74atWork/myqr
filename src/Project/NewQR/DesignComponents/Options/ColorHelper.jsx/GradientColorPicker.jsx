@@ -121,7 +121,6 @@ const GradientColorPicker = ({
                 control={<Checkbox checked={isGradientToggleOn} onChange={handleGradientToggle} />}
                 label="Gradient"
               />
-              {/* <span className="text-switch">Gradient</span> */}
             </div>
             {!hideTransparent && (
               <div className="toggle-button">
@@ -129,7 +128,6 @@ const GradientColorPicker = ({
                   control={<Checkbox checked={isTransparentToggleOn} onChange={handleTransparentToggle} />}
                   label="Transparent"
                 />
-                {/* <span className="text-switch">Transparent</span> */}
               </div>
             )}
           </div>
