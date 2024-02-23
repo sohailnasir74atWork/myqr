@@ -76,13 +76,13 @@ const Email = () => {
   };
 
   return (
+    <div><div className="heading-container">
+    <span className="heading-2">Create Your Email Message QR Code</span>
+  </div>
     <div className="option-container-home">
       {emailError && <ErrorBar message={emailError} />}
       {messageError && <ErrorBar message={messageError} />}
       {nameError && <ErrorBar message={nameError} />}
-      <div className="heading-container">
-        <span className="heading-2">Create Your Email Message QR Code</span>
-      </div>
       <TextField
         required
         label="QR Name"
@@ -113,6 +113,7 @@ const Email = () => {
       <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
         Generate QR Code
       </Button>
+      </div>
     </div>
   );
 };

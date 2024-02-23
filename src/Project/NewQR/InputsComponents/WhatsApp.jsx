@@ -47,11 +47,12 @@ const WhatsApp = () => {
       setActiveStep(2);    };
   
     return (
+      <div><div className="heading-container">
+      <span className="heading-2">Create Your WhatsApp Message QR Code</span>
+    </div>
       <div className="option-container-home">
         {numberError && <ErrorBar message={numberError} />}
-        <div className="heading-container">
-        <span className="heading-2">Create Your WhatsApp Message QR Code</span>
-      </div>
+        
         <TextField
           required
           label="QR Name"
@@ -100,6 +101,7 @@ const WhatsApp = () => {
         <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
           Generate QR Code
         </Button>
+        </div>
       </div>
     );
   };

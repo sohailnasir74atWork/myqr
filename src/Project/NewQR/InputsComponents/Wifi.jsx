@@ -73,11 +73,12 @@ const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default t
     setActiveStep(2);  };
   
   return (
+    <div><div className="heading-container">
+    <span className="heading-2">Create Your Wifi Connecting QR Code</span>
+  </div>
     <div className="option-container-home">
       {nameError && <ErrorBar message={nameError} />}
-      <div className="heading-container">
-        <span className="heading-2">Create Your Phone Call QR Code</span>
-      </div>
+      
       <TextField
         required
         label="QR Name"
@@ -133,6 +134,7 @@ const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default t
       >
         Generate QR Code
       </Button>
+      </div>
     </div>
   );
 };

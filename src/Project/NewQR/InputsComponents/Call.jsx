@@ -47,12 +47,14 @@ const Call = () => {
     };
   
     return (
-      <div className="option-container-home">
-        {numberError && <ErrorBar message={numberError} />}
+      
+      <div>
         <div className="heading-container">
-        <span className="heading-2">Create Your Phone Call QR Code</span>
-      </div>
-        <TextField
+    <span className="heading-2">Create Your Phone Call QR Code</span>
+  </div>
+  <div className="option-container-home">
+        {numberError && <ErrorBar message={numberError} />}
+            <TextField
           required
           label="QR Name"
           value={qrName}
@@ -92,6 +94,7 @@ const Call = () => {
         <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
           Generate QR Code
         </Button>
+        </div>
       </div>
     );
   };

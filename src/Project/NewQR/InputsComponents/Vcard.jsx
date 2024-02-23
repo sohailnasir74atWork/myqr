@@ -90,11 +90,12 @@ const Vcard = () => {
   };
 
   return (
+    <div><div className="heading-container">
+    <span className="heading-2">Create Your V-Card QR Code</span>
+  </div>
     <div className="option-container-home">
       {Object.values(errors).map((error, index) => error && <ErrorBar key={index} message={error} />)}
-      <div className="heading-container">
-        <span className="heading-2">Create Your WhatsApp Message QR Code</span>
-      </div>
+      
       <Grid container spacing={2} alignItems="flex-end">
         <Grid item xs={6}>
           <TextField
@@ -252,6 +253,7 @@ const Vcard = () => {
       >
         Generate QR Code
       </Button>
+      </div>
     </div>
   );
 };

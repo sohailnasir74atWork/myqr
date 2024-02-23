@@ -65,13 +65,13 @@ const Text = () => {
   
 
   return (
+    <div><div className="heading-container">
+    <span className="heading-2">Fill Out the QR Code's Content</span>
+  </div>
     <div className="option-container-home">
       {textError && <ErrorBar message={textError} />}
       {nameError && <ErrorBar message={nameError} />}
-      <div className="heading-container">
-        <span className="heading-2">Fill Out the QR Code's Content</span>
-      </div>
-      <TextField
+       <TextField
         required
         label="Write Your QR Name"
         value={qrName}
@@ -97,6 +97,7 @@ const Text = () => {
       <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
         Submit
       </Button>
+      </div>
     </div>
   );
 };
