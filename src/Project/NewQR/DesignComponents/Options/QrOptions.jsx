@@ -92,7 +92,7 @@ const QrOptions = () => {
         min={0}
         max={100}
       />
-        <div style={{marginLeft:'20px', width:'150px', display:'flex', alignItems:'center'}}>{qrCodeSettings.correction === 'L' ? 'LOW': (qrCodeSettings.correction === 'M' ?  'Medium' : (qrCodeSettings.correction === 'Q' ?  'Standard' : qrCodeSettings.correction === 'H' ?  'Heigh' : '') )}</div>
+        <div style={{marginLeft:'20px', width:'150px', display:'flex', alignItems:'center'}}>{qrCodeSettings.correction === 'L' ? 'LOW': (qrCodeSettings.correction === 'M' ?  'Medium' : (qrCodeSettings.correction === 'Q' ?  'Standard' : qrCodeSettings.correction === 'H' ?  'High' : '') )}</div>
       </div>
     </Box>
   );
