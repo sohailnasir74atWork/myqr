@@ -1,7 +1,6 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { Slider, Box } from "@mui/material";
 import { ImportStats } from "../../../GlobelStats/GlobelStats";
-import _ from 'lodash'; // Import lodash
 
 const correctionMarks = [
   { value: 0, label: 'L' },
@@ -26,32 +25,30 @@ const QrOptions = () => {
     setSize(qrCodeSettings.size.width);
   }, [qrCodeSettings]);
 
-  // Use useCallback to memoize the throttled function
-  const throttledHandleSizeChange = useCallback(_.throttle((_, newValue) => {
+  const handleSizeChange = (_, newValue) => {
     setSize(newValue);
     setQrCodeSettings({
       ...qrCodeSettings,
       size: { width: newValue, height: newValue },
     });
-  }, 4000), [qrCodeSettings]); // Add dependencies if any state or props that the function depends on changes
+  };
 
-  const throttledHandleMarginChange = useCallback(_.throttle((_, newValue) => {
+  const handleMarginChange = (_, newValue) => {
     setMargin(newValue);
     setQrCodeSettings({
       ...qrCodeSettings,
       margin: newValue,
     });
-  }, 4000), [qrCodeSettings]);
+  };
 
-  const throttledHandleCorrectionChange = useCallback(_.throttle((_, newValue) => {
+  const handleCorrectionChange = (_, newValue) => {
     const newCorrection = correctionMarks.reduce((acc, curr) => (newValue >= curr.value ? curr.label : acc), 'L');
     setCorrection(newValue); // Update local state immediately for responsive UI
     setQrCodeSettings({
       ...qrCodeSettings,
       correction: newCorrection,
     });
-  }, 4000), [qrCodeSettings]);
-
+  };
 
   return (
     <Box sx={{ maxWidth: '400px' }} className={isMobile ? "option-container-home p-v-15 accordion-open" : "p-v-15 accordion-open"}>
@@ -59,7 +56,7 @@ const QrOptions = () => {
       <div style={{ display: 'flex', marginBottom: '10px', }}>
       <Slider
         value={size}
-        onChange={throttledHandleSizeChange}
+        onChange={handleSizeChange}
         aria-labelledby="size-slider"
         valueLabelDisplay="auto"
         min={100}
@@ -73,7 +70,7 @@ const QrOptions = () => {
       <div style={{ display: 'flex', marginBottom: '10px', }}>
       <Slider
         value={margin}
-        onChange={throttledHandleMarginChange}
+        onChange={handleMarginChange}
         aria-labelledby="margin-slider"
         valueLabelDisplay="auto"
         min={0}
@@ -87,7 +84,7 @@ const QrOptions = () => {
       <div style={{ display: 'flex', marginBottom: '10px' , alignItems:'center'}}>
       <Slider
         value={correction}
-        onChange={throttledHandleCorrectionChange}
+        onChange={handleCorrectionChange}
         aria-labelledby="correction-slider"
         valueLabelDisplay="auto"
         step={1}
