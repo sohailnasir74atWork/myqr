@@ -15,6 +15,8 @@ import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import LogoHandling from './Options/LogoHandling';
 import QrOptions from './Options/QrOptions';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
+import Pro from "../../../Assets/icons/Pro.svg"
+
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -143,9 +145,11 @@ export default function CustomizedAccordions({ prop }) {
         >
           <FilterFramesIcon sx={{ color: purple[500] }} />
           <Typography style={{ paddingLeft: '10px' }} className='text-primary'>Frames</Typography>
+          <span className="paid-tag-design"><img src={Pro} alt='pro' width='100%' height='100%'/></span>
         </AccordionSummary>
         <AccordionDetails>
-          COMMING SOON
+          <span style={{display:'flex', justifyContent:'center', alignItems:'center'}}> COMMING SOON</span>
+         
         </AccordionDetails>
       </Accordion>
     </>
