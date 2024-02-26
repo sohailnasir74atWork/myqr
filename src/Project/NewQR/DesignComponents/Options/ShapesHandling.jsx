@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { Divider } from "@mui/material";
-import style1 from '../../../../Assets/Shapes/dotsstyle/1.svg'
-import style2 from '../../../../Assets/Shapes/dotsstyle/2.svg'
-import style3 from '../../../../Assets/Shapes/dotsstyle/3.svg'
-import style4 from '../../../../Assets/Shapes/dotsstyle/4.svg'
-import style5 from '../../../../Assets/Shapes/dotsstyle/5.svg'
-import style6 from '../../../../Assets/Shapes/dotsstyle/6.svg'
+import style1 from '../../../../Assets/Shapes/dotsstyle/7.png'
+import style2 from '../../../../Assets/Shapes/dotsstyle/8.png'
+import style3 from '../../../../Assets/Shapes/dotsstyle/9.png'
+import style4 from '../../../../Assets/Shapes/dotsstyle/10.png'
+import style5 from '../../../../Assets/Shapes/dotsstyle/11.png'
+import style6 from '../../../../Assets/Shapes/dotsstyle/12.png'
 
-import corner1 from '../../../../Assets/Shapes/1.svg'
-import corner2 from '../../../../Assets/Shapes/2.svg'
-import corner3 from '../../../../Assets/Shapes/3.svg'
-import corner4 from '../../../../Assets/Shapes/4.svg'
-import corner5 from '../../../../Assets/Shapes/5.svg'
-import corner6 from '../../../../Assets/Shapes/6.svg'
+import corner1 from '../../../../Assets/Shapes/1.png'
+import corner2 from '../../../../Assets/Shapes/2.png'
+import corner3 from '../../../../Assets/Shapes/3.png'
+import corner4 from '../../../../Assets/Shapes/4.png'
+import corner5 from '../../../../Assets/Shapes/5.png'
+import corner6 from '../../../../Assets/Shapes/6.png'
 
 
 import "./optionsStyles.css";
@@ -36,14 +36,16 @@ const ShapesHandling = () => {
     { style: style6, type: 'extra-rounded' }
   ];
   const cornerStyles = [
-    { style: corner1, type: 'dot' },
+    { style: corner3, type: 'dot' },
     { style: corner2, type: 'square' },
-    { style: corner3, type: 'extra-rounded' },
+    { style: corner1, type: 'extra-rounded' },
 
    ];
    const cornerDotStyles = [
-    { style: corner4, type: 'dot' },
+    // { style: corner4, type: 'dot' },
     { style: corner5, type: 'square' },
+    { style: corner6, type: 'extra-rounded' },
+
 
    ];
 
