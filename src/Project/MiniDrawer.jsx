@@ -287,7 +287,7 @@ const CommonIconButton = () => (
                   {item.icon}
                 </ListItemIcon>
                 <ListItemText primary={item.heading} sx={{ opacity: open ? 1 : 0 }} />
-                {index > 1 && <span className="paid-tag-sidebar"><img src={Pro} alt='pro' width='100%' height='100%'/></span>}
+                {index > 1 && open && <span className="paid-tag-sidebar"><img src={Pro} alt='pro' width='100%' height='100%'/></span>}
               </ListItemButton>
             </ListItem>
           ))}
