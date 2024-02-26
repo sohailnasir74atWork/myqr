@@ -101,13 +101,13 @@ export const dymanicTools = [
     heading: "PDF",
     text: "Show a PDF",
   },
-  { icon: <img src={Link} alt="Link" class='img-static'/>, heading: "Alarm", text: "This is the text for Alarm" },
+  { icon: <img src={Link} alt="Link" class='img-static'/>, heading: "Alarm", text: "Group Links" },
   {
     icon: <img src={Link} alt="Link" class='img-static'/>,
     heading: "List of Links",
     text: "This is the text for Profile",
   },
-  { icon: <img src={Link} alt="Link" class='img-static'/>, heading: "Tools", text: "This is the text for Tools" },
+  { icon: <img src={Link} alt="Link" class='img-static'/>, heading: "Tools", text: "Show an image gallery" },
   { icon: <img src={Link} alt="Link" class='img-static'/>, heading: "WiFi", text: "This is the text for WiFi" },
   {
     icon: <img src={Link} alt="Link" class='img-static'/>,
@@ -117,62 +117,62 @@ export const dymanicTools = [
   {
     icon: <img src={Link} alt="Link" class='img-static'/>,
     heading: "Video",
-    text: "This is the text for Bluetooth",
+    text: "Show a vedio",
   },
   {
     icon: <img src={Link} alt="Link" class='img-static'/>,
     heading: "Business",
-    text: "This is the text for Camera",
+    text: "Share information abut your business",
   },
   {
     icon: <img src={Link} alt="Link" class='img-static'/>,
     heading: "VCard Plus",
-    text: "This is the text for Bike",
+    text: "Share contact details",
   },
   {
     icon: <img src={Link} alt="Link" class='img-static'/>,
     heading: "Menu",
-    text: "This is the text for Bike",
+    text: "Display menu of a resturant",
   },
   {
     icon: <img src={Link} alt="Link" class='img-static'/>,
     heading: "Apps",
-    text: "This is the text for Bike",
+    text: "Redirect to an App store",
   },
   {
     icon: <img src={Link} alt="Link" class='img-static'/>,
     heading: "MP3",
-    text: "This is the text for Bike",
+    text: "Play an audio file",
   },
   {
     icon: <img src={Link} alt="Link" class='img-static'/>,
-    heading: "Coupen",
-    text: "This is the text for Bike",
+    heading: "Coupon",
+    text: "Share a coupon",
   },
   {
     icon: <img src={Link} alt="Link" class='img-static'/>,
     heading: "Feedback",
-    text: "This is the text for Bike",
+    text: "Colect feedback and get rated",
   },
   {
     icon: <img src={Link} alt="Link" class='img-static'/>,
     heading: "Playlist",
-    text: "This is the text for Bike",
+    text: "Share your own music",
   },
   {
     icon: <img src={Link} alt="Link" class='img-static'/>,
     heading: "Landing Page",
-    text: "This is the text for Bike",
+    text: "Create your own page",
   },
   {
     icon: <img src={Link} alt="Link" class='img-static'/>,
     heading: "Events",
-    text: "This is the text for Bike",
+    text: "Promote or share an event",
   },
   {
     icon: <img src={Link} alt="Link" class='img-static'/>,
     heading: "2D Barcodes",
-    text: "This is the text for Bike",
+    text: "Support GS1 standrd",
   },
 ];
 
