@@ -9,6 +9,7 @@ import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import { ImportStats } from "./GlobelStats/GlobelStats";
 import MenuIcon from '@mui/icons-material/Menu';
 import { Divider, IconButton, StepButton } from "@mui/material";
+import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { useNavigate } from "react-router-dom";
 const steps = ["Step 1", "Step 2", "Step 3"];
 
@@ -83,11 +84,11 @@ export default function StepperComponent({prop}) {
           <Button 
           onClick={handleNext} 
           color={activeStep === 2 ? "success" : "primary"}
-          endIcon={activeStep === 2 ? <SaveAltIcon/> : <ArrowForward />} 
+          endIcon={activeStep === 2 ? '' : <ArrowForward />} 
           disabled={activeStep < 2}
           className="button"
           variant="contained">
-            {activeStep === 2 ? "Save" : "Next"}
+            {activeStep === 2 ? "Completed" : "Next"}
           </Button>
         </Box>}
         {isMobile && activeStep !== 0 && <Box sx={{ display: "flex", flexDirection: "row", paddingRight:'30px'}}>
