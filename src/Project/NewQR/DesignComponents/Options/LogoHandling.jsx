@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Button, Checkbox, Divider, FormControlLabel, IconButton, Slider, Typography } from "@mui/material";
-import style1 from "../../../../Assets/Shapes/style1.svg";
-import corner1 from "../../../../Assets/Shapes/corner1.svg";
-import cornerDot1 from "../../../../Assets/Shapes/cornerDot1.svg";
 import "./optionsStyles.css";
-import { AntSwitch } from "./ColorHelper.jsx/GradientColorPicker";
 import { ImportStats } from "../../../GlobelStats/GlobelStats";
 import { logos } from "../../../DynamicData";
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import AddPhotoAlternate from "@mui/icons-material/AddPhotoAlternate";
-import DeleteIcon from '@mui/icons-material/Delete';
 import BlockIcon from '@mui/icons-material/Block';
 import { CheckBox, Input } from "@mui/icons-material";
 const LogoHandling = () => {

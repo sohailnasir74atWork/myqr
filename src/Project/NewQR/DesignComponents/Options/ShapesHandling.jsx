@@ -1,8 +1,20 @@
 import React, { useState } from "react";
 import { Divider } from "@mui/material";
-import style1 from "../../../../Assets/Shapes/style1.svg";
-import corner1 from "../../../../Assets/Shapes/corner1.svg"
-import cornerDot1 from "../../../../Assets/Shapes/cornerDot1.svg"
+import style1 from '../../../../Assets/Shapes/dotsstyle/1.svg'
+import style2 from '../../../../Assets/Shapes/dotsstyle/2.svg'
+import style3 from '../../../../Assets/Shapes/dotsstyle/3.svg'
+import style4 from '../../../../Assets/Shapes/dotsstyle/4.svg'
+import style5 from '../../../../Assets/Shapes/dotsstyle/5.svg'
+import style6 from '../../../../Assets/Shapes/dotsstyle/6.svg'
+
+import corner1 from '../../../../Assets/Shapes/1.svg'
+import corner2 from '../../../../Assets/Shapes/2.svg'
+import corner3 from '../../../../Assets/Shapes/3.svg'
+import corner4 from '../../../../Assets/Shapes/4.svg'
+import corner5 from '../../../../Assets/Shapes/5.svg'
+import corner6 from '../../../../Assets/Shapes/6.svg'
+
+
 import "./optionsStyles.css";
 import { ImportStats } from "../../../GlobelStats/GlobelStats";
 
@@ -17,21 +29,21 @@ const ShapesHandling = () => {
   // Array of image sources
   const dotStyles = [
     { style: style1, type: 'rounded' },
-    { style: style1, type: 'dots' },
-    { style: style1, type: 'classy' },
-    { style: style1, type: 'classy-rounded' },
-    { style: style1, type: 'square' },
-    { style: style1, type: 'extra-rounded' }
+    { style: style2, type: 'dots' },
+    { style: style3, type: 'classy' },
+    { style: style4, type: 'classy-rounded' },
+    { style: style5, type: 'square' },
+    { style: style6, type: 'extra-rounded' }
   ];
   const cornerStyles = [
     { style: corner1, type: 'dot' },
-    { style: corner1, type: 'square' },
-    { style: corner1, type: 'extra-rounded' },
+    { style: corner2, type: 'square' },
+    { style: corner3, type: 'extra-rounded' },
 
    ];
    const cornerDotStyles = [
-    { style: cornerDot1, type: 'dot' },
-    { style: cornerDot1, type: 'square' },
+    { style: corner4, type: 'dot' },
+    { style: corner5, type: 'square' },
 
    ];
 
@@ -82,7 +94,7 @@ const ShapesHandling = () => {
         <div className="block heading-3">Dots Styles</div>
         <div className="logo-container">
           {dotStyles.map((src, index) => (
-           <img src={src.style} alt={`logo ${index + 1}`} className={`logo ${selectedDots === src.type ? "selected" : ""}`} onClick={() => handleClickDots(src.type)} key={index}/>
+           <img src={src.style} alt={`logo1 ${index + 1}`} className={`logo1 ${selectedDots === src.type ? "selected" : ""}`} onClick={() => handleClickDots(src.type)} key={index}/>
             
           ))}
         </div>
@@ -90,14 +102,15 @@ const ShapesHandling = () => {
         <div className="block heading-3">Corner Styles</div>
         <div className="logo-container">
           {cornerStyles.map((src, index) => (
-          <img key={index} onClick={() => handleClickCorner(src.type)} src={src.style} alt={`Image ${index + 1}`} className={`logo ${selectedCorner === src.type ? "selected" : ""}`}/>
+          <img key={index} onClick={() => handleClickCorner(src.type)} src={src.style} alt={`logo1 ${index + 1}`} className={`logo1 ${selectedCorner === src.type ? "selected" : ""}`}/>
           ))}
         </div>
         <Divider />
         <div className="block heading-3">Corner Center Styles</div>
         <div className="logo-container">
           {cornerDotStyles.map((src, index) => (
-            <img key={index}  onClick={() => handleClickCornerDots(src.type)} src={src.style} alt={`Image ${index + 1}`} className={`logo ${selectedCenter === src.type ? "selected" : ""}`}/>
+            <div className={`logo1 ${selectedCenter === src.type ? "selected" : ""}`}>
+            <img key={index}  onClick={() => handleClickCornerDots(src.type)} src={src.style} alt={`logo1 ${index + 1}`} style={{width:'100%', height:'100%'}}/></div>
           ))}
         </div>
       </div>
