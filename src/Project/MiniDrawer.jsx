@@ -249,7 +249,7 @@ const CommonIconButton = () => (
             <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Stats header</Box>
           )}
           {location.pathname.includes('myqr') && (
-            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>My qr header header</Box>
+            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>The Pro version is scheduled to go live in mid-2024</Box>
           )}
         </Toolbar>}
       </AppBar>
