@@ -90,7 +90,7 @@ const Call = () => {
             />
           </Grid>
         </Grid> 
-        <p>Your QR code will open this URL.</p>    
+        <p>Your QR code will open in call mode</p>    
         <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
           Generate QR Code
         </Button>

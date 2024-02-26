@@ -89,7 +89,7 @@ const Text = () => {
         margin="normal"
         rows={4}
       />
-      <p className="text">Your QR code will show this text.</p>
+      <p>Your QR code will show this text.</p>
 
       {/* Removed Width and Height TextFields */}
       

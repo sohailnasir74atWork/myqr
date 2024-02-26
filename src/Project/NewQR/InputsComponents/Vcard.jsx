@@ -242,7 +242,7 @@ const Vcard = () => {
           />
         </Grid>
       </Grid>
-        <p className="text">Your QR code will save this contact to the phone scanning</p>
+        <p>Your QR code will save this contact to the phone scanning</p>
 
 {/* Removed Width and Height TextFields */}     
       <Button

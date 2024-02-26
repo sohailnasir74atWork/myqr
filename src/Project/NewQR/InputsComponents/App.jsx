@@ -85,7 +85,7 @@ const App = () => {
           margin="normal"
           defaultValue={'https://play.google.com/store/apps/'}
         />
-        <p>Your QR code will open this App URL.</p>
+        <p>Your QR code will open this in App Store</p>
 
         <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
           Submit

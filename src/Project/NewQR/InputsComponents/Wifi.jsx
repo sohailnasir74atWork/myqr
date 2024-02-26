@@ -126,6 +126,7 @@ const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default t
           />
         </Grid>
       </Grid>
+      <p>Your QR code allow anyone to connect wifi</p>    
         <Button
         variant="contained"
         onClick={handleSubmit}

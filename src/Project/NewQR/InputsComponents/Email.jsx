@@ -109,7 +109,7 @@ const Email = () => {
         multiline
         rows={4}
       />
-      
+      <p>Your QR code will send this email message</p>    
       <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
         Generate QR Code
       </Button>
