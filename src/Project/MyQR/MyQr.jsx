@@ -1,7 +1,12 @@
 import React from 'react';
-
-const MyQr = () => {
-  return <div className='container'>This is My QR Screen</div>;
+import commingsoon1 from "../../Assets/comming soon/2.svg"
+import './myqrStyles.css'
+const Stats = () => {
+  return <div className='container' style={{backgroundColor:'white'}}>
+    <div className='container-commingsoon'>
+    <img src={commingsoon1} alt='comming soom'/>
+    </div>
+  </div>;
 }
 
-export default MyQr
+export default Stats
