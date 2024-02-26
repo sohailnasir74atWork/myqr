@@ -95,38 +95,83 @@ export const sideBar = [
 ];
 
 export const dymanicTools = [
-  { icon: <HomeIcon />, heading: "Links", text: "This is the text for Home" },
+  { icon: <img src={Link} alt="Link" class='img-static'/>, heading: "Website", text: "Open a URL" },
   {
-    icon: <SettingsIcon />,
-    heading: "Text",
-    text: "This is the text for Settings",
+    icon: <img src={Link} alt="Link" class='img-static'/>,
+    heading: "PDF",
+    text: "Show a PDF",
   },
-  { icon: <AlarmIcon />, heading: "Alarm", text: "This is the text for Alarm" },
+  { icon: <img src={Link} alt="Link" class='img-static'/>, heading: "Alarm", text: "This is the text for Alarm" },
   {
-    icon: <FaceIcon />,
-    heading: "Profile",
+    icon: <img src={Link} alt="Link" class='img-static'/>,
+    heading: "List of Links",
     text: "This is the text for Profile",
   },
-  { icon: <BuildIcon />, heading: "Tools", text: "This is the text for Tools" },
-  { icon: <WifiIcon />, heading: "WiFi", text: "This is the text for WiFi" },
+  { icon: <img src={Link} alt="Link" class='img-static'/>, heading: "Tools", text: "This is the text for Tools" },
+  { icon: <img src={Link} alt="Link" class='img-static'/>, heading: "WiFi", text: "This is the text for WiFi" },
   {
-    icon: <BatteryChargingFullIcon />,
-    heading: "Battery",
+    icon: <img src={Link} alt="Link" class='img-static'/>,
+    heading: "Images",
     text: "This is the text for Battery",
   },
   {
-    icon: <BluetoothIcon />,
-    heading: "Bluetooth",
+    icon: <img src={Link} alt="Link" class='img-static'/>,
+    heading: "Video",
     text: "This is the text for Bluetooth",
   },
   {
-    icon: <CameraAltIcon />,
-    heading: "Camera",
+    icon: <img src={Link} alt="Link" class='img-static'/>,
+    heading: "Business",
     text: "This is the text for Camera",
   },
   {
-    icon: <DirectionsBikeIcon />,
-    heading: "Bike",
+    icon: <img src={Link} alt="Link" class='img-static'/>,
+    heading: "VCard Plus",
+    text: "This is the text for Bike",
+  },
+  {
+    icon: <img src={Link} alt="Link" class='img-static'/>,
+    heading: "Menu",
+    text: "This is the text for Bike",
+  },
+  {
+    icon: <img src={Link} alt="Link" class='img-static'/>,
+    heading: "Apps",
+    text: "This is the text for Bike",
+  },
+  {
+    icon: <img src={Link} alt="Link" class='img-static'/>,
+    heading: "MP3",
+    text: "This is the text for Bike",
+  },
+  {
+    icon: <img src={Link} alt="Link" class='img-static'/>,
+    heading: "Coupen",
+    text: "This is the text for Bike",
+  },
+  {
+    icon: <img src={Link} alt="Link" class='img-static'/>,
+    heading: "Feedback",
+    text: "This is the text for Bike",
+  },
+  {
+    icon: <img src={Link} alt="Link" class='img-static'/>,
+    heading: "Playlist",
+    text: "This is the text for Bike",
+  },
+  {
+    icon: <img src={Link} alt="Link" class='img-static'/>,
+    heading: "Landing Page",
+    text: "This is the text for Bike",
+  },
+  {
+    icon: <img src={Link} alt="Link" class='img-static'/>,
+    heading: "Events",
+    text: "This is the text for Bike",
+  },
+  {
+    icon: <img src={Link} alt="Link" class='img-static'/>,
+    heading: "2D Barcodes",
     text: "This is the text for Bike",
   },
 ];

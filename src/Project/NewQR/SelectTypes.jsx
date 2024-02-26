@@ -112,7 +112,7 @@ const SelectScreen = () => {
                 <div
                   className="static-qr-tabs"
                   key={index}
-                  onClick={inputClick}
+                  // onClick={inputClick}
                 >
                   <div className="static-qr-icons">{item.icon}</div>
                   <div className="flex-col">
@@ -120,6 +120,7 @@ const SelectScreen = () => {
                     <span className="text-secondary">{item.text}</span>
                   </div>
                   <span className="paid-tag"><img src={Pro} alt='pro' width='100%' height='100%'/></span>
+                  <span className="commingsoon">COMMING SOON</span>
                 </div>
               ))}
             </div>
