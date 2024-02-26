@@ -87,8 +87,8 @@ import { AppBlockingTwoTone } from "@mui/icons-material";
 
 export const sideBar = [
   { id: "new-qr", heading: "New QR", icon: <ControlPointIcon />, path: '/create' },
-  { id: "bulk-qr-generator", heading: "Bulk QR Generator", icon: <BurstModeIcon />, path: '/generate-bulk' },
   { id: "templates", heading: "Templates", icon: <DesignServicesIcon />, path: '/templates' },
+  { id: "bulk-qr-generator", heading: "Bulk QR Generator", icon: <BurstModeIcon />, path: '/generate-bulk' },
   { id: "my-qr-codes", heading: "My QR Codes", icon: <QrCodeIcon />, path: '/myqr' },
   { id: "my-qr-codes", heading: "Statistics", icon: <PieChartIcon />, path: '/stats' },
 

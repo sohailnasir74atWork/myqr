@@ -177,3 +177,17 @@ body {
 .p-b-60{
   padding-bottom: 60px;
 }
+
+.paid-tag-sidebar {
+  position: absolute;
+    /* top:-4px; */
+    right: 3px;
+    height: 25px;
+    width:25px;
+    /* background-color: var(--darkgreen-color); */
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding: 1px 3px;
+    color: white;
+    font-size: .7rem;
+}

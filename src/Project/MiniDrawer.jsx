@@ -26,6 +26,8 @@ import { ImportStats } from './GlobelStats/GlobelStats';
 import { sideBar } from './DynamicData';
 import AlertDialog from './Alert';
 import { QrCodeScanner } from '@mui/icons-material';
+import Pro from "../Assets/icons/Pro.svg"
+
 
 
 const drawerWidth = 240;
@@ -267,9 +269,10 @@ const CommonIconButton = () => (
                 sx={{
                   minHeight: 48,
                   justifyContent: open ? 'initial' : 'center',
-                  borderRight: location.pathname.includes(item.path) ? '3px solid var(--darkgreen-color)' : '',
+                  borderRight: location.pathname.includes(item.path) ? '3px solid var(--darkgreen-color)' : '3px solid transparent',
                   color: location.pathname.includes(item.path) ? 'var(--darkgreen-color)' : '',
                   px: 2.5,
+                  
                 }}
                 // component={Link}
                 // to={item.path}
@@ -284,6 +287,7 @@ const CommonIconButton = () => (
                   {item.icon}
                 </ListItemIcon>
                 <ListItemText primary={item.heading} sx={{ opacity: open ? 1 : 0 }} />
+                {index > 1 && <span className="paid-tag-sidebar"><img src={Pro} alt='pro' width='100%' height='100%'/></span>}
               </ListItemButton>
             </ListItem>
           ))}
