@@ -23,7 +23,7 @@
     display: flex !important;
     justify-content: center !important;
     bottom: 0 !important;
-    z-index: 100000000000 !important;
+    z-index: 1000 ;
     background-color: rgba(0, 0, 0, 0.3);
   
     @media (max-width: 600px) {

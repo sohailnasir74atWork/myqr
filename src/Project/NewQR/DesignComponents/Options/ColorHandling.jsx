@@ -42,8 +42,6 @@ const ColorHandling = () => {
 />
 <br/>
   <Divider/>
-        
-
         <div className="heading-3">Dots Color</div>
         <GradientColorPicker
           setColor={(color) =>
