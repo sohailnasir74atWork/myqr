@@ -228,7 +228,7 @@ const CommonIconButton = () => (
     )}
   </Toolbar>
 )}
-        {!isMobile && !location.pathname.includes('stats') &&  <Toolbar>
+        {!isMobile && !location.pathname.includes('stats') &&  !location.pathname.includes('myqr') && !location.pathname.includes('generate-bulk') && <Toolbar>
           {!isMobile && <IconButton
             // color="inherit"
             aria-label="open drawer"

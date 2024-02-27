@@ -134,13 +134,13 @@ export default function CustomizedAccordions({ prop }) {
         </AccordionDetails>
       </Accordion>
       <Accordion
-        expanded={expanded.includes('panel5')}
-        onChange={handleChange('panel5')}
+        expanded={expanded.includes('panel6')}
+        onChange={handleChange('panel6')}
         sx={{ marginBottom: '20px', borderWidth: '0px', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', borderRadius: '10px' }}
       >
         <AccordionSummary
-          aria-controls="panel5d-content"
-          id="panel5d-header"
+          aria-controls="panel6d-content"
+          id="panel6d-header"
           sx={{ height: '80px' }}
         >
           <FilterFramesIcon sx={{ color: purple[500] }} />
