@@ -27,6 +27,7 @@ import { sideBar } from './DynamicData';
 import AlertDialog from './Alert';
 import { QrCodeScanner } from '@mui/icons-material';
 import Pro from "../Assets/icons/Pro.svg"
+import logo from '../Assets/QR.png'
 
 
 
@@ -265,9 +266,15 @@ const CommonIconButton = () => (
       </AppBar>
       <Drawer variant="permanent" open={open}  sx={{ position: isMobile ? "absolute" : "" }}>
         <DrawerHeader>
+          <div style={{height: '60px', display:'flex', justifyContent:'center', alignItems:'center', padding:'5px'}}>
+            <img src={logo} alt='logo' style={{width:'auto', height:'100%', marginRight:'20px'}}/>
+            <span>QREFY</span>
+          </div>
+
           <IconButton onClick={handleDrawerToggle}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
+          
         </DrawerHeader>
         <Divider />
         <List>
