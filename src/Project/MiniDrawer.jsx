@@ -35,7 +35,7 @@ const drawerWidth = 240;
 const openedMixin = (theme) => ({
   width: drawerWidth,
   [theme.breakpoints.down("sm")]: {
-    width: "80%",
+    width: "85%",
     // borderRight: `100px solid rgba(0, 0, 0, 0.1)`, // Adjust the width and color as needed
   },
   transition: theme.transitions.create('width', {
