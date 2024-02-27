@@ -115,6 +115,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .slider-select {
   margin-top: 10px !important;

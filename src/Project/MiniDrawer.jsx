@@ -214,26 +214,26 @@ const CommonIconButton = () => (
 
     {location.pathname.includes('/templates') && (
       <>
-        <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>Template header</Box>
+        <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Template header</Box>
         <CommonIconButton />
       </>
     )}
 
     {location.pathname.includes('/stats') && (
       <>
-      <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>Stats header</Box>
+      <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Stats header</Box>
       <CommonIconButton /></>
 
     )}
 
     {location.pathname.includes('/myqr') && (
       <>
-      <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>Stats header</Box>
+      <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>MY QR header</Box>
       <CommonIconButton /></>
     )}
     {location.pathname.includes('/generate-bulk') && (
       <>
-      <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>Stats header</Box>
+      <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Bulk header</Box>
       <CommonIconButton /></>
     )}
   </Toolbar>

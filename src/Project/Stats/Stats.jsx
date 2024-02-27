@@ -7,7 +7,7 @@ const Stats = () => {
     <img src={commingsoon} alt="comming soom" />
     <div className="fade-in-out">
       {" "}
-      <span>The Pro version is scheduled to go live in mid-2024</span>{" "}
+      <span className="center">The Pro version is scheduled to go live in mid-2024</span>{" "}
     </div>
   </div>
 </div>
