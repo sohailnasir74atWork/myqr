@@ -28,6 +28,21 @@ import BurstModeIcon from "@mui/icons-material/BurstMode";
 import QrCodeIcon from "@mui/icons-material/QrCode";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import PieChartIcon from '@mui/icons-material/PieChart';
+import video from "../Assets/icons/video.svg"
+import business from "../Assets/icons/business.svg"
+import coupon from "../Assets/icons/coupon.svg"
+import events from "../Assets/icons/events.svg"
+import feedback from "../Assets/icons/feedback.svg"
+import image from "../Assets/icons/image.svg"
+import imagegallery from "../Assets/icons/imagegallery.svg"
+import landingpage from "../Assets/icons/landingpage.svg"
+import listlinks from "../Assets/icons/listlinks.svg"
+import menu from "../Assets/icons/menu.svg"
+import mp3 from "../Assets/icons/mp3.svg"
+import pdf from "../Assets/icons/pdf.svg"
+import playlist from "../Assets/icons/playlist.svg"
+
+
 
 import logo1 from '../Assets/defaultlogo/logo (1).svg';
 import logo2 from '../Assets/defaultlogo/logo (2).svg';
@@ -81,7 +96,7 @@ import logo50 from '../Assets/defaultlogo/logo (2).png';
 
 
 
-import { AppBlockingTwoTone } from "@mui/icons-material";
+import { AppBlockingTwoTone, Feed } from "@mui/icons-material";
 
 
 
@@ -101,80 +116,74 @@ export const sideBar = [
 export const dymanicTools = [
   { icon: <img src={Link} alt="Link" class='img-static'/>, heading: "Website", text: "Open a URL" },
   {
-    icon: <img src={Link} alt="Link" class='img-static'/>,
+    icon: <img src={pdf} alt="Link" class='img-static'/>,
     heading: "PDF",
     text: "Show a PDF",
   },
-  { icon: <img src={Link} alt="Link" class='img-static'/>, heading: "Alarm", text: "Group Links" },
+ 
   {
-    icon: <img src={Link} alt="Link" class='img-static'/>,
+    icon: <img src={listlinks} alt="Link" class='img-static'/>,
     heading: "List of Links",
-    text: "This is the text for Profile",
+    text: "Group links",
   },
-  { icon: <img src={Link} alt="Link" class='img-static'/>, heading: "Tools", text: "Show an image gallery" },
-  { icon: <img src={Link} alt="Link" class='img-static'/>, heading: "WiFi", text: "This is the text for WiFi" },
-  {
-    icon: <img src={Link} alt="Link" class='img-static'/>,
-    heading: "Images",
-    text: "This is the text for Battery",
-  },
-  {
-    icon: <img src={Link} alt="Link" class='img-static'/>,
+  { icon: <img src={imagegallery} alt="Link" class='img-static'/>, heading: "Image Gallery", text: "Show an image gallery" },
+    {
+    icon: <img src={video} alt="Link" class='img-static'/>,
     heading: "Video",
     text: "Show a vedio",
   },
   {
-    icon: <img src={Link} alt="Link" class='img-static'/>,
+    icon: <img src={business} alt="Link" class='img-static'/>,
     heading: "Business",
     text: "Share information abut your business",
   },
   {
-    icon: <img src={Link} alt="Link" class='img-static'/>,
+    icon: <img src={VCard} alt="Link" class='img-static'/>,
     heading: "VCard Plus",
     text: "Share contact details",
   },
   {
-    icon: <img src={Link} alt="Link" class='img-static'/>,
+    icon: <img src={menu} alt="Link" class='img-static'/>,
     heading: "Menu",
     text: "Display menu of a resturant",
   },
   {
-    icon: <img src={Link} alt="Link" class='img-static'/>,
+    icon: <img src={App} alt="Link" class='img-static'/>,
     heading: "Apps",
     text: "Redirect to an App store",
   },
   {
-    icon: <img src={Link} alt="Link" class='img-static'/>,
+    icon: <img src={mp3} alt="Link" class='img-static'/>,
     heading: "MP3",
     text: "Play an audio file",
   },
   {
-    icon: <img src={Link} alt="Link" class='img-static'/>,
+    icon: <img src={coupon} alt="Link" class='img-static'/>,
     heading: "Coupon",
     text: "Share a coupon",
   },
   {
-    icon: <img src={Link} alt="Link" class='img-static'/>,
+    icon: <img src={feedback} alt="Link" class='img-static'/>,
     heading: "Feedback",
     text: "Colect feedback and get rated",
   },
   {
-    icon: <img src={Link} alt="Link" class='img-static'/>,
+    icon: <img src={playlist} alt="Link" class='img-static'/>,
     heading: "Playlist",
     text: "Share your own music",
   },
   {
-    icon: <img src={Link} alt="Link" class='img-static'/>,
+    icon: <img src={landingpage} alt="Link" class='img-static'/>,
     heading: "Landing Page",
     text: "Create your own page",
   },
   {
-    icon: <img src={Link} alt="Link" class='img-static'/>,
+    icon: <img src={events} alt="Link" class='img-static'/>,
     heading: "Events",
     text: "Promote or share an event",
   },
   {
-    icon: <img src={Link} alt="Link" class='img-static'/>,
+    icon: <img src={image} alt="Link" class='img-static'/>,
     heading: "2D Barcodes",
     text: "Support GS1 standrd",
   },

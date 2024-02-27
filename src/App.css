@@ -65,9 +65,9 @@ body {
 }
 
 .text-secondary {
-  font-size: .8rem;
+  font-size: .7rem;
   color: var(--grey-color);
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 .heading-3 {
   font-size: 16px;

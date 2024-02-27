@@ -54,16 +54,16 @@
     object-fit: cover;
     margin: 10px 10px 10px 10px;
     padding:10px;
-    border: 3px solid var(--background-color);
+    border: 2px solid var(--background-color);
     border-radius: 10px;
     box-shadow: 0 0 9px 0 rgb(0, 0, 0, 0.1);
     cursor: pointer;
   }
   .logo:hover{
-    border: 3px solid var(--darkgreen-color);
+    border: 2px solid var(--darkgreen-color);
   }
   .logo.selected {
-    border: 3px solid var(--darkgreen-color); /* Example style */
+    border: 2px solid var(--darkgreen-color); /* Example style */
   }
   /* Add these styles to your CSS file or use inline styles in your React component */
 
@@ -134,16 +134,16 @@
     object-fit: cover;
     margin: 10px 10px 10px 10px;
     /* padding:10px; */
-    border: 3px solid var(--background-color);
+    border: 2px solid var(--background-color);
     border-radius: 10px;
     box-shadow: 0 0 9px 0 rgb(0, 0, 0, 0.1);
     cursor: pointer;
   }
   .logo1:hover{
-    border: 3px solid var(--darkgreen-color);
+    border: 2px solid var(--darkgreen-color);
   }
   .logo1.selected {
-    border: 3px solid var(--darkgreen-color); /* Example style */
+    border: 2px solid var(--darkgreen-color); /* Example style */
   }
   /* Add these styles to your CSS file or use inline styles in your React component */
 
