@@ -219,19 +219,19 @@ const CommonIconButton = () => (
       </>
     )}
 
-    {location.pathname.includes('/stats/') && (
+    {location.pathname.includes('/stats') && (
       <>
       <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>Stats header</Box>
       <CommonIconButton /></>
 
     )}
 
-    {location.pathname.includes('/myqr/') && (
+    {location.pathname.includes('/myqr') && (
       <>
       <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>Stats header</Box>
       <CommonIconButton /></>
     )}
-    {location.pathname.includes('generate-bulk') && (
+    {location.pathname.includes('/generate-bulk') && (
       <>
       <Box style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>Stats header</Box>
       <CommonIconButton /></>
