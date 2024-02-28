@@ -1,17 +1,15 @@
-export const templates = [
-    {
-    "type": ";Link",
+export const templates = [{
+    "type": "Link",
     "qrName": "My QR",
-    'correction': 'Q',
-    'margin': 0,
-
+    "correction": "Q",
+    "margin": 5,
     "size": {
-        "width": "200",
-        "height": "200"
+        "height": "300",
+        "width": "300"
     },
     "inputData": {
         "url": {
-            "value": "http://localhost:3000/create/input"
+            "value": "https://www.youtube.com/"
         },
         "app": {
             "value": null
@@ -32,399 +30,13 @@ export const templates = [
             "message": null
         },
         "call": {
-            "call": null,
-            "number": null
+            "call": null
         },
         "wifi": {
             "networkName": null,
             "networkType": null,
             "password": null,
-            "isHide": null
-        },
-        "vcard": {
-            "firstName": null,
-            "lastName": null,
-            "phoneNumber": null,
-            "mobile": null,
-            "email": null,
-            "website": null,
-            "company": null,
-            "jobTitle": null,
-            "address": null,
-            "fax": null,
-            "city": null,
-            "postalCode": null,
-            "country": null
-        }
-    },
-    "logo": "/static/media/logo (42).057cf197c1c222f77dc2d19dffbe22f9.svg",
-    "logoSetting": {
-        "backgrounddots": true,
-        "margin": 10
-    },
-    "colors": {
-        "background": {
-            "isSolid": true,
-            "color": "#FFFFFF"
-        },
-        "dots": {
-            "isSolid": true,
-            "color": "#ba68c8"
-        },
-        "square": {
-            "isSolid": true,
-            "color": "#9900ef"
-        },
-        "cornerDots": {
-            "isSolid": false,
-            "color": "#000000"
-        }
-    },
-    "types": {
-        "corner": {
-            "type": "extra-rounded"
-        },
-        "dots": {
-            "type": "square"
-        },
-        "square": {
-            "isSolid": true,
-            "color": "#000000"
-        },
-        "cornerDots": {
-            "type": "dot"
-        }
-    },
-    "clearInput": false
-}, {
-    "type": "Text",
-    "qrName": "My QR",
-    'correction': 'Q',
-    'margin': 0,
-    "size": {
-        "width": "200",
-        "height": "200"
-    },
-    "inputData": {
-        "url": {
-            "value": null
-        },
-        "app": {
-            "value": null
-        },
-        "text": {
-            "value": "mm"
-        },
-        "mail": {
-            "email": null,
-            "message": null
-        },
-        "whatsapp": {
-            "number": null,
-            "message": null
-        },
-        "message": {
-            "number": null,
-            "message": null
-        },
-        "call": {
-            "call": null,
-            "number": null
-        },
-        "wifi": {
-            "networkName": null,
-            "networkType": null,
-            "password": null,
-            "isHide": null
-        },
-        "vcard": {
-            "firstName": null,
-            "lastName": null,
-            "phoneNumber": null,
-            "mobile": null,
-            "email": null,
-            "website": null,
-            "company": null,
-            "jobTitle": null,
-            "address": null,
-            "fax": null,
-            "city": null,
-            "postalCode": null,
-            "country": null
-        }
-    },
-    "logo": "/static/media/logo (30).f72ce4a01663a1d68ac1a8d729fcfe5a.svg",
-    "logoSetting": {
-        "backgrounddots": true,
-        "margin": 10
-    },
-    "colors": {
-        "background": {
-            "isSolid": true,
-            "color": ""
-        },
-        "dots": {
-            "isSolid": true,
-            "color": "#ff6900"
-        },
-        "square": {
-            "isSolid": true,
-            "color": "#9900ef"
-        },
-        "cornerDots": {
-            "isSolid": true,
-            "color": "#eb144c"
-        }
-    },
-    "types": {
-        "corner": {
-            "type": "dot"
-        },
-        "dots": {
-            "type": "square"
-        },
-        "square": {
-            "isSolid": true,
-            "color": "#000000"
-        },
-        "cornerDots": {
-            "type": "dot"
-        }
-    },
-    "clearInput": false
-}, {
-    "type": "Text",
-    "qrName": "My QR",
-    'correction': 'Q',
-    'margin': 0,
-    "size": {
-        "width": "300",
-        "height": "300"
-    },
-    "inputData": {
-        "url": {
-            "value": null
-        },
-        "app": {
-            "value": null
-        },
-        "text": {
-            "value": "sss"
-        },
-        "mail": {
-            "email": null,
-            "message": null
-        },
-        "whatsapp": {
-            "number": null,
-            "message": null
-        },
-        "message": {
-            "number": null,
-            "message": null
-        },
-        "call": {
-            "call": null,
-            "number": null
-        },
-        "wifi": {
-            "networkName": null,
-            "networkType": null,
-            "password": null,
-            "isHide": null
-        },
-        "vcard": {
-            "firstName": null,
-            "lastName": null,
-            "phoneNumber": null,
-            "mobile": null,
-            "email": null,
-            "website": null,
-            "company": null,
-            "jobTitle": null,
-            "address": null,
-            "fax": null,
-            "city": null,
-            "postalCode": null,
-            "country": null
-        }
-    },
-    "logo": "/static/media/logo (12).ce4901d949b81865e3cc36394e9e09eb.svg",
-    "logoSetting": {
-        "backgrounddots": true,
-        "margin": 10
-    },
-    "colors": {
-        "background": {
-            "isSolid": true,
-            "color": "#FFFFFF"
-        },
-        "dots": {
-            "isSolid": true,
-            "color": "#abb8c3"
-        },
-        "square": {
-            "isSolid": true,
-            "color": "#000000"
-        },
-        "cornerDots": {
-            "isSolid": true,
-            "color": "#00d084"
-        }
-    },
-    "types": {
-        "corner": {
-            "type": "extra-rounded"
-        },
-        "dots": {
-            "type": "classy-rounded"
-        },
-        "square": {
-            "isSolid": true,
-            "color": "#000000"
-        },
-        "cornerDots": {
-            "type": "square"
-        }
-    },
-    "clearInput": false
-}, {
-    "type": "Text",
-    "qrName": "My QR",
-    'correction': 'Q',
-    'margin': 0,
-    "size": {
-        "width": "300",
-        "height": "300"
-    },
-    "inputData": {
-        "url": {
-            "value": null
-        },
-        "app": {
-            "value": null
-        },
-        "text": {
-            "value": "sss"
-        },
-        "mail": {
-            "email": null,
-            "message": null
-        },
-        "whatsapp": {
-            "number": null,
-            "message": null
-        },
-        "message": {
-            "number": null,
-            "message": null
-        },
-        "call": {
-            "call": null,
-            "number": null
-        },
-        "wifi": {
-            "networkName": null,
-            "networkType": null,
-            "password": null,
-            "isHide": null
-        },
-        "vcard": {
-            "firstName": null,
-            "lastName": null,
-            "phoneNumber": null,
-            "mobile": null,
-            "email": null,
-            "website": null,
-            "company": null,
-            "jobTitle": null,
-            "address": null,
-            "fax": null,
-            "city": null,
-            "postalCode": null,
-            "country": null
-        }
-    },
-    "logo": "/static/media/logo (24).f6197f18a1a75a99331a142025cfaf73.svg",
-    "logoSetting": {
-        "backgrounddots": true,
-        "margin": 10
-    },
-    "colors": {
-        "background": {
-            "isSolid": true,
-            "color": "#FFFFFF"
-        },
-        "dots": {
-            "isSolid": true,
-            "color": "#abb8c3"
-        },
-        "square": {
-            "isSolid": false,
-            "color": "#000000"
-        },
-        "cornerDots": {
-            "isSolid": true,
-            "color": "#ff6900"
-        }
-    },
-    "types": {
-        "corner": {
-            "type": "extra-rounded"
-        },
-        "dots": {
-            "type": "classy-rounded"
-        },
-        "square": {
-            "isSolid": true,
-            "color": "#000000"
-        },
-        "cornerDots": {
-            "type": "square"
-        }
-    },
-    "clearInput": false
-},{
-    "type": "Text",
-    "qrName": "My QR",
-    'correction': 'Q',
-
-    'margin': 0,
-    "size": {
-        "width": "300",
-        "height": "300"
-    },
-    "inputData": {
-        "url": {
-            "value": null
-        },
-        "app": {
-            "value": null
-        },
-        "text": {
-            "value": "kj"
-        },
-        "mail": {
-            "email": null,
-            "message": null
-        },
-        "whatsapp": {
-            "number": null,
-            "message": null
-        },
-        "message": {
-            "number": null,
-            "message": null
-        },
-        "call": {
-            "call": null,
-            "number": null
-        },
-        "wifi": {
-            "networkName": null,
-            "networkType": null,
-            "password": null,
-            "isHide": null
+            "isHide": false
         },
         "vcard": {
             "firstName": null,
@@ -467,6 +79,502 @@ export const templates = [
     },
     "types": {
         "corner": {
+            "type": "extra-rounded"
+        },
+        "dots": {
+            "type": "extra-rounded"
+        },
+        "square": {
+            "isSolid": true,
+            "color": "#000000"
+        },
+        "cornerDots": {
+            "type": "dot"
+        }
+    },
+    "clearInput": false
+},
+
+
+
+
+
+{
+    "type": "Link",
+    "qrName": "My QR",
+    "correction": "Q",
+    "margin": 5,
+    "size": {
+        "height": "300",
+        "width": "300"
+    },
+    "inputData": {
+        "url": {
+            "value": "https://www.youtube.com/"
+        },
+        "app": {
+            "value": null
+        },
+        "text": {
+            "value": null
+        },
+        "mail": {
+            "email": null,
+            "message": null
+        },
+        "whatsapp": {
+            "number": null,
+            "message": null
+        },
+        "message": {
+            "number": null,
+            "message": null
+        },
+        "call": {
+            "call": null
+        },
+        "wifi": {
+            "networkName": null,
+            "networkType": null,
+            "password": null,
+            "isHide": false
+        },
+        "vcard": {
+            "firstName": null,
+            "lastName": null,
+            "phoneNumber": null,
+            "mobile": null,
+            "email": null,
+            "website": null,
+            "company": null,
+            "jobTitle": null,
+            "address": null,
+            "fax": null,
+            "city": null,
+            "postalCode": null,
+            "country": null
+        }
+    },
+    "logo": null,
+    "logoSetting": {
+        "backgrounddots": true,
+        "margin": 10
+    },
+    "colors": {
+        "background": {
+            "isSolid": true,
+            "color": "#ffffff"
+        },
+        "dots": {
+            "isSolid": true,
+            "color": "#9900efde"
+        },
+        "square": {
+            "isSolid": true,
+            "color": "#9900efde"
+        },
+        "cornerDots": {
+            "isSolid": true,
+            "color": "#9900efde"
+        }
+    },
+    "types": {
+        "corner": {
+            "type": "extra-rounded"
+        },
+        "dots": {
+            "type": "extra-rounded"
+        },
+        "square": {
+            "isSolid": true,
+            "color": "#000000"
+        },
+        "cornerDots": {
+            "type": "dot"
+        }
+    },
+    "clearInput": false
+},
+
+
+{
+    "type": "Link",
+    "qrName": "My QR",
+    "correction": "Q",
+    "margin": 5,
+    "size": {
+        "height": "300",
+        "width": "300"
+    },
+    "inputData": {
+        "url": {
+            "value": "https://www.youtube.com/"
+        },
+        "app": {
+            "value": null
+        },
+        "text": {
+            "value": null
+        },
+        "mail": {
+            "email": null,
+            "message": null
+        },
+        "whatsapp": {
+            "number": null,
+            "message": null
+        },
+        "message": {
+            "number": null,
+            "message": null
+        },
+        "call": {
+            "call": null
+        },
+        "wifi": {
+            "networkName": null,
+            "networkType": null,
+            "password": null,
+            "isHide": false
+        },
+        "vcard": {
+            "firstName": null,
+            "lastName": null,
+            "phoneNumber": null,
+            "mobile": null,
+            "email": null,
+            "website": null,
+            "company": null,
+            "jobTitle": null,
+            "address": null,
+            "fax": null,
+            "city": null,
+            "postalCode": null,
+            "country": null
+        }
+    },
+    "logo": null,
+    "logoSetting": {
+        "backgrounddots": true,
+        "margin": 10
+    },
+    "colors": {
+        "background": {
+            "isSolid": true,
+            "color": "#ffffff"
+        },
+        "dots": {
+            "isSolid": true,
+            "color": "#9F70FD"
+        },
+        "square": {
+            "isSolid": true,
+            "color": "#7F27FF"
+        },
+        "cornerDots": {
+            "isSolid": true,
+            "color": "#7F27FF"
+        }
+    },
+    "types": {
+        "corner": {
+            "type": "extra-rounded"
+        },
+        "dots": {
+            "type": "extra-rounded"
+        },
+        "square": {
+            "isSolid": true,
+            "color": "#000000"
+        },
+        "cornerDots": {
+            "type": "dot"
+        }
+    },
+    "clearInput": false
+}, 
+
+
+
+{
+    "type": "Link",
+    "qrName": "My QR",
+    "correction": "H",
+    "margin": 5,
+    "size": {
+        "width": 1000,
+        "height": 1000
+    },
+    "inputData": {
+        "url": {
+            "value": "https://dcfv"
+        },
+        "app": {
+            "value": null
+        },
+        "text": {
+            "value": null
+        },
+        "mail": {
+            "email": null,
+            "message": null
+        },
+        "whatsapp": {
+            "number": null,
+            "message": null
+        },
+        "message": {
+            "number": null,
+            "message": null
+        },
+        "call": {
+            "call": null
+        },
+        "wifi": {
+            "networkName": null,
+            "networkType": null,
+            "password": null,
+            "isHide": false
+        },
+        "vcard": {
+            "firstName": null,
+            "lastName": null,
+            "phoneNumber": null,
+            "mobile": null,
+            "email": null,
+            "website": null,
+            "company": null,
+            "jobTitle": null,
+            "address": null,
+            "fax": null,
+            "city": null,
+            "postalCode": null,
+            "country": null
+        }
+    },
+    "logo": "/static/media/logo (8).7a456aede401312fadceaf9e449a3710.svg",
+    "logoSetting": {
+        "backgrounddots": true,
+        "margin": 10
+    },
+    "colors": {
+        "background": {
+            "isSolid": true,
+            "color": ""
+        },
+        "dots": {
+            "isSolid": false,
+            "color": "#000000"
+        },
+        "square": {
+            "isSolid": false,
+            "color": "#000000"
+        },
+        "cornerDots": {
+            "isSolid": false,
+            "color": "#000000"
+        }
+    },
+    "types": {
+        "corner": {
+            "type": "dot"
+        },
+        "dots": {
+            "type": "extra-rounded"
+        },
+        "square": {
+            "isSolid": true,
+            "color": "#000000"
+        },
+        "cornerDots": {
+            "type": "extra-rounded"
+        }
+    },
+    "clearInput": false
+},
+
+
+{
+    "type": "Link",
+    "qrName": "My QR",
+    "correction": "Q",
+    "margin": 5,
+    "size": {
+        "height": "300",
+        "width": "300"
+    },
+    "inputData": {
+        "url": {
+            "value": "https://www.reddit.com/"
+        },
+        "app": {
+            "value": null
+        },
+        "text": {
+            "value": null
+        },
+        "mail": {
+            "email": null,
+            "message": null
+        },
+        "whatsapp": {
+            "number": null,
+            "message": null
+        },
+        "message": {
+            "number": null,
+            "message": null
+        },
+        "call": {
+            "call": null
+        },
+        "wifi": {
+            "networkName": null,
+            "networkType": null,
+            "password": null,
+            "isHide": false
+        },
+        "vcard": {
+            "firstName": null,
+            "lastName": null,
+            "phoneNumber": null,
+            "mobile": null,
+            "email": null,
+            "website": null,
+            "company": null,
+            "jobTitle": null,
+            "address": null,
+            "fax": null,
+            "city": null,
+            "postalCode": null,
+            "country": null
+        }
+    },
+    "logo": "/static/media/logo (39).098f6019c8233eea3efa32b9c55f3894.svg",
+    "logoSetting": {
+        "backgrounddots": true,
+        "margin": 10
+    },
+    "colors": {
+        "background": {
+            "isSolid": true,
+            "color": "#FFFFFF"
+        },
+        "dots": {
+            "isSolid": false,
+            "color": "linear-gradient(315deg, #f9f047 0.00%,#f9f047 5.00%,#076525 54.00%,#076525 67.00%)"
+        },
+        "square": {
+            "isSolid": false,
+            "color": "linear-gradient(315deg, #f9f047 0.00%,#f9f047 5.00%,#076525 54.00%,#076525 67.00%)"
+        },
+        "cornerDots": {
+            "isSolid": false,
+            "color": "linear-gradient(315deg, #f9f047 0.00%,#f9f047 5.00%,#076525 54.00%,#076525 67.00%)"
+        }
+    },
+    "types": {
+        "corner": {
+            "type": "extra-rounded"
+        },
+        "dots": {
+            "type": "rounded"
+        },
+        "square": {
+            "isSolid": true,
+            "color": "#000000"
+        },
+        "cornerDots": {
+            "type": "extra-rounded"
+        }
+    },
+    "clearInput": false
+}, 
+
+
+
+
+{
+    "type": "Link",
+    "qrName": "My QR",
+    "correction": "Q",
+    "margin": 5,
+    "size": {
+        "height": "300",
+        "width": "300"
+    },
+    "inputData": {
+        "url": {
+            "value": "https://www.reddit.com/"
+        },
+        "app": {
+            "value": null
+        },
+        "text": {
+            "value": null
+        },
+        "mail": {
+            "email": null,
+            "message": null
+        },
+        "whatsapp": {
+            "number": null,
+            "message": null
+        },
+        "message": {
+            "number": null,
+            "message": null
+        },
+        "call": {
+            "call": null
+        },
+        "wifi": {
+            "networkName": null,
+            "networkType": null,
+            "password": null,
+            "isHide": false
+        },
+        "vcard": {
+            "firstName": null,
+            "lastName": null,
+            "phoneNumber": null,
+            "mobile": null,
+            "email": null,
+            "website": null,
+            "company": null,
+            "jobTitle": null,
+            "address": null,
+            "fax": null,
+            "city": null,
+            "postalCode": null,
+            "country": null
+        }
+    },
+    "logo": "/static/media/logo (9).1c9a97e6abf8ca43d6d95ac759c14bbd.svg",
+    "logoSetting": {
+        "backgrounddots": true,
+        "margin": 10
+    },
+    "colors": {
+        "background": {
+            "isSolid": true,
+            "color": "#FFFFFF"
+        },
+        "dots": {
+            "isSolid": false,
+            "color": "linear-gradient(0deg, rgb(255, 177, 153) 0%, rgb(255, 8, 68) 100%)"
+        },
+        "square": {
+            "isSolid": false,
+            "color": "linear-gradient(0deg, rgb(255, 177, 153) 0%, rgb(255, 8, 68) 100%)"
+        },
+        "cornerDots": {
+            "isSolid": false,
+            "color": "linear-gradient(0deg, rgb(255, 177, 153) 0%, rgb(255, 8, 68) 100%)"
+        }
+    },
+    "types": {
+        "corner": {
             "type": "dot"
         },
         "dots": {
@@ -477,8 +585,108 @@ export const templates = [
             "color": "#000000"
         },
         "cornerDots": {
-            "type": "square"
+            "type": "extra-rounded"
         }
     },
     "clearInput": false
-}] 
+}, 
+
+
+
+{
+    "type": "Link",
+    "qrName": "My QR",
+    "correction": "L",
+    "margin": 5,
+    "size": {
+        "height": "300",
+        "width": "300"
+    },
+    "inputData": {
+        "url": {
+            "value": "https://www.reddit.com/"
+        },
+        "app": {
+            "value": null
+        },
+        "text": {
+            "value": null
+        },
+        "mail": {
+            "email": null,
+            "message": null
+        },
+        "whatsapp": {
+            "number": null,
+            "message": null
+        },
+        "message": {
+            "number": null,
+            "message": null
+        },
+        "call": {
+            "call": null
+        },
+        "wifi": {
+            "networkName": null,
+            "networkType": null,
+            "password": null,
+            "isHide": false
+        },
+        "vcard": {
+            "firstName": null,
+            "lastName": null,
+            "phoneNumber": null,
+            "mobile": null,
+            "email": null,
+            "website": null,
+            "company": null,
+            "jobTitle": null,
+            "address": null,
+            "fax": null,
+            "city": null,
+            "postalCode": null,
+            "country": null
+        }
+    },
+    "logo": null,
+    "logoSetting": {
+        "backgrounddots": true,
+        "margin": 10
+    },
+    "colors": {
+        "background": {
+            "isSolid": true,
+            "color": "#FFFFFF"
+        },
+        "dots": {
+            "isSolid": false,
+            "color": "linear-gradient(90deg, rgb(120, 115, 245) 0%, rgb(236, 119, 171) 100%)"
+        },
+        "square": {
+            "isSolid": false,
+            "color": "linear-gradient(270deg, #7873f5 0.00%,#ec77ab 28.00%,#ec77ab 53.00%,#ec77ab 83.00%,#ec77ab 100.00%)"
+        },
+        "cornerDots": {
+            "isSolid": false,
+            "color": "linear-gradient(90deg, #7873f5 44.00%,#ee72a9 99.00%,#ec77ab 100.00%)"
+        }
+    },
+    "types": {
+        "corner": {
+            "type": "dot"
+        },
+        "dots": {
+            "type": "extra-rounded"
+        },
+        "square": {
+            "isSolid": true,
+            "color": "#000000"
+        },
+        "cornerDots": {
+            "type": "extra-rounded"
+        }
+    },
+    "clearInput": false
+}
+]
