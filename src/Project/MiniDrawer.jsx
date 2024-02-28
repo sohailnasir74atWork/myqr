@@ -308,7 +308,7 @@ const CommonIconButton = () => (
           ))}
         </List>
       </Drawer>
-      <div className={isMobile && open ? "overlay-sidebar" : "hide"}></div>
+      <div className={isMobile && open ? "overlay-sidebar" : "hide"} onClick={handleDrawerToggle}></div>
       <AlertDialog prop={{openAlert, setOpenAlert, message, heading, setActiveStep, activeStep, qrCodeSettings, setQrCodeSettings}}/>
     </Box>
   );
