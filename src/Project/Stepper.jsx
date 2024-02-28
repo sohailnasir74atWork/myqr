@@ -103,14 +103,14 @@ export default function StepperComponent({prop}) {
            <ArrowCircleLeftRounded sx={{fontSize : "27px"}}/>
           </IconButton>
           <Box sx={{ flex: "1 1 auto" }} />
-          <IconButton 
+          {activeStep !== 2 && <IconButton 
           onClick={handleNext} 
           color={activeStep === 2 ? "success" : "primary"}
           disabled={activeStep < 2}
           className="button"
           variant="contained">
             <ArrowCircleRightRounded sx={{fontSize: "27px"}}/>
-          </IconButton>
+          </IconButton>}
         </Box>}
         </Box>
     </Box>
