@@ -266,7 +266,7 @@ const CommonIconButton = () => (
       </AppBar>
       <Drawer variant="permanent" open={open}  sx={{ position: isMobile ? "absolute" : "" }}>
         <DrawerHeader>
-          <div style={{height: '60px', display:'flex', justifyContent:'center', alignItems:'center', padding:'5px', width="100%"}}>
+          <div style={{height: '60px', display:'flex', justifyContent:'center', alignItems:'center', padding:'5px', width:"100%"}}>
             <img src={logo} alt='logo' style={{width:'auto', height:'100%'}}/>
                     </div>
           <IconButton onClick={handleDrawerToggle}>
