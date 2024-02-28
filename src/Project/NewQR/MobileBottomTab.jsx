@@ -16,14 +16,16 @@ import LogoHandling from "./DesignComponents/Options/LogoHandling";
 import QrGenerator from "./QrGenerator/QrGenerator";
 import { AspectRatio } from "@mui/icons-material";
 import QrOptions from "./DesignComponents/Options/QrOptions";
+import Stats from "../Stats/Stats";
 
 // Define your options array here
 const options = [
   { label: "Colors", icon: <ColorLensIcon /> },
   { label: "Shapes", icon: <DashboardCustomizeIcon /> },
   { label: "Logo", icon: <FaceRetouchingNaturalIcon /> },
-  { label: "Frames", icon: <CropOriginalIcon /> },
   { label: "Size", icon: <AspectRatio /> },
+  { label: "Frames", icon: <CropOriginalIcon /> },
+  
 
 
 ];
@@ -66,8 +68,8 @@ export default function MobileBottomTab() {
     <ColorHandling prop={{ qrCodeSettings, setQrCodeSettings, isMobile }} />,
     <ShapesHandling prop={{ qrCodeSettings, setQrCodeSettings, isMobile }} />,
     <LogoHandling prop={{ qrCodeSettings, setQrCodeSettings, isMobile }} />,
-    <LogoHandling prop={{ qrCodeSettings, setQrCodeSettings, isMobile }} />,
     <QrOptions prop={{ qrCodeSettings, setQrCodeSettings, isMobile }} />,
+    <Stats prop={{ qrCodeSettings, setQrCodeSettings, isMobile }} />,
 
   ];
 
@@ -86,9 +88,9 @@ export default function MobileBottomTab() {
         height: "100%",
       }}
     >
-      <div className="live-demo-container">
+     {value !== 4 && <div className="live-demo-container">
         <QrGenerator prop={{ qrCodeSettings, liveDemo }} />
-      </div>
+      </div>}
       <div
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={value}
