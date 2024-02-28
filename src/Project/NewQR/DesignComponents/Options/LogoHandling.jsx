@@ -166,8 +166,7 @@ const LogoHandling = () => {
     ))}
   </div>
   <div className="logo-container">
-    <div className="logo center" onClick={handleRemoveLogo}
-      style={{ cursor: 'pointer', background: 'pink', border: '2px' }}><BlockIcon sx={{ color: 'red', fontSize: '40px' }} /></div>
+    
     {logos.slice(logos.length / 2).map((item, index) => (
       <img
         key={index}
@@ -176,6 +175,8 @@ const LogoHandling = () => {
         onClick={() => handleClickLogo(item)}
       />
     ))}
+    <div className="logo center" onClick={handleRemoveLogo}
+      style={{ cursor: 'pointer', background: 'pink', border: '2px' }}><BlockIcon sx={{ color: 'red', fontSize: '40px' }} /></div>
   </div>
 </div>}
 
