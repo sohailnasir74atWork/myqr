@@ -1,4 +1,5 @@
-export const templates = [{
+export const templates = [
+    {
     "type": "Link",
     "qrName": "My QR",
     "correction": "Q",
