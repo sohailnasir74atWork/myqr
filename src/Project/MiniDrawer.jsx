@@ -127,17 +127,23 @@ export default function MiniDrawer() {
     if(activeStep<2){setActiveStep((prevActiveStep) => prevActiveStep + 1);}
   };
   function toggleOverflow(isOpen) {
-  const body = document.body;
-  const containerCustom = document.querySelector('.container-custom');
-
-  if (isOpen && isMobile) {
-    body.style.overflow = 'hidden';
-    // containerCustom.style.overflow = 'hidden';
-  } else {
-    body.style.overflow = 'auto'; // or 'visible' depending on your needs
-    // containerCustom.style.overflow = 'auto'; // or 'visible'
+    const body = document.body;
+    const containerCustom = document.querySelector('.container-custom');
+  
+    if (isOpen && isMobile) {
+      // Scroll to the top
+      window.scrollTo(0, 0);
+  
+      // Hide overflow
+      body.style.overflow = 'hidden';
+      // containerCustom.style.overflow = 'hidden';
+    } else {
+      // Show overflow
+      body.style.overflow = 'auto'; // or 'visible' depending on your needs
+      // containerCustom.style.overflow = 'auto'; // or 'visible'
+    }
   }
-}
+  
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
