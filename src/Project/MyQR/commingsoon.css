@@ -5,10 +5,9 @@
     margin: auto;
     flex-direction: column;
     max-width: 700px;
+    margin-top: 60px;
     @media (max-width: 600px) {
-        padding: 40px !important;
-        margin-top: 60px;
-    
+        padding: 40px !important;    
       }
 }
 .container-commingsoon img {
