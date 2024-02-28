@@ -27,7 +27,7 @@ import { sideBar } from './DynamicData';
 import AlertDialog from './Alert';
 import { QrCodeScanner } from '@mui/icons-material';
 import Pro from "../Assets/icons/Pro.svg"
-import logo from '../Assets/LOGO/logofull.png'
+import logo from '../Assets/LOGO/logofull.svg'
 
 
 
@@ -266,7 +266,7 @@ const CommonIconButton = () => (
       </AppBar>
       <Drawer variant="permanent" open={open}  sx={{ position: isMobile ? "absolute" : "" }}>
         <DrawerHeader>
-          <div style={{height: '60px', display:'flex', justifyContent:'center', alignItems:'center', padding:'5px', width:"100%"}}>
+          <div style={{height: '60px', display:'flex', justifyContent:'center', alignItems:'center',  width:"100%"}}>
             <img src={logo} alt='logo' style={{width:'auto', height:'100%'}}/>
                     </div>
           <IconButton onClick={handleDrawerToggle}>
