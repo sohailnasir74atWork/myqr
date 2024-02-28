@@ -126,6 +126,18 @@ export default function MiniDrawer() {
   const handleNext = () => {
     if(activeStep<2){setActiveStep((prevActiveStep) => prevActiveStep + 1);}
   };
+  function toggleOverflow(isOpen) {
+  const body = document.body;
+  const containerCustom = document.querySelector('.container-custom');
+
+  if (isOpen && isMobile) {
+    body.style.overflow = 'hidden';
+    // containerCustom.style.overflow = 'hidden';
+  } else {
+    body.style.overflow = 'auto'; // or 'visible' depending on your needs
+    // containerCustom.style.overflow = 'auto'; // or 'visible'
+  }
+}
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
@@ -141,7 +153,8 @@ export default function MiniDrawer() {
 
   useEffect(() => {
     // console.log('active-step updated in drawrer', activeStep);
-  }, [activeStep]);
+    toggleOverflow(open)
+  }, [open]);
 
   const menuItems = [
     { text: 'Create New', icon: <MailIcon />, path: '/create' },
