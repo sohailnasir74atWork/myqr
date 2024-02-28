@@ -27,7 +27,7 @@ import { sideBar } from './DynamicData';
 import AlertDialog from './Alert';
 import { QrCodeScanner } from '@mui/icons-material';
 import Pro from "../Assets/icons/Pro.svg"
-import logo from '../Assets/LOGO/logofull1.svg'
+import logo from '../Assets/LOGO/logofull2.svg'
 
 
 
