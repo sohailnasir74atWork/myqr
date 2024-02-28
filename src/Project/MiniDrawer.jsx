@@ -36,7 +36,7 @@ const drawerWidth = 240;
 const openedMixin = (theme) => ({
   width: drawerWidth,
   [theme.breakpoints.down("sm")]: {
-    width: "85%",
+    width: "60%",
     // borderRight: `100px solid rgba(0, 0, 0, 0.1)`, // Adjust the width and color as needed
   },
   transition: theme.transitions.create('width', {
@@ -266,7 +266,7 @@ const CommonIconButton = () => (
       </AppBar>
       <Drawer variant="permanent" open={open}  sx={{ position: isMobile ? "absolute" : "" }}>
         <DrawerHeader>
-          <div style={{height: '60px', display:'flex', justifyContent:'center', alignItems:'center', padding:'5px'}}>
+          <div style={{height: '60px', display:'flex', justifyContent:'center', alignItems:'center', padding:'5px', width="100%"}}>
             <img src={logo} alt='logo' style={{width:'auto', height:'100%'}}/>
                     </div>
           <IconButton onClick={handleDrawerToggle}>

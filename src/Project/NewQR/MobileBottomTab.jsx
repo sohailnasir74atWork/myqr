@@ -25,10 +25,7 @@ const options = [
   { label: "Logo", icon: <FaceRetouchingNaturalIcon /> },
   { label: "Size", icon: <AspectRatio /> },
   { label: "Frames", icon: <CropOriginalIcon /> },
-  
-
-
-];
+  ];
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
