@@ -234,26 +234,26 @@ const CommonIconButton = () => (
 
     {location.pathname.includes('/templates') && (
       <>
-        <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Template header</Box>
+        <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Templates</Box>
         <CommonIconButton />
       </>
     )}
 
     {location.pathname.includes('/stats') && (
       <>
-      <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Stats header</Box>
+      <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Statistics</Box>
       <CommonIconButton /></>
 
     )}
 
     {location.pathname.includes('/myqr') && (
       <>
-      <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>MY QR header</Box>
+      <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>MY QR</Box>
       <CommonIconButton /></>
     )}
     {location.pathname.includes('/generate-bulk') && (
       <>
-      <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Bulk header</Box>
+      <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Bulk Generator</Box>
       <CommonIconButton /></>
     )}
   </Toolbar>
@@ -276,7 +276,7 @@ const CommonIconButton = () => (
             <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Templates</Box>
           }
           {location.pathname.includes('stats') && (
-            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Stats header</Box>
+            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Statistics</Box>
           )}
           {location.pathname.includes('myqr') && (
             <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>The Pro version is scheduled to go live in mid-2024</Box>
