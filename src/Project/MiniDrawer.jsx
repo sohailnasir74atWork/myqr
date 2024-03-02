@@ -27,7 +27,7 @@ import { sideBar } from './DynamicData';
 import AlertDialog from './Alert';
 import { QrCodeScanner } from '@mui/icons-material';
 import Pro from "../Assets/icons/Pro.svg"
-import logo from '../Assets/LOGO/logofull2.svg'
+import logo from '../Assets/LOGO/logofull.svg'
 
 
 
@@ -273,7 +273,7 @@ const CommonIconButton = () => (
           </IconButton>}
           {location.pathname.includes('/create') && <StepperComponent prop={{ handleBack, handleNext, activeStep, setActiveStep, open, handleDrawerToggle }} />}
           {location.pathname.includes('templates') && 
-            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Template header</Box>
+            <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Templates</Box>
           }
           {location.pathname.includes('stats') && (
             <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>Stats header</Box>
