@@ -62,7 +62,7 @@ const SelectScreen = () => {
   return (
     <Box className="container">
      <div
-      className={iframe ? "types-of-qr-container-iframe" : 'types-of-qr-container'}
+      className={iframe ? "types-of-qr-container-select-iframe" : 'types-of-qr-container'}
       style={{ width: isMobile ? "100%" : "" }}
     >
       
