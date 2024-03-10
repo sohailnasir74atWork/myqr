@@ -47,11 +47,10 @@ const theme = createTheme({
 function Content() {
   const { useLocation } = require('react-router-dom');
   const location = useLocation();
-  const {iframeRouts} = ImportStats()
-console.log('checking', iframeRouts)
+  const {iframe} = ImportStats()
   return (
     <Box sx={{ display: 'flex' }}>
-      {!(location.pathname === '/iframe' || iframeRouts) && <MiniDrawer />}
+      {!(location.pathname === '/iframe' || iframe) && <MiniDrawer />}
       <Box component="main" sx={{ flexGrow: 1, width: location.pathname === '/iframe' ? '100%' : 'calc(100% - 240px)' }}>
         <Routes>
           <Route path="/create" element={<SelectScreen />} />

@@ -7,7 +7,7 @@ import './newqrStyle.css';
 import Pro from "../../Assets/icons/Pro.svg"
 import { useNavigate } from "react-router-dom";
 
-const SelectScreen = ({iframe}) => {
+const SelectScreen = () => {
   const { 
     qrCodeSettings,
     setQrCodeSettings,
@@ -15,6 +15,7 @@ const SelectScreen = ({iframe}) => {
     setActiveTool,
     activeStep,
     isMobile,
+    iframe,
     showMobileQR,
     setActiveStep,
     setShowMobileQR} = ImportStats();

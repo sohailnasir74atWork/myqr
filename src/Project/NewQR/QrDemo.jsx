@@ -2,13 +2,12 @@ import * as React from "react";
 import QrGenerator from "./QrGenerator/QrGenerator";
 import './newqrStyle.css'
 import { useNavigate, useLocation } from "react-router-dom";
+import { ImportStats } from "../GlobelStats/GlobelStats";
 
 export default function QrDemo({ prop }) {
   const { qrCodeSettings } = prop;
   const location = useLocation();
-  const iframe = location.pathname.includes('iframe')
-
-
+  const {iframe} = ImportStats()
   const heading = () => {
     const path = location.pathname.toLowerCase();
     

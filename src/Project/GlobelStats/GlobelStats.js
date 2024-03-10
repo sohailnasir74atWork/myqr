@@ -9,7 +9,7 @@ export const ContextProvider = ({ children }) => {
   const [activeStep, setActiveStep] = useState(0);
   const isMobile = useMediaQuery(`(max-width:600px)`);
   const [activeTool, setActiveTool] = useState("");
-  const [iframeRouts, setIframeRouts] = useState(false);
+  const [iframe, setIframe] = useState(false);
   const [qrCodeSettings, setQrCodeSettings] = useState(
     {
     type:'',
@@ -59,7 +59,7 @@ export const ContextProvider = ({ children }) => {
 
 
    return (
-    <GlobelStats.Provider value={{ activeStep, isMobile, qrCodeSettings, setQrCodeSettings, setActiveTool, activeTool, setActiveStep, setIframeRouts, iframeRouts }}>
+    <GlobelStats.Provider value={{ activeStep, isMobile, qrCodeSettings, setQrCodeSettings, setActiveTool, activeTool, setActiveStep, setIframe, iframe }}>
       {children}
     </GlobelStats.Provider>
   );
