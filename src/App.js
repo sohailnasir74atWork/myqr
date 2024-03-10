@@ -12,6 +12,7 @@ import DesignScreen from './Project/NewQR/DesignScreen';
 import Create from './Project/NewQR/Create';
 import { ContextProvider, ImportStats } from './Project/GlobelStats/GlobelStats';
 import { ThemeProvider } from '@emotion/react';
+import Iframe from './Project/Iframe';
 const theme = createTheme({
   palette: {
     primary: {
@@ -58,6 +59,7 @@ function App() {
             <Route path="/generate-bulk" element={<Stats />} />
             <Route path="/create/input" element={<InputScreen />} />
             <Route path="/create/input/design" element={<DesignScreen /> } />
+            <Route path="/iframe" element={<Iframe /> } />
           </Routes>
         </Box>
       </Box>
