@@ -25,7 +25,7 @@ const DesignScreen = () => {
     };
   }, []);
   return (
-    <Box className="container mobile-mr-t-20">
+    <Box className={iframe ? "container-iframe mobile-mr-t-20" : 'container mobile-mr-t-20'}>
      {!isMobile &&  <div className={iframe ? "types-of-qr-container-iframe" : 'types-of-qr-container'}>
       <div className="container-custom">
           <CustomizedAccordions
