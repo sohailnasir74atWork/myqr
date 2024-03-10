@@ -48,7 +48,7 @@ function Content() {
   const { useLocation } = require('react-router-dom');
   const location = useLocation();
   const {iframeRouts} = ImportStats()
-
+console.log('checking', iframeRouts)
   return (
     <Box sx={{ display: 'flex' }}>
       {!(location.pathname === '/iframe' || iframeRouts) && <MiniDrawer />}
