@@ -205,7 +205,7 @@ const CommonIconButton = () => (
 );
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex' }} className='wordpress'>
       <CssBaseline />
       <AppBar position="fixed" open={open} sx={{ backgroundColor: 'var(--background-color)' }}>
       {isMobile && !open && (
