@@ -60,8 +60,6 @@ function Content() {
           <Route path="/create/input" element={<InputScreen />} />
           <Route path="/create/input/design" element={<DesignScreen />} />
           <Route path="/iframe" element={<Iframe/>} />
-
-          {/* Define the Iframe component route as needed */}
         </Routes>
       </Box>
     </Box>

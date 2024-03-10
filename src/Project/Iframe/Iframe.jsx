@@ -40,7 +40,7 @@ export default function Iframe() {
           );
         })}
       </Stepper>
-      {activeStep === 0 && <SelectScreen/>}
+      {activeStep === 0 && <SelectScreen iframe/>}
       {activeStep === steps.length ? (
         <React.Fragment>
           <Typography sx={{ mt: 2, mb: 1 }}>

@@ -143,6 +143,19 @@
   
     }
   }
+  .types-of-qr-mobile-demo-iframe {
+    height: 100%;
+    margin-top: 50px;
+    /* position: fixed; */
+    background-color: var(--background-color);
+  
+    @media (max-width: 600px) {
+      margin-top: auto !important;
+      height: 100%;
+  
+  
+    }
+  }
   .mobile-frame {
     position: relative;
      width: 320px;

@@ -1,4 +1,4 @@
-import { Box, Dialog } from "@mui/material";
+import { Box, Button, Dialog } from "@mui/material";
 import React from "react";
 import { ImportStats } from "../GlobelStats/GlobelStats";
 import { dymanicTools, staticTools } from "../DynamicData";
@@ -7,7 +7,7 @@ import './newqrStyle.css';
 import Pro from "../../Assets/icons/Pro.svg"
 import { useNavigate } from "react-router-dom";
 
-const SelectScreen = () => {
+const SelectScreen = ({iframe}) => {
   const { 
     qrCodeSettings,
     setQrCodeSettings,
@@ -70,27 +70,46 @@ const SelectScreen = () => {
         >
           <div className="flex-col">
             <div className="heading-container">
-              <span className="heading-2">Generate Static QR</span>{" "}
-              <span className="heading-tag">without tracking</span>
+              <span className="heading-2">{iframe ? 'Start Creating Your Desired QR with One Click ' : 'Generate Static QR'}</span>{" "}
+              {!iframe && <span className="heading-tag">without tracking</span>}
             </div>
             <div className="grid-container">
-              {staticTools.map((item, index) => (
-                <div
-                  className={`static-qr-tabs ${qrCodeSettings.type === item.heading ? 'selected' : ''}`}
-                  key={index}
-                  onClick={() => inputClick(item.heading)}
-                >
-                  <div className="static-qr-icons">{item.icon}</div>
-                  <div className="flex-col">
-                    <span className="text-primary">{item.heading}</span>
-                    <span className="text-secondary">{item.text}</span>
-                    </div>
-                    {/* <span className="free-tag">Free</span> */}
-                </div>
-              ))}
+            {
+  iframe ? 
+    staticTools.slice(0,-2).map((item, index) => (
+      <div
+        className={`static-qr-tabs ${qrCodeSettings.type === item.heading ? 'selected' : ''}`}
+        key={index}
+        onClick={() => inputClick(item.heading)}
+      >
+        <div className="static-qr-icons">{item.icon}</div>
+        <div className="flex-col">
+          <span className="text-primary">{item.heading}</span>
+          <span className="text-secondary">{item.text}</span>
+        </div>
+        {/* <span className="free-tag">Free</span> */}
+      </div>
+    ))
+  : 
+    staticTools.map((item, index) => (
+      <div
+        className={`static-qr-tabs ${qrCodeSettings.type === item.heading ? 'selected' : ''}`}
+        key={index}
+        onClick={() => inputClick(item.heading)}
+      >
+        <div className="static-qr-icons">{item.icon}</div>
+        <div className="flex-col">
+          <span className="text-primary">{item.heading}</span>
+          <span className="text-secondary">{item.text}</span>
+        </div>
+        {/* <span className="free-tag">Free</span> */}
+      </div>
+    ))
+}
+<div className="static-qr-tabs center" style={{backgroundColor:'#A1A0E1'}}><div className="text-primary" style={{color:'white'}}>Explore All Types of QR</div></div>
             </div>
             <br/>
-            <div className="heading-container">
+           {!iframe && <> <div className="heading-container">
               <span className="heading-2">Generate Dymanic QR</span>
               <span className="heading-tag">with tracking</span>
             </div>
@@ -110,7 +129,7 @@ const SelectScreen = () => {
                   <span className="commingsoon">COMMING SOON</span>
                 </div>
               ))}
-            </div>
+            </div></>}
           </div>
         </div>
     
