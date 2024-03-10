@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import "./App.css"
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Box, createTheme, ThemeProvider } from '@mui/material';
 import MiniDrawer from './Project/MiniDrawer';
-import { Box, Stack, createTheme } from '@mui/material';
 import Templates from './Project/Templates/Templates';
 import MyQr from './Project/MyQR/MyQr';
 import Stats from './Project/Stats/Stats';
@@ -11,60 +10,42 @@ import InputScreen from './Project/NewQR/InputScreen';
 import DesignScreen from './Project/NewQR/DesignScreen';
 import Create from './Project/NewQR/Create';
 import { ContextProvider, ImportStats } from './Project/GlobelStats/GlobelStats';
-import { ThemeProvider } from '@emotion/react';
 import Iframe from './Project/Iframe';
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#5956D6",
-    },
-  },
-  typography: {
-    fontFamily: [
-      "Lato",
-      "-apple-system",
-      "BlinkMacSystemFont",
-      '"Segoe UI"',
-      '"Helvetica Neue"',
-      "Arial",
-      "sans-serif",
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(","),
-  },
-  components: {
-    MuiTypography: {
-      styleOverrides: {
-        root: {
-          fontSize: "0.9rem",
-        },
-      },
-    },
-  },
-});
+
+const theme = createTheme();
+
 function App() {
-  const { isMobile } = ImportStats()
+  const { isMobile } = ImportStats();
+
   return (
     <ThemeProvider theme={theme}>
-    <Router>
-      <Box sx={{ display: 'flex' }}>
-        <MiniDrawer/>
-        <Box component="main" sx={{ flexGrow: 1,  width: '100%' }}>
-          <Routes>
-            <Route path="/create" element={<SelectScreen/>} />
-            <Route path="/templates" element={<Templates />} />
-            <Route path="/myqr" element={<MyQr />} />
-            <Route path="/stats" element={<Stats />} />
-            <Route path="/generate-bulk" element={<Stats />} />
-            <Route path="/create/input" element={<InputScreen />} />
-            <Route path="/create/input/design" element={<DesignScreen /> } />
-            <Route path="/iframe" element={<Iframe /> } />
-          </Routes>
-        </Box>
-      </Box>
-    </Router>
+      <Router>
+        <AppContent />
+      </Router>
     </ThemeProvider>
+  );
+}
+
+function AppContent() {
+  const location = useLocation();
+  const isIframeRoute = location.pathname === '/iframe';
+
+  return (
+    <Box sx={{ display: 'flex' }}>
+      {!isIframeRoute && <MiniDrawer />}
+      <Box component="main" sx={{ flexGrow: 1, width: '100%' }}>
+        <Routes>
+          <Route path="/create" element={<SelectScreen />} />
+          <Route path="/templates" element={<Templates />} />
+          <Route path="/myqr" element={<MyQr />} />
+          <Route path="/stats" element={<Stats />} />
+          <Route path="/generate-bulk" element={<Stats />} />
+          <Route path="/create/input" element={<InputScreen />} />
+          <Route path="/create/input/design" element={<DesignScreen />} />
+          <Route path="/iframe" element={<Iframe />} />
+        </Routes>
+      </Box>
+    </Box>
   );
 }
 
