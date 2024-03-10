@@ -14,7 +14,7 @@ const steps = [
 ];
 
 export default function Iframe() {
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = ImportStats();
   const { setIframeRouts } = ImportStats();
   React.useEffect(()=>{setIframeRouts(true)},[])
 
