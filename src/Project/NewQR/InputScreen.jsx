@@ -21,6 +21,7 @@ const InputScreen = () => {
     activeTool,
     setActiveTool,
     activeStep,
+    iframe,
     isMobile,
     showMobileQR,
     setShowMobileQR, handleBack, setActiveStep} = ImportStats();
@@ -40,7 +41,7 @@ const InputScreen = () => {
   return (
     <Box className="container mobile-mr-t-20">
       <div
-        className="types-of-qr-container"
+        className={iframe ? "types-of-qr-container-iframe" : 'types-of-qr-container'}
         style={{ width: isMobile ? "100%" : "" }}
       >
         <div className="container-custom">

@@ -10,6 +10,7 @@ const DesignScreen = () => {
     handleNext,
     qrCodeSettings,
     setQrCodeSettings,
+    iframe,
     isMobile, handleBack
    } = ImportStats();
    useEffect(() => {
@@ -25,7 +26,7 @@ const DesignScreen = () => {
   }, []);
   return (
     <Box className="container mobile-mr-t-20">
-     {!isMobile &&  <div className="types-of-qr-container">
+     {!isMobile &&  <div className={iframe ? "types-of-qr-container-iframe" : 'types-of-qr-container'}>
       <div className="container-custom">
           <CustomizedAccordions
             prop={{ setQrCodeSettings, qrCodeSettings, handleNext, isMobile }}
