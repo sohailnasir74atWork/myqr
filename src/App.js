@@ -10,7 +10,7 @@ import Stats from './Project/Stats/Stats';
 import SelectScreen from './Project/NewQR/SelectTypes';
 import InputScreen from './Project/NewQR/InputScreen';
 import DesignScreen from './Project/NewQR/DesignScreen';
-import Iframe from './Project/Iframe';
+import Iframe from './Project/Iframe/Iframe';
 
 const theme = createTheme({
   palette: {

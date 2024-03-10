@@ -57,7 +57,7 @@
   .static-qr-tabs {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    /* width: 100%; */
     padding: 6px;
     position: relative;
     height: 80px;
