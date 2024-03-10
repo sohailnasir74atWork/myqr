@@ -11,11 +11,12 @@ export default function QrDemo({ prop }) {
   const heading = () => {
     const path = location.pathname.toLowerCase();
     
-    if (path.includes('input') || path.includes('design')) {
+    if ((path.includes('input') || path.includes('design')) && !iframe) {
       return `QR Code for ${qrCodeSettings.type}`;
     } else if (path.includes('create')) {
       return 'Preview';
-    } 
+    }
+    
   }
 
   return (
