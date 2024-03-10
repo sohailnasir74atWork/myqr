@@ -205,7 +205,7 @@ const CommonIconButton = () => (
 );
 
   return (
-    <Box sx={{ display: 'flex' }} className='wordpress'>
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open} sx={{ backgroundColor: 'var(--background-color)' }}>
       {isMobile && !open && (
@@ -283,7 +283,7 @@ const CommonIconButton = () => (
           )}
         </Toolbar>}
       </AppBar>
-      <Drawer variant="permanent" open={open}  sx={{ position: isMobile ? "absolute" : "" }}>
+      <Drawer variant="permanent" open={open}  sx={{ position: isMobile ? "absolute" : "" }} className='wordpress'>
         <DrawerHeader>
           <div style={{height: '60px', display:'flex', justifyContent:'center', alignItems:'center',  width:"100%"}}>
             <img src={logo} alt='logo' style={{width:'auto', height:'100%'}}/>
