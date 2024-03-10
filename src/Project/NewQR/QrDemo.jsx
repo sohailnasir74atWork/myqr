@@ -11,7 +11,7 @@ export default function QrDemo({ prop }) {
   const heading = () => {
     const path = location.pathname.toLowerCase();
     
-    if ((path.includes('input') || path.includes('design')) && !iframe) {
+    if ((path.includes('input') || path.includes('design'))) {
       return `QR Code for ${qrCodeSettings.type}`;
     } else if (path.includes('create')) {
       return 'Preview';
@@ -22,9 +22,9 @@ export default function QrDemo({ prop }) {
   return (
     <div className="demo-container">
       <div className={iframe ? 'types-of-qr-mobile-demo-iframe' : 'types-of-qr-mobile-demo'}>
-        <div className="heading-container" style={{ width: "100%" }}>
+       {!iframe && <div className="heading-container" style={{ width: "100%" }}>
           <span className="heading-2 center">{heading()}</span>
-        </div>
+        </div>}
         <div className="mobile-frame">
           <div className="demo-preview">
             <QrGenerator prop={{ qrCodeSettings }} />
