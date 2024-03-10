@@ -6,6 +6,7 @@ import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import SelectScreen from "../NewQR/SelectTypes";
+import { ImportStats } from "../GlobelStats/GlobelStats";
 const steps = [
   "Select campaign settings",
   "Create an ad group",
@@ -14,6 +15,9 @@ const steps = [
 
 export default function Iframe() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const { setIframeRouts } = ImportStats();
+  React.useEffect(()=>{setIframeRouts(true)},[])
+
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);

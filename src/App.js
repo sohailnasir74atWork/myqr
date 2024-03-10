@@ -11,6 +11,7 @@ import SelectScreen from './Project/NewQR/SelectTypes';
 import InputScreen from './Project/NewQR/InputScreen';
 import DesignScreen from './Project/NewQR/DesignScreen';
 import Iframe from './Project/Iframe/Iframe';
+import { ImportStats } from './Project/GlobelStats/GlobelStats';
 
 const theme = createTheme({
   palette: {
@@ -46,10 +47,11 @@ const theme = createTheme({
 function Content() {
   const { useLocation } = require('react-router-dom');
   const location = useLocation();
+  const {iframeRouts} = ImportStats()
 
   return (
     <Box sx={{ display: 'flex' }}>
-      {location.pathname !== '/iframe' && <MiniDrawer />}
+      {!(location.pathname === '/iframe' || iframeRouts) && <MiniDrawer />}
       <Box component="main" sx={{ flexGrow: 1, width: location.pathname === '/iframe' ? '100%' : 'calc(100% - 240px)' }}>
         <Routes>
           <Route path="/create" element={<SelectScreen />} />
