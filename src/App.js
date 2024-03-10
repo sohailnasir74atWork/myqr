@@ -49,7 +49,7 @@ function Content() {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      {location.pathname !== '/iframe' && location.pathname !== '/'  && <MiniDrawer />}
+      {location.pathname !== '/iframe' && <MiniDrawer />}
       <Box component="main" sx={{ flexGrow: 1, width: location.pathname === '/iframe' ? '100%' : 'calc(100% - 240px)' }}>
         <Routes>
           <Route path="/create" element={<SelectScreen />} />
