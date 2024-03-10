@@ -34,8 +34,8 @@
   }
 
   .qr-code-container {
-    width: 300px;
-    height: 300px;
+    /* width: 300px; */
+    /* height: 300px; */
     border-radius: 10px;
     display: flex;
     justify-content: center;
