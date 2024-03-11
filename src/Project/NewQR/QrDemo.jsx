@@ -25,7 +25,7 @@ export default function QrDemo({ prop }) {
        {!iframe && <div className="heading-container" style={{ width: "100%" }}>
           <span className="heading-2 center">{heading()}</span>
         </div>}
-        <div className="mobile-frame">
+        <div className={iframe ? 'mobile-frame-iframe' : "mobile-frame"}>
           <div className="demo-preview">
             <QrGenerator prop={{ qrCodeSettings }} />
           </div>

@@ -195,6 +195,15 @@
   
     }
   }
+  .mobile-frame-iframe {
+    position: relative;
+     /* width: 320px; */
+  
+    @media (max-width: 600px) {
+      width: auto;
+  
+    }
+  }
   .demo-preview {
     opacity: 1;
     margin: 10px;

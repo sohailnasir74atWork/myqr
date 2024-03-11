@@ -10,7 +10,7 @@ import Lottie from "react-lottie";
 import DownloadOnMobile from "./DownloadOnMobile";
 const QrGenerator = ({ prop }) => {
   const { liveDemo, template } = prop;
-  const {qrCodeSettings} = ImportStats()
+  const {qrCodeSettings, iframe} = ImportStats()
   const [isLoading, setIsLoading] = useState(false);
   const [qrCode, setQrCode] = useState(null);
   const [qrDataLocal, setQrDataLocal]= useState()
@@ -219,7 +219,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
      {qrData ? (
     isLoading ? (
       // Show Lottie animation when there is data and it's loading
-      <Lottie options={defaultOptions} height={300} width={300} />
+      <Lottie options={defaultOptions} height={iframe ? 140 : 300} width={iframe ? 140 : 300} />
     ) : (
       // Show QR code when there is data and it's not loading
       <>
@@ -228,8 +228,8 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
     )
   ) : (
     // Show placeholder image when there's no data
-    <div className="qr-code-container">
-      <Lottie options={defaultOptions} height={280} width={280} />
+    <div className={iframe ? "qr-code-container-frame" :  'qr-code-container'}>
+      <Lottie options={defaultOptions} height={iframe ? 140 : 280} width={iframe ? 140 : 280} />
     </div>
   )}
       {!liveDemo && !template && (

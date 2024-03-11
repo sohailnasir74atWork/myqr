@@ -18,6 +18,7 @@
       margin: 0px;
     }
   }
+  
   .qr-code-container-mobile {
     width: 150px;
     height: 150px;
@@ -46,6 +47,7 @@
     padding: 20px
 
   }
+
   
   .qr-code-container canvas {
     width: 250px;
@@ -53,6 +55,26 @@
     object-fit: contain;
     border-radius: 5px;
   }
+  .qr-code-container-iframe {
+    /* width: 300px; */
+    /* height: 300px; */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white-color);
+    /* border: px solid var(--darkgreen-color); */
+    box-shadow: 0 0px 9px 0 rgba(205, 209, 224, 0.8);
+    /* padding: 20px */
+
+  }
+  .qr-code-container-iframe canvas {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 5px;
+  }
+
   .qr-box-home {
     display: flex;
     justify-content: center;
