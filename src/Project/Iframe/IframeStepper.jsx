@@ -32,10 +32,10 @@ export default function IframeStepper() {
   };
 
   return (
-    <Box>
+    <div style={{display:'flex', justifyContent:'space-between'}}>
     <Button variant="outlined" size="small">Back</Button>
     <Button variant="contained" size='small'>Next</Button>
      
-    </Box>
+    </div>
   );
 }
