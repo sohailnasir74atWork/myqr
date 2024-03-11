@@ -8,7 +8,7 @@ import './inputStyles.css'
 
 
 const Vcard = () => {
-  const { qrCodeSettings, setQrCodeSettings, setActiveStep } = ImportStats();
+  const { qrCodeSettings, setQrCodeSettings, setActiveStep, iframe } = ImportStats();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -90,8 +90,8 @@ const Vcard = () => {
   };
 
   return (
-    <div><div className="heading-container">
-    <span className="heading-2">Create Your V-Card QR Code</span>
+    <div><div className={iframe ? "heading-container-iframe" : "heading-container"}>
+    <span className={iframe ? "heading-2-iframe" : "heading-2"}>Create Your V-Card QR Code</span>
   </div>
     <div className="option-container-home">
       {Object.values(errors).map((error, index) => error && <ErrorBar key={index} message={error} />)}
