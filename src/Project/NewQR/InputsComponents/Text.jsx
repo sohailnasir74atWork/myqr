@@ -79,6 +79,7 @@ const Text = () => {
         onChange={handleQRNameChange}
         fullWidth
         margin="normal"
+        className={iframe ? "input": ''}
       />
       <TextField
         required
@@ -88,7 +89,7 @@ const Text = () => {
         fullWidth
         multiline
         margin="normal"
-        rows={4}
+        rows={iframe ? 3 : 4}
       />
       <p>Your QR code will show this text.</p>
 

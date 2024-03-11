@@ -22,7 +22,8 @@ const Wifi = ({ prop }) => {
     qrCodeSettings,
     setQrCodeSettings,
     isMobile,
-    setActiveStep
+    setActiveStep,
+    iframe
    } = ImportStats();  
 const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default to the first country's dial code
   const [networkName, setNetworkName] = useState("");
@@ -73,8 +74,8 @@ const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default t
     setActiveStep(2);  };
   
   return (
-    <div><div className="heading-container">
-    <span className="heading-2">Create Your Wifi Connecting QR Code</span>
+    <div><div className={iframe ? "heading-container-iframe" : "heading-container"}>
+    <span className={iframe ? "heading-2-iframe" : "heading-2"}>Create Your Wifi Connecting QR Code</span>
   </div>
     <div className="option-container-home">
       {nameError && <ErrorBar message={nameError} />}
@@ -86,6 +87,8 @@ const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default t
         onChange={(e) => setQrName(e.target.value)}
         fullWidth
         margin="normal"
+        className={iframe ? "input": ''}
+
       />
       <br />
       <br />
@@ -99,6 +102,8 @@ const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default t
             onChange={(e) => setNetworkName(e.target.value)}
             fullWidth
             error={!!nameError}
+            className={iframe ? "input": ''}
+
           />
         </Grid>
         <Grid item xs={4}>
@@ -108,6 +113,8 @@ const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default t
             value={selectedNetwork}
             onChange={(e) => setSelectedNetwork(e.target.value)}
             fullWidth
+            className={iframe ? "input": ''}
+
           >
             {network.map((option) => (
               <MenuItem key={option} value={option}>
@@ -123,6 +130,8 @@ const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default t
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             fullWidth
+            className={iframe ? "input": ''}
+
           />
         </Grid>
       </Grid>
@@ -130,7 +139,6 @@ const [selectedNetwork, setSelectedNetwork] = useState(network[0]); // Default t
         <Button
         variant="contained"
         onClick={handleSubmit}
-        style={{ marginTop: 20 }}
         className="button"
       >
         Generate QR Code

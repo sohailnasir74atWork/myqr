@@ -11,7 +11,8 @@ const Email = () => {
     qrCodeSettings,
     setQrCodeSettings,
     isMobile,
-    setActiveStep
+    setActiveStep,
+    iframe
    } = ImportStats();  const [email, setEmail] = useState(""); // For the email address
   const [message, setMessage] = useState(""); // For the email message
   const [qrName, setQrName] = useState(qrCodeSettings.qrName);
@@ -76,8 +77,8 @@ const Email = () => {
   };
 
   return (
-    <div><div className="heading-container">
-    <span className="heading-2">Create Your Email Message QR Code</span>
+    <div><div className={iframe ? "heading-container-iframe" : "heading-container"}>
+    <span className={iframe ? "heading-2-iframe": "heading-2"}>Create Your Email Message QR Code</span>
   </div>
     <div className="option-container-home">
       {emailError && <ErrorBar message={emailError} />}
@@ -90,6 +91,8 @@ const Email = () => {
         onChange={handleQRNameChange}
         fullWidth
         margin="normal"
+        className={iframe ? "input": ''}
+
       />
       <TextField
         required
@@ -98,6 +101,8 @@ const Email = () => {
         onChange={handleEmailChange}
         fullWidth
         margin="normal"
+        className={iframe ? "input": ''}
+
       />
       <TextField
         required
@@ -107,10 +112,10 @@ const Email = () => {
         fullWidth
         margin="normal"
         multiline
-        rows={4}
+        rows={iframe ? 3 : 4}
       />
       <p>Your QR code will send this email message</p>    
-      <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
+      <Button variant="contained" onClick={handleSubmit} className="button">
         Generate QR Code
       </Button>
       </div>

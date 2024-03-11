@@ -12,7 +12,8 @@ const WhatsApp = () => {
     qrCodeSettings,
     setQrCodeSettings,
     isMobile,
-    setActiveStep
+    setActiveStep,
+    iframe
    } = ImportStats();
     const [selectedCountry, setSelectedCountry] = useState(countries[0].dial_code); // Default to the first country's dial code
     const [number, setNumber] = useState("");
@@ -47,8 +48,8 @@ const WhatsApp = () => {
       setActiveStep(2);    };
   
     return (
-      <div><div className="heading-container">
-      <span className="heading-2">Create Your WhatsApp Message QR Code</span>
+      <div><div className={iframe ? "heading-container-iframe" : "heading-container"}>
+      <span className={iframe ? "heading-2-iframe" : "heading-2"}>Create Your WhatsApp Message QR Code</span>
     </div>
       <div className="option-container-home">
         {numberError && <ErrorBar message={numberError} />}
@@ -60,8 +61,10 @@ const WhatsApp = () => {
           onChange={(e) => setQrName(e.target.value)}
           fullWidth
           margin="normal"
+          className={iframe ? "input": ''}
+
         />
-        <Grid container spacing={2} alignItems="flex-end">
+        <Grid container spacing={2} alignItems="flex-end" style={{marginTop:'5px', marginBottom:'7px'}}>
           <Grid item xs={3}>
             <TextField
               select
@@ -69,6 +72,8 @@ const WhatsApp = () => {
               value={selectedCountry}
               onChange={(e) => setSelectedCountry(e.target.value)}
               fullWidth
+              className={iframe ? "input": ''}
+
             >
               {countries.map((option) => (
                 <MenuItem key={option.code} value={option.dial_code}>
@@ -84,6 +89,7 @@ const WhatsApp = () => {
               value={number}
               onChange={(e) => setNumber(e.target.value)}
               fullWidth
+              className={iframe ? "input": ''}
               error={!!numberError}
             />
           </Grid>
@@ -96,10 +102,10 @@ const WhatsApp = () => {
           fullWidth
           margin="normal"
           multiline
-          rows={4}
+          rows={iframe ? 3 : 4}
         />
                 <p>Your QR code will open in WhatsApp Messages</p>    
-        <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
+        <Button variant="contained" onClick={handleSubmit} className="button">
           Generate QR Code
         </Button>
         </div>

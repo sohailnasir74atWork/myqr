@@ -70,6 +70,8 @@ const Links = () => {
         onChange={handleQRNameChange}
         fullWidth
         margin="normal"
+        className={iframe ? "input": ''}
+
       />
       <TextField
         required
@@ -79,6 +81,7 @@ const Links = () => {
         fullWidth
         margin="normal"
         defaultValue={'https://'}
+        className={iframe ? "input": ''}
       />
       <p>Your QR code will open this URL.</p>
 

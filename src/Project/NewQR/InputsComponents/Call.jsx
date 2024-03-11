@@ -12,7 +12,8 @@ const Call = () => {
     qrCodeSettings,
     setQrCodeSettings,
     isMobile,
-    setActiveStep
+    setActiveStep,
+    iframe
    } = ImportStats();
     const [selectedCountry, setSelectedCountry] = useState(countries[0].dial_code); // Default to the first country's dial code
     const [number, setNumber] = useState("");
@@ -49,8 +50,8 @@ const Call = () => {
     return (
       
       <div>
-        <div className="heading-container">
-    <span className="heading-2">Create Your Phone Call QR Code</span>
+        <div className={iframe ? "heading-container-iframe" : "heading-container"}>
+    <span className={iframe ? "heading-2-iframe": "heading-2"}>Create Your Phone Call QR Code</span>
   </div>
   <div className="option-container-home">
         {numberError && <ErrorBar message={numberError} />}
@@ -61,12 +62,15 @@ const Call = () => {
           onChange={(e) => setQrName(e.target.value)}
           fullWidth
           margin="normal"
+          className={iframe ? "input": ''}
+
         />
-        <Grid container spacing={2} alignItems="flex-end">
+        <Grid container spacing={2} alignItems="flex-end" style={{marginTop:'5px'}}>
           <Grid item xs={3}>
             <TextField
               select
               label="Country"
+              className={iframe ? "input": ''}
               value={selectedCountry}
               onChange={(e) => setSelectedCountry(e.target.value)}
               fullWidth
@@ -86,12 +90,14 @@ const Call = () => {
               onChange={(e) => setNumber(e.target.value)}
               fullWidth
               error={!!numberError}
+              className={iframe ? "input": ''}
+
             //   helperText={numberError || "Enter phone number without country code."}
             />
           </Grid>
         </Grid> 
         <p>Your QR code will open in call mode</p>    
-        <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
+        <Button variant="contained" onClick={handleSubmit} className="button">
           Generate QR Code
         </Button>
         </div>
