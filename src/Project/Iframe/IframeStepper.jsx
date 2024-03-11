@@ -32,8 +32,9 @@ export default function IframeStepper() {
   };
 
   return (
-    <Box style={{position:'absolute', padding:'20px'}}>
-    <StepperComponent prop={{ handleBack, handleNext, activeStep, setActiveStep, open, handleDrawerToggle }}/>
+    <Box>
+    <Button variant="outlined" size="small">Back</Button>
+    <Button variant="contained" size='small'>Next</Button>
      
     </Box>
   );

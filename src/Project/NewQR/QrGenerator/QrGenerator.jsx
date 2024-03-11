@@ -8,6 +8,7 @@ import { ImportStats } from "../../GlobelStats/GlobelStats";
 import animation from "../../../Assets/animation.json"
 import Lottie from "react-lottie";
 import DownloadOnMobile from "./DownloadOnMobile";
+import IframeStepper from "../../Iframe/IframeStepper";
 const QrGenerator = ({ prop }) => {
   const { liveDemo, template } = prop;
   const {qrCodeSettings, iframe} = ImportStats()
@@ -215,38 +216,29 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
   return (
     <>
     <div className={liveDemo ? "mobile-screen" : ""}>
+      {iframe && <IframeStepper/>}
     {!template && <div className={liveDemo ? "live-demo" : "qr-home-container"}>
      {qrData ? (
     isLoading ? (
-      // Show Lottie animation when there is data and it's loading
       <Lottie options={defaultOptions} height={iframe ? 140 : 300} width={iframe ? 140 : 300} />
     ) : (
-      // Show QR code when there is data and it's not loading
       <>
       <div ref={canvasRef} className={liveDemo ? "qr-code-container-mobile" :(iframe ?  "qr-code-container-iframe" : 'qr-code-container')}></div>
     </>
     )
   ) : (
-    // Show placeholder image when there's no data
     <div className={iframe ? "qr-code-container-frame" :  'qr-code-container'}>
       <Lottie options={defaultOptions} height={iframe ? 140 : 280} width={iframe ? 140 : 280} />
     </div>
   )}
       {!liveDemo && !template && (
         <div className="button-home-container">
-          {/* <Button variant="contained" color="primary" disabled={!qrCode} onClick={() => handleDownloadClick("png", qrCodeSettings.qrName)} style={{ color: "white", fontSize: ".8rem" }} className="button">
-            Download PNG
-          </Button>
-          <Button variant="contained" style={{ color: "white", fontSize: ".8rem" }} disabled={!qrCode} onClick={() => handleDownloadClick("webp", qrCodeSettings.qrName)} className="button">
-            Download WEBP
-          </Button> */}
-          <DownloadOnMobile prop={{handleDownloadClick, qrCodeSettings}}/>
+         <DownloadOnMobile prop={{handleDownloadClick, qrCodeSettings}}/>
         </div>
       )}
 
     </div>} {template && <div style={{maxHeight:'180px', maxWidth:'180px', margin:'auto'}}>
       <div ref={canvasRef} className="qr-template-container"></div>
-
       </div>}
       {liveDemo && <div className="center" style={{marginTop:'10px'}}> <DownloadOnMobile prop={{handleDownloadClick, qrCodeSettings}}/> </div>}</div></>
   );
