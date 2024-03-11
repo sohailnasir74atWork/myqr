@@ -175,7 +175,7 @@
   }
   .types-of-qr-mobile-demo-iframe {
     height: 100%;
-    margin-top: 60px;
+    /* margin-top: 60px; */
     /* position: fixed; */
     background-color: var(--background-color);
   
