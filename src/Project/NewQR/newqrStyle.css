@@ -116,7 +116,6 @@
   .static-qr-tabs-iframe {
     display: flex;
     flex-direction: row;
-    /* width: 100%; */
     padding: 6px;
     position: relative;
     height: 40px;
@@ -128,7 +127,27 @@
     transition: all 0.25s ease-in-out;
     border-radius: 8px;
     margin-bottom: 10px;
-  }
+    /* Added for the hover effect */
+    overflow: hidden; /* Ensures the gradient doesn't overflow the border radius */
+    background: var(--white-color); /* Default background */
+}
+
+.static-qr-tabs-iframe:hover {
+    border: 2px solid #A1A0E1;
+    background: linear-gradient(90deg, #A1A0E1 0%, rgba(255,255,255,1) 50%, #A1A0E1 100%); /* The lightning effect */
+    background-size: 150% 100%; /* Size of the gradient background */
+    animation: slideLightning 3s ease; /* Animation duration and style */
+}
+
+@keyframes slideLightning {
+    from {
+        background-position: 100% 0;
+    }
+    to {
+        background-position: -100% 0;
+    }
+}
+
   .static-qr-icons {
     display: flex;
     justify-content: center;
@@ -157,6 +176,7 @@
   .static-qr-tabs:hover {
     border-color: var(--darkgreen-color);
   }
+  
   .selected {
     border-color: var(--darkgreen-color);
   }

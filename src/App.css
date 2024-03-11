@@ -72,7 +72,7 @@ body {
   font-weight: 900;
   color: var(--black-color);
   margin-bottom: 20px;
-}
+  }
 
 .text-primary {
   font-size: 1rem !important;
@@ -84,6 +84,18 @@ body {
   font-size: .7rem;
   color: var(--grey-color);
   /* font-weight: 600; */
+}
+.text-primary-iframe {
+  font-size: 1rem !important;
+  /* color: var(--lightgrey-color) !important; */
+  font-weight: 600 !important;
+}
+.text-primary-iframe:hover {
+  color:white
+}
+
+.text-secondary-iframe:hover {
+ color:white
 }
 .heading-3 {
   font-size: 16px;

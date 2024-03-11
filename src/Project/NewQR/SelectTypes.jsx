@@ -123,8 +123,8 @@ const SelectScreen = () => {
                 >
                   <div className="static-qr-icons">{item.icon}</div>
                   <div className="flex-col">
-                    <span className="text-primary">{item.heading}</span>
-                    <span className="text-secondary">{item.text}</span>
+                    <span className={iframe ? "text-primary-iframe":"text-primary"}>{item.heading}</span>
+                    <span className={iframe ? "text-secondary-iframe": "text-secondary"}>{item.text}</span>
                   </div>
                   <span className="paid-tag"><img src={Pro} alt='pro' width='100%' height='100%'/></span>
                   <span className="commingsoon">COMMING SOON</span>
