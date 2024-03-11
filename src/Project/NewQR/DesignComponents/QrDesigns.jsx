@@ -16,6 +16,7 @@ import LogoHandling from './Options/LogoHandling';
 import QrOptions from './Options/QrOptions';
 import AspectRatioIcon from '@mui/icons-material/AspectRatio';
 import Pro from "../../../Assets/icons/Pro.svg"
+import { ImportStats } from '../../GlobelStats/GlobelStats';
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -56,6 +57,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 export default function CustomizedAccordions({ prop }) {
   const [expanded, setExpanded] = React.useState(['panel2']);
   const { setQrCodeSettings, qrCodeSettings } = prop;
+  const {iframe} = ImportStats()
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? [panel] : []);
@@ -63,8 +65,8 @@ export default function CustomizedAccordions({ prop }) {
 
   return (
     <>
-    <div className='heading-container'>
-      <span className='heading-2'>Customize Design</span></div>
+    <div className={iframe ? "heading-container-iframe" : "heading-container"}>
+      <span className={iframe ? "heading-2-iframe" : "heading-2"}>Customize Design</span></div>
       <Accordion
         expanded={expanded.includes('panel2')}
         onChange={handleChange('panel2')}
