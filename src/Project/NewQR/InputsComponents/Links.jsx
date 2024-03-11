@@ -82,7 +82,7 @@ const Links = () => {
       />
       <p>Your QR code will open this URL.</p>
 
-      <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
+      <Button variant="contained" onClick={handleSubmit} className="button">
         Submit
       </Button>
     </div>

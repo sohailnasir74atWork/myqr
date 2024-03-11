@@ -95,7 +95,7 @@ const Text = () => {
       {/* Removed Width and Height TextFields */}
       
 
-      <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
+      <Button variant="contained" onClick={handleSubmit} className="button">
         Submit
       </Button>
       </div>

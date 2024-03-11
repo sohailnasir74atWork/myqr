@@ -223,7 +223,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
     ) : (
       // Show QR code when there is data and it's not loading
       <>
-      <div ref={canvasRef} className={liveDemo ? "qr-code-container-mobile" : "qr-code-container"}></div>
+      <div ref={canvasRef} className={liveDemo ? "qr-code-container-mobile" :(iframe ?  "qr-code-container-iframe" : 'qr-code-container')}></div>
     </>
     )
   ) : (

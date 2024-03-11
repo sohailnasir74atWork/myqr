@@ -56,8 +56,8 @@
     border-radius: 5px;
   }
   .qr-code-container-iframe {
-    /* width: 300px; */
-    /* height: 300px; */
+    /* width: 120px;
+    height: 120px; */
     border-radius: 10px;
     display: flex;
     justify-content: center;
