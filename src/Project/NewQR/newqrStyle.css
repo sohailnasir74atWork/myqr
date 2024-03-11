@@ -65,6 +65,19 @@
   
     }
   }
+  .container-custom-iframe {
+    width: 100% !important;
+    padding: 20px !important;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    /* height: 100vh; */
+  
+    @media (max-width: 600px) {
+      width: 100% !important;
+      padding: 10px !important;
+  
+    }
+  }
   .heading-tag {
     margin-bottom: 10px;
     background-color: var(--darkgreen-color);
@@ -100,12 +113,39 @@
     border-radius: 8px;
     margin-bottom: 10px;
   }
+  .static-qr-tabs-iframe {
+    display: flex;
+    flex-direction: row;
+    /* width: 100%; */
+    padding: 6px;
+    position: relative;
+    height: 40px;
+    align-items: center;
+    border: 2px solid transparent;
+    cursor: pointer;
+    box-shadow: 0 0px 9px 0 rgba(205, 209, 224, 0.5);
+    background-color: var(--white-color);
+    transition: all 0.25s ease-in-out;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
   .static-qr-icons {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 64px;
     width: 64px;
+    padding: 3px;
+    background-color: var(--background-color);
+    margin-right: 20px;
+    border-radius: 8px;
+  }
+  .static-qr-icons-iframe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 34px;
+    width: 34px;
     padding: 3px;
     background-color: var(--background-color);
     margin-right: 20px;
@@ -175,7 +215,7 @@
   }
   .types-of-qr-mobile-demo-iframe {
     height: 100%;
-    /* margin-top: 60px; */
+    margin-top: 30px;
     /* position: fixed; */
     background-color: var(--background-color);
   

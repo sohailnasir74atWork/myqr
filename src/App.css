@@ -67,6 +67,12 @@ body {
   color: var(--black-color);
   margin-bottom: 20px;
 }
+.heading-2-iframe {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--black-color);
+  margin-bottom: 20px;
+}
 
 .text-primary {
   font-size: 1rem !important;
@@ -119,6 +125,10 @@ body {
 }
 .heading-container {
   margin-bottom: 20px;
+  /* margin-top: 10px; */
+}
+.heading-container-iframe {
+  margin-bottom: 10px;
   /* margin-top: 10px; */
 }
 .center {

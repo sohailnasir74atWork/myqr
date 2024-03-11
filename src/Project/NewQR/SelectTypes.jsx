@@ -67,11 +67,11 @@ const SelectScreen = () => {
     >
       
         <div
-          className={isMobile ? "container-custom-mobile" : "container-custom"}
+          className={isMobile ? "container-custom-mobile" : (iframe ? "container-custom-iframe" : "container-custom")}
         >
           <div className="flex-col">
-            <div className="heading-container">
-              <span className="heading-2">{iframe ? 'Start Creating Your Desired QR with One Click ' : 'Generate Static QR'}</span>{" "}
+            <div className={iframe ? "heading-container-iframe" : "heading-container"}>
+              <span className={iframe ? "heading-2-iframe" : "heading-2"}>{iframe ? 'Start Creating Your Desired QR with One Click ' : 'Generate Static QR'}</span>{" "}
               {!iframe && <span className="heading-tag">without tracking</span>}
             </div>
             <div className="grid-container">
@@ -79,11 +79,11 @@ const SelectScreen = () => {
   iframe ? 
     staticTools.slice(0,-2).map((item, index) => (
       <div
-        className={`static-qr-tabs ${qrCodeSettings.type === item.heading ? 'selected' : ''}`}
+        className={`static-qr-tabs-iframe ${qrCodeSettings.type === item.heading ? 'selected' : ''}`}
         key={index}
         onClick={() => inputClick(item.heading)}
       >
-        <div className="static-qr-icons">{item.icon}</div>
+        <div className="static-qr-icons-iframe">{item.icon}</div>
         <div className="flex-col">
           <span className="text-primary">{item.heading}</span>
           <span className="text-secondary">{item.text}</span>
@@ -107,7 +107,7 @@ const SelectScreen = () => {
       </div>
     ))
 }
-<div className="static-qr-tabs center" style={{backgroundColor:'#A1A0E1'}}><div className="text-primary" style={{color:'white'}}>Explore All Types of QR</div></div>
+<div className="static-qr-tabs-iframe center" style={{backgroundColor:'#A1A0E1'}}><div className="text-primary" style={{color:'white'}}>Explore All Types of QR</div></div>
             </div>
             <br/>
            {!iframe && <> <div className="heading-container">
