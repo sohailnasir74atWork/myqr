@@ -91,6 +91,28 @@
     }
   
   }
+  .input-demo-iframe,
+  .input-demo-iframe,
+  .input-demo-iframe:focus-visible {
+    position: relative;
+    height: 50px;
+    border-radius: 8px;
+    border: 1px solid var(--darkgreen-color);
+    /* Set the border style explicitly */
+    outline: none;
+    /* Remove the default outline on focus */
+    /* width: 300px; */
+    padding-left: 15px;
+    padding-right: 50px;
+  
+    @media (max-width: 600px) {
+      /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
+      width: 140px;
+      height: 35px;
+  
+    }
+  
+  }
   
   
   .rbgcp-inputs-wrap {
@@ -166,3 +188,11 @@
     align-items: flex-start;
     }
   }
+  .flex-row-responsive-column-iframe{
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: flex-start;
+      }
+    }

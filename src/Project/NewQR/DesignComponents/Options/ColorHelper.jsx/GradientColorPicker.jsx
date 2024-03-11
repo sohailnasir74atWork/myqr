@@ -5,6 +5,7 @@ import { Checkbox, FormControlLabel, Switch } from "@mui/material";
 import ErrorBar from "./Error";
 import './gradientcolorpicker.css'
 import { CheckBox } from "@mui/icons-material";
+import { ImportStats } from "../../../../GlobelStats/GlobelStats";
 // export const AntSwitch = styled(Switch)(({ theme }) => ({
 //   width: 28,
 //   height: 16,
@@ -60,6 +61,7 @@ const GradientColorPicker = ({
   const [showError, setShowError] = useState(false);
   const [errorTransparent, setErrorTransparent] = useState(false);
   const colorPickerRef = useRef();
+  const {iframe} = ImportStats()
 
   const handleColorChange = (newColor) => {
     setColor(newColor);
@@ -111,11 +113,11 @@ const GradientColorPicker = ({
         <div className="home-color-container">
           <div className="demo-container">
             <div className="flex-row" style={{ position: 'relative' }}>
-              <input className="input-demo" value={color} onChange={handleInputChange} />
+              <input className={iframe ? "input-demo-iframe" : "input-demo"} value={color} onChange={handleInputChange} />
               <div style={{ background: color }} onClick={handleDemoClick} className="color-demo"></div>
             </div>
           </div>
-          <div className="flex-row-responsive-column">
+          <div className={iframe ? "flex-row-responsive-column-iframe" : 'flex-row-responsive-column'}>
             <div className="toggle-button">
               <FormControlLabel
                 control={<Checkbox checked={isGradientToggleOn} onChange={handleGradientToggle} />}
