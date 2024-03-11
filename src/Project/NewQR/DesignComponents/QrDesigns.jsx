@@ -55,7 +55,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function CustomizedAccordions({ prop }) {
-  const [expanded, setExpanded] = React.useState(['panel2']);
+  const [expanded, setExpanded] = React.useState(['']);
   const { setQrCodeSettings, qrCodeSettings } = prop;
   const {iframe} = ImportStats()
 
