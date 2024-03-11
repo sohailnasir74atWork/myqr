@@ -44,7 +44,7 @@ const InputScreen = () => {
         className={iframe ? "types-of-qr-container-iframe" : 'types-of-qr-container'}
         style={{ width: isMobile ? "100%" : "" }}
       >
-        <div className="container-custom">
+        <div className={iframe ? "container-custom-second-screen-iframe" : 'container-custom'}>
         {activeTool === "Link" && (
         <Links
             prop={{

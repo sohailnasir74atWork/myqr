@@ -11,7 +11,8 @@ const Text = () => {
     qrCodeSettings,
     setQrCodeSettings,
     isMobile,
-    setActiveStep
+    setActiveStep,
+    iframe
    } = ImportStats();  
   const [value, setValue] = useState(qrCodeSettings.inputData.text.value);
   const [qrName, setQrName] = useState(qrCodeSettings.qrName);
@@ -65,8 +66,8 @@ const Text = () => {
   
 
   return (
-    <div><div className="heading-container">
-    <span className="heading-2">Fill Out the QR Code's Content</span>
+    <div><div className={iframe ? "heading-container-iframe" : "heading-container"}>
+    <span className={iframe ? "heading-2-iframe" : "heading-2"}>Fill Out the QR Code's Content</span>
   </div>
     <div className="option-container-home">
       {textError && <ErrorBar message={textError} />}
