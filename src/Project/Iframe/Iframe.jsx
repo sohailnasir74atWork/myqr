@@ -34,7 +34,7 @@ export default function Iframe() {
   };
 
   return (
-    <Box style={{ padding:'10px 30px' }}>
+    <Box>
      
      <SelectScreen/>
      
