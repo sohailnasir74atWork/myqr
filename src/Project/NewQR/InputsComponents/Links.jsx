@@ -9,7 +9,8 @@ const Links = () => {
     qrCodeSettings,
     setQrCodeSettings,
     isMobile,
-    setActiveStep
+    setActiveStep,
+    iframe
    } = ImportStats();
   const [value, setValue] = useState(qrCodeSettings.inputData.url.value);
   const [qrName, setQrName] = useState(qrCodeSettings.qrName);
@@ -56,8 +57,8 @@ const Links = () => {
   };
 
   return (
-    <div><div className="heading-container">
-    <span className="heading-2">Create Your URL QR Code</span>
+    <div><div className={iframe ? "heading-container-iframe" : "heading-container"}>
+    <span className={iframe ? "heading-2-iframe" : "heading-2"}>Create Your URL QR Code</span>
   </div>
     <div className="option-container-home">
       {urlError && <ErrorBar message={urlError} />}
