@@ -136,7 +136,7 @@
     border: 2px solid #A1A0E1;
     background: linear-gradient(90deg, #A1A0E1 0%, rgba(255,255,255,1) 50%, #A1A0E1 100%); /* The lightning effect */
     background-size: 150% 100%; /* Size of the gradient background */
-    animation: slideLightning 3s ease; /* Animation duration and style */
+    animation: slideLightning 1.5s ease; /* Animation duration and style */
     color: white;
 }
 
