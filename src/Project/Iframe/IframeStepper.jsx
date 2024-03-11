@@ -14,15 +14,11 @@ const steps = [
   "Create an ad",
 ];
 
-export default function Iframe() {
-  const { setIframe, activeStep, setActiveStep } = ImportStats();
-  React.useEffect(() => {
-    setIframe(true);
-    setActiveStep(0);
-  }, []);
+export default function IframeStepper() {
   
   const open = false
   const handleDrawerToggle = false
+  const {setActiveStep, activeStep} = ImportStats()
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -36,8 +32,8 @@ export default function Iframe() {
   };
 
   return (
-    <Box>
-      <SelectScreen/>
+    <Box style={{position:'absolute', padding:'20px'}}>
+    <StepperComponent prop={{ handleBack, handleNext, activeStep, setActiveStep, open, handleDrawerToggle }}/>
      
     </Box>
   );

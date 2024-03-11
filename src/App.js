@@ -12,6 +12,8 @@ import InputScreen from './Project/NewQR/InputScreen';
 import DesignScreen from './Project/NewQR/DesignScreen';
 import Iframe from './Project/Iframe/Iframe';
 import { ImportStats } from './Project/GlobelStats/GlobelStats';
+import StepperComponent from './Project/Stepper';
+import IframeStepper from './Project/Iframe/IframeStepper';
 
 const theme = createTheme({
   palette: {
@@ -51,6 +53,7 @@ function Content() {
   return (
     <Box sx={{ display: 'flex' }}>
       {!(location.pathname === '/iframe' || iframe) && <MiniDrawer />}
+      {(location.pathname === '/iframe' || iframe) && <IframeStepper />}
       <Box component="main" sx={{ flexGrow: 1, width: location.pathname === '/iframe' ? '100%' : 'calc(100% - 240px)' }}>
         <Routes>
           <Route path="/create" element={<SelectScreen />} />
