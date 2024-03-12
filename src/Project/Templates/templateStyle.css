@@ -14,7 +14,7 @@
     box-shadow: 0 0px 9px 0 rgba(205, 209, 224, 0.5);
     background-color: var(--white-color);
     text-align: center;
-    /* width: 200px; */
+    width: 200px;
     border-radius: 10px;
     @media (max-width: 600px) {
     /* width: 150px; */

@@ -237,7 +237,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
         </div>
       )}
 
-    </div>} {template && <div style={{maxHeight:'180px', maxWidth:'180px', margin:'auto'}}>
+    </div>} {template && <div>
       <div ref={canvasRef} className="qr-template-container"></div>
       </div>}
       {liveDemo && <div className="center" style={{marginTop:'10px'}}> <DownloadOnMobile prop={{handleDownloadClick, qrCodeSettings}}/> </div>}</div></>

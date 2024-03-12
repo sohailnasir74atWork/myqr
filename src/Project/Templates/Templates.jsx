@@ -23,7 +23,7 @@ const Templates = () => {
   const renderQrGenerator = (template, index) => (
     <Box key={index} className='template-container' sx={{ p: 1 }}>
       <QrGenerator prop={{ template, liveDemo }} />
-      <Box sx={{ minWidth: 120, pt:1 }}>
+      <Box>
         {/* <FormControl fullWidth>
           <InputLabel id={`data-type-label-${index}`}>Select Data Type</InputLabel>
           <Select
