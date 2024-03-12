@@ -88,7 +88,7 @@ const App = () => {
         />
         <p>Your QR code will open this in App Store</p>
 
-        <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
+        <Button variant="contained" onClick={handleSubmit} className="button">
           Submit
         </Button>
       </div>

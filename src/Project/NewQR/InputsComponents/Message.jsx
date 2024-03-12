@@ -101,7 +101,7 @@ const Message = ({ prop }) => {
           rows={4}
         />
                 <p>Your QR code will open send text message</p>    
-        <Button variant="contained" onClick={handleSubmit} style={{ marginTop: 20 }} className="button">
+        <Button variant="contained" onClick={handleSubmit}  className="button">
           Generate QR Code
         </Button>
         </div>

@@ -24,7 +24,7 @@ const SelectScreen = () => {
       setActiveTool(e);
       setQrCodeSettings({
         ...qrCodeSettings,
-        type: null,
+        type: e,
         inputData: {
           ...qrCodeSettings.inputData,
           url: { value: null },
@@ -107,7 +107,7 @@ const SelectScreen = () => {
       </div>
     ))
 }
-<div className="static-qr-tabs-iframe center" style={{backgroundColor:'#A1A0E1'}}><div className="text-primary" style={{color:'white'}}>Explore All Types of QR</div></div>
+{iframe && <div className="static-qr-tabs-iframe center" style={{backgroundColor:'#A1A0E1'}}><div className="text-primary" style={{color:'white'}}>Explore All Types of QR</div></div>}
             </div>
             <br/>
            {!iframe && <> <div className="heading-container">
