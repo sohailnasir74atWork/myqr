@@ -106,7 +106,7 @@ export default function MobileBottomTab() {
         ))}
       </div>
       <Paper
-        sx={{ position: "fixed", bottom: 0, left: iframe ?  20 : 0, right: iframe ?  20 : 0 }}
+        sx={{ position: "fixed", bottom: 0, paddingLeft: iframe ?  20 : 0, paddingRight: iframe ?  20 : 0, left: 0, right: 0 }}
         elevation={3}
       >
         <BottomNavigation
