@@ -285,9 +285,9 @@ const CommonIconButton = () => (
       </AppBar>
       <Drawer variant="permanent" open={open}  sx={{ position: isMobile ? "absolute" : "" }} className='wordpress'>
         <DrawerHeader>
-          <div style={{height: '60px', display:'flex', justifyContent:'center', alignItems:'center',  width:"100%"}}>
+         {open && <div style={{height: '60px', display:'flex', justifyContent:'center', alignItems:'center',  width:"100%"}}>
             <img src={logo} alt='logo' style={{width:'auto', height:'100%'}}/>
-                    </div>
+                    </div>}
           <IconButton onClick={handleDrawerToggle}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
