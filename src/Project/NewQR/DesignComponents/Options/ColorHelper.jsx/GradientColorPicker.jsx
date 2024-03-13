@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactGPicker from 'react-gcolor-picker';
 import styled from "@emotion/styled";
-import { Checkbox, FormControlLabel, Switch } from "@mui/material";
+import { Checkbox, FormControlLabel, Input, Switch } from "@mui/material";
 import ErrorBar from "./Error";
 import './gradientcolorpicker.css'
 import { CheckBox } from "@mui/icons-material";
