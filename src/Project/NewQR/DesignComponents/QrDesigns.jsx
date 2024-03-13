@@ -75,7 +75,7 @@ export default function CustomizedAccordions({ prop }) {
         <AccordionSummary
           aria-controls="panel2d-content"
           id="panel2d-header"
-          sx={{ height: iframe ? '40px' : '80px' }}
+          sx={{ height: iframe ? '40px' : '60px' }}
         >
           <ColorLensIcon sx={{ color: pink[500] }} />
           <Typography style={{ paddingLeft: '10px' }} className='text-primary'>Colors</Typography>
@@ -92,7 +92,7 @@ export default function CustomizedAccordions({ prop }) {
         <AccordionSummary
           aria-controls="panel3d-content"
           id="panel3d-header"
-          sx={{ height: iframe ? '40px' : '80px' }}
+          sx={{ height: iframe ? '40px' : '60px' }}
         >
           <DashboardCustomizeIcon sx={{ color: purple[800] }} />
           <Typography style={{ paddingLeft: '10px' }} className='text-primary'>Shape & Forms</Typography>
@@ -109,7 +109,7 @@ export default function CustomizedAccordions({ prop }) {
         <AccordionSummary
           aria-controls="panel4d-content"
           id="panel4d-header"
-          sx={{ height: iframe ? '40px' : '80px' }}
+          sx={{ height: iframe ? '40px' : '60px' }}
         >
           <InsertPhotoIcon sx={{ color: green[500] }} />
           <Typography style={{ paddingLeft: '10px' }} className='text-primary'>LOGO</Typography>
@@ -126,7 +126,7 @@ export default function CustomizedAccordions({ prop }) {
         <AccordionSummary
           aria-controls="panel5d-content"
           id="panel5d-header"
-          sx={{ height: iframe ? '40px' : '80px' }}
+          sx={{ height: iframe ? '40px' : '60px' }}
         >
           <AspectRatioIcon sx={{ color: red[500] }} />
           <Typography style={{ paddingLeft: '10px' }} className='text-primary'>QR Size</Typography>
@@ -143,7 +143,7 @@ export default function CustomizedAccordions({ prop }) {
         <AccordionSummary
           aria-controls="panel6d-content"
           id="panel6d-header"
-          sx={{ height: iframe ? '40px' : '80px' }}
+          sx={{ height: iframe ? '40px' : '60px' }}
         >
           <FilterFramesIcon sx={{ color: purple[500] }} />
           <Typography style={{ paddingLeft: '10px' }} className='text-primary'>Frames</Typography>
