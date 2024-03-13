@@ -59,8 +59,8 @@ const SelectScreen = () => {
       // console.log(activeStep);
     };
     const handleExplore = () => {
-      // Redirect to the specified URL
-      window.location.href = 'https://aspireai.io/create';
+      // Open the specified URL in a new tab
+      window.open('https://aspireai.io/create', '_blank');
     };
     
   return (
