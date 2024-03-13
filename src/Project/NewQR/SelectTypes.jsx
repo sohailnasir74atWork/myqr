@@ -58,6 +58,10 @@ const SelectScreen = () => {
       navigate('/create/input');
       // console.log(activeStep);
     };
+    const handleExplore = () => {
+      // Redirect to the specified URL
+      window.location.href = 'https://aspireai.io/create';
+    };
     
   return (
     <Box className={iframe ? "container-iframe" : 'container'}>
@@ -107,7 +111,7 @@ const SelectScreen = () => {
       </div>
     ))
 }
-{iframe && <div className="static-qr-tabs-iframe center" style={{backgroundColor:'#A1A0E1'}}><div className="text-primary" style={{color:'white'}}>Explore All Types of QR</div></div>}
+{iframe && <div className="static-qr-tabs-iframe center" style={{backgroundColor:'#A1A0E1'}} onClick={handleExplore}><div className="text-primary" style={{color:'white'}}>Explore All Types of QR</div></div>}
             </div>
             <br/>
            {!iframe && <> <div className="heading-container">
