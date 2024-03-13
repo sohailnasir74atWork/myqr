@@ -77,6 +77,7 @@ const AppBar = styled(MuiAppBar, {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
+  boxShadow: '0 0px 9px 0 rgba(205, 209, 224, 0.5)', // Custom shadow
   ...(open && {
     marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
