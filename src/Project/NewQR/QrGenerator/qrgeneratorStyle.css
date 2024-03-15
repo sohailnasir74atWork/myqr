@@ -56,12 +56,12 @@
     border-radius: 5px;
   }
   .qr-code-container-iframe {
-    /* width: 120px;
-    height: 120px; */
+   
     border-radius: 10px;
     margin-top: 10px;
     display: flex;
     justify-content: center;
+    padding: 10px;
     align-items: center;
     background-color: var(--white-color);
     /* border: px solid var(--darkgreen-color); */
