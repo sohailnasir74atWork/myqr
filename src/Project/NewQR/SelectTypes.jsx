@@ -80,7 +80,23 @@ const SelectScreen = () => {
             </div>
             <div className="grid-container">
             {
-     staticTools.map((item, index) => (
+  iframe ? 
+    staticTools.slice(0,-2).map((item, index) => (
+      <div
+        className={`static-qr-tabs-iframe ${qrCodeSettings.type === item.heading ? 'selected' : ''}`}
+        key={index}
+        onClick={() => inputClick(item.heading)}
+      >
+        <div className="static-qr-icons-iframe">{item.icon}</div>
+        <div className="flex-col">
+          <span className="text-primary">{item.heading}</span>
+          <span className="text-secondary">{item.text}</span>
+        </div>
+        {/* <span className="free-tag">Free</span> */}
+      </div>
+    ))
+  : 
+    staticTools.map((item, index) => (
       <div
         className={`static-qr-tabs ${qrCodeSettings.type === item.heading ? 'selected' : ''}`}
         key={index}
@@ -111,8 +127,8 @@ const SelectScreen = () => {
                 >
                   <div className="static-qr-icons">{item.icon}</div>
                   <div className="flex-col">
-                    <span className={"text-primary"}>{item.heading}</span>
-                    <span className={"text-secondary"}>{item.text}</span>
+                    <span className={iframe ? "text-primary-iframe":"text-primary"}>{item.heading}</span>
+                    <span className={iframe ? "text-secondary-iframe": "text-secondary"}>{item.text}</span>
                   </div>
                   <span className="paid-tag"><img src={Pro} alt='pro' width='100%' height='100%'/></span>
                   <span className="commingsoon">COMMING SOON</span>
