@@ -193,11 +193,6 @@ export const staticTools = [
   { icon: <img src={Link} alt="Link" class='img-static' loading="lazy"/>, heading: "Link", text: "Open a URL" },
   { icon: <img src={Text} alt="Text" class='img-static' loading="lazy"/>, heading: "Text", text: "Shows Text" },
   {
-    icon: <img src={Wifi} alt="Wifi" class='img-static' loading="lazy"/>,
-    heading: "Wi-Fi",
-    text: "Connects to a WiFi",
-  },
-  {
     icon: <img src={Email} alt="Email" class='img-static' loading="lazy"/>,
     heading: "Email",
     text: "Send an Email with a Pre-Written Message",
@@ -213,6 +208,11 @@ export const staticTools = [
     text: "Send a WhatsApp Message",
   },
   { icon: <img src={call} alt="call" class='img-static' loading="lazy"/>, heading: "Call", text: "Make a Call" },
+  {
+    icon: <img src={Wifi} alt="Wifi" class='img-static' loading="lazy"/>,
+    heading: "Wi-Fi",
+    text: "Connects to a WiFi",
+  },
   {
     icon: <img src={SMS} alt="SMS" class='img-static' loading="lazy"/>,
     heading: "SMS",
