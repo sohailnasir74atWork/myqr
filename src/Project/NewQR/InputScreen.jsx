@@ -40,13 +40,13 @@ const InputScreen = () => {
     
     
   return (
-    <Box className={iframe ? "container-iframe mobile-mr-t-20" : 'container mobile-mr-t-20'}>
+    <Box className={iframe ? "container-iframe" : 'container mobile-mr-t-20'}>
       <div
         className={iframe ? "types-of-qr-container-iframe" : 'types-of-qr-container'}
         style={{ width: isMobile ? "100%" : "" }}
       >
         <div className={iframe ? "container-custom-second-screen-iframe" : 'container-custom'}>
-        {iframe  && <div style={{padding:'10px 0px'}}><IframeStepper/></div>}
+        {iframe  && <div style={{padding:'0px 0px 10px 0px'}}><IframeStepper/></div>}
             
         {activeTool === "Link" && (
         <Links

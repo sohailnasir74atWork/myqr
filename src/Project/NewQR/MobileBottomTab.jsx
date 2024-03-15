@@ -17,6 +17,7 @@ import QrGenerator from "./QrGenerator/QrGenerator";
 import { AspectRatio } from "@mui/icons-material";
 import QrOptions from "./DesignComponents/Options/QrOptions";
 import Stats from "../Stats/Stats";
+import IframeStepper from "../Iframe/IframeStepper";
 
 // Define your options array here
 const options = [
@@ -87,6 +88,7 @@ export default function MobileBottomTab() {
       }}
     >
      {value !== 4 && <div className="live-demo-container">
+     {iframe  && <div style={{padding:'0px 20px 10px 20px'}}><IframeStepper/></div>}
         <QrGenerator prop={{ qrCodeSettings, liveDemo }} />
       </div>}
       <div

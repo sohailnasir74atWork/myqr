@@ -80,7 +80,6 @@ const SelectScreen = () => {
               {!iframe && <span className="heading-tag">without tracking</span>}
             </div>
             <div className="grid-container">
-            {iframe  && <div style={{padding:'10px 0px'}}><IframeStepper/></div>}
             {
   iframe ? 
     staticTools.slice(0,-3).map((item, index) => (
