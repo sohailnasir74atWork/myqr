@@ -88,7 +88,7 @@ export default function MobileBottomTab() {
       }}
     >
      {value !== 4 && <div className="live-demo-container">
-     {iframe  && <div style={{padding:'0px 20px 10px 20px'}}><IframeStepper/></div>}
+     {iframe  && <div style={{padding:'0px 20px 10px 20px', marginTop:'-10px'}}><IframeStepper/></div>}
         <QrGenerator prop={{ qrCodeSettings, liveDemo }} />
       </div>}
       <div
