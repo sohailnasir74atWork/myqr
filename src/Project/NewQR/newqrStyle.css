@@ -149,21 +149,23 @@
 }
 
 .static-qr-tabs-iframe:hover {
-    border: 2px solid #A1A0E1;
-    background: linear-gradient(90deg, #A1A0E1 0%, rgba(255,255,255,1) 50%, #A1A0E1 100%); /* The lightning effect */
-    background-size: 150% 100%; /* Size of the gradient background */
-    animation: slideLightning 1.5s ease; /* Animation duration and style */
-    color: white;
+  border-color: var(--darkgreen-color);
+  /* Adjust the gradient to include the blush color and ensure it slides */
+  /* background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, #A1A0E1 100%); */
+  background-size: 200% 100%; /* Size of the gradient background */
+  animation: slideLightning 1.5s ease forwards; /* Adjusted for smooth sliding */
+  /* color: white; */
 }
 
 @keyframes slideLightning {
-    from {
-        background-position: 100% 0;
-    }
-    to {
-        background-position: -100% 0;
-    }
+  from {
+      background-position: 100% 0; /* Start from the left */
+  }
+  to {
+      background-position: -100% 0; /* Slide to the right */
+  }
 }
+
 
   .static-qr-icons {
     display: flex;
