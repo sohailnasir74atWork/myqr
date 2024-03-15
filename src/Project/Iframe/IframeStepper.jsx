@@ -23,7 +23,7 @@ export default function IframeStepper() {
   return (
     <div style={{display:'flex', justifyContent:'space-evenly'}}>
     <Button variant="outlined" size="small" onClick={handleBack} disabled={activeStep === 0} style={{borderRadius:'50px', minWidth:'20px'}}> Back</Button>
-    <Button variant="contained" size='small' disabled={activeStep === 0 || activeStep === 1} style={{borderRadius:'50px', minWidth:'20px'}}>{activeStep===2 ? 'Next' : 'Done'}</Button>
+    <Button variant="contained" size='small' disabled={activeStep === 0 || activeStep === 1} style={{borderRadius:'50px', minWidth:'20px'}}>{activeStep === 2 ? 'Done' : 'Next'}</Button>
      
     </div>
   );
