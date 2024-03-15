@@ -6,6 +6,7 @@ import QrDemo from "./QrDemo";
 import './newqrStyle.css';
 import Pro from "../../Assets/icons/Pro.svg"
 import { useNavigate } from "react-router-dom";
+import IframeStepper from "../Iframe/IframeStepper";
 
 const SelectScreen = () => {
   const { 
@@ -79,6 +80,7 @@ const SelectScreen = () => {
               {!iframe && <span className="heading-tag">without tracking</span>}
             </div>
             <div className="grid-container">
+            {iframe  && <div style={{padding:'10px 0px'}}><IframeStepper/></div>}
             {
   iframe ? 
     staticTools.slice(0,-3).map((item, index) => (

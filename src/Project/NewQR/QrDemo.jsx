@@ -3,6 +3,7 @@ import QrGenerator from "./QrGenerator/QrGenerator";
 import './newqrStyle.css'
 import { useNavigate, useLocation } from "react-router-dom";
 import { ImportStats } from "../GlobelStats/GlobelStats";
+import IframeStepper from "../Iframe/IframeStepper";
 
 export default function QrDemo({ prop }) {
   const { qrCodeSettings } = prop;
@@ -27,7 +28,7 @@ export default function QrDemo({ prop }) {
         </div>}
         <div className={iframe ? 'mobile-frame-iframe' : "mobile-frame"}>
           <div className="demo-preview">
-            <QrGenerator prop={{ qrCodeSettings }} />
+                  <QrGenerator prop={{ qrCodeSettings }} />
           </div>
         </div>
       </div>

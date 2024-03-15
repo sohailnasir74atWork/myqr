@@ -13,6 +13,7 @@ import QrDemo from "./QrDemo";
 import Vcard from "./InputsComponents/Vcard";
 import './InputsComponents/inputStyles.css'
 import App from "./InputsComponents/App";
+import IframeStepper from "../Iframe/IframeStepper";
 const InputScreen = () => {
   const { 
     handleNext,
@@ -45,6 +46,8 @@ const InputScreen = () => {
         style={{ width: isMobile ? "100%" : "" }}
       >
         <div className={iframe ? "container-custom-second-screen-iframe" : 'container-custom'}>
+        {iframe  && <div style={{padding:'10px 0px'}}><IframeStepper/></div>}
+            
         {activeTool === "Link" && (
         <Links
             prop={{
