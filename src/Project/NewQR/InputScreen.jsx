@@ -46,7 +46,7 @@ const InputScreen = () => {
         style={{ width: isMobile ? "100%" : "" }}
       >
         <div className={iframe ? "container-custom-second-screen-iframe" : 'container-custom'}>
-        {iframe  && <div style={{padding:'0px 0px 10px 0px'}}><IframeStepper/></div>}
+        {iframe  && isMobile && <div style={{padding:'0px 0px 10px 0px'}}><IframeStepper/></div>}
             
         {activeTool === "Link" && (
         <Links
