@@ -216,7 +216,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
   return (
     <>
     <div className={liveDemo ? "mobile-screen" : ""}>
-      {iframe && liveDemo && <IframeStepper/>}
+      {iframe && !liveDemo && <IframeStepper/>}
     {!template && <div className={liveDemo ? "live-demo" : "qr-home-container"}>
      {qrData ? (
     isLoading ? (

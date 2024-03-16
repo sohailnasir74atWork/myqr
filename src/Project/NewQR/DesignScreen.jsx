@@ -28,7 +28,7 @@ const DesignScreen = () => {
   return (
     <Box className={iframe ? "container-iframe mobile-mr-t-20" : 'container mobile-mr-t-20'}>
      {!isMobile &&  <div className={iframe ? "types-of-qr-container-iframe" : 'types-of-qr-container'}>
-     {iframe  && <div style={{padding:'10px 0px'}}><IframeStepper/></div>}
+     {iframe  && isMobile && <div style={{padding:'10px 0px'}}><IframeStepper/></div>}
       <div className={iframe ? "container-custom-second-screen-iframe" : "container-custom"}>
           <CustomizedAccordions
             prop={{ setQrCodeSettings, qrCodeSettings, handleNext, isMobile }}
