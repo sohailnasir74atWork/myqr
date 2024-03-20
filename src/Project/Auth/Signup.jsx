@@ -55,7 +55,7 @@ export default function SignUpSide() {
         setErrorMessage('')
         if (!isRegistering && !userLoggedIn) {
           setIsRegistering(true);
-          await doCreateUserWithEmailAndPassword(email, password)
+          await doCreateUserWithEmailAndPassword(email, password, firstName)
             .catch(error => {
               setErrorMessage(error.message);
               setIsRegistering(false)

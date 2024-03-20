@@ -1,4 +1,5 @@
-import { auth } from "./auth";
+import { auth, database } from "./auth";
+import { ref, set, get, getDatabase } from "firebase/database";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -8,22 +9,27 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
+import { useAuth } from "../context/authContext/Index";
 
 
-export const doCreateUserWithEmailAndPassword = async (email, password) => {
-    console.log(auth)
-  return createUserWithEmailAndPassword(auth, email, password);
-};
-export const saveUserNames = async (user, firstName, lastName) => {
+
+export const doCreateUserWithEmailAndPassword = async (email, password, firstName) => {
     try {
-      await user.updateProfile({
-        displayName: `${firstName} ${lastName}`
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password, firstName);
+      const user = userCredential.user;
+     const userRef = ref(database, 'users/' + user.uid);
+     await set(userRef, {
+        email: email,
+        firstName:firstName
       });
+  
+      console.log("User created and data saved to Realtime Database");
+      return userCredential; // Return the userCredential for further use
     } catch (error) {
-      throw error;
+      console.error("Error creating user: ", error);
+      throw error; // Rethrow the error if needed
     }
   };
-
 export const doSignInWithEmailAndPassword = (email, password) => {
   return signInWithEmailAndPassword(auth, email, password);
 };
@@ -53,3 +59,6 @@ export const doSendEmailVerification = () => {
     url: `${window.location.origin}/home`,
   });
 };
+
+
+  

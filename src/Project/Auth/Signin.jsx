@@ -21,6 +21,7 @@ import { Chip, Divider } from '@mui/material';
 import { ImportStats } from '../GlobelStats/GlobelStats';
 import { doSignInWithEmailAndPassword } from './firebase/firebase';
 import { useAuth } from './context/authContext/Index';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -58,8 +59,12 @@ export default function SignInSide() {
       setErrorMessage('User is already logged in');
     }
   };
+  const navigate = useNavigate()
+
 
   return (
+    <>        {userLoggedIn && navigate('/create')}
+   
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
@@ -173,5 +178,6 @@ export default function SignInSide() {
           </Grid>}
       </Grid>
     </ThemeProvider>
+    </>
   );
 }

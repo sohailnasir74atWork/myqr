@@ -18,7 +18,7 @@ const steps = ["Step 1", "Step 2", "Step 3"];
 export default function StepperComponent({prop}) {
     const {open, handleDrawerToggle} = prop
     const { currentUser } = useAuth()
-    const  {activeStep, setActiveStep, isMobile} = ImportStats()
+    const  {activeStep, setActiveStep, isMobile, userData} = ImportStats()
     const navigate = useNavigate()
     // const handleDrawerOpen = () => {
     //   setOpen(true);
@@ -59,7 +59,7 @@ export default function StepperComponent({prop}) {
         })}
 
       </Stepper>
-      <p style={{color:'black'}}>loged-in:    userID:{currentUser?.uid}</p>
+      <p style={{color:'black'}}>userID:${currentUser?.uid}   Welcome:{userData?.firstName}</p>
       <Button onClick={handlelogOut}>lOGOUT</Button>
 
       {/* {isMobile && (
