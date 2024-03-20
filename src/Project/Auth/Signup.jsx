@@ -52,14 +52,18 @@ export default function SignUpSide() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setErrorMessage('')
         if (!isRegistering && !userLoggedIn) {
           setIsRegistering(true);
           await doCreateUserWithEmailAndPassword(email, password)
             .catch(error => {
               setErrorMessage(error.message);
+              setIsRegistering(false)
             });
         } else {
           setErrorMessage('User is already registered');
+          setIsRegistering(false)
+
         }
       };
 
