@@ -66,8 +66,8 @@ function Content() {
           <Route path="/create/input" element={<InputScreen />} />
           <Route path="/create/input/design" element={<DesignScreen />} />
           <Route path="/iframe" element={<Iframe/>} />
-          {/* <Route path="/signin" element={<SignInSide/>} />
-          <Route path="/signup" element={<SignUpSide/>} /> */}
+          <Route path="/signin" element={<SignInSide/>} />
+          <Route path="/signup" element={<SignUpSide/>} />
         </Routes>
       </Box>
     </Box>
