@@ -18,6 +18,7 @@ import google from "../../Assets/defaultlogo/logo (8).svg"
 import facebook from "../../Assets/defaultlogo/logo (1).svg"
 import linkedin from "../../Assets/defaultlogo/logo (10).svg"
 import { Chip, Divider } from '@mui/material';
+import { ImportStats } from '../GlobelStats/GlobelStats';
 
 function Copyright(props) {
   return (
@@ -37,6 +38,7 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignInSide() {
+  const { isMobile } = ImportStats()
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -54,7 +56,7 @@ export default function SignInSide() {
           <Box
             sx={{
               my: 8,
-              mx: 12,
+              mx: { xs: 2, md: 12 },
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
@@ -139,7 +141,7 @@ export default function SignInSide() {
             </Box>
           </Box>
         </Grid>
-        <Grid
+       {!isMobile && <Grid
           item
           xs={false}
           sm={4}
@@ -152,7 +154,7 @@ export default function SignInSide() {
         <img src={signin} alt='signin' height='auto' width='70%'/>
         </div>
 
-          </Grid>
+          </Grid>}
       </Grid>
     </ThemeProvider>
   );

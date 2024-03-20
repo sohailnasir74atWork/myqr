@@ -15,6 +15,7 @@ import { ImportStats } from './Project/GlobelStats/GlobelStats';
 import StepperComponent from './Project/Stepper';
 import IframeStepper from './Project/Iframe/IframeStepper';
 import SignInSide from './Project/Auth/Signin';
+import SignUpSide from './Project/Auth/Signup';
 
 const theme = createTheme({
   palette: {
@@ -53,7 +54,7 @@ function Content() {
   const {iframe} = ImportStats()
   return (
     <Box sx={{ display: 'flex' }}>
-      {!(location.pathname === '/iframe' || iframe || location.pathname === '/signin' ) && <MiniDrawer />}
+      {!(location.pathname === '/iframe' || iframe || location.pathname === '/signin' || location.pathname === '/signup' ) && <MiniDrawer />}
       {/* {(location.pathname === '/iframe' || iframe) && <IframeStepper />} */}
       <Box component="main" sx={{ flexGrow: 1, width: location.pathname === '/iframe' ? '100%' : 'calc(100% - 240px)' }}>
         <Routes>
@@ -66,6 +67,7 @@ function Content() {
           <Route path="/create/input/design" element={<DesignScreen />} />
           <Route path="/iframe" element={<Iframe/>} />
           <Route path="/signin" element={<SignInSide/>} />
+          <Route path="/signup" element={<SignUpSide/>} />
         </Routes>
       </Box>
     </Box>
