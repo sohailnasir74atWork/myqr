@@ -22,7 +22,7 @@ import { ImportStats } from '../GlobelStats/GlobelStats';
 import { doSignInWithEmailAndPassword } from './firebase/firebase';
 import { useAuth } from './context/authContext/Index';
 import { useNavigate } from 'react-router-dom';
-
+import GoogleIcon from '@mui/icons-material/Google';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -68,11 +68,11 @@ export default function SignInSide() {
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
-     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+     <Grid item xs={12} sm={6} md={6} component={Paper} elevation={6} square>
           <Box
             sx={{
               my: { xs: 2, md: 8 },
-              mx: { xs: 2, md: 12 },
+              mx: { xs: 2, md: 26 },
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
@@ -84,23 +84,28 @@ export default function SignInSide() {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <Grid container spacing={2} sx={{mt:2}}>
-      <Grid item xs={4} justifyContent="center">
-        <div className='icon-container'>
-          <img src={google} alt='signInWithGoole'/>
-        </div>
-        
-      </Grid>
-      <Grid item xs={4} justifyContent="center">
-        <div className='icon-container'>
-        <img src={facebook} alt='signInWithFacebook'/>
-        </div>
-      </Grid>
-      <Grid item xs={4} >
-        <div className='icon-container'>
-        <img src={linkedin} alt='signInWithLinkedIn'/>
-        </div>
-      </Grid>
+            <Grid container spacing={2} sx={{mt:2, mx: { xs: 2, md: 26 },}}>
+            <Button
+  type="submit"
+  fullWidth
+  size='large'
+  variant="contained"
+  sx={{
+    borderRadius:'50px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'tomato', // Apply background color here
+    "&:hover": {
+      backgroundColor: 'red' // Change background color on hover if needed
+    }
+  }}
+  startIcon={<GoogleIcon/>}
+>
+  <span>Sign In with Google</span>
+</Button>
+
+
       
     </Grid>
     
@@ -165,14 +170,14 @@ export default function SignInSide() {
        {!isMobile && <Grid
           item
           xs={false}
-          sm={4}
-          md={7}
+          sm={6}
+          md={6}
           sx={{
             backgroundColor: '#5956D6',
           }}
         >
-          <div style={{display:'flex', justifyContent:'center', alignItems:'center', width:'100%', height:'auto'}}>
-        <img src={signin} alt='signin' height='auto' width='70%'/>
+          <div style={{display:'flex', justifyContent:'center', alignItems:'center', width:'100%', height:'100vh'}}>
+        <img src={signin} alt='signin' height='auto' width='60%'/>
         </div>
 
           </Grid>}

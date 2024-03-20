@@ -73,11 +73,11 @@ export default function SignUpSide() {
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
-     <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+     <Grid item xs={12} sm={6} md={6} component={Paper} elevation={6} square>
           <Box
             sx={{
               my: { xs: 2, md: 8 },
-              mx: { xs: 2, md: 12 },
+              mx: { xs: 2, md: 26 },
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
@@ -184,14 +184,14 @@ export default function SignUpSide() {
         {!isMobile && <Grid
           item
           xs={false}
-          sm={4}
-          md={7}
+          sm={6}
+          md={6}
           sx={{
             backgroundColor: '#5956D6',
           }}
         >
-          <div style={{display:'flex', justifyContent:'center', alignItems:'center', width:'100%', height:'auto'}}>
-        <img src={signin} alt='signin' height='auto' width='70%'/>
+          <div style={{display:'flex', justifyContent:'center', alignItems:'center', width:'100%', height:'100vh'}}>
+        <img src={signin} alt='signin' height='auto' width='60%'/>
         </div>
           </Grid>}
       </Grid>
