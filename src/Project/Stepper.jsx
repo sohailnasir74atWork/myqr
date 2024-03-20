@@ -11,10 +11,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Divider, IconButton, StepButton } from "@mui/material";
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "./Auth/context/authContext/Index";
+import { doSignOut } from "./Auth/firebase/firebase";
 const steps = ["Step 1", "Step 2", "Step 3"];
 
 export default function StepperComponent({prop}) {
     const {open, handleDrawerToggle} = prop
+    const { currentUser } = useAuth()
     const  {activeStep, setActiveStep, isMobile} = ImportStats()
     const navigate = useNavigate()
     // const handleDrawerOpen = () => {
@@ -35,8 +38,12 @@ export default function StepperComponent({prop}) {
       // navigate('/create')
       
     }
+    const handlelogOut = ()=>{
+      doSignOut()
+    }
   return (
     <Box sx={{ width: "100%", display: "flex", flexDirection: "row", alignItems: "center" }}>
+
       <Stepper activeStep={activeStep} sx={{minWidth: !isMobile ? '400px' : '220px' }}>
         {steps.map((label, index) => {
           const stepProps = {};
@@ -52,6 +59,9 @@ export default function StepperComponent({prop}) {
         })}
 
       </Stepper>
+      <p style={{color:'black'}}>loged-in:    userID:{currentUser?.uid}</p>
+      <Button onClick={handlelogOut}>lOGOUT</Button>
+
       {/* {isMobile && (
             <IconButton
               color="black"
@@ -67,7 +77,9 @@ export default function StepperComponent({prop}) {
               <MenuIcon />
             </IconButton>
           )} */}
+
       <Box sx={{position:'fixed', right: '20px'}}>
+
         {!isMobile && activeStep !== 0 && <Box sx={{ display: "flex", flexDirection: "row"}}>
           <Button
             color="primary"

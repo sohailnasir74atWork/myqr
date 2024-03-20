@@ -46,8 +46,9 @@ export default function SignUpSide() {
     const [isRegistering, setIsRegistering] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
 
-    const { userLoggedIn } = useAuth()
+    const { userLoggedIn, currentUser } = useAuth()
     const navigate = useNavigate()
+    console.log(userLoggedIn, currentUser?.uid)
 
     const handleSubmit = async (e) => {
         e.preventDefault();

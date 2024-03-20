@@ -19,6 +19,8 @@ import facebook from "../../Assets/defaultlogo/logo (1).svg"
 import linkedin from "../../Assets/defaultlogo/logo (10).svg"
 import { Chip, Divider } from '@mui/material';
 import { ImportStats } from '../GlobelStats/GlobelStats';
+import { doSignInWithEmailAndPassword } from './firebase/firebase';
+import { useAuth } from './context/authContext/Index';
 
 function Copyright(props) {
   return (
@@ -39,13 +41,22 @@ const defaultTheme = createTheme();
 
 export default function SignInSide() {
   const { isMobile } = ImportStats()
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  const [email, setEmail] = React.useState('')
+  const [password, setPassword] = React.useState('')
+  const { userLoggedIn, currentUser } = useAuth()
+  const [errorMessage, setErrorMessage] = React.useState('')
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!userLoggedIn) {
+      await doSignInWithEmailAndPassword(email, password)
+        .catch(error => {
+          setErrorMessage(error.message);
+        });
+    } else {
+      setErrorMessage('User is already logged in');
+    }
   };
 
   return (
@@ -101,6 +112,7 @@ export default function SignInSide() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                onChange={(e) => { setEmail(e.target.value) }}
               />
               <TextField
                 margin="normal"
@@ -111,6 +123,10 @@ export default function SignInSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={(e) => { setPassword(e.target.value) }}
+                error={!!errorMessage}
+                helperText={errorMessage}
+
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
