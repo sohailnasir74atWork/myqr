@@ -15,6 +15,10 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import signin from "../../Assets/signin.webp"
 import './auth.css'
 import { ImportStats } from '../GlobelStats/GlobelStats';
+import { useState } from 'react';
+import { doCreateUserWithEmailAndPassword } from './firebase/firebase';
+import { useAuth } from './context/authContext/Index';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -29,22 +33,38 @@ function Copyright(props) {
   );
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
 export default function SignUpSide() {
     const { isMobile } = ImportStats()
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+    const [email, setEmail] = React.useState('')
+    const [firstName, setFirstName] = React.useState('')
+    const [lastName, setLastName ] = React.useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setconfirmPassword] = useState('')
+    const [isRegistering, setIsRegistering] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
+
+    const { userLoggedIn } = useAuth()
+    const navigate = useNavigate()
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (!isRegistering && !userLoggedIn) {
+          setIsRegistering(true);
+          await doCreateUserWithEmailAndPassword(email, password)
+            .catch(error => {
+              setErrorMessage(error.message);
+            });
+        } else {
+          setErrorMessage('User is already registered');
+        }
+      };
 
   return (
+    <>
+        {userLoggedIn && navigate('/create')}
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
@@ -74,6 +94,7 @@ export default function SignUpSide() {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  onChange={(e) => { setFirstName(e.target.value) }}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -84,6 +105,7 @@ export default function SignUpSide() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  onChange={(e) => { setLastName(e.target.value) }}
                 />
               </Grid>
               </Grid>
@@ -98,6 +120,8 @@ export default function SignUpSide() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                onChange={(e) => { setEmail(e.target.value) }}
+                value={email}
               />
               <TextField
                 margin="normal"
@@ -108,7 +132,21 @@ export default function SignUpSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={password} onChange={(e) => { setPassword(e.target.value) }}
               />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="confirmed password"
+                label="Confirmed Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                value={confirmPassword} onChange={(e) => { setconfirmPassword(e.target.value) }}
+                error={!!errorMessage}
+                helperText={errorMessage}
+                 />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="I want to receive updates on this email"
@@ -153,5 +191,6 @@ export default function SignUpSide() {
           </Grid>}
       </Grid>
     </ThemeProvider>
+    </>
   );
 }
