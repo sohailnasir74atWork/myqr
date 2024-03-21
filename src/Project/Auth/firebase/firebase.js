@@ -55,27 +55,28 @@ export const doSignInWithGoogle = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-      const isNewUser = result.additionalUserInfo?.isNewUser;
-  
-      if (isNewUser) {
-        // User is new, add them to Firestore
-        const userDocRef = doc(getFirestore(), "users", user.uid);
-        await setDoc(userDocRef, {
+
+      // Check if user already exists in the Realtime Database
+      const userRef = ref(database, 'users/' + user.uid);
+      const snapshot = await get(userRef);
+
+      if (!snapshot.exists()) {
+        // User does not exist, treat as new user
+        await set(userRef, {
           email: user.email,
           firstName: user.displayName,
-          // Add more fields as needed
         });
-  
-        console.log("New Google user added to Firestore");
+        console.log("New Google user added to Realtime Database");
       } else {
-        // User is returning, perform any necessary checks or updates
+        // User exists, treat as existing user
         console.log("Existing Google user signed in");
       }
     } catch (error) {
       console.error("Error with Google sign-in: ", error);
       throw error;
     }
-  };
+};
+
 
 export const doSignOut = () => {
   return auth.signOut();
