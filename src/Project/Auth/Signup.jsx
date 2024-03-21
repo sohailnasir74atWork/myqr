@@ -182,26 +182,28 @@ export default function SignUpSide() {
                   onSubmit={handleSubmit}
                   sx={{ mt: 1 }}
                 >
-                  <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="email"
-                    name="email"
-                    autoComplete="email"
-                    placeholder="Email Address"
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                    }}
-                    InputLabelProps={{ shrink: false }}
-                    value={email}
-                    className="text-field"
-                    sx={{
-                      "& .MuiOutlinedInput-root": {
-                        borderRadius: "50px", // Set border-radius to 50px
-                      },
-                    }}
-                  />
+                 <TextField
+  margin="normal"
+  required
+  fullWidth
+  id="email"
+  name="email"
+  autoComplete="email"
+  placeholder="Email Address"
+  onChange={(e) => {
+    setEmail(e.target.value);
+  }}
+  InputLabelProps={{ shrink: false }}
+  value={email}
+  className="text-field"
+  sx={{
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "50px", // Set border-radius to 50px
+      maxHeight: { sm: 30, md: 50 } // Set max height for mobile and computer
+    }
+  }}
+/>
+
                   <TextField
                     margin="normal"
                     required
