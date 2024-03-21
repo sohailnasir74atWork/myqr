@@ -130,7 +130,7 @@ export default function SignUpSide() {
                 <Divider sx={{ my: 2, mx: 2, width:'90%' }}>
                     <Chip label="Or" size="small" />
                   </Divider>
-                <Grid container spacing={2} sx={{ mt: 3 }}>
+                <Grid container spacing={2} sx={{ mt: 1 }}>
                
                   <Grid item xs={12} sm={6}>
                   
@@ -150,6 +150,8 @@ export default function SignUpSide() {
                       sx={{
                         "& .MuiOutlinedInput-root": {
                           borderRadius: "50px", // Set border-radius to 50px
+                          maxHeight: { sm: 30, md: 50 } // Set max height for mobile and computer
+
                         },
                       }}
                     />
@@ -170,6 +172,8 @@ export default function SignUpSide() {
                       sx={{
                         "& .MuiOutlinedInput-root": {
                           borderRadius: "50px", // Set border-radius to 50px
+                          maxHeight: { sm: 30, md: 50 } // Set max height for mobile and computer
+
                         },
                       }}
                     />
@@ -222,6 +226,8 @@ export default function SignUpSide() {
                     sx={{
                       "& .MuiOutlinedInput-root": {
                         borderRadius: "50px", // Set border-radius to 50px
+                        maxHeight: { sm: 30, md: 50 } // Set max height for mobile and computer
+
                       },
                     }}
                   />
@@ -245,6 +251,8 @@ export default function SignUpSide() {
                     sx={{
                       "& .MuiOutlinedInput-root": {
                         borderRadius: "50px", // Set border-radius to 50px
+                        maxHeight: { sm: 30, md: 50 } // Set max height for mobile and computer
+
                       },
                     }}
                   />
