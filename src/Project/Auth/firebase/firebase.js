@@ -17,6 +17,7 @@ import { ImportStats } from "../../GlobelStats/GlobelStats";
 
 
 
+
 export const doCreateUserWithEmailAndPassword = async (email, password, firstName) => {
     try {
       // Create user with email and password
@@ -54,8 +55,7 @@ export const doSignInWithEmailAndPassword = (email, password) => {
 
 //   // add user to firestore
 // };
-export const doSignInWithGoogle = async () => {
-    const { isMobile} = ImportStats()
+export const doSignInWithGoogle = async (isMobile) => {
     const provider = new GoogleAuthProvider();
     try {
       let result;
