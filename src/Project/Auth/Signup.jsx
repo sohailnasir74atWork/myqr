@@ -16,9 +16,11 @@ import signin from "../../Assets/signin.webp";
 import "./auth.css";
 import { ImportStats } from "../GlobelStats/GlobelStats";
 import { useState } from "react";
-import { doCreateUserWithEmailAndPassword } from "./firebase/firebase";
+import GoogleIcon from "@mui/icons-material/Google";
+import { doCreateUserWithEmailAndPassword, doSignInWithGoogle } from "./firebase/firebase";
 import { useAuth } from "./context/authContext/Index";
 import { useNavigate } from "react-router-dom";
+import { Chip, Divider } from "@mui/material";
 
 function Copyright(props) {
   return (
@@ -102,8 +104,35 @@ export default function SignUpSide() {
                 <Typography component="h1" variant="h5">
                   Sign up
                 </Typography>
+                <Button
+                  type="submit"
+                  fullWidth
+                  size="large"
+                  variant="contained"
+                  onClick={()=>{doSignInWithGoogle()}}
+                  sx={{
+                    borderRadius: "50px",
+                    display: "flex",
+                    my: 2,
+                    py: 1.5,
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: "tomato", // Apply background color here
+                    "&:hover": {
+                      backgroundColor: "red", // Change background color on hover if needed
+                    },
+                  }}
+                  startIcon={<GoogleIcon />}
+                >
+                  <span>Sign In with Google</span>
+                </Button>
+                <Divider sx={{ my: 2, mx: 2, width:'90%' }}>
+                    <Chip label="Or" size="small" />
+                  </Divider>
                 <Grid container spacing={2} sx={{ mt: 3 }}>
+               
                   <Grid item xs={12} sm={6}>
+                  
                     <TextField
                       autoComplete="given-name"
                       name="firstName"
