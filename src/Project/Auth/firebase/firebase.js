@@ -1,6 +1,7 @@
 import { auth, database } from "./auth";
 import { ref, set, get, getDatabase } from "firebase/database";
 import { doc, setDoc, getFirestore } from "firebase/firestore"; // Assuming you're using Firestore
+import { isMobile } from 'react-device-detect';
 
 import {
   createUserWithEmailAndPassword,
@@ -55,7 +56,7 @@ export const doSignInWithEmailAndPassword = (email, password) => {
 
 //   // add user to firestore
 // };
-export const doSignInWithGoogle = async (isMobile) => {
+export const doSignInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     try {
       let result;
