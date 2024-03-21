@@ -123,6 +123,11 @@ export default function SignUpSide() {
                   onChange={(e) => { setLastName(e.target.value) }}
                   InputLabelProps={{shrink:false}}
                   className='text-field'
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      borderRadius: '50px', // Set border-radius to 50px
+                    },
+                  }}
                 />
               </Grid>
               </Grid>
@@ -140,6 +145,11 @@ export default function SignUpSide() {
                 InputLabelProps={{shrink:false}}
                 value={email}
                 className='text-field'
+                sx={{
+                    '& .MuiOutlinedInput-root': {
+                      borderRadius: '50px', // Set border-radius to 50px
+                    },
+                  }}
               />
               <TextField
                 margin="normal"
@@ -153,6 +163,11 @@ export default function SignUpSide() {
                 value={password} onChange={(e) => { setPassword(e.target.value) }}
                 InputLabelProps={{shrink:false}}
                 className='text-field'
+                sx={{
+                    '& .MuiOutlinedInput-root': {
+                      borderRadius: '50px', // Set border-radius to 50px
+                    },
+                  }}
               />
               <TextField
                 margin="normal"
@@ -168,6 +183,11 @@ export default function SignUpSide() {
                 helperText={errorMessage}
                 InputLabelProps={{shrink:false}}
                 className='text-field'
+                sx={{
+                    '& .MuiOutlinedInput-root': {
+                      borderRadius: '50px', // Set border-radius to 50px
+                    },
+                  }}
                  />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}

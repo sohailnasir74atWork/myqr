@@ -125,6 +125,11 @@ export default function SignInSide() {
                 autoComplete="email"
                 autoFocus
                 onChange={(e) => { setEmail(e.target.value) }}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '50px', // Set border-radius to 50px
+                  },
+                }}
               />
               <TextField
                 margin="normal"
@@ -138,6 +143,11 @@ export default function SignInSide() {
                 onChange={(e) => { setPassword(e.target.value) }}
                 error={!!errorMessage}
                 helperText={errorMessage}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: '50px', // Set border-radius to 50px
+                  },
+                }}
 
               />
               <FormControlLabel
