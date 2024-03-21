@@ -114,8 +114,8 @@ export default function SignUpSide() {
                   sx={{
                     borderRadius: "50px",
                     display: "flex",
-                    my: 2,
-                    py: 1.5,
+                    my: 1,
+                    py: 1,
                     alignItems: "center",
                     justifyContent: "center",
                     backgroundColor: "tomato", // Apply background color here
@@ -130,7 +130,7 @@ export default function SignUpSide() {
                 <Divider sx={{ my: 2, mx: 2, width:'90%' }}>
                     <Chip label="Or" size="small" />
                   </Divider>
-                <Grid container spacing={2} sx={{ mt: 1 }}>
+                <Grid container spacing={2}>
                
                   <Grid item xs={12} sm={6}>
                   
@@ -265,7 +265,7 @@ export default function SignUpSide() {
                     fullWidth
                     size="large"
                     variant="contained"
-                    sx={{ mt: 3, mb: 2, borderRadius: "50px", py: 1.5 }}
+                    sx={{ mt: 1, mb: 1, borderRadius: "50px", py: 1 }}
                   >
                     Sign Up
                   </Button>
