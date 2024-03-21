@@ -71,7 +71,7 @@ export default function SignInSide() {
      <Grid item xs={12} sm={6} md={6} component={Paper} elevation={6} square>
           <Box
             sx={{
-              my: { xs: 2, md: 2 },
+              my: { xs: 0, md: 2 },
               mx: { xs: 2, md: 2 },
               display: 'flex',
               flexDirection: 'column',
