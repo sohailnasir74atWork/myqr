@@ -105,6 +105,11 @@ export default function SignUpSide() {
                   onChange={(e) => { setFirstName(e.target.value) }}
                   InputLabelProps={{shrink:false}}
                   className='text-field'
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      borderRadius: '50px', // Set border-radius to 50px
+                    },
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
