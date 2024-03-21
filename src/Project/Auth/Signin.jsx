@@ -101,7 +101,7 @@ export default function SignInSide() {
                   fullWidth
                   size="large"
                   variant="contained"
-                  onClick={()=>{doSignInWithGoogle()}}
+                  onClick={()=>{doSignInWithGoogle(isMobile)}}
                   sx={{
                     borderRadius: "50px",
                     display: "flex",
