@@ -1,7 +1,6 @@
 import { auth, database } from "./auth";
 import { ref, set, get, getDatabase } from "firebase/database";
 import { doc, setDoc, getFirestore } from "firebase/firestore"; // Assuming you're using Firestore
-import { isMobile } from 'react-device-detect';
 
 import {
   createUserWithEmailAndPassword,
@@ -10,13 +9,8 @@ import {
   sendEmailVerification,
   updatePassword,
   signInWithPopup,
-  signInWithRedirect,
-  getRedirectResult,
   GoogleAuthProvider,
 } from "firebase/auth";
-import { ImportStats } from "../../GlobelStats/GlobelStats";
-
-
 
 
 export const doCreateUserWithEmailAndPassword = async (email, password, firstName) => {
@@ -59,21 +53,7 @@ export const doSignInWithEmailAndPassword = (email, password) => {
 export const doSignInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     try {
-      let result;
-      if (isMobile) {
-        // On mobile devices, use signInWithRedirect
-        await signInWithRedirect(auth, provider);
-        // To handle the redirect result, you should call getRedirectResult somewhere in your app's flow, usually in the component that handles the redirect.
-        result = await getRedirectResult(auth);
-        if (!result) {
-          console.log('No redirect result found. User is likely not being redirected back or the process is still ongoing.');
-          return; // Early return if no result is found
-        }
-      } else {
-        // On desktop, use signInWithPopup
-        result = await signInWithPopup(auth, provider);
-      }
-
+      const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
       // Check if user already exists in the Realtime Database
