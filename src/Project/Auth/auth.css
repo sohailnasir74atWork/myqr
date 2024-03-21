@@ -9,6 +9,13 @@
     overflow: scroll; 
 }
 
+@media (max-width: 600px) {
+    .text-fields-container {
+        height: auto;
+    }
+}
+
+
 .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root {
     border-radius: 50px !important;
 }
