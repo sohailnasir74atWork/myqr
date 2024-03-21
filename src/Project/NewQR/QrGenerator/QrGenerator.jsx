@@ -17,7 +17,6 @@ const QrGenerator = ({ prop }) => {
   const [qrDataLocal, setQrDataLocal]= useState()
   const canvasRef = useRef(null);
   const img = qrDataLocal?.logo;
-  console.log(qrDataLocal)
   let qrData = '';
 if (qrDataLocal?.inputData.url.value) {
     qrData = qrDataLocal?.inputData.url.value;
@@ -115,8 +114,6 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
       const gradientBorder = parseLinearGradient(qrDataLocal.colors.square.color);
       const gradientQR = parseLinearGradient(qrDataLocal.colors.dots.color);
       const gradientCenter = parseLinearGradient(qrDataLocal.colors.cornerDots.color);
-      console.log(qrDataLocal.colors.background.color)
-      console.log(gradientBackground)
 
       // Generate a new QR code
       const newQrCode = new QRCodeStyling({
