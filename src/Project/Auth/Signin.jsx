@@ -71,20 +71,21 @@ export default function SignInSide() {
      <Grid item xs={12} sm={6} md={6} component={Paper} elevation={6} square>
           <Box
             sx={{
-              my: { xs: 2, md: 8 },
-              mx: { xs: 2, md: 26 },
+              my: { xs: 2, md: 2 },
+              mx: { xs: 2, md: 2 },
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               }}
+              
           >
+            <div className='text-fields-container'>
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <Grid container spacing={2} sx={{mt:2, mx: { xs: 2, md: 26 },}}>
             <Button
   type="submit"
   fullWidth
@@ -93,6 +94,8 @@ export default function SignInSide() {
   sx={{
     borderRadius:'50px',
     display: 'flex',
+    my:2,
+    py:1.5,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'tomato', // Apply background color here
@@ -107,10 +110,9 @@ export default function SignInSide() {
 
 
       
-    </Grid>
     
            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-           <Divider sx={{mt:2, mb:2}}>
+           <Divider sx={{my:2,  mx:2}}>
     <Chip label="Or" size="small" />
   </Divider>  
               <TextField
@@ -118,7 +120,7 @@ export default function SignInSide() {
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                placeholder="Email Address"
                 name="email"
                 autoComplete="email"
                 autoFocus
@@ -129,7 +131,7 @@ export default function SignInSide() {
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                placeholder="Password"
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -147,7 +149,8 @@ export default function SignInSide() {
                 fullWidth
                 size='large'
                 variant="contained"
-                sx={{ mt: 3, mb: 2, borderRadius:'50px' }}
+                sx={{ mt: 3, mb: 2, borderRadius:'50px', py:1.5,
+              }}
               >
                 Sign In
               </Button>
@@ -165,6 +168,7 @@ export default function SignInSide() {
               </Grid>
               <Copyright sx={{ mt: 5 }} />
             </Box>
+            </div>
           </Box>
         </Grid>
        {!isMobile && <Grid

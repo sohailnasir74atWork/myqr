@@ -76,13 +76,16 @@ export default function SignUpSide() {
      <Grid item xs={12} sm={6} md={6} component={Paper} elevation={6} square>
           <Box
             sx={{
-              my: { xs: 2, md: 8 },
-              mx: { xs: 2, md: 26 },
+              my: { xs: 2, md: 2 },
+              mx: { xs: 2, md: 2 },
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+              justifyContent:'center'
               }}
           >
+            <div className='text-fields-container'
+>
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
             </Avatar>
@@ -97,9 +100,11 @@ export default function SignUpSide() {
                   required
                   fullWidth
                   id="firstName"
-                  label="First Name"
+                  placeholder="First Name"
                   autoFocus
                   onChange={(e) => { setFirstName(e.target.value) }}
+                  InputLabelProps={{shrink:false}}
+                  className='text-field'
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -107,10 +112,12 @@ export default function SignUpSide() {
                   required
                   fullWidth
                   id="lastName"
-                  label="Last Name"
+                  placeholder='Last Name'
                   name="lastName"
                   autoComplete="family-name"
                   onChange={(e) => { setLastName(e.target.value) }}
+                  InputLabelProps={{shrink:false}}
+                  className='text-field'
                 />
               </Grid>
               </Grid>
@@ -121,36 +128,41 @@ export default function SignUpSide() {
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
                 name="email"
                 autoComplete="email"
-                autoFocus
+                placeholder='Email Address'
                 onChange={(e) => { setEmail(e.target.value) }}
+                InputLabelProps={{shrink:false}}
                 value={email}
+                className='text-field'
               />
               <TextField
                 margin="normal"
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                placeholder="Password"
                 type="password"
                 id="password"
                 autoComplete="current-password"
                 value={password} onChange={(e) => { setPassword(e.target.value) }}
+                InputLabelProps={{shrink:false}}
+                className='text-field'
               />
               <TextField
                 margin="normal"
                 required
                 fullWidth
                 name="confirmed password"
-                label="Confirmed Password"
+                placeholder="Confirmed Password"
                 type="password"
                 id="password"
                 autoComplete="current-password"
                 value={confirmPassword} onChange={(e) => { setconfirmPassword(e.target.value) }}
                 error={!!errorMessage}
                 helperText={errorMessage}
+                InputLabelProps={{shrink:false}}
+                className='text-field'
                  />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
@@ -161,7 +173,8 @@ export default function SignUpSide() {
                 fullWidth
                 size='large'
                 variant="contained"
-                sx={{ mt: 3, mb: 2, borderRadius:'50px' }}
+                sx={{ mt: 3, mb: 2, borderRadius:'50px', py:1.5,
+            }}
               >
                 Sign Up
               </Button>
@@ -179,6 +192,7 @@ export default function SignUpSide() {
               </Grid>
               <Copyright sx={{ mt: 5 }} />
             </Box>
+            </div>
           </Box>
         </Grid>
         {!isMobile && <Grid
