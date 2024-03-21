@@ -22,6 +22,7 @@ import { useAuth } from "./context/authContext/Index";
 import { useNavigate } from "react-router-dom";
 import { Chip, Divider } from "@mui/material";
 
+
 function Copyright(props) {
   return (
     <Typography
@@ -265,7 +266,7 @@ export default function SignUpSide() {
                       </Link>
                     </Grid>
                     <Grid item>
-                      <Link href="#" variant="body2">
+                      <Link variant="body2" onClick={()=>{navigate('/signin')}}>
                         {"Already have an account ? Sign in"}
                       </Link>
                     </Grid>
