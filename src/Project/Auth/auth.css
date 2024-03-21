@@ -11,7 +11,7 @@
 
 @media (max-width: 600px) {
     .text-fields-container {
-        height: auto;
+        min-height: auto;
     }
 }
 
