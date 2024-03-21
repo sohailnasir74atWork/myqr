@@ -10,6 +10,7 @@ import {
   updatePassword,
   signInWithPopup,
   GoogleAuthProvider,
+  signInWithRedirect
 } from "firebase/auth";
 
 
@@ -53,29 +54,36 @@ export const doSignInWithEmailAndPassword = (email, password) => {
 export const doSignInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
+        // Check if the device is mobile
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            // Use signInWithRedirect for mobile devices
+            await signInWithRedirect(auth, provider);
+        } else {
+            // Use signInWithPopup for desktop
+            const result = await signInWithPopup(auth, provider);
+            const user = result.user;
+            // Your existing logic to handle the user sign-in
+            const userRef = ref(database, 'users/' + user.uid);
+            const snapshot = await get(userRef);
 
-      // Check if user already exists in the Realtime Database
-      const userRef = ref(database, 'users/' + user.uid);
-      const snapshot = await get(userRef);
-
-      if (!snapshot.exists()) {
-        // User does not exist, treat as new user
-        await set(userRef, {
-          email: user.email,
-          firstName: user.displayName,
-        });
-        console.log("New Google user added to Realtime Database");
-      } else {
-        // User exists, treat as existing user
-        console.log("Existing Google user signed in");
-      }
+            if (!snapshot.exists()) {
+                // User does not exist, treat as new user
+                await set(userRef, {
+                    email: user.email,
+                    firstName: user.displayName,
+                });
+                console.log("New Google user added to Realtime Database");
+            } else {
+                // User exists, treat as existing user
+                console.log("Existing Google user signed in");
+            }
+        }
     } catch (error) {
-      console.error("Error with Google sign-in: ", error);
-      throw error;
+        console.error("Error with Google sign-in: ", error);
+        throw error;
     }
 };
+
 
 
 export const doSignOut = () => {
