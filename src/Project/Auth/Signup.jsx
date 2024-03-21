@@ -115,7 +115,7 @@ export default function SignUpSide() {
                     borderRadius: "50px",
                     display: "flex",
                     my: 1,
-                    py: 1,
+                    py: 1.5,
                     alignItems: "center",
                     justifyContent: "center",
                     backgroundColor: "tomato", // Apply background color here
@@ -272,7 +272,7 @@ export default function SignUpSide() {
                     fullWidth
                     size="large"
                     variant="contained"
-                    sx={{ mt: 1, mb: 1, borderRadius: "50px", py: 1 }}
+                    sx={{ mt: 1, mb: 1, borderRadius: "50px", py: 1.5 }}
                   >
                     Sign Up
                   </Button>
