@@ -150,8 +150,8 @@ export default function SignUpSide() {
                       sx={{
                         "& .MuiOutlinedInput-root": {
                           borderRadius: "50px", // Set border-radius to 50px
-                          maxHeight: { sm: 25, md: 50 } // Set max height for mobile and computer
-
+                          maxHeight: { sm: 20, md: 50 }, // Set max height for mobile and computer
+                            fontSize:{ sm: 12, md: 14 }
                         },
                       }}
                     />
@@ -172,7 +172,8 @@ export default function SignUpSide() {
                       sx={{
                         "& .MuiOutlinedInput-root": {
                           borderRadius: "50px", // Set border-radius to 50px
-                          maxHeight: { sm: 25, md: 50 } // Set max height for mobile and computer
+                          maxHeight: { sm: 20, md: 50 }, // Set max height for mobile and computer
+                          fontSize:{ sm: 12, md: 14 }
 
                         },
                       }}
@@ -203,7 +204,9 @@ export default function SignUpSide() {
   sx={{
     "& .MuiOutlinedInput-root": {
       borderRadius: "50px", // Set border-radius to 50px
-      maxHeight: { sm: 25, md: 50 } // Set max height for mobile and computer
+      maxHeight: { sm: 20, md: 50 } ,// Set max height for mobile and computer
+      fontSize:{ sm: 12, md: 14 }
+
     }
   }}
 />
@@ -226,7 +229,9 @@ export default function SignUpSide() {
                     sx={{
                       "& .MuiOutlinedInput-root": {
                         borderRadius: "50px", // Set border-radius to 50px
-                        maxHeight: { sm: 25, md: 50 } // Set max height for mobile and computer
+                        maxHeight: { sm: 20, md: 50 } , // Set max height for mobile and computer
+                        fontSize:{ sm: 12, md: 14 }
+
 
                       },
                     }}
@@ -251,7 +256,9 @@ export default function SignUpSide() {
                     sx={{
                       "& .MuiOutlinedInput-root": {
                         borderRadius: "50px", // Set border-radius to 50px
-                        maxHeight: { sm: 25, md: 50 } // Set max height for mobile and computer
+                        maxHeight: { sm: 20, md: 50 }, // Set max height for mobile and computer
+                        fontSize:{ sm: 12, md: 14 }
+
 
                       },
                     }}
