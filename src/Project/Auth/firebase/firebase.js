@@ -62,7 +62,7 @@ export const doSignInWithGoogle = async () => {
         const userDocRef = doc(getFirestore(), "users", user.uid);
         await setDoc(userDocRef, {
           email: user.email,
-          name: user.displayName,
+          firstName: user.displayName,
           // Add more fields as needed
         });
   
