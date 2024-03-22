@@ -1,16 +1,15 @@
 import { auth, database } from "./auth";
 import { ref, set, get, getDatabase } from "firebase/database";
 import { doc, setDoc, getFirestore } from "firebase/firestore"; // Assuming you're using Firestore
-import { isMobile } from "react-device-detect";
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
   sendEmailVerification,
   updatePassword,
-  signInWithPopup,
+  signInWithRedirect,
   GoogleAuthProvider,
-  signInWithRedirect
 } from "firebase/auth";
 
 
@@ -54,36 +53,29 @@ export const doSignInWithEmailAndPassword = (email, password) => {
 export const doSignInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     try {
-        // Check if the device is mobile
-        if (isMobile) {
-            // Use signInWithRedirect for mobile devices
-            await signInWithRedirect(auth, provider);
-        } else {
-            // Use signInWithPopup for desktop
-            const result = await signInWithPopup(auth, provider);
-            const user = result.user;
-            // Your existing logic to handle the user sign-in
-            const userRef = ref(database, 'users/' + user.uid);
-            const snapshot = await get(userRef);
+      const result = await signInWithRedirect(auth, provider);
+      const user = result.user;
 
-            if (!snapshot.exists()) {
-                // User does not exist, treat as new user
-                await set(userRef, {
-                    email: user.email,
-                    firstName: user.displayName,
-                });
-                console.log("New Google user added to Realtime Database");
-            } else {
-                // User exists, treat as existing user
-                console.log("Existing Google user signed in");
-            }
-        }
+      // Check if user already exists in the Realtime Database
+      const userRef = ref(database, 'users/' + user.uid);
+      const snapshot = await get(userRef);
+
+      if (!snapshot.exists()) {
+        // User does not exist, treat as new user
+        await set(userRef, {
+          email: user.email,
+          firstName: user.displayName,
+        });
+        console.log("New Google user added to Realtime Database");
+      } else {
+        // User exists, treat as existing user
+        console.log("Existing Google user signed in");
+      }
     } catch (error) {
-        console.error("Error with Google sign-in: ", error);
-        throw error;
+      console.error("Error with Google sign-in: ", error);
+      throw error;
     }
 };
-
 
 
 export const doSignOut = () => {
