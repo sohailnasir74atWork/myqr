@@ -1,7 +1,7 @@
 import { auth, database } from "./auth";
 import { ref, set, get, getDatabase } from "firebase/database";
 import { doc, setDoc, getFirestore } from "firebase/firestore"; // Assuming you're using Firestore
-
+import { isMobile } from "react-device-detect";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -55,7 +55,7 @@ export const doSignInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     try {
         // Check if the device is mobile
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        if (isMobile) {
             // Use signInWithRedirect for mobile devices
             await signInWithRedirect(auth, provider);
         } else {
