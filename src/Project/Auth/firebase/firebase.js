@@ -8,7 +8,7 @@ import {
   sendPasswordResetEmail,
   sendEmailVerification,
   updatePassword,
-  signInWithRedirect,
+  signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
 
@@ -53,7 +53,7 @@ export const doSignInWithEmailAndPassword = (email, password) => {
 export const doSignInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     try {
-      const result = await signInWithRedirect(auth, provider);
+      const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
       // Check if user already exists in the Realtime Database

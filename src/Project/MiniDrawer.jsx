@@ -215,10 +215,10 @@ const CommonIconButton = () => (
       {!userLoggedIn && navigate('/signin') }
       <CssBaseline />
       <AppBar position="fixed" open={open} sx={{ backgroundColor: 'var(--background-color)' }}>
-      <div style={{display:'flex', justifyContent:'space-between', color:'black', alignItems:'center'}}>
-      <span style={{fontSize:'12px', paddingLeft:'10px'}}>Welcome : {userData?.firstName} </span>.
-        <span style={{fontSize:'12px'}}>Sign out
-        <IconButton size='small' onClick={doSignOut}><LogoutIcon fontSize='small'/></IconButton></span>
+      <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', backgroundColor:'var(--lightgreen-color)'}}>
+      <span style={{fontSize:'12px', paddingLeft:'10px'}}>Welcome : {userData?.firstName} </span> <span style={{fontSize:'12px'}}>Sign out
+        <IconButton size='small' onClick={doSignOut} >  <LogoutIcon fontSize='small' style={{ color: '#FFFFFF' }} />
+</IconButton></span>
       </div>
 
       {isMobile && !open && (
