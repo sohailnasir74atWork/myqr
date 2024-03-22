@@ -55,13 +55,17 @@ export default function SignUpSide() {
 
   const { userLoggedIn, currentUser } = useAuth();
   const navigate = useNavigate();
+  const fullName = firstName + ' ' + lastName;
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
     setErrorMessage("");
+    if(password !== confirmPassword) {setErrorMessage('Password does not matched'); return}
+
     if (!isRegistering && !userLoggedIn) {
       setIsRegistering(true);
-      await doCreateUserWithEmailAndPassword(email, password, firstName).catch(
+      await doCreateUserWithEmailAndPassword(email, password, fullName).catch(
         (error) => {
           setErrorMessage(error.message);
           setIsRegistering(false);

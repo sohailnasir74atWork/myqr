@@ -54,6 +54,7 @@ function Content() {
   const {iframe} = ImportStats()
   return (
     <Box sx={{ display: 'flex' }}>
+      
       {!(location.pathname === '/iframe' || iframe || location.pathname === '/signin' || location.pathname === '/signup' ) && <MiniDrawer />}
       {/* {(location.pathname === '/iframe' || iframe) && <IframeStepper />} */}
       <Box component="main" sx={{ flexGrow: 1, width: location.pathname === '/iframe' ? '100%' : 'calc(100% - 240px)' }}>

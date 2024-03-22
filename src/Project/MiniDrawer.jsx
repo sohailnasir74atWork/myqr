@@ -28,7 +28,9 @@ import AlertDialog from './Alert';
 import { QrCodeScanner } from '@mui/icons-material';
 import Pro from "../Assets/icons/Pro.svg"
 import logo from '../Assets/LOGO/logofull.svg'
-
+import LogoutIcon from '@mui/icons-material/Logout';
+import { useAuth } from './Auth/context/authContext/Index';
+import { doSignOut } from './Auth/firebase/firebase';
 
 
 const drawerWidth = 240;
@@ -105,11 +107,13 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function MiniDrawer() {
   const theme = useTheme();
-  const { activeStep, setActiveStep, isMobile, qrCodeSettings, setQrCodeSettings } = ImportStats();
+  const { activeStep, setActiveStep, isMobile, qrCodeSettings, setQrCodeSettings, userData } = ImportStats();
   const [open, setOpen] = React.useState(!isMobile);
   const [openAlert, setOpenAlert] = React.useState(false);
   const [message, setMessage] = React.useState('Changing the QR Type will delete the current data');
   const [heading, setHeading] = React.useState('Alert');
+  const { userLoggedIn, currentUser } = useAuth();
+
 
   const handleDrawerToggle = () => {
     setOpen(!open);
@@ -207,8 +211,15 @@ const CommonIconButton = () => (
 
   return (
     <Box sx={{ display: 'flex' }}>
+      {!userLoggedIn && navigate('/signin') }
       <CssBaseline />
       <AppBar position="fixed" open={open} sx={{ backgroundColor: 'var(--background-color)' }}>
+      <div style={{display:'flex', justifyContent:'space-between', color:'black', alignItems:'center'}}>
+      <span style={{fontSize:'12px', paddingLeft:'10px'}}>Welcome : {userData?.firstName} </span>.
+        <span style={{fontSize:'12px'}}>Sign out
+        <IconButton size='small' onClick={doSignOut}><LogoutIcon fontSize='small'/></IconButton></span>
+      </div>
+
       {isMobile && !open && (
   <Toolbar>
     {!isMobile && (

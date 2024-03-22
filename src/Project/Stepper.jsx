@@ -59,8 +59,8 @@ export default function StepperComponent({prop}) {
         })}
 
       </Stepper>
-      <p style={{color:'black'}}>userID:${currentUser?.uid}   Welcome:{userData?.firstName}</p>
-      <Button onClick={handlelogOut}>lOGOUT</Button>
+      {/* <p style={{color:'black'}}>userID:${currentUser?.uid}   Welcome:{userData?.firstName}</p>
+      <Button onClick={handlelogOut}>lOGOUT</Button> */}
 
 
       {/* {isMobile && (
