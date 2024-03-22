@@ -65,6 +65,7 @@ function Content() {
           <Route path="/templates" element={userLoggedIn ? <Templates /> : <Navigate to="/signin" />} />
           <Route path="/myqr" element={userLoggedIn ? <MyQr /> : <Navigate to="/signin" />} />
           <Route path="/stats" element={userLoggedIn ? <Stats /> : <Navigate to="/signin" />} />
+          <Route path="/setings" element={userLoggedIn ? <Stats /> : <Navigate to="/signin" />} />
           <Route path="/generate-bulk" element={userLoggedIn ? <Stats /> : <Navigate to="/signin" />} />
           <Route path="/create/input" element={userLoggedIn ? <InputScreen /> : <Navigate to="/signin" />} />
           <Route path="/create/input/design" element={userLoggedIn ? <DesignScreen /> : <Navigate to="/signin" />} />

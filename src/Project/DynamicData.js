@@ -43,7 +43,6 @@ import pdf from "../Assets/icons/pdf.svg"
 import playlist from "../Assets/icons/playlist.svg"
 
 
-
 import logo1 from '../Assets/defaultlogo/logo (1).svg';
 import logo2 from '../Assets/defaultlogo/logo (2).svg';
 import logo3 from '../Assets/defaultlogo/logo (3).svg';
@@ -110,6 +109,7 @@ export const sideBar = [
   { id: "bulk-qr-generator", heading: "Bulk QR Generator", icon: <BurstModeIcon />, path: '/generate-bulk' },
   { id: "my-qr-codes", heading: "My QR Codes", icon: <QrCodeIcon />, path: '/myqr' },
   { id: "my-qr-codes", heading: "Statistics", icon: <PieChartIcon />, path: '/stats' },
+  { id: "my-qr-codes", heading: "Settings", icon: <SettingsIcon />, path: '/settings' },
 
 ];
 
