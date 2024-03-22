@@ -1,6 +1,6 @@
 // App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import "./App.css";
 import MiniDrawer from './Project/MiniDrawer';
 import { Box, ThemeProvider, createTheme } from '@mui/material';
@@ -16,6 +16,7 @@ import StepperComponent from './Project/Stepper';
 import IframeStepper from './Project/Iframe/IframeStepper';
 import SignInSide from './Project/Auth/Signin';
 import SignUpSide from './Project/Auth/Signup';
+import { useAuth } from './Project/Auth/context/authContext/Index';
 
 const theme = createTheme({
   palette: {
@@ -52,6 +53,7 @@ function Content() {
   const { useLocation } = require('react-router-dom');
   const location = useLocation();
   const {iframe} = ImportStats()
+  const { userLoggedIn } = useAuth();
   return (
     <Box sx={{ display: 'flex' }}>
       
@@ -59,13 +61,13 @@ function Content() {
       {/* {(location.pathname === '/iframe' || iframe) && <IframeStepper />} */}
       <Box component="main" sx={{ flexGrow: 1, width: location.pathname === '/iframe' ? '100%' : 'calc(100% - 240px)' }}>
         <Routes>
-          <Route path="/create" element={<SelectScreen />} />
-          <Route path="/templates" element={<Templates />} />
-          <Route path="/myqr" element={<MyQr />} />
-          <Route path="/stats" element={<Stats />} />
-          <Route path="/generate-bulk" element={<Stats />} />
-          <Route path="/create/input" element={<InputScreen />} />
-          <Route path="/create/input/design" element={<DesignScreen />} />
+        <Route path="/create" element={userLoggedIn ? <SelectScreen /> : <Navigate to="/signin" />} />
+          <Route path="/templates" element={userLoggedIn ? <Templates /> : <Navigate to="/signin" />} />
+          <Route path="/myqr" element={userLoggedIn ? <MyQr /> : <Navigate to="/signin" />} />
+          <Route path="/stats" element={userLoggedIn ? <Stats /> : <Navigate to="/signin" />} />
+          <Route path="/generate-bulk" element={userLoggedIn ? <Stats /> : <Navigate to="/signin" />} />
+          <Route path="/create/input" element={userLoggedIn ? <InputScreen /> : <Navigate to="/signin" />} />
+          <Route path="/create/input/design" element={userLoggedIn ? <DesignScreen /> : <Navigate to="/signin" />} />
           <Route path="/iframe" element={<Iframe/>} />
           <Route path="/signin" element={<SignInSide/>} />
           <Route path="/signup" element={<SignUpSide/>} />

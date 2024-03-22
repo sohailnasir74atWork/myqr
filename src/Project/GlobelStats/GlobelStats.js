@@ -111,7 +111,7 @@ export const ContextProvider = ({ children }) => {
     fetchUserData();
     isCurrentUserVerified()
     
-  }, []);
+  }, [currentUser]);
     console.log('verified user', verifiedUser)
   return (
     <GlobelStats.Provider
