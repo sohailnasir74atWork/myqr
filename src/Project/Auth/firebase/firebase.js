@@ -10,6 +10,7 @@ import {
   updatePassword,
   signInWithPopup,
   GoogleAuthProvider,
+  signInWithRedirect
 } from "firebase/auth";
 
 
