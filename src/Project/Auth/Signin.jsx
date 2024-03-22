@@ -100,7 +100,7 @@ export default function SignInSide() {
                   type="submit"
                   fullWidth
                   size="large"
-                  variant="contained"
+                  variant="outlined"
                   onClick={()=>{doSignInWithGoogle(isMobile)}}
                   sx={{
                     borderRadius: "50px",
@@ -109,9 +109,9 @@ export default function SignInSide() {
                     py: 1.5,
                     alignItems: "center",
                     justifyContent: "center",
-                    backgroundColor: "tomato", // Apply background color here
+                    // backgroundColor: "tomato", // Apply background color here
                     "&:hover": {
-                      backgroundColor: "red", // Change background color on hover if needed
+                      // backgroundColor: "red", // Change background color on hover if needed
                     },
                   }}
                   startIcon={<GoogleIcon />}
