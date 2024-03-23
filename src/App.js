@@ -1,18 +1,18 @@
-// App.js
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import "./App.css";
 import MiniDrawer from './Project/MiniDrawer';
 import { Box, ThemeProvider, createTheme } from '@mui/material';
-import Templates from './Project/Templates/Templates';
-import MyQr from './Project/MyQR/MyQr';
-import Stats from './Project/Stats/Stats';
-import SelectScreen from './Project/NewQR/SelectTypes';
-import InputScreen from './Project/NewQR/InputScreen';
-import DesignScreen from './Project/NewQR/DesignScreen';
-import Iframe from './Project/Iframe/Iframe';
 import { ImportStats } from './Project/GlobelStats/GlobelStats';
 
+// Lazy load components for routes
+const Templates = lazy(() => import('./Project/Templates/Templates'));
+const MyQr = lazy(() => import('./Project/MyQR/MyQr'));
+const Stats = lazy(() => import('./Project/Stats/Stats'));
+const SelectScreen = lazy(() => import('./Project/NewQR/SelectTypes'));
+const InputScreen = lazy(() => import('./Project/NewQR/InputScreen'));
+const DesignScreen = lazy(() => import('./Project/NewQR/DesignScreen'));
+const Iframe = lazy(() => import('./Project/Iframe/Iframe'));
 
 const theme = createTheme({
   palette: {
@@ -21,18 +21,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: [
-      "Lato",
-      "-apple-system",
-      "BlinkMacSystemFont",
-      '"Segoe UI"',
-      '"Helvetica Neue"',
-      "Arial",
-      "sans-serif",
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(","),
+    fontFamily: "Lato, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
   },
   components: {
     MuiTypography: {
@@ -46,24 +35,25 @@ const theme = createTheme({
 });
 
 function Content() {
-  const { useLocation } = require('react-router-dom');
   const location = useLocation();
-  const {iframe} = ImportStats()
+  const { iframe } = ImportStats();
+
   return (
     <Box sx={{ display: 'flex' }}>
-      {!(location.pathname === '/iframe' || iframe || location.pathname === '/signin' || location.pathname === '/signup' ) && <MiniDrawer />}
-      {/* {(location.pathname === '/iframe' || iframe) && <IframeStepper />} */}
+      {!(location.pathname === '/iframe' || iframe || location.pathname === '/signin' || location.pathname === '/signup') && <MiniDrawer />}
       <Box component="main" sx={{ flexGrow: 1, width: location.pathname === '/iframe' ? '100%' : 'calc(100% - 240px)' }}>
-        <Routes>
-          <Route path="/create" element={<SelectScreen />} />
-          <Route path="/templates" element={<Templates />} />
-          <Route path="/myqr" element={<MyQr />} />
-          <Route path="/stats" element={<Stats />} />
-          <Route path="/generate-bulk" element={<Stats />} />
-          <Route path="/create/input" element={<InputScreen />} />
-          <Route path="/create/input/design" element={<DesignScreen />} />
-          <Route path="/iframe" element={<Iframe/>} />
-           </Routes>
+        <Suspense fallback={<div></div>}>
+          <Routes>
+            <Route path="/create" element={<SelectScreen />} />
+            <Route path="/templates" element={<Templates />} />
+            <Route path="/myqr" element={<MyQr />} />
+            <Route path="/stats" element={<Stats />} />
+            <Route path="/generate-bulk" element={<Stats />} />
+            <Route path="/create/input" element={<InputScreen />} />
+            <Route path="/create/input/design" element={<DesignScreen />} />
+            <Route path="/iframe" element={<Iframe />} />
+          </Routes>
+        </Suspense>
       </Box>
     </Box>
   );

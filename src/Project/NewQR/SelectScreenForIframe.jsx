@@ -15,7 +15,6 @@ const SelectScreenForIframe = () => {
         setQrCodeSettings,
         setActiveTool,
         isMobile,
-        iframe,
         setActiveStep,
     } = ImportStats();
 
@@ -72,7 +71,7 @@ const SelectScreenForIframe = () => {
                 <div className={isMobile ? "container-custom-mobile" : "container-custom-iframe"}>
                     <div className="flex-col">
                         <div className="heading-container-iframe">
-                            <span className="heading-2-iframe">'Start Creating Your Desired QR with One Click '</span>{" "}
+                            <span className="heading-2-iframe">Start Creating Your Desired QR with One Click</span>{" "}
                         </div>
                         <div className='grid-container-iframe'>
                             {filteredStaticTools.map((item) => (
