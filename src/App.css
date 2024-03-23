@@ -52,7 +52,7 @@ body {
 }
 .container-iframe {
   padding: 0px;
-  /* min-height: 100vh; */
+  min-height: 100vh;
   background-color: #EFF7FB;
   @media (max-width: 600px) {
     padding: 10px 0px 10px 0px !important;
