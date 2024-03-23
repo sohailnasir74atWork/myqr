@@ -51,16 +51,9 @@ function TabPanel(props) {
 export default function MobileBottomTab() {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
-  const { handleNext,
-    activeStep,
-    qrCodeSettings,
+  const {     qrCodeSettings,
     setQrCodeSettings,
-    activeTool,
-    setActiveTool,
     isMobile,
-    handleBack,
-    showMobileQR,
-    setShowMobileQR,
     iframe
  } = ImportStats();
   const designCard = [
@@ -79,13 +72,14 @@ export default function MobileBottomTab() {
 
   return (
     <Box
-      sx={{
-        width: "100%",
-        maxWidth: 500,
-        position: "relative",
-        margin: "auto",
-        height: "100%",
-      }}
+    sx={{
+      width: "100%",
+      maxWidth: 500,
+      position: "relative",
+      margin: "auto",
+      height: "100%",
+      backgroundColor: iframe ? "#EFF7FB" : ""
+    }}
     >
      {value !== 4 && <div className="live-demo-container">
      {iframe  && <div style={{padding:'0px 20px 10px 20px', marginTop:'-10px'}}><IframeStepper/></div>}
