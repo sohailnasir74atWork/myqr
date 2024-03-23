@@ -12,10 +12,7 @@ import InputScreen from './Project/NewQR/InputScreen';
 import DesignScreen from './Project/NewQR/DesignScreen';
 import Iframe from './Project/Iframe/Iframe';
 import { ImportStats } from './Project/GlobelStats/GlobelStats';
-import StepperComponent from './Project/Stepper';
-import IframeStepper from './Project/Iframe/IframeStepper';
-import SignInSide from './Project/Auth/Signin';
-import SignUpSide from './Project/Auth/Signup';
+
 
 const theme = createTheme({
   palette: {
@@ -66,9 +63,7 @@ function Content() {
           <Route path="/create/input" element={<InputScreen />} />
           <Route path="/create/input/design" element={<DesignScreen />} />
           <Route path="/iframe" element={<Iframe/>} />
-          {/* <Route path="/signin" element={<SignInSide/>} />
-          <Route path="/signup" element={<SignUpSide/>} /> */}
-        </Routes>
+           </Routes>
       </Box>
     </Box>
   );
