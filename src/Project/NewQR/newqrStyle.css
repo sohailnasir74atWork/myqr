@@ -159,6 +159,10 @@
     /* Added for the hover effect */
     overflow: hidden; /* Ensures the gradient doesn't overflow the border radius */
     background: var(--white-color); /* Default background */
+    @media (max-width: 600px) {
+     height: 50px;
+  
+    }
 }
 
 .static-qr-tabs-iframe:hover {
