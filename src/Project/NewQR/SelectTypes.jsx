@@ -6,20 +6,16 @@ import QrDemo from "./QrDemo";
 import './newqrStyle.css';
 import Pro from "../../Assets/icons/Pro.svg"
 import { useNavigate } from "react-router-dom";
-import IframeStepper from "../Iframe/IframeStepper";
 
 const SelectScreen = () => {
   const { 
     qrCodeSettings,
     setQrCodeSettings,
-    activeTool,
     setActiveTool,
-    activeStep,
     isMobile,
     iframe,
-    showMobileQR,
     setActiveStep,
-    setShowMobileQR} = ImportStats();
+    } = ImportStats();
     const navigate = useNavigate()
     const inputClick = (e) => {
       setActiveTool(e);
@@ -141,16 +137,7 @@ const SelectScreen = () => {
     
       
       {!isMobile && <QrDemo prop={{ qrCodeSettings }} />}
-      {/* {isMobile && showMobileQR && (
-        <Dialog          sx={{ m: 0, p: 1, zIndex: "10001" }}
-          id="customized-dialog-title"
-          // open={showMobileQR}
-          // onClose={handleClose}
-        >
-          <QrDemo prop={{ qrCodeSettings }} />
-        </Dialog>
-      )} */}
-    </div>
+          </div>
     
     </Box>
   );
