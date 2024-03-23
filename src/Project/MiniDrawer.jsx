@@ -68,7 +68,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'flex-end',
   padding: theme.spacing(0, 1),
-  height:'94px',
   ...theme.mixins.toolbar,
 }));
 
@@ -215,13 +214,7 @@ const CommonIconButton = () => (
       {!userLoggedIn && navigate('/signin') }
       <CssBaseline />
       <AppBar position="fixed" open={open} sx={{ backgroundColor: 'var(--background-color)' }}>
-      <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', backgroundColor:'var(--lightgreen-color)'}}>
-      <span style={{fontSize:'12px', paddingLeft:'10px'}}>Welcome : {userData?.firstName} </span> <span style={{fontSize:'12px'}}>Sign out
-        <IconButton size='small' onClick={doSignOut} >  <LogoutIcon fontSize='small' style={{ color: '#FFFFFF' }} />
-</IconButton></span>
-      </div>
-
-      {isMobile && !open && (
+         {isMobile && !open && (
   <Toolbar>
     {!isMobile && (
       <IconButton

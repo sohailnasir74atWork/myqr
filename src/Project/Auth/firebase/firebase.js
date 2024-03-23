@@ -29,7 +29,7 @@ export const doCreateUserWithEmailAndPassword = async (email, password, firstNam
       // Send email verification
       await sendEmailVerification(user, {
         // Customize the email verification link as needed
-        url: `${window.location.origin}/home`,
+        url: `${window.location.origin}/create`,
       });
   
       console.log("User created, data saved to Realtime Database, and verification email sent.");
@@ -90,12 +90,5 @@ export const doPasswordChange = (password) => {
   return updatePassword(auth.currentUser, password);
 };
 
-export const doSendEmailVerification = () => {
-  return sendEmailVerification(auth.currentUser, {
-    url: `${window.location.origin}/home`,
-  });
-};
 
 
-
-  

@@ -282,8 +282,7 @@ export default function SignUpSide() {
                   </Button>
                   <Grid container>
                     <Grid item xs>
-                      <Link href="#" variant="body2">
-                        Forgot password?
+                      <Link href="" variant="body2">
                       </Link>
                     </Grid>
                     <Grid item>

@@ -17,6 +17,7 @@ import IframeStepper from './Project/Iframe/IframeStepper';
 import SignInSide from './Project/Auth/Signin';
 import SignUpSide from './Project/Auth/Signup';
 import { useAuth } from './Project/Auth/context/authContext/Index';
+import ForgetPassword from './Project/Auth/ForgetPassword';
 
 const theme = createTheme({
   palette: {
@@ -57,7 +58,7 @@ function Content() {
   return (
     <Box sx={{ display: 'flex' }}>
       
-      {!(location.pathname === '/iframe' || iframe || location.pathname === '/signin' || location.pathname === '/signup' ) && <MiniDrawer />}
+      {!(location.pathname === '/iframe' || iframe || location.pathname === '/signin' || location.pathname === '/signup' || location.pathname === '/forget-password') && <MiniDrawer />}
       {/* {(location.pathname === '/iframe' || iframe) && <IframeStepper />} */}
       <Box component="main" sx={{ flexGrow: 1, width: location.pathname === '/iframe' ? '100%' : 'calc(100% - 240px)' }}>
         <Routes>
@@ -72,6 +73,7 @@ function Content() {
           <Route path="/iframe" element={<Iframe/>} />
           <Route path="/signin" element={<SignInSide/>} />
           <Route path="/signup" element={<SignUpSide/>} />
+          <Route path="/forget-password" element={<ForgetPassword/>} />
         </Routes>
       </Box>
     </Box>
