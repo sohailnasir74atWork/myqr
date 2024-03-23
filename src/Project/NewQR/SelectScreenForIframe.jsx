@@ -63,7 +63,6 @@ const SelectScreenForIframe = () => {
     }, []);
 
     // Pre-calculate staticTools for iframe scenario outside of the component's body to avoid re-calculation
-    const filteredStaticTools = useMemo(() => staticTools.slice(0, -1), []);
 
     return (
         <Box className="container-iframe">
@@ -74,7 +73,7 @@ const SelectScreenForIframe = () => {
                             <span className="heading-2-iframe">Start Creating Your Desired QR with One Click</span>{" "}
                         </div>
                         <div className='grid-container-iframe'>
-                            {filteredStaticTools.map((item) => (
+                            {staticTools.map((item) => (
                                 <div
                                     className={`static-qr-tabs-iframe ${qrCodeSettings.type === item.heading ? 'selected' : ''}`}
                                     key={item.id}
@@ -87,10 +86,7 @@ const SelectScreenForIframe = () => {
                                     </div>
                                 </div>
                             ))}
-                            <div className="static-qr-tabs-iframe center" style={{backgroundColor:'#A1A0E1'}} onClick={handleExplore}>
-                                <div className="text-primary" style={{color:'white'}}>Create like a Pro</div>
-                            </div>
-                        </div>
+                          </div>
                     </div>
                 </div>
                 {!isMobile && (
