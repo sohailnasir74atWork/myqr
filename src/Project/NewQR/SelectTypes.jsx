@@ -79,7 +79,7 @@ const SelectScreen = () => {
               <span className={iframe ? "heading-2-iframe" : "heading-2"}>{iframe ? 'Start Creating Your Desired QR with One Click ' : 'Generate Static QR'}</span>{" "}
               {!iframe && <span className="heading-tag">without tracking</span>}
             </div>
-            <div className="grid-container">
+            <div className={iframe ? 'grid-container-iframe':"grid-container"}>
             {
   iframe ? 
     staticTools.slice(0).map((item, index) => (
@@ -119,7 +119,7 @@ const SelectScreen = () => {
               <span className="heading-2">Generate Dymanic QR</span>
               <span className="heading-tag">with tracking</span>
             </div>
-            <div className="grid-container">
+            <div className={iframe ? 'grid-container-iframe':"grid-container"}>
               {dymanicTools.map((item, index) => (
                 <div
                   className="static-qr-tabs"
