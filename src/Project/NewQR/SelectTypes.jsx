@@ -1,5 +1,5 @@
 import { Box, Button, Dialog } from "@mui/material";
-import React from "react";
+import React, { useCallback } from "react";
 import { ImportStats } from "../GlobelStats/GlobelStats";
 import { dymanicTools, staticTools } from "../DynamicData";
 import QrDemo from "./QrDemo";
@@ -17,7 +17,7 @@ const SelectScreen = () => {
     setActiveStep,
     } = ImportStats();
     const navigate = useNavigate()
-    const inputClick = (e) => {
+    const inputClick = useCallback((e) => {
       setActiveTool(e);
       setQrCodeSettings({
         ...qrCodeSettings,
@@ -54,7 +54,7 @@ const SelectScreen = () => {
       setActiveStep(1)
       navigate('/create/input');
       // console.log(activeStep);
-    };
+    });
     const handleExplore = () => {
       // Open the specified URL in a new tab
       window.open('https://aspireai.io/create', '_blank');
@@ -81,7 +81,7 @@ const SelectScreen = () => {
     staticTools.slice(0, -1).map((item, index) => (
       <div
         className={`static-qr-tabs-iframe ${qrCodeSettings.type === item.heading ? 'selected' : ''}`}
-        key={index}
+        key={item.id}
         onClick={() => inputClick(item.heading)}
       >
         <div className="static-qr-icons-iframe">{item.icon}</div>
@@ -96,7 +96,7 @@ const SelectScreen = () => {
     staticTools.map((item, index) => (
       <div
         className={`static-qr-tabs ${qrCodeSettings.type === item.heading ? 'selected' : ''}`}
-        key={index}
+        key={item.id}
         onClick={() => inputClick(item.heading)}
       >
         <div className="static-qr-icons">{item.icon}</div>
@@ -119,8 +119,7 @@ const SelectScreen = () => {
               {dymanicTools.map((item, index) => (
                 <div
                   className="static-qr-tabs"
-                  key={index}
-                  // onClick={inputClick}
+                  key={item.id}                  // onClick={inputClick}
                 >
                   <div className="static-qr-icons">{item.icon}</div>
                   <div className="flex-col">
@@ -143,4 +142,4 @@ const SelectScreen = () => {
   );
 };
 
-export default SelectScreen;
+export default React.memo(SelectScreen);
