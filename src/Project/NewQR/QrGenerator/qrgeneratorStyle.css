@@ -70,8 +70,8 @@
 
   }
   .qr-code-container-iframe canvas {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     object-fit: contain;
     border-radius: 5px;
   }

@@ -220,7 +220,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
     {!template && <div className={liveDemo ? "live-demo" : "qr-home-container"}>
      {qrData ? (
     isLoading ? (
-      <Lottie options={defaultOptions} height={iframe ? 300 : 300} width={iframe ? 300 : 300} />
+      <Lottie options={defaultOptions} height={iframe ? 220 : 300} width={iframe ? 220 : 300} />
     ) : (
       <>
       <div ref={canvasRef} className={liveDemo ? "qr-code-container-mobile" :(iframe ?  "qr-code-container-iframe" : 'qr-code-container')}></div>
@@ -228,7 +228,7 @@ useEffect(()=>{if(!template){setQrDataLocal(qrCodeSettings)} else {setQrDataLoca
     )
   ) : (
     <div className={iframe ? "qr-code-container-frame" :  'qr-code-container'}>
-      <Lottie options={defaultOptions} height={iframe ? 280 : 280} width={iframe ? 280 : 280} />
+      <Lottie options={defaultOptions} height={iframe ? 200 : 280} width={iframe ? 200 : 280} />
     </div>
   )}
       {!liveDemo && !template && (

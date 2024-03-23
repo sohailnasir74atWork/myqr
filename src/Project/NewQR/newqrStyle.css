@@ -70,7 +70,9 @@
     padding: 20px 10px 20px 20px!important;
     overflow-y: scroll;
     scroll-behavior: smooth;
-    width: calc(100% - 330px);
+    width: calc(100% - 250px);
+    background-color: #EFF7FB;
+    
     /* height: 100vh; */
   
     @media (max-width: 600px) {
@@ -114,7 +116,7 @@
   }
   .grid-container-iframe {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
      @media (max-width: 600px) {
       grid-template-columns: repeat(2, 1fr);
@@ -273,7 +275,7 @@
     /* margin-top: 10px; */
     position: fixed;
     right:0px;
-    background-color: var(--background-color);
+    background-color: #EFF7FB;
   
     @media (max-width: 600px) {
       margin-top: auto !important;
