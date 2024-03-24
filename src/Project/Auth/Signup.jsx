@@ -55,7 +55,7 @@ export default function SignUpSide() {
 
   const { userLoggedIn, currentUser } = useAuth();
   const navigate = useNavigate();
-  const fullName = firstName + ' ' + lastName;
+  const displayName = firstName + ' ' + lastName;
 
   const handleSubmit = async (e) => {
 
@@ -65,7 +65,7 @@ export default function SignUpSide() {
 
     if (!isRegistering && !userLoggedIn) {
       setIsRegistering(true);
-      await doCreateUserWithEmailAndPassword(email, password, fullName).catch(
+      await doCreateUserWithEmailAndPassword(email, password, displayName).catch(
         (error) => {
           setErrorMessage(error.message);
           setIsRegistering(false);
