@@ -25,7 +25,7 @@ import StepperComponent from './Stepper';
 import { ImportStats } from './GlobelStats/GlobelStats';
 import { sideBar } from './DynamicData';
 import AlertDialog from './Alert';
-import { QrCodeScanner } from '@mui/icons-material';
+import { PowerSettingsNew, QrCodeScanner } from '@mui/icons-material';
 import Pro from "../Assets/icons/Pro.svg"
 import logo from '../Assets/LOGO/logofull.svg'
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -286,6 +286,9 @@ const CommonIconButton = () => (
           )}
           {location.pathname.includes('myqr') && (
             <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>The Pro version is scheduled to go live in mid-2024</Box>
+          )}
+          {location.pathname.includes('settings') && (
+            <Box style={{ display: 'flex', justifyContent: 'right', width: '100%', color:'black', alignItems:'center' }}><span style={{ display: 'flex', alignItems:'center', color:'grey'}}>{userData.email}<IconButton onClick={doSignOut}><LogoutIcon fontSize="medium" /></IconButton></span></Box>
           )}
         </Toolbar>}
       </AppBar>

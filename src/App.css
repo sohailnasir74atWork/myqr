@@ -45,7 +45,7 @@ body {
   min-height: 100vh;
   background-color: var(--background-color);
   background-color: var(--background-color);
-  @media (max-width: 600px) {
+  @media (max-width: 400px) {
     padding: 40px 0px 10px 0px !important;
 
   }
@@ -55,7 +55,7 @@ body {
   min-height: 100vh;
   background-color: var(--background-color);
   background-color: var(--background-color);
-  @media (max-width: 600px) {
+  @media (max-width: 400px) {
     padding: 10px 0px 10px 0px !important;
 
   }
@@ -63,13 +63,13 @@ body {
 
 .heading-2 {
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 700;
   color: var(--black-color);
   margin-bottom: 20px;
 }
 .heading-2-iframe {
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 700;
   color: var(--black-color);
   margin-bottom: 20px;
   }
@@ -77,18 +77,18 @@ body {
 .text-primary {
   font-size: .8rem !important;
   /* color: var(--lightgrey-color) !important; */
-  font-weight: 600 !important;
+  font-weight: 700 !important;
 }
 
 .text-secondary {
   font-size: .7rem;
   color: var(--grey-color);
-  /* font-weight: 600; */
+  /* font-weight: 400; */
 }
 .text-primary-iframe {
   font-size: 1rem !important;
   /* color: var(--lightgrey-color) !important; */
-  font-weight: 600 !important;
+  font-weight: 400 !important;
 }
 .text-primary-iframe:hover {
   color:white
@@ -99,10 +99,10 @@ body {
 }
 .heading-3 {
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 700;
   color: var(--black-color);
   margin: 10px;
-  @media (max-width: 600px) {
+  @media (max-width: 400px) {
     margin: 0px;
     font-size: 14px;
   }
@@ -124,14 +124,14 @@ body {
 .flex-row-responsive {
   display: flex;
   flex-direction: row;
-  @media (max-width: 600px) {
+  @media (max-width: 400px) {
   flex-direction: column
   }
 }
 .flex-row-reverse {
   display: flex;
   flex-direction: row;
-  @media (max-width: 600px) {
+  @media (max-width: 400px) {
   flex-direction: row-reverse
   }
 }
@@ -153,7 +153,7 @@ body {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
   width:20% !important;
-  @media (max-width: 600px) {
+  @media (max-width: 400px) {
      
     width:50% !important;
   }
@@ -165,7 +165,7 @@ body {
   /* width: 150px; */
   justify-content: flex-end;
 
-  @media (max-width: 600px) {
+  @media (max-width: 400px) {
     margin-left: 0px;
     flex-direction: row-reverse;
     justify-content: right;
@@ -202,7 +202,7 @@ body {
 
 /* ////////////////////////////////MUI OVERRIDE//////////////////////// */
 
-@media (max-width: 600px) {
+@media (max-width: 400px) {
   .css-j204z7-MuiFormControlLabel-root {
     margin-right: 5px !important;
   }

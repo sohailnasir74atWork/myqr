@@ -18,6 +18,7 @@ import SignInSide from './Project/Auth/Signin';
 import SignUpSide from './Project/Auth/Signup';
 import { useAuth } from './Project/Auth/context/authContext/Index';
 import ForgetPassword from './Project/Auth/ForgetPassword';
+import Settings from './Project/Settings/Settings';
 
 const theme = createTheme({
   palette: {
@@ -66,7 +67,7 @@ function Content() {
           <Route path="/templates" element={userLoggedIn ? <Templates /> : <Navigate to="/signin" />} />
           <Route path="/myqr" element={userLoggedIn ? <MyQr /> : <Navigate to="/signin" />} />
           <Route path="/stats" element={userLoggedIn ? <Stats /> : <Navigate to="/signin" />} />
-          <Route path="/setings" element={userLoggedIn ? <Stats /> : <Navigate to="/signin" />} />
+          <Route path="/settings" element={userLoggedIn ? <Settings /> : <Navigate to="/signin" />} />
           <Route path="/generate-bulk" element={userLoggedIn ? <Stats /> : <Navigate to="/signin" />} />
           <Route path="/create/input" element={userLoggedIn ? <InputScreen /> : <Navigate to="/signin" />} />
           <Route path="/create/input/design" element={userLoggedIn ? <DesignScreen /> : <Navigate to="/signin" />} />
