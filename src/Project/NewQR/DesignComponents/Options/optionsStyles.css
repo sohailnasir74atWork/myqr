@@ -29,12 +29,10 @@
     overflow-y: hidden; /* Hide vertical scrollbar */
     scroll-behavior: smooth;
   
-    /* Hide scrollbar for WebKit browsers */
     &::-webkit-scrollbar {
       display: none;
     }
   
-    /* Hide scrollbar for IE, Edge, and Firefox */
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   
@@ -70,8 +68,6 @@
   .logo.selected {
     border: 2px solid var(--darkgreen-color); /* Example style */
   }
-  /* Add these styles to your CSS file or use inline styles in your React component */
-
 .input-logo {
     display: none; /* Hide the default file input */
   }
@@ -116,16 +112,11 @@
   
   }
   .toggle-button-responsive{
-    /* margin-left: 15px; */
-    /* margin-top: 5px; */
     display: flex;
-    /* width: 150px; */
     justify-content: flex-end;
   
     @media (max-width: 600px) {
       margin-left: 10px;
-      /* justify-content: right; */
-  
     }
   }
 
@@ -135,7 +126,6 @@
     width: 60px;
     object-fit: cover;
     margin: 10px 10px 10px 10px;
-    /* padding:10px; */
     border: 2px solid var(--background-color);
     border-radius: 10px;
     box-shadow: 0 0 9px 0 rgb(0, 0, 0, 0.1);
@@ -144,17 +134,14 @@
       margin-left: 10px;
       height: 40px;
     width: 40px;
-   
-    }
-
-  }
+   }
+ }
   .logo1:hover{
     border: 2px solid var(--darkgreen-color);
   }
   .logo1.selected {
     border: 2px solid var(--darkgreen-color); /* Example style */
   }
-  /* Add these styles to your CSS file or use inline styles in your React component */
 
 .input-logo1 {
     display: none; /* Hide the default file input */
