@@ -82,7 +82,7 @@ const SelectScreenForIframe = () => {
                                     <div className="static-qr-icons-iframe">{item.icon}</div>
                                     <div className="flex-col">
                                         <span className="text-primary">{item.heading}</span>
-                                       {!isMobile && <span className="text-secondary">{item.text}</span>}
+                                       <span className="text-secondary">{item.text}</span>
                                     </div>
                                 </div>
                             ))}
