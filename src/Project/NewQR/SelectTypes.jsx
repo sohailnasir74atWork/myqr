@@ -108,8 +108,7 @@ const SelectScreen = () => {
       </div>
     ))
 }
-{iframe && <div className="static-qr-tabs-iframe center" style={{backgroundColor:'#A1A0E1'}} onClick={handleExplore}><div className="text-primary" style={{color:'white'}}>Create like a Pro</div></div>}
-            </div>
+    </div>
             <br/>
            {!iframe && <> <div className="heading-container">
               <span className="heading-2">Generate Dymanic QR</span>
