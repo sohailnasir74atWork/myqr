@@ -58,6 +58,13 @@
     border-radius: 10px;
     box-shadow: 0 0 9px 0 rgb(0, 0, 0, 0.1);
     cursor: pointer;
+    @media (max-width: 600px) {
+      height: 40px;
+      width: 40px;
+      padding: 0px;
+
+    }
+
   }
   .logo:hover{
     border: 2px solid var(--darkgreen-color);
@@ -138,6 +145,13 @@
     border-radius: 10px;
     box-shadow: 0 0 9px 0 rgb(0, 0, 0, 0.1);
     cursor: pointer;
+    @media (max-width: 600px) {
+      margin-left: 10px;
+      height: 40px;
+    width: 40px;
+   
+    }
+
   }
   .logo1:hover{
     border: 2px solid var(--darkgreen-color);
