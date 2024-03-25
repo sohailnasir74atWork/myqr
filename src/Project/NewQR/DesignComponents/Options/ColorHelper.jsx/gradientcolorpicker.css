@@ -103,7 +103,7 @@
     /* Remove the default outline on focus */
     /* width: 300px; */
     padding-left: 15px;
-    padding-right: 50px;
+    /* padding-right: 10px; */
   
     @media (max-width: 600px) {
       /* Change to column layout on screens with a maximum width of 600px or less (adjust as needed) */
