@@ -78,7 +78,7 @@ const SelectScreen = () => {
             <div className={iframe ? 'grid-container-iframe':"grid-container"}>
             {
   iframe ? 
-    staticTools.slice(0, -1).map((item, index) => (
+    staticTools.slice(0).map((item, index) => (
       <div
         className={`static-qr-tabs-iframe ${qrCodeSettings.type === item.heading ? 'selected' : ''}`}
         key={item.id}

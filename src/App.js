@@ -56,7 +56,7 @@ function Content() {
       {/* {(location.pathname === '/iframe' || iframe) && <IframeStepper />} */}
       <Box component="main" sx={{ flexGrow: 1, width: location.pathname === '/iframe' ? '100%' : 'calc(100% - 240px)' }}>
         <Routes>
-          <Route path="/create" element={iframe  ? <SelectScreen /> : <SelectScreenForIframe/>} />
+          <Route path="/create" element={<SelectScreen />} />
           <Route path="/templates" element={<Templates />} />
           <Route path="/myqr" element={<MyQr />} />
           <Route path="/stats" element={<Stats />} />
