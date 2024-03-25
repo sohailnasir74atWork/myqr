@@ -14,6 +14,7 @@
     cursor: pointer;
   }
   
+  
   .image-container:hover img {
     border: 2px solid var(--darkgreen-color); /* Border on hover */
     padding: 10px; /* Inner padding on hover */

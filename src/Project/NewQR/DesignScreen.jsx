@@ -26,7 +26,7 @@ const DesignScreen = () => {
     };
   }, []);
   return (
-    <Box className={iframe ? "container-iframe" : 'container mobile-mr-t-20'}>
+    <Box className={iframe ? "container-iframe mobile-mr-b-20" : 'container mobile-mr-t-20 mobile-mr-b-20'}>
      {!isMobile &&  <div className={iframe ? "types-of-qr-container-iframe" : 'types-of-qr-container'}>
      {iframe  && isMobile && <div style={{padding:'10px 0px'}}><IframeStepper/></div>}
       <div className={iframe ? "container-custom-second-screen-iframe" : "container-custom"}>
