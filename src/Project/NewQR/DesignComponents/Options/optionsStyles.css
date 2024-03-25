@@ -62,9 +62,7 @@
       height: 40px;
       width: 40px;
       padding: 0px;
-
     }
-
   }
   .logo:hover{
     border: 2px solid var(--darkgreen-color);
@@ -89,13 +87,11 @@
     border-radius: 8px;
     font-size: 14px;
     transition: background-color 0.3s ease;
-  
-    &:hover {
+      &:hover {
       background-color: #1565c0; /* Darker shade on hover, change as needed */
     }
   }
   
-  /* Style the file input icon */
   .upload-icon {
     margin-right: 8px;
   }
@@ -128,7 +124,6 @@
   
     @media (max-width: 600px) {
       margin-left: 10px;
-      /* flex-direction: row-reverse; */
       /* justify-content: right; */
   
     }
