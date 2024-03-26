@@ -30,7 +30,8 @@ import Pro from "../Assets/icons/Pro.svg"
 import logo from '../Assets/LOGO/logofull.svg'
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useAuth } from './Auth/context/authContext/Index';
-import { doSignOut } from './Auth/firebase/firebase';
+import { doSignOut, loginWithEmail } from './Auth/firebase/firebase';
+import { auth } from './Auth/firebase/auth';
 
 
 const drawerWidth = 240;
@@ -107,12 +108,13 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function MiniDrawer() {
   const theme = useTheme();
-  const { activeStep, setActiveStep, isMobile, qrCodeSettings, setQrCodeSettings, userData } = ImportStats();
+  const { activeStep, setActiveStep, isMobile, qrCodeSettings, setQrCodeSettings, verifiedUser } = ImportStats();
   const [open, setOpen] = React.useState(!isMobile);
   const [openAlert, setOpenAlert] = React.useState(false);
   const [message, setMessage] = React.useState('Changing the QR Type will delete the current data');
   const [heading, setHeading] = React.useState('Alert');
-  const { userLoggedIn, currentUser } = useAuth();
+  const user = auth.currentUser;
+  const {userLoggedIn} = useAuth()
 
 
   const handleDrawerToggle = () => {
@@ -288,7 +290,18 @@ const CommonIconButton = () => (
             <Box style={{ display: 'flex', justifyContent: 'center', width: '100%', color:'black' }}>The Pro version is scheduled to go live in mid-2024</Box>
           )}
           {location.pathname.includes('settings') && (
-            <Box style={{ display: 'flex', justifyContent: 'right', width: '100%', color:'black', alignItems:'center' }}><span style={{ display: 'flex', alignItems:'center', color:'grey'}}>{userData.email}<IconButton onClick={doSignOut}><LogoutIcon fontSize="medium" /></IconButton></span></Box>
+           <Box style={{ display: 'flex', justifyContent: 'space-between', width: '100%', color: 'black', alignItems: 'center' }}>
+           <span style={{ color: 'tomato' }}>
+             {loginWithEmail() && verifiedUser && 'Email is unverified yet'}
+           </span>
+           <span style={{ display: 'flex', alignItems: 'center', color: 'grey' }}>
+             {user?.email}
+             <IconButton onClick={doSignOut}>
+               <LogoutIcon fontSize="medium" />
+             </IconButton>
+           </span>
+         </Box>
+         
           )}
         </Toolbar>}
       </AppBar>

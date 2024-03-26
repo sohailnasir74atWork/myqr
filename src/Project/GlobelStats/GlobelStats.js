@@ -3,7 +3,7 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Auth/context/authContext/Index";
 import { get, getDatabase, ref } from "firebase/database";
-import { isCurrentUserVerified } from "../Auth/firebase/firebase";
+import { isCurrentUserVerified, loginWithEmail } from "../Auth/firebase/firebase";
 const GlobelStats = createContext();
 
 export const ImportStats = () => useContext(GlobelStats);
@@ -110,6 +110,8 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     fetchUserData();
     isCurrentUserVerified()
+    console.log('signin method with email')
+
     
   }, [currentUser]);
     console.log('verified user', verifiedUser)

@@ -146,6 +146,7 @@ export default function SignUpSide() {
                       id="firstName"
                       placeholder="First Name"
                       autoFocus
+                      value={firstName}
                       onChange={(e) => {
                         setFirstName(e.target.value);
                       }}
@@ -167,6 +168,7 @@ export default function SignUpSide() {
                       id="lastName"
                       placeholder="Last Name"
                       name="lastName"
+                      value={lastName}
                       autoComplete="family-name"
                       onChange={(e) => {
                         setLastName(e.target.value);

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Box, Button, TextField } from "@mui/material";
-import { ImportStats } from "../GlobelStats/GlobelStats";
-import { doDeleteUser, doPasswordChange, doReauthenticateWithCredential, doUpdateEmail, doUpdateProfile } from "../Auth/firebase/firebase";
+import {
+  doDeleteUser,
+  doPasswordChange,
+  doUpdateProfile,
+} from "../Auth/firebase/firebase";
 import { useAuth } from "../Auth/context/authContext/Index";
 import SuccessBar from "../Success";
 import { auth } from "../Auth/firebase/auth";
@@ -9,20 +12,25 @@ import { auth } from "../Auth/firebase/auth";
 const Settings = () => {
   const { userLoggedIn } = useAuth();
   const [password, setPassword] = useState("");
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [deletePassword, setDeletePassowrd] = useState("");
+
   const user = auth.currentUser;
+  console.log(user.displayName);
+  const UserName = user.displayName
+    ?.split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 
   const handlePasswordChange = async () => {
     if (password === confirmPassword && userLoggedIn) {
       try {
-        await doReauthenticateWithCredential(currentPassword);
+        // await doReauthenticateWithCredential(currentPassword);
         await doPasswordChange(password);
-        setSuccessMessage('Password updated successfully');
+        setSuccessMessage("Password updated successfully");
         setErrorMessage("");
       } catch (error) {
         console.error("Reauthentication failed:", error);
@@ -33,48 +41,37 @@ const Settings = () => {
     }
   };
 
-  const handleEmailUpdate = async () => {
-    try {
-      await doUpdateEmail( email );
-      setSuccessMessage('Email updated successfully');
-      setErrorMessage("");
-    } catch (error) {
-      console.error("Email update failed:", error);
-      setErrorMessage("Email update failed. Please try again.");
-    }
-  };
-
   const handleDisplayNameUpdate = async () => {
     try {
-      await doUpdateProfile(name, 'ASQW');
-      setSuccessMessage('Display name updated successfully');
+      await doUpdateProfile(name, "ASQW");
+      setSuccessMessage("Display name updated successfully");
       setErrorMessage("");
     } catch (error) {
       console.error("Display name update failed:", error);
       setErrorMessage("Display name update failed. Please try again.");
     }
   };
-
+  const handleDoDelete = async () => {
+    try {
+      await doDeleteUser(deletePassword);
+      setSuccessMessage("User Deleted successfully");
+      setErrorMessage("");
+    } catch (error) {
+      console.error("User Delete failed:", error);
+      setErrorMessage("User Delete failed. Please try again.");
+    }
+  };
   return (
-    <Box className="container" style={{ backgroundColor: "white", paddingLeft: '20px' }}>
+    <Box
+      className="container"
+      style={{ backgroundColor: "white", paddingLeft: "20px" }}
+    >
       <div className="heading-container">
-        <span className={"heading-2"}>{user.displayName}</span>
+        <span className={"heading-2"}>{UserName}</span>
       </div>
-
-      <div className="option-container-home" style={{ width: '50%' }}>
+      <div className="option-container-home" style={{ width: "50%" }}>
         <span className="text-primary">Change Password</span>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          <TextField
-            required
-            label="Current Password"
-            type="password"
-            autoComplete="new-password"
-            variant="standard"
-            value={currentPassword}
-            onChange={(e) => setCurrentPassword(e.target.value)}
-            error={!!errorMessage && errorMessage.includes("Current Password")}
-            helperText={errorMessage && errorMessage.includes("Current Password") ? errorMessage : ""}
-          />
+        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
           <TextField
             required
             label="New Password"
@@ -84,7 +81,11 @@ const Settings = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             error={!!errorMessage && errorMessage.includes("New Password")}
-            helperText={errorMessage && errorMessage.includes("New Password") ? errorMessage : ""}
+            helperText={
+              errorMessage && errorMessage.includes("New Password")
+                ? errorMessage
+                : ""
+            }
           />
           <TextField
             required
@@ -95,32 +96,26 @@ const Settings = () => {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             error={!!errorMessage && errorMessage.includes("Confirm Password")}
-            helperText={errorMessage && errorMessage.includes("Confirm Password") ? errorMessage : ""}
+            helperText={
+              errorMessage && errorMessage.includes("Confirm Password")
+                ? errorMessage
+                : ""
+            }
           />
-          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button variant="contained" onClick={handlePasswordChange}>Submit</Button>
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <Button variant="contained" onClick={handlePasswordChange}>
+              Submit
+            </Button>
           </div>
           {successMessage && <SuccessBar message={successMessage} />}
         </div>
       </div>
-      <div className="option-container-home" style={{ width: '50%', marginTop:'20px' }}>
+      <div
+        className="option-container-home"
+        style={{ width: "50%", marginTop: "20px" }}
+      >
         <span className="text-primary">Account</span>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          <TextField
-            required
-            label="Email"
-            type="text"
-            autoComplete="email"
-            variant="standard"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            error={!!errorMessage && errorMessage.includes("Email")}
-            helperText={errorMessage && errorMessage.includes("Email") ? errorMessage :
-            ""}
-          />
-          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button variant="contained" onClick={handleEmailUpdate}>Update Email</Button>
-          </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
           <TextField
             required
             label="Display Name"
@@ -130,11 +125,30 @@ const Settings = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button variant="contained" onClick={handleDisplayNameUpdate}>Update Display Name</Button>
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <Button variant="contained" onClick={handleDisplayNameUpdate}>
+              Update Display Name
+            </Button>
           </div>
-          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button variant="contained" color="error" onClick={doDeleteUser}>Delete Account</Button>
+          <TextField
+            required
+            label="Passowrd"
+            type="password"
+            autoComplete="new-password"
+            variant="standard"
+            value={deletePassword}
+            onChange={(e) => setDeletePassowrd(e.target.value)}
+            error={!!errorMessage && errorMessage.includes("Confirm Password")}
+            helperText={
+              errorMessage && errorMessage.includes("Confirm Password")
+                ? errorMessage
+                : ""
+            }
+          />
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <Button variant="contained" color="error" onClick={handleDoDelete}>
+              Delete Account
+            </Button>
           </div>
           {successMessage && <SuccessBar message={successMessage} />}
         </div>
@@ -144,5 +158,3 @@ const Settings = () => {
 };
 
 export default Settings;
-
-

@@ -22,11 +22,10 @@ export const doCreateUserWithEmailAndPassword = async (email, password, displayN
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
-    const userRef = ref(database, 'users/' + user.uid);
-    await set(userRef, {
-      email: email,
-      displayName: displayName
-    });
+
+    const formattedDisplayName = displayName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+
+    await updateProfile(user, { displayName: formattedDisplayName });
     await sendEmailVerification(user);
     console.log("User created and verification email sent.");
     return userCredential; // Return the userCredential for further use
@@ -90,22 +89,28 @@ export const doSetPasswordForGoogleUser = async (newPassword) => {
 };
 
 // Add more authentication functions as needed
-export const checkUserSignInMethod = () => {
-  const user = auth.currentUser;
-  if (user) {
-    // Check each provider the user has used
-    user.providerData.forEach((provider) => {
-      if (provider.providerId === 'password') {
-        console.log('User signed in with Email/Password');
-      } else if (provider.providerId === 'google.com') {
-        console.log('User signed in with Google');
-      }
-      // Add more else if blocks for other providers like Facebook, Twitter, etc.
-    });
-  } else {
-    console.log('No user is signed in.');
-  }
+export const loginWithEmail = () => {
+  return new Promise((resolve, reject) => {
+    const user = auth.currentUser;
+    if (user) {
+      // Check each provider the user has used
+      user.providerData.forEach((provider) => {
+        if (provider.providerId === 'password') {
+          console.log('User signed in with Email/Password');
+          resolve(true);
+        } else if (provider.providerId === 'google.com') {
+          console.log('User signed in with Google');
+          resolve(false);
+        }
+        // Add more else if blocks for other providers like Facebook, Twitter, etc.
+      });
+    } else {
+      console.log('No user is signed in.');
+      resolve(false);
+    }
+  });
 };
+
 export const doReauthenticateWithCredential = async (currentPassword) => {
   const user = auth.currentUser;
   console.log(user)
@@ -147,7 +152,8 @@ export const doUpdateProfile = async (displayName, photoURL) => {
 };
 
 // Function to delete the user
-export const doDeleteUser = async () => {
+export const doDeleteUser = async (password) => {
+  doReauthenticateWithCredential(password)
   const user = auth.currentUser;
   try {
     await deleteUser(user);
