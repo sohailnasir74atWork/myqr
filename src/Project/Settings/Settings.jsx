@@ -24,7 +24,7 @@ const Settings = () => {
   const handlePasswordChange = async () => {
     setSuccessMessage("");
     setErrorMessage("");
-    
+  
     if (password.length < 6) {
       setErrorMessage("Password should be at least 6 characters long.");
       return;
@@ -35,16 +35,21 @@ const Settings = () => {
         await doPasswordChange(password, currentPassword);
         setSuccessMessage("Password updated successfully");
         setPassword("");
-        setCurrentPassword('')
+        setCurrentPassword("");
         setConfirmPassword("");
       } catch (error) {
         console.error("Password change failed:", error);
-        setErrorMessage("Password change failed. Please try again.");
+        if (error.message.includes("auth/invalid-credential")) {
+          setErrorMessage("Current password is incorrect.");
+        } else {
+          setErrorMessage(`Password change failed. Please try again. ${error.message}`);
+        }
       }
     } else {
       setErrorMessage("Passwords do not match");
     }
   };
+  
   
 
   const handleDisplayNameUpdate = async () => {
