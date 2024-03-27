@@ -114,7 +114,10 @@ export default function MiniDrawer() {
   const [message, setMessage] = React.useState('Changing the QR Type will delete the current data');
   const [heading, setHeading] = React.useState('Alert');
   const user = auth.currentUser;
-  const {userLoggedIn} = useAuth()
+  const {userLoggedIn, isEmailUser} = useAuth()
+
+console.log('is login with email', isEmailUser)
+console.log('is user verified', verifiedUser)
 
 
   const handleDrawerToggle = () => {
@@ -292,7 +295,7 @@ const CommonIconButton = () => (
           {location.pathname.includes('settings') && (
            <Box style={{ display: 'flex', justifyContent: 'space-between', width: '100%', color: 'black', alignItems: 'center' }}>
            <span style={{ color: 'tomato' }}>
-             {loginWithEmail() && verifiedUser && 'Email is unverified yet'}
+             {!verifiedUser && loginWithEmail &&  'Email is unverified yet'}
            </span>
            <span style={{ display: 'flex', alignItems: 'center', color: 'grey' }}>
              {user?.email}

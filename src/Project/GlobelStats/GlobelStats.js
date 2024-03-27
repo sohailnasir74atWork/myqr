@@ -17,7 +17,7 @@ export const ContextProvider = ({ children }) => {
 
   /////userlogic
   const { currentUser } = useAuth();
-  const [verifiedUser, setVefiriedUser] = useState(false);
+  const [verifiedUser, setVerifiedUser] = useState(false);
 
   const [qrCodeSettings, setQrCodeSettings] = useState({
     type: "",
@@ -100,19 +100,16 @@ export const ContextProvider = ({ children }) => {
   const isCurrentUserVerified = () => {
 
     if (currentUser) {
-        setVefiriedUser(currentUser.emailVerified)
+        setVerifiedUser(currentUser.emailVerified)
     } else {
-         setVefiriedUser(false)
+         setVerifiedUser(false)
     }
 }
 
 
   useEffect(() => {
     fetchUserData();
-    isCurrentUserVerified()
-    console.log('signin method with email')
-
-    
+    isCurrentUserVerified()  
   }, [currentUser]);
     console.log('verified user', verifiedUser)
   return (
@@ -128,7 +125,8 @@ export const ContextProvider = ({ children }) => {
         setIframe,
         iframe,
         userData,
-        setVefiriedUser
+        verifiedUser,
+        setVerifiedUser
       }}
     >
       {children}

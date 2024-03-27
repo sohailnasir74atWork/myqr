@@ -64,11 +64,7 @@ export const doPasswordReset = (email) => {
   return sendPasswordResetEmail(auth, email);
 };
 
-// Function to change password
-export const doPasswordChange = (password) => {
-  const user = auth.currentUser;
-  return updatePassword(user, password);
-};
+
 
 // Function for Google-signed-in users to set a password
 export const doSetPasswordForGoogleUser = async (newPassword) => {
@@ -90,7 +86,7 @@ export const doSetPasswordForGoogleUser = async (newPassword) => {
 
 // Add more authentication functions as needed
 export const loginWithEmail = () => {
-  return new Promise((resolve, reject) => {
+  const data =  new Promise((resolve, reject) => {
     const user = auth.currentUser;
     if (user) {
       // Check each provider the user has used
@@ -109,8 +105,18 @@ export const loginWithEmail = () => {
       resolve(false);
     }
   });
+  return data
+};
+export const checkLoggedInWithEmail = async () => {
+  try {
+    const isLoggedInWithEmail = await loginWithEmail();
+    console.log("Is user logged in with email:", isLoggedInWithEmail);
+  } catch (error) {
+    console.error("Error:", error);
+  }
 };
 
+// checkLoggedInWithEmail();
 export const doReauthenticateWithCredential = async (currentPassword) => {
   const user = auth.currentUser;
   console.log(user)
@@ -153,7 +159,7 @@ export const doUpdateProfile = async (displayName, photoURL) => {
 
 // Function to delete the user
 export const doDeleteUser = async (password) => {
-  doReauthenticateWithCredential(password)
+  await doReauthenticateWithCredential(password)
   const user = auth.currentUser;
   try {
     await deleteUser(user);
@@ -162,4 +168,10 @@ export const doDeleteUser = async (password) => {
     console.error('Error deleting user:', error);
     throw error;
   }
+};
+
+// Function to change password
+export const doPasswordChange = (password) => {
+  const user = auth.currentUser;
+  return updatePassword(user, password);
 };

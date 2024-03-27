@@ -20,6 +20,7 @@ export function AuthProvider({ children }) {
     const unsubscribe = onAuthStateChanged(auth, initializeUser);
     return unsubscribe;
   }, []);
+  useEffect(()=>{},[currentUser])
 
   async function initializeUser(user) {
     if (user) {
