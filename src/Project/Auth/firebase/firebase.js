@@ -171,7 +171,19 @@ export const doDeleteUser = async (password) => {
 };
 
 // Function to change password
-export const doPasswordChange = (password) => {
-  const user = auth.currentUser;
-  return updatePassword(user, password);
+export const doPasswordChange = async (password, currentPassword) => {
+  try {
+    // Assuming doReauthenticateWithCredential is an async function that reauthenticates the user
+    await doReauthenticateWithCredential(currentPassword);
+    const user = auth.currentUser;
+
+    // Update the user's password
+    await updatePassword(user, password);
+    console.log("Password updated successfully");
+
+    return true; // Indicate success
+  } catch (error) {
+    console.error("Error updating password:", error);
+    throw error; // Re-throw the error if you want calling code to handle it
+  }
 };

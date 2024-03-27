@@ -14,6 +14,7 @@ const Settings = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [currentPassword, setCurrentPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [deletePassword, setDeletePassword] = useState("");
@@ -31,9 +32,10 @@ const Settings = () => {
   
     if (password === confirmPassword && userLoggedIn) {
       try {
-        await doPasswordChange(password);
+        await doPasswordChange(password, currentPassword);
         setSuccessMessage("Password updated successfully");
         setPassword("");
+        setCurrentPassword('')
         setConfirmPassword("");
       } catch (error) {
         console.error("Password change failed:", error);
@@ -88,7 +90,17 @@ const Settings = () => {
       <div className="option-container-home" style={{ width: "50%" }}>
         <span className="text-primary">Change Password</span>
         <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-          <TextField
+         
+           <TextField
+            required
+            label="Current Password"
+            type="password"
+            autoComplete="current-password"
+            variant="standard"
+            value={currentPassword}
+            onChange={(e) => setCurrentPassword(e.target.value)}
+          />
+           <TextField
             required
             label="New Password"
             type="password"
